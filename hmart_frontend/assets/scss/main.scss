@@ -1,0 +1,23 @@
+// Bootstrap
+@import "../bootstrap-5.1.1/scss/mixins";
+@import "../bootstrap-5.1.1/scss/bootstrap-grid.scss";
+@import "../bootstrap-5.1.1/scss/list-group";
+@import "../bootstrap-5.1.1/scss/button-group";
+@import "../bootstrap-5.1.1/scss/buttons";
+
+// Variables
+@import "./variables/colors";
+
+//Others
+@import "./others/fonts";
+@import "./others/icons";
+@import "./others/default";
+@import "./others/common";
+
+// Pages
+@import "./pages/index";
+
+// Responsives
+
+@import "./responsives/max1200";
+@import "./responsives/max992";
