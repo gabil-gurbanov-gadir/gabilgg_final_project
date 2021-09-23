@@ -71,10 +71,10 @@
                     </div>
                     <div class="col-3">
                         <div class="header-actions">
-                            <a href="">
+                            <a href="" id="wishlist-button">
                                 <i class="icon-heart1"></i>
                             </a>
-                            <a href="" class="shop-bag">
+                            <a href="" class="shop-bag" id="cartlist-button">
                                 <i class="icon-basket"></i>
                                 <span>01</span>
                             </a>
@@ -121,14 +121,14 @@
                     </div>
                     <div class="col">
                         <div class="header-actions">
-                            <a href="">
+                            <a href="" id="wishlist-button">
                                 <i class="icon-heart1"></i>
                             </a>
-                            <a href="" class="shop-bag">
+                            <a href="" class="shop-bag" id="cartlist-button">
                                 <i class="icon-basket"></i>
                                 <span>01</span>
                             </a>
-                            <a href="" class="menu">
+                            <a href="" class="menu" id="menu-button">
                                 <i class="icon-menu"></i>
                             </a>
                         </div>
@@ -149,15 +149,15 @@
             </div>
         </div>
     </header>
-    <div id="shadow-layout"></div>
+    <div id="shadow-layout" class="d-none"></div>
     <div id="wishlist">
-        <div class="wishlist-wrapper">
-            <div class="wishlist-header">
+        <div class="list-wrapper">
+            <div class="list-header">
                 <h3>Wishlist</h3>
                 <button class="canvas-close">
                 </button>
             </div>
-            <div class="wishlist-items">
+            <div class="list-items">
                 <ul>
                     <li>
                         <div class="row">
@@ -224,9 +224,133 @@
                     </li>
                 </ul>
             </div>
-            <div class="wishlist-view">
+            <div class="list-view">
                 <a href="wishlist.html">view wishlist</a>
             </div>
+        </div>
+    </div>
+    <div id="cart">
+        <div class="list-wrapper">
+            <div class="list-header">
+                <h3>Cart</h3>
+                <button class="canvas-close">
+                </button>
+            </div>
+            <div class="list-items">
+                <ul>
+                    <li>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="" class="img">
+                                    <img src="./assets/uploads/products/1.png" alt="phone">
+                                </a>
+                            </div>
+                            <div class="col-8">
+                                <div class="content">
+                                    <a href="" class="title">Modern Smart Phone</a>
+                                    <span class="quantity-price">
+                                        1 x
+                                        <span class="amount">
+                                            $ 21.86
+                                        </span>
+                                    </span>
+                                    <a href="" id="remove">×</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="" class="img">
+                                    <img src="./assets/uploads/products/1.png" alt="phone">
+                                </a>
+                            </div>
+                            <div class="col-8">
+                                <div class="content">
+                                    <a href="" class="title">Modern Smart Phone</a>
+                                    <span class="quantity-price">
+                                        1 x
+                                        <span class="amount">
+                                            $ 21.86
+                                        </span>
+                                    </span>
+                                    <a href="" id="remove">×</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="" class="img">
+                                    <img src="./assets/uploads/products/1.png" alt="phone">
+                                </a>
+                            </div>
+                            <div class="col-8">
+                                <div class="content">
+                                    <a href="" class="title">Modern Smart Phone</a>
+                                    <span class="quantity-price">
+                                        1 x
+                                        <span class="amount">
+                                            $ 21.86
+                                        </span>
+                                    </span>
+                                    <a href="" id="remove">×</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-view">
+                <a href="cart.html">View Cart</a>
+                <a href="checkout.html" class="checkout">Checkout</a>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu">
+        <div class="menu">
+            <button class="canvas-close"></button>
+            <ul class="menu-list">
+                <li class="info">
+                    <ul class="info-list">
+                        <li>
+                            <a href="">
+                                <i class="icon-phone"></i>+012 3456 789
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="icon-envelope-o"></i>demo@example.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="icon-user"></i>Account
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="shop.html">Shop</a>
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="faq.html">FAQ</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
         </div>
     </div>
     <main>
