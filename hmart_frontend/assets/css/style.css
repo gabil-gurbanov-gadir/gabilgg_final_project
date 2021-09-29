@@ -3997,7 +3997,7 @@
   font-family: "Poppins"; }
 
 body {
-  height: 2000px; }
+  height: 1700px; }
 
 ol,
 ul,
@@ -4340,6 +4340,7 @@ body.canvas-opening {
 
 #mobile-menu .menu {
   width: 350px;
+  max-width: 100%;
   height: 100%;
   padding: 50px 30px;
   display: block;
@@ -4419,6 +4420,238 @@ body.canvas-opening {
         font-size: 16px;
         font-weight: 500; }
 
+#scrollUp {
+  opacity: 0;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: #266bf9;
+  color: #fff;
+  right: 20px;
+  bottom: 60px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 50px;
+  z-index: 9811 !important;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #scrollUp.show {
+    opacity: 1; }
+  #scrollUp:hover {
+    transform: translateY(-1px); }
+
+.py {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+.pt {
+  padding-top: 100px; }
+
+.pb {
+  padding-bottom: 100px; }
+
+main #slider {
+  height: 700px; }
+  main #slider .main-slider {
+    background-image: url(../../assets/uploads/sliders/bg/slider-bg-1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; }
+    main #slider .main-slider:hover .swiper-buttons div {
+      opacity: 1;
+      visibility: visible; }
+    main #slider .main-slider:hover .swiper-buttons .swiper-button-next {
+      right: 50px; }
+    main #slider .main-slider:hover .swiper-buttons .swiper-button-prev {
+      left: 50px; }
+    main #slider .main-slider .swiper-wrapper {
+      box-sizing: border-box; }
+    main #slider .main-slider .slide-animate.swiper-slide-active * {
+      animation-name: fadeInUp; }
+    main #slider .main-slider .slide-animate * {
+      animation-name: fadeOutUp; }
+    main #slider .main-slider .slide-animate .slider-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 700px; }
+      main #slider .main-slider .slide-animate .slider-content span {
+        display: block;
+        font-size: 18px;
+        margin: 0 0 10px;
+        font-weight: 500;
+        color: #fff;
+        animation-delay: 0.5s;
+        animation-duration: 1s; }
+      main #slider .main-slider .slide-animate .slider-content h2.title-slider {
+        font-size: 60px;
+        font-weight: 600;
+        margin-bottom: 50px;
+        color: #fff;
+        line-height: 78px;
+        animation-delay: 1s;
+        animation-duration: 1s; }
+      main #slider .main-slider .slide-animate .slider-content a.btn-slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-width: 2px;
+        border-color: #fff;
+        border-style: solid;
+        border-radius: 18px;
+        width: 215px;
+        height: 61px;
+        background-color: transparent;
+        align-items: center;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        animation-delay: 1.5s;
+        animation-duration: 1s; }
+        main #slider .main-slider .slide-animate .slider-content a.btn-slider:hover {
+          color: #fff;
+          background: #266bf9;
+          transform: translateY(-1px);
+          border-color: #266bf9; }
+        main #slider .main-slider .slide-animate .slider-content a.btn-slider:active:focus {
+          outline: 0;
+          border: 0;
+          color: #fff;
+          box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5); }
+    main #slider .main-slider .slide-animate .slider-product {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 700px; }
+      main #slider .main-slider .slide-animate .slider-product .product-image {
+        display: flex;
+        justify-content: center;
+        animation-delay: 1s;
+        animation-duration: 1s; }
+        main #slider .main-slider .slide-animate .slider-product .product-image img {
+          max-width: 100%; }
+  main #slider .swiper {
+    width: 100%;
+    height: 100%; }
+    main #slider .swiper .swiper-buttons div {
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      margin: auto;
+      border-radius: 50%;
+      box-shadow: 0 3px 25.5px 4.5px rgba(0, 0, 0, 0.06);
+      color: #000;
+      background-color: #fff; }
+      main #slider .swiper .swiper-buttons div::after {
+        font-size: 18px; }
+      main #slider .swiper .swiper-buttons div:hover {
+        background-color: #266bf9;
+        color: white; }
+    main #slider .swiper .swiper-buttons .swiper-button-next {
+      right: 30px; }
+    main #slider .swiper .swiper-buttons .swiper-button-prev {
+      left: 30px; }
+
+main #banner .single-banner {
+  position: relative;
+  overflow: hidden; }
+  main #banner .single-banner img {
+    max-width: 100%;
+    width: 100%;
+    transition: all 0.3s ease 0s; }
+  main #banner .single-banner .banner-content {
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 50px;
+    display: flex;
+    flex-direction: column; }
+    main #banner .single-banner .banner-content h3 {
+      color: #999da0;
+      font-size: 36px;
+      line-height: 46px;
+      font-weight: 600;
+      margin: 0 0 12px; }
+    main #banner .single-banner .banner-content span {
+      display: block;
+      color: #161616;
+      font-size: 24px;
+      font-weight: 500;
+      margin: 0 0 0; }
+    main #banner .single-banner .banner-content a {
+      font-size: 18px;
+      width: 50px;
+      height: 50px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #266bf9;
+      color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: auto;
+      bottom: 30px;
+      overflow: hidden; }
+      main #banner .single-banner .banner-content a i {
+        transition: all 0.3s ease 0s; }
+      main #banner .single-banner .banner-content a:hover i {
+        transform: scale(1.1); }
+  main #banner .single-banner:hover img {
+    transform: scale(1.1) rotate(3deg); }
+  main #banner .single-banner.first-banner .banner-content {
+    top: auto;
+    bottom: 40px;
+    width: 100%; }
+    main #banner .single-banner.first-banner .banner-content a {
+      bottom: 0;
+      left: auto;
+      right: 100px; }
+
+main #banner .double-banners .single-banner:first-child {
+  margin-bottom: 30px; }
+
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+  .py {
+    padding-top: 80px;
+    padding-bottom: 80px; }
+  main #banner .single-banner .banner-content {
+    top: 20px; }
+    main #banner .single-banner .banner-content h3 {
+      font-size: 32px;
+      line-height: 44px; } }
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .py {
+    padding-top: 60px;
+    padding-bottom: 60px; }
+  main #banner .single-banner .banner-content {
+    top: 20px;
+    left: 30px; }
+    main #banner .single-banner .banner-content h3 {
+      font-size: 24px;
+      line-height: 32px;
+      margin: 0 0 5px; }
+    main #banner .single-banner .banner-content span {
+      font-size: 20px;
+      line-height: 30px; }
+    main #banner .single-banner .banner-content a {
+      bottom: 15px;
+      font-size: 16px;
+      width: 40px;
+      height: 40px; }
+  main #banner .single-banner.first-banner .banner-content {
+    bottom: 25px; }
+    main #banner .single-banner.first-banner .banner-content a {
+      bottom: 0; } }
+
 @media screen and (max-width: 1200px) {
   header #header-top .top-nav ul li:not(:last-child) {
     margin-right: 12px;
@@ -4426,4 +4659,75 @@ body.canvas-opening {
 
 @media screen and (max-width: 992px) {
   header #header-top .welcome-text {
-    justify-content: center; } }
+    justify-content: center; }
+  main #slider {
+    height: 500px; }
+    main #slider .main-slider .slide-animate .slider-content {
+      height: 500px; }
+      main #slider .main-slider .slide-animate .slider-content h2.title-slider {
+        font-size: 38px;
+        margin-bottom: 30px;
+        line-height: 56px; }
+      main #slider .main-slider .slide-animate .slider-content a.btn-slider {
+        width: 150px;
+        height: 50px;
+        font-size: 14px; }
+    main #slider .main-slider .slide-animate .slider-product {
+      height: 500px; }
+      main #slider .main-slider .slide-animate .slider-product .product-image img {
+        max-width: 80%; } }
+
+@media screen and (max-width: 767px) {
+  .py {
+    padding-top: 60px;
+    padding-bottom: 60px; }
+  main #slider {
+    height: 450px; }
+    main #slider .main-slider .slide-animate .slider-content {
+      height: 450px; }
+      main #slider .main-slider .slide-animate .slider-content span {
+        font-size: 16px; }
+      main #slider .main-slider .slide-animate .slider-content h2.title-slider {
+        font-size: 27px;
+        margin-bottom: 30px;
+        line-height: 46px; }
+    main #slider .main-slider .slide-animate .slider-product {
+      height: 450px; }
+      main #slider .main-slider .slide-animate .slider-product .product-image img {
+        width: 60%;
+        margin: auto; }
+  main #banner .double-banners .single-banner:first-child {
+    margin-top: 30px; } }
+
+@media screen and (max-width: 575px) {
+  main #banner .single-banner .banner-content {
+    top: 20px;
+    left: 30px; }
+    main #banner .single-banner .banner-content h3 {
+      font-size: 24px;
+      line-height: 34px;
+      margin: 0 0 5px; }
+    main #banner .single-banner .banner-content span {
+      font-size: 20px;
+      line-height: 30px; }
+    main #banner .single-banner .banner-content a {
+      font-size: 16px;
+      width: 40px;
+      height: 40px; } }
+
+@media screen and (max-width: 480px) {
+  #mobile-menu .menu {
+    width: 300px; }
+  .list-wrapper {
+    width: 300px; }
+  main #slider .main-slider .slider-content {
+    height: 400px; }
+    main #slider .main-slider .slider-content span {
+      font-size: 14px; }
+    main #slider .main-slider .slider-content h2.title-slider {
+      font-size: 20px;
+      margin-bottom: 20px;
+      line-height: 35px; }
+  main #slider .main-slider .slider-product .product-image img {
+    width: 50%;
+    margin: auto; } }

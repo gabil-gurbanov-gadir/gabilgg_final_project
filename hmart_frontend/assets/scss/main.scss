@@ -19,5 +19,11 @@
 
 // Responsives
 
+@import "./responsives/min993-max1200";
+@import "./responsives/min768-max992";
+@import "./responsives/min481-max767";
 @import "./responsives/max1200";
 @import "./responsives/max992";
+@import "./responsives/max767";
+@import "./responsives/max575";
+@import "./responsives/max480";

@@ -6,4 +6,36 @@
             }
         }
     }
+
+    main {
+        #slider {
+            height: 500px;
+            .main-slider {
+                .slide-animate {
+                    .slider-content {
+                        height: 500px;
+                        h2.title-slider {
+                            font-size: 38px;
+                            margin-bottom: 30px;
+                            line-height: 56px;
+                        }
+                        a.btn-slider {
+                            width: 150px;
+                            height: 50px;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .slider-product {
+                        height: 500px;
+                        .product-image {
+                            img {
+                                max-width: 80%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

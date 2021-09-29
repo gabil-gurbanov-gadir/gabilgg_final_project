@@ -1,0 +1,38 @@
+@media screen and (max-width: 480px) {
+    #mobile-menu {
+        .menu {
+            width: 300px;
+        }
+    }
+
+    .list-wrapper {
+        width: 300px;
+    }
+
+    main {
+        #slider {
+            .main-slider {
+                .slider-content {
+                    height: 400px;
+                    span {
+                        font-size: 14px;
+                    }
+                    h2.title-slider {
+                        font-size: 20px;
+                        margin-bottom: 20px;
+                        line-height: 35px;
+                    }
+                }
+
+                .slider-product {
+                    .product-image {
+                        img {
+                            width: 50%;
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

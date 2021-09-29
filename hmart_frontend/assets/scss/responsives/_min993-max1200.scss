@@ -1,0 +1,23 @@
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    //Common
+
+    //spaces
+    .py {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    main {
+        #banner {
+            .single-banner {
+                .banner-content {
+                    top: 20px;
+                    h3 {
+                        font-size: 32px;
+                        line-height: 44px;
+                    }
+                }
+            }
+        }
+    }
+}
