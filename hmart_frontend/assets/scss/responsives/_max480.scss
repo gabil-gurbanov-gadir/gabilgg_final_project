@@ -1,4 +1,7 @@
 @media screen and (max-width: 480px) {
+    ////Common
+
+    //Canvas
     #mobile-menu {
         .menu {
             width: 300px;
@@ -8,6 +11,10 @@
     .list-wrapper {
         width: 300px;
     }
+
+    ////Pages
+
+    //Home
 
     main {
         #slider {
@@ -29,6 +36,32 @@
                         img {
                             width: 50%;
                             margin: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        #product {
+            .product-tab-nav {
+                .product-tab-nav-list {
+                    .product-nav-item {
+                        .product-nav-btn {
+                            width: auto;
+                            font-size: 12px;
+                            padding: 0 15px;
+                        }
+                    }
+                }
+            }
+            .product-tab-content {
+                margin-top: 40px;
+                .product {
+                    .content {
+                        .title {
+                            a {
+                                font-size: 16px;
+                            }
                         }
                     }
                 }

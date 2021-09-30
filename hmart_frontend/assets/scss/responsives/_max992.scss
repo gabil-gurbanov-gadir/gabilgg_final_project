@@ -1,4 +1,14 @@
 @media screen and (max-width: 992px) {
+    ////Common
+
+    //Spaces
+
+    .pb-section {
+        padding-bottom: 60px;
+    }
+
+    //Header
+
     header {
         #header-top {
             .welcome-text {
@@ -7,6 +17,9 @@
         }
     }
 
+    ////Pages
+
+    //Home
     main {
         #slider {
             height: 500px;
@@ -32,6 +45,20 @@
                             img {
                                 max-width: 80%;
                             }
+                        }
+                    }
+                }
+            }
+        }
+
+        #product {
+            .product-tab-nav {
+                .product-tab-nav-list {
+                    .product-nav-item {
+                        .product-nav-btn {
+                            width: 150px;
+                            height: 48px;
+                            font-size: 16px;
                         }
                     }
                 }
