@@ -1,14 +1,10 @@
 @media screen and (max-width: 992px) {
     ////Common
-
     //Spaces
-
     .pb-section {
         padding-bottom: 60px;
     }
-
     //Header
-
     header {
         #header-top {
             .welcome-text {
@@ -16,9 +12,7 @@
             }
         }
     }
-
     ////Pages
-
     //Home
     main {
         #slider {
@@ -38,7 +32,6 @@
                             font-size: 14px;
                         }
                     }
-
                     .slider-product {
                         height: 500px;
                         .product-image {
@@ -50,7 +43,6 @@
                 }
             }
         }
-
         #product {
             .product-tab-nav {
                 .product-tab-nav-list {
@@ -61,6 +53,17 @@
                             font-size: 16px;
                         }
                     }
+                }
+            }
+        }
+        #fashion {
+            height: 356px;
+            .title {
+                font-size: 48px;
+                line-height: 60px;
+                margin-bottom: 32px;
+                span {
+                    font-size: 36px;
                 }
             }
         }

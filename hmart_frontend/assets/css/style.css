@@ -4442,6 +4442,34 @@ body.canvas-opening {
   #scrollUp:hover {
     transform: translateY(-1px); }
 
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  border-color: #fff;
+  border-style: solid;
+  border-radius: 18px;
+  width: 215px;
+  height: 61px;
+  background-color: transparent;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  animation-delay: 1.5s;
+  animation-duration: 1s; }
+  .btn-primary:hover {
+    color: #fff;
+    background: #266bf9;
+    transform: translateY(-1px);
+    border-color: #266bf9; }
+  .btn-primary:active:focus {
+    outline: 0;
+    border: 0;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5); }
+
 .py-section {
   padding-top: 100px;
   padding-bottom: 100px; }
@@ -4454,6 +4482,15 @@ body.canvas-opening {
 
 .mb-product {
   margin-bottom: 30px; }
+
+.h-100 {
+  height: 100% !important; }
+
+.text-center {
+  text-align: center !important; }
+
+.text-capitalize {
+  text-transform: capitalize !important; }
 
 main #slider {
   height: 700px; }
@@ -4496,33 +4533,6 @@ main #slider {
         line-height: 78px;
         animation-delay: 1s;
         animation-duration: 1s; }
-      main #slider .main-slider .slide-animate .slider-content a.btn-slider {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-width: 2px;
-        border-color: #fff;
-        border-style: solid;
-        border-radius: 18px;
-        width: 215px;
-        height: 61px;
-        background-color: transparent;
-        align-items: center;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 600;
-        animation-delay: 1.5s;
-        animation-duration: 1s; }
-        main #slider .main-slider .slide-animate .slider-content a.btn-slider:hover {
-          color: #fff;
-          background: #266bf9;
-          transform: translateY(-1px);
-          border-color: #266bf9; }
-        main #slider .main-slider .slide-animate .slider-content a.btn-slider:active:focus {
-          outline: 0;
-          border: 0;
-          color: #fff;
-          box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5); }
     main #slider .main-slider .slide-animate .slider-product {
       display: flex;
       align-items: flex-end;
@@ -4803,6 +4813,22 @@ main #product .product-tab-content {
           color: white;
           background-color: #266bf9; }
 
+main #fashion {
+  height: 456px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; }
+  main #fashion .title {
+    font-size: 60px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 74px;
+    margin-bottom: 45px; }
+    main #fashion .title span {
+      font-size: 48px;
+      font-weight: 300;
+      display: block; }
+
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {
     padding-top: 80px;
@@ -4868,7 +4894,15 @@ main #product .product-tab-content {
   main #product .product-tab-nav .product-tab-nav-list .product-nav-item .product-nav-btn {
     width: 150px;
     height: 48px;
-    font-size: 16px; } }
+    font-size: 16px; }
+  main #fashion {
+    height: 356px; }
+    main #fashion .title {
+      font-size: 48px;
+      line-height: 60px;
+      margin-bottom: 32px; }
+      main #fashion .title span {
+        font-size: 36px; } }
 
 @media screen and (max-width: 767px) {
   .py-section {
@@ -4895,6 +4929,11 @@ main #product .product-tab-content {
     margin-top: 40px; } }
 
 @media screen and (max-width: 575px) {
+  .btn-primary {
+    border-radius: 16px;
+    width: 180px;
+    height: 50px;
+    font-size: 16px; }
   main #banner .single-banner .banner-content {
     top: 20px;
     left: 30px; }
@@ -4916,7 +4955,16 @@ main #product .product-tab-content {
   main #product .product-tab-nav .product-tab-nav-list .product-nav-item:not(:first-child) {
     margin-left: 10px; }
   main #product .product-tab-content .product .content .title a {
-    font-size: 14px; } }
+    font-size: 14px; }
+  main #fashion {
+    height: 300px; }
+    main #fashion .title {
+      font-size: 32px;
+      line-height: 50px;
+      margin-bottom: 25px; }
+      main #fashion .title span {
+        font-size: 24px;
+        line-height: 32px; } }
 
 @media screen and (max-width: 480px) {
   #mobile-menu .menu {
@@ -4941,4 +4989,6 @@ main #product .product-tab-content {
   main #product .product-tab-content {
     margin-top: 40px; }
     main #product .product-tab-content .product .content .title a {
-      font-size: 16px; } }
+      font-size: 16px; }
+  main #fashion .title {
+    font-size: 28px; } }

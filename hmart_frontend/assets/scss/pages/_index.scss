@@ -55,40 +55,7 @@ main {
                         animation-delay: 1s;
                         animation-duration: 1s;
                     }
-                    a.btn-slider {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-width: 2px;
-                        border-color: #fff;
-                        border-style: solid;
-                        border-radius: 18px;
-                        width: 215px;
-                        height: 61px;
-                        background-color: transparent;
-                        align-items: center;
-                        color: #fff;
-                        font-size: 18px;
-                        font-weight: 600;
-                        animation-delay: 1.5s;
-                        animation-duration: 1s;
-                        &:hover {
-                            color: #fff;
-                            background: $primary-color;
-                            transform: translateY(-1px);
-                            border-color: $primary-color;
-                        }
-                        &:active {
-                            &:focus {
-                                outline: 0;
-                                border: 0;
-                                color: #fff;
-                                box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
-                            }
-                        }
-                    }
                 }
-
                 .slider-product {
                     display: flex;
                     align-items: flex-end;
@@ -140,7 +107,6 @@ main {
             }
         }
     }
-
     #banner {
         .single-banner {
             position: relative;
@@ -211,7 +177,6 @@ main {
                 }
             }
         }
-
         .double-banners {
             .single-banner {
                 &:first-child {
@@ -220,7 +185,6 @@ main {
             }
         }
     }
-
     #product {
         .product-tab-nav {
             .product-tab-nav-list {
@@ -292,7 +256,7 @@ main {
                         &.new {
                             background-color: #000;
                         }
-                        & + span {
+                        &+span {
                             margin-top: 12px;
                         }
                     }
@@ -409,12 +373,11 @@ main {
                         background-color: #707070;
                         font-size: 24px;
                         cursor: pointer;
-                        & + .action {
+                        &+.action {
                             margin-left: 10px;
                         }
                     }
                 }
-
                 &:hover {
                     transform: scaleY(1.05);
                     z-index: 1;
@@ -453,6 +416,24 @@ main {
                         }
                     }
                 }
+            }
+        }
+    }
+    #fashion {
+        height: 456px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        .title {
+            font-size: 60px;
+            color: #fff;
+            font-weight: 700;
+            line-height: 74px;
+            margin-bottom: 45px;
+            span {
+                font-size: 48px;
+                font-weight: 300;
+                display: block;
             }
         }
     }
