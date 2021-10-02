@@ -1,3 +1,7 @@
+$(window).on("load", function () {
+  $("#loading").hide();
+});
+
 $(document).ready(function () {
   if ($(window).scrollTop() >= 250) {
     if ($(window).width() < 993) {
@@ -118,5 +122,15 @@ $(document).ready(function () {
   $(document).on("click", "#scrollUp", function (e) {
     e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, 1000);
+  });
+
+  $("[data-countdown]").each(function () {
+    $(this).countdown($(this).attr("data-countdown"), function (event) {
+      $(this).html(
+        event.strftime(
+          '<span class="cdown day"><span class="cdown-1">%d</span><p>Days</p></span> <span class="cdown hour"><span class="cdown-1">%-H</span><p>Hrs</p></span> <span class="cdown minutes"><span class="cdown-1">%M</span> <p>Min</p></span> <span class="cdown second"><span class="cdown-1"> %S</span> <p>Sec</p></span>'
+        )
+      );
+    });
   });
 });
