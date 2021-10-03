@@ -256,7 +256,7 @@ main {
                         &.new {
                             background-color: #000;
                         }
-                        & + span {
+                        &+span {
                             margin-top: 12px;
                         }
                     }
@@ -347,7 +347,7 @@ main {
                         background-color: #707070;
                         font-size: 24px;
                         cursor: pointer;
-                        & + .action {
+                        &+.action {
                             margin-left: 10px;
                         }
                     }
@@ -473,7 +473,6 @@ main {
                     }
                 }
             }
-
             .bottom-content {
                 position: absolute;
                 bottom: 60px;
@@ -511,7 +510,6 @@ main {
                                 transform: translate(-50%, -50%);
                             }
                         }
-
                         p {
                             margin: 8px 0 25px 0;
                             font-size: 16px;
@@ -521,7 +519,6 @@ main {
                         }
                     }
                 }
-
                 .btn {
                     width: 200px;
                     height: 54px;
@@ -612,7 +609,6 @@ main {
                                 content: ":";
                             }
                         }
-
                         &:last-child {
                             .cdown-1 {
                                 &::after {
@@ -632,10 +628,65 @@ main {
                         }
                     }
                 }
+                .prize-content {
+                    padding: 20px 0;
+                    position: relative;
+                    .title {
+                        margin-bottom: 0.5rem;
+                        a {
+                            font-size: 16px;
+                            color: #000;
+                            font-weight: 600;
+                            &:hover {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                    .price {
+                        line-height: 1.2;
+                    }
+                    &::after {
+                        position: absolute;
+                        top: auto;
+                        bottom: -2px;
+                        width: calc(100% - 25px);
+                        height: 2px;
+                        content: "";
+                        background: #e2e2e2;
+                        left: 0;
+                    }
+                }
+                .product-feature {
+                    margin-top: 30px;
+                    ul {
+                        line-height: 32px;
+                        li {
+                            font-size: 16px;
+                            color: #000;
+                            font-weight: 500;
+                            position: relative;
+                            padding-left: 15px;
+                            span {
+                                font-weight: 400;
+                            }
+                            &::after {
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                width: 6px;
+                                height: 6px;
+                                content: "";
+                                background-color: #266bf9;
+                                border-radius: 50%;
+                                -webkit-transform: translateY(-50%);
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+                }
             }
             &:hover {
                 .add-to-cart {
-                    -webkit-transform: scale(1);
                     transform: scale(1);
                 }
             }

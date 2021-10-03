@@ -5056,8 +5056,52 @@ main #feature_product .feature-right-content {
           content: "d"; }
         main #feature_product .feature-right-content .content-side .deal-timing .cdown p {
           display: none; }
+    main #feature_product .feature-right-content .content-side .prize-content {
+      padding: 20px 0;
+      position: relative; }
+      main #feature_product .feature-right-content .content-side .prize-content .title {
+        margin-bottom: 0.5rem; }
+        main #feature_product .feature-right-content .content-side .prize-content .title a {
+          font-size: 16px;
+          color: #000;
+          font-weight: 600; }
+          main #feature_product .feature-right-content .content-side .prize-content .title a:hover {
+            color: #266bf9; }
+      main #feature_product .feature-right-content .content-side .prize-content .price {
+        line-height: 1.2; }
+      main #feature_product .feature-right-content .content-side .prize-content::after {
+        position: absolute;
+        top: auto;
+        bottom: -2px;
+        width: calc(100% - 25px);
+        height: 2px;
+        content: "";
+        background: #e2e2e2;
+        left: 0; }
+    main #feature_product .feature-right-content .content-side .product-feature {
+      margin-top: 30px; }
+      main #feature_product .feature-right-content .content-side .product-feature ul {
+        line-height: 32px; }
+        main #feature_product .feature-right-content .content-side .product-feature ul li {
+          font-size: 16px;
+          color: #000;
+          font-weight: 500;
+          position: relative;
+          padding-left: 15px; }
+          main #feature_product .feature-right-content .content-side .product-feature ul li span {
+            font-weight: 400; }
+          main #feature_product .feature-right-content .content-side .product-feature ul li::after {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            content: "";
+            background-color: #266bf9;
+            border-radius: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); }
   main #feature_product .feature-right-content:hover .add-to-cart {
-    -webkit-transform: scale(1);
     transform: scale(1); }
   main #feature_product .feature-right-content.feature-right-mt {
     margin-top: 20px; }
@@ -5079,7 +5123,25 @@ main #feature_product .feature-right-content {
       font-size: 24px;
       margin: 0 0 10px; }
     main #feature_product .single-feature-content .top-content .price {
-      font-size: 24px; } }
+      font-size: 24px; }
+  main #feature_product .single-feature-content .bottom-content {
+    bottom: 40px; }
+    main #feature_product .single-feature-content .bottom-content .deal-timing .cdown .cdown-1 {
+      width: 70px;
+      height: 70px;
+      font-size: 24px; }
+  main #feature_product .feature-right-content .image-side {
+    width: 180px; }
+  main #feature_product .feature-right-content .content-side {
+    width: calc(100% - 180px);
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    main #feature_product .feature-right-content .content-side .prize-content {
+      padding: 15px 0; }
+    main #feature_product .feature-right-content .content-side .product-feature {
+      margin-top: 20px; }
+      main #feature_product .feature-right-content .content-side .product-feature ul li {
+        font-size: 14px; } }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .py-section {
@@ -5190,7 +5252,19 @@ main #feature_product .feature-right-content {
       font-size: 24px;
       margin: 0 0 10px; }
     main #feature_product .single-feature-content .top-content .price {
-      font-size: 24px; } }
+      font-size: 24px; }
+  main #feature_product .single-feature-content .bottom-content {
+    bottom: 40px; }
+    main #feature_product .single-feature-content .bottom-content .deal-timing .cdown .cdown-1 {
+      width: 70px;
+      height: 70px;
+      font-size: 24px; }
+  main #feature_product .feature-right-content .image-side {
+    width: 230px; }
+  main #feature_product .feature-right-content .content-side {
+    width: calc(100% - 230px);
+    padding-top: 10px;
+    padding-bottom: 10px; } }
 
 @media screen and (max-width: 575px) {
   .btn-primary {
@@ -5228,7 +5302,21 @@ main #feature_product .feature-right-content {
       margin-bottom: 25px; }
       main #fashion .title span {
         font-size: 24px;
-        line-height: 32px; } }
+        line-height: 32px; }
+  main #feature_product .feature-right-content .image-side {
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column; }
+  main #feature_product .feature-right-content .content-side {
+    width: calc(100% - 180px); }
+    main #feature_product .feature-right-content .content-side .prize-content {
+      padding: 15px 0; }
+    main #feature_product .feature-right-content .content-side .product-feature {
+      margin-top: 20px; }
+      main #feature_product .feature-right-content .content-side .product-feature ul li {
+        font-size: 14px; } }
 
 @media screen and (max-width: 480px) {
   #mobile-menu .menu {
@@ -5261,4 +5349,19 @@ main #feature_product .feature-right-content {
   main #feature_product .single-feature-content .top-content .title {
     font-size: 20px; }
   main #feature_product .single-feature-content .top-content .price {
-    font-size: 18px; } }
+    font-size: 18px; }
+  main #feature_product .single-feature-content .bottom-content .deal-timing .cdown .cdown-1 {
+    width: 50px;
+    height: 50px;
+    font-size: 20px; }
+  main #feature_product .single-feature-content .bottom-content .deal-timing .cdown p {
+    margin: 5px 0 5px 0; }
+  main #feature_product .feature-right-content {
+    flex-direction: column; }
+    main #feature_product .feature-right-content .image-side {
+      width: 100%; }
+      main #feature_product .feature-right-content .image-side::after {
+        display: none; }
+    main #feature_product .feature-right-content .content-side {
+      width: 100%;
+      padding-right: 30px; } }

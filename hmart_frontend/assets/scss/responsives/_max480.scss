@@ -78,6 +78,33 @@
                         font-size: 18px;
                     }
                 }
+                .bottom-content {
+                    .deal-timing {
+                        .cdown {
+                            .cdown-1 {
+                                width: 50px;
+                                height: 50px;
+                                font-size: 20px;
+                            }
+                            p {
+                                margin: 5px 0 5px 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .feature-right-content {
+                flex-direction: column;
+                .image-side {
+                    width: 100%;
+                    &::after {
+                        display: none;
+                    }
+                }
+                .content-side {
+                    width: 100%;
+                    padding-right: 30px;
+                }
             }
         }
     }

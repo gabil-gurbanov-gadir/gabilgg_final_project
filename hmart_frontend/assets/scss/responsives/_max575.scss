@@ -71,5 +71,30 @@
                 }
             }
         }
+        #feature_product {
+            .feature-right-content {
+                .image-side {
+                    width: 180px;
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .content-side {
+                    width: calc(100% - 180px);
+                    .prize-content {
+                        padding: 15px 0;
+                    }
+                    .product-feature {
+                        margin-top: 20px;
+                        ul {
+                            li {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

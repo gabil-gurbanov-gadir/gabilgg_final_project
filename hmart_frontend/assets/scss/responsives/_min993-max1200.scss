@@ -1,16 +1,13 @@
 @media screen and (min-width: 993px) and (max-width: 1200px) {
     //Common
-
     //spaces
     .py-section {
         padding-top: 80px;
         padding-bottom: 80px;
     }
-
     .pb-section {
         padding-bottom: 80px;
     }
-
     main {
         #banner {
             .single-banner {
@@ -33,6 +30,39 @@
                     }
                     .price {
                         font-size: 24px;
+                    }
+                }
+                .bottom-content {
+                    bottom: 40px;
+                    .deal-timing {
+                        .cdown {
+                            .cdown-1 {
+                                width: 70px;
+                                height: 70px;
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+            .feature-right-content {
+                .image-side {
+                    width: 180px;
+                }
+                .content-side {
+                    width: calc(100% - 180px);
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    .prize-content {
+                        padding: 15px 0;
+                    }
+                    .product-feature {
+                        margin-top: 20px;
+                        ul {
+                            li {
+                                font-size: 14px;
+                            }
+                        }
                     }
                 }
             }

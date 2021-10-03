@@ -1,17 +1,12 @@
 @media screen and (max-width: 767px) {
     ////Common
-
     //Spaces
-
     .py-section {
         padding-top: 60px;
         padding-bottom: 60px;
     }
-
     ////Pages
-
     //Home
-
     main {
         #slider {
             height: 450px;
@@ -28,7 +23,6 @@
                             line-height: 46px;
                         }
                     }
-
                     .slider-product {
                         height: 450px;
                         .product-image {
@@ -41,7 +35,6 @@
                 }
             }
         }
-
         #banner {
             .double-banners {
                 .single-banner {
@@ -51,13 +44,11 @@
                 }
             }
         }
-
         #product {
             .product-tab-content {
                 margin-top: 40px;
             }
         }
-
         #feature_product {
             .section-title {
                 margin-bottom: 40px;
@@ -76,6 +67,28 @@
                     .price {
                         font-size: 24px;
                     }
+                }
+                .bottom-content {
+                    bottom: 40px;
+                    .deal-timing {
+                        .cdown {
+                            .cdown-1 {
+                                width: 70px;
+                                height: 70px;
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+            .feature-right-content {
+                .image-side {
+                    width: 230px;
+                }
+                .content-side {
+                    width: calc(100% - 230px);
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                 }
             }
         }
