@@ -4038,7 +4038,7 @@ input {
   justify-content: center;
   align-items: center;
   z-index: 999;
-  background-color: #2d6a964d; }
+  background-color: #96b6d28c; }
 
 .lds-facebook {
   display: inline-block;
@@ -4051,8 +4051,11 @@ input {
   position: absolute;
   left: 8px;
   width: 16px;
-  background: #fff;
-  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite; }
+  background: #266bf9;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  border: 1px solid #9fb9ee;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px #091838; }
 
 .lds-facebook div:nth-child(1) {
   left: 8px;
@@ -4917,6 +4920,8 @@ main #feature_product .single-feature-content {
       margin: 0 0 20px; }
       main #feature_product .single-feature-content .top-content .title a {
         color: #000; }
+        main #feature_product .single-feature-content .top-content .title a:hover {
+          color: #266bf9; }
     main #feature_product .single-feature-content .top-content .price {
       font-size: 30px; }
       main #feature_product .single-feature-content .top-content .price span.old {
@@ -4925,7 +4930,7 @@ main #feature_product .single-feature-content {
           right: -20%; }
   main #feature_product .single-feature-content .bottom-content {
     position: absolute;
-    bottom: 30px;
+    bottom: 60px;
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
@@ -5067,7 +5072,14 @@ main #feature_product .feature-right-content {
     top: 20px; }
     main #banner .single-banner .banner-content h3 {
       font-size: 32px;
-      line-height: 44px; } }
+      line-height: 44px; }
+  main #feature_product .single-feature-content .top-content {
+    top: 30px; }
+    main #feature_product .single-feature-content .top-content .title {
+      font-size: 24px;
+      margin: 0 0 10px; }
+    main #feature_product .single-feature-content .top-content .price {
+      font-size: 24px; } }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .py-section {
@@ -5091,7 +5103,10 @@ main #feature_product .feature-right-content {
   main #banner .single-banner.first-banner .banner-content {
     bottom: 25px; }
     main #banner .single-banner.first-banner .banner-content a {
-      bottom: 0; } }
+      bottom: 0; }
+  main #feature_product .section-title .title {
+    font-size: 36px;
+    margin: 0 0 20px; } }
 
 @media screen and (max-width: 1200px) {
   header #header-top .top-nav ul li:not(:last-child) {
@@ -5130,7 +5145,16 @@ main #feature_product .feature-right-content {
       line-height: 60px;
       margin-bottom: 32px; }
       main #fashion .title span {
-        font-size: 36px; } }
+        font-size: 36px; }
+  main #feature_product .mb-feature {
+    margin-bottom: 35px; }
+  main #feature_product .section-title p {
+    font-size: 16px;
+    line-height: 26px; }
+  main #feature_product .single-feature-content {
+    flex-direction: column; }
+    main #feature_product .single-feature-content .feature-image img {
+      width: 100%; } }
 
 @media screen and (max-width: 767px) {
   .py-section {
@@ -5154,7 +5178,19 @@ main #feature_product .feature-right-content {
   main #banner .double-banners .single-banner:first-child {
     margin-top: 30px; }
   main #product .product-tab-content {
-    margin-top: 40px; } }
+    margin-top: 40px; }
+  main #feature_product .section-title {
+    margin-bottom: 40px; }
+    main #feature_product .section-title .title {
+      font-size: 30px;
+      margin: 0 0 15px; }
+  main #feature_product .single-feature-content .top-content {
+    top: 30px; }
+    main #feature_product .single-feature-content .top-content .title {
+      font-size: 24px;
+      margin: 0 0 10px; }
+    main #feature_product .single-feature-content .top-content .price {
+      font-size: 24px; } }
 
 @media screen and (max-width: 575px) {
   .btn-primary {
@@ -5219,4 +5255,10 @@ main #feature_product .feature-right-content {
     main #product .product-tab-content .product .content .title a {
       font-size: 16px; }
   main #fashion .title {
-    font-size: 28px; } }
+    font-size: 28px; }
+  main #feature_product .section-title {
+    margin-bottom: 30px; }
+  main #feature_product .single-feature-content .top-content .title {
+    font-size: 20px; }
+  main #feature_product .single-feature-content .top-content .price {
+    font-size: 18px; } }

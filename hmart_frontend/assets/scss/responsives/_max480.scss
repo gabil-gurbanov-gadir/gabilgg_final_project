@@ -65,5 +65,20 @@
                 font-size: 28px;
             }
         }
+        #feature_product {
+            .section-title {
+                margin-bottom: 30px;
+            }
+            .single-feature-content {
+                .top-content {
+                    .title {
+                        font-size: 20px;
+                    }
+                    .price {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
     }
 }

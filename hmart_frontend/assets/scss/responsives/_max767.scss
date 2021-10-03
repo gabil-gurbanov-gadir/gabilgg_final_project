@@ -57,5 +57,27 @@
                 margin-top: 40px;
             }
         }
+
+        #feature_product {
+            .section-title {
+                margin-bottom: 40px;
+                .title {
+                    font-size: 30px;
+                    margin: 0 0 15px;
+                }
+            }
+            .single-feature-content {
+                .top-content {
+                    top: 30px;
+                    .title {
+                        font-size: 24px;
+                        margin: 0 0 10px;
+                    }
+                    .price {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
     }
 }

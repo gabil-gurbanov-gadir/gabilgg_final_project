@@ -67,5 +67,24 @@
                 }
             }
         }
+        #feature_product {
+            .mb-feature {
+                margin-bottom: 35px;
+            }
+            .section-title {
+                p {
+                    font-size: 16px;
+                    line-height: 26px;
+                }
+            }
+            .single-feature-content {
+                flex-direction: column;
+                .feature-image {
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 }

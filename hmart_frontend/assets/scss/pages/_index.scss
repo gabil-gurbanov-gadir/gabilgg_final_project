@@ -456,6 +456,9 @@ main {
                     margin: 0 0 20px;
                     a {
                         color: #000;
+                        &:hover {
+                            color: $primary-color;
+                        }
                     }
                 }
                 .price {
@@ -473,7 +476,7 @@ main {
 
             .bottom-content {
                 position: absolute;
-                bottom: 30px;
+                bottom: 60px;
                 text-align: center;
                 left: 50%;
                 transform: translateX(-50%);
