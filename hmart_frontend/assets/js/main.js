@@ -1,8 +1,8 @@
-//#region Loading
+// Loading start
 $(window).on("load", function () {
   $("#loading").hide();
 });
-//#endregion
+// Loading end
 
 $(document).ready(function () {
   //#region Sticky fixed
@@ -93,7 +93,7 @@ $(document).ready(function () {
 
   //#endregion
 
-  //#region Main Slider
+  // Main Slider start
   var swiper = new Swiper(".main-slider", {
     direction: "vertical",
     speed: 2000,
@@ -107,7 +107,7 @@ $(document).ready(function () {
       prevEl: ".swiper-button-prev",
     },
   });
-  //#endregion
+  // Main Slider end
 
   //#region Scroll Up Button
   if ($(window).scrollTop() >= 350) {
@@ -142,7 +142,7 @@ $(document).ready(function () {
   });
   //#endregion
 
-  //#region Countdown Time
+  // Countdown Time start
   $("[data-countdown]").each(function () {
     $(this).countdown($(this).attr("data-countdown"), function (event) {
       $(this).html(
@@ -152,9 +152,9 @@ $(document).ready(function () {
       );
     });
   });
-  //#endregion
+  // Countdown Time end
 
-  //#region Testimonial Slider
+  // Testimonial Slider start
   var swiper = new Swiper(".testimonial-slider", {
     slidesPerView: 2,
     spaceBetween: 30,
@@ -173,5 +173,21 @@ $(document).ready(function () {
       1200: { slidesPerView: 2 },
     },
   });
-  //#endregion
+  // Testimonial Slider end
+
+  // Partners start
+  var swiper = new Swiper(".partners-slider", {
+    slidesPerView: 4,
+    speed: 1500,
+    loop: !0,
+    autoplay: { delay: 2e3, disableOnInteraction: !1 },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      480: { slidesPerView: 2 },
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 3 },
+      1200: { slidesPerView: 4 },
+    },
+  });
+  // Partners end
 });

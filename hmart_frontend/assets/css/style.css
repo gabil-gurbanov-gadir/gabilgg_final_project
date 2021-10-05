@@ -5164,6 +5164,22 @@ main #testimonial {
             color: #444141;
             margin: 10px 0 0; }
 
+main #partners .partners-slider {
+  border: 2px solid #e1e1e1;
+  padding: 100px 0;
+  border-radius: 20px; }
+  main #partners .partners-slider .partners-slider-item a img {
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    margin: auto;
+    opacity: 0.8; }
+  main #partners .partners-slider .partners-slider-item:hover a img {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    opacity: 1; }
+
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {
     padding-top: 80px;
@@ -5203,7 +5219,9 @@ main #testimonial {
   main #testimonial {
     padding-bottom: 60px; }
     main #testimonial .testimonial-slider .swiper-slide .testi-inner {
-      height: 325px; } }
+      height: 325px; }
+  main #partners .partners-slider {
+    padding: 80px 0; } }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .py-section {
@@ -5232,7 +5250,9 @@ main #testimonial {
     main #banner .single-banner.first-banner .banner-content a {
       bottom: 0; }
   main #testimonial .testimonial-slider .swiper-slide .testi-inner {
-    height: 360px; } }
+    height: 360px; }
+  main #partners .partners-slider {
+    padding: 60px 0; } }
 
 @media screen and (max-width: 1200px) {
   header #header-top .top-nav ul li:not(:last-child) {
@@ -5337,7 +5357,9 @@ main #testimonial {
     padding-bottom: 10px; }
   main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-content p {
     font-size: 18px;
-    line-height: 32px; } }
+    line-height: 32px; }
+  main #partners .partners-slider {
+    padding: 50px 0; } }
 
 @media screen and (max-width: 575px) {
   .btn-primary {
