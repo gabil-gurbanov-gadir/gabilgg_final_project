@@ -36,6 +36,28 @@
 
     //#endregion
 
+    // Footer start
+    footer {
+        .footer-top {
+            padding: 50px 0 50px 0;
+            .wedge {
+                margin-bottom: 30px;
+                .about-text {
+                    max-width: 454px;
+                }
+            }
+            .service-wedge {
+                margin-bottom: 30px;
+            }
+        }
+        .footer-bottom {
+            .copy-text {
+                text-align: center;
+            }
+        }
+    }
+    // Footer end
+
     //#endregion
 
     //#region Pages

@@ -20,8 +20,6 @@
 
     //#endregion
 
-    //#endregion
-
     // Header Start
     header {
         #header-top {
@@ -30,7 +28,19 @@
             }
         }
     }
-    // Header Start
+    // Header End
+
+    // Footer start
+    footer {
+        .footer-top {
+            .service-wedge {
+                padding-left: 0;
+            }
+        }
+    }
+    // Footer end
+
+    //#endregion
 
     //#region Pages
 

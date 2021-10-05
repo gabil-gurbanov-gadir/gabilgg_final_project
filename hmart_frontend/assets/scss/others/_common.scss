@@ -23,7 +23,7 @@
     position: absolute;
     left: 8px;
     width: 16px;
-    background: #266bf9;
+    background: $primary-color;
     animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
     border: 1px solid #9fb9ee;
     border-radius: 8px;
@@ -128,7 +128,7 @@ header {
                     justify-content: center;
                     align-items: center;
                     border-radius: 0 5px 5px 0;
-                    background-color: #266bf9;
+                    background-color: $primary-color;
                     cursor: pointer;
                 }
             }
@@ -155,7 +155,7 @@ header {
                         align-items: center;
                         color: #fff;
                         border-radius: 50%;
-                        background-color: #266bf9;
+                        background-color: $primary-color;
                         width: 21px;
                         height: 21px;
                     }
@@ -200,7 +200,7 @@ header {
                         align-items: center;
                         color: #fff;
                         border-radius: 50%;
-                        background-color: #266bf9;
+                        background-color: $primary-color;
                         width: 21px;
                         height: 21px;
                     }
@@ -273,7 +273,7 @@ header {
                     justify-content: center;
                     align-items: center;
                     border-radius: 0 5px 5px 0;
-                    background-color: #266bf9;
+                    background-color: $primary-color;
                     cursor: pointer;
                 }
             }
@@ -341,7 +341,7 @@ body.canvas-opening {
                 content: "";
                 transition: all 0.5s ease 0s;
                 transform: rotate(45deg);
-                background-color: #266bf9;
+                background-color: $primary-color;
             }
             &::after {
                 position: absolute;
@@ -352,7 +352,7 @@ body.canvas-opening {
                 content: "";
                 transition: all 0.5s ease 0s;
                 transform: rotate(-45deg);
-                background-color: #266bf9;
+                background-color: $primary-color;
             }
             &:hover {
                 &::before {
@@ -411,7 +411,7 @@ body.canvas-opening {
                         display: block;
                         margin-top: 10px;
                         .amount {
-                            color: #266bf9;
+                            color: $primary-color;
                             font-weight: 500;
                             font-size: 18px;
                         }
@@ -480,7 +480,7 @@ body.canvas-opening {
             border: 0;
             left: 0%;
             top: 5px;
-            background-color: #266bf9;
+            background-color: $primary-color;
             animation-delay: 0.5s;
             border-radius: 50%;
             &.move {
@@ -526,12 +526,12 @@ body.canvas-opening {
                             display: flex;
                             align-items: center;
                             &:hover {
-                                color: #266bf9;
+                                color: $primary-color;
                             }
                             i {
                                 margin-right: 15px;
                                 font-size: 18px;
-                                color: #266bf9;
+                                color: $primary-color;
                                 width: 20px;
                                 height: 20px;
                             }
@@ -750,4 +750,100 @@ body.canvas-opening {
 }
 // Section Title end
 
+//#endregion
+
+//#region Footer
+footer {
+    color: #3a3a3a;
+    background: #f2f8fd;
+    .footer-top {
+        padding: 100px 0 100px 0;
+        .title {
+            font-size: 24px;
+            text-transform: capitalize;
+            font-weight: 500;
+            margin-bottom: 20px;
+            position: relative;
+            color: #323232;
+        }
+        ul {
+            li {
+                display: block;
+                margin: 0;
+                line-height: 1;
+                border: 0;
+                font-weight: 400;
+                margin-bottom: 5px;
+                a {
+                    font-size: 16px;
+                    line-height: 26px;
+                    padding: 0;
+                    display: inline-block;
+                    color: #000;
+                    margin-bottom: 0;
+                    display: inline-block;
+                    position: relative;
+                    transition: all 0.3s linear;
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+        .wedge {
+            .footer-logo {
+                margin: 0 0 20px;
+            }
+            .about-text {
+                font-size: 16px;
+                max-width: 270px;
+                line-height: 32px;
+                color: #3a3a3a;
+                font-weight: 400;
+            }
+        }
+        .service-wedge {
+            padding-left: 60px;
+            .services-list {
+                li {
+                    a {
+                        text-transform: capitalize;
+                        &:hover {
+                            padding-left: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        .contact-info {
+            .info-list {
+                li {
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+    .footer-bottom {
+        background: #e2f2ff none repeat scroll 0 0;
+        padding: 25px 0 20px 0;
+        .copy-text {
+            color: #4d4d4d;
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 400;
+            i {
+                color: $primary-color;
+                margin: 0 3px;
+                font-size: 16px;
+            }
+            .company-name {
+                color: #4d4d4d;
+                font-weight: 300;
+                strong {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
 //#endregion

@@ -445,7 +445,7 @@ main {
                             flex-direction: column;
                             justify-content: center;
                             align-items: center;
-                            border: 1px solid #266bf9;
+                            border: 1px solid $primary-color;
                             border-radius: 50%;
                             font-size: 30px;
                             color: #000;
@@ -476,8 +476,8 @@ main {
                 .btn {
                     width: 200px;
                     height: 54px;
-                    background-color: #266bf9;
-                    border-color: #266bf9;
+                    background-color: $primary-color;
+                    border-color: $primary-color;
                     transition: all 0.3s ease 0s;
                 }
             }
@@ -506,7 +506,7 @@ main {
                     justify-content: center;
                     align-items: center;
                     font-size: 24px;
-                    background: #266bf9;
+                    background: $primary-color;
                     color: #fff;
                     border-radius: 5px;
                     font-weight: 600;
@@ -533,7 +533,7 @@ main {
                 justify-content: center;
                 .deal-timing {
                     display: flex;
-                    background-color: #266bf9;
+                    background-color: $primary-color;
                     color: #fff;
                     width: 220px;
                     height: 30px;
@@ -630,7 +630,7 @@ main {
                                 width: 6px;
                                 height: 6px;
                                 content: "";
-                                background-color: #266bf9;
+                                background-color: $primary-color;
                                 border-radius: 50%;
                                 -webkit-transform: translateY(-50%);
                                 transform: translateY(-50%);
@@ -699,7 +699,7 @@ main {
                         }
                         .author-name {
                             .name {
-                                color: #266bf9;
+                                color: $primary-color;
                                 font-size: 18px;
                                 line-height: 1;
                                 margin: 0;
@@ -796,7 +796,7 @@ main {
                             }
                         }
                         i {
-                            color: #266bf9;
+                            color: $primary-color;
                             margin-right: 5px;
                         }
                     }

@@ -1,4 +1,6 @@
 @media screen and (max-width: 1200px) {
+    //#region Comman
+
     // Header Start
     header {
         #header-top {
@@ -15,4 +17,17 @@
         }
     }
     // Header End
+
+    // Footer start
+    footer {
+        .footer-bottom {
+            .copy-text {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+    }
+    // Footer end
+
+    //#endregion
 }

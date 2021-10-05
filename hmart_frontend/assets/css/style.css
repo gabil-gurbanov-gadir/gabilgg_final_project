@@ -4617,6 +4617,71 @@ body.canvas-opening {
     font-size: 18px;
     color: #595959; }
 
+footer {
+  color: #3a3a3a;
+  background: #f2f8fd; }
+  footer .footer-top {
+    padding: 100px 0 100px 0; }
+    footer .footer-top .title {
+      font-size: 24px;
+      text-transform: capitalize;
+      font-weight: 500;
+      margin-bottom: 20px;
+      position: relative;
+      color: #323232; }
+    footer .footer-top ul li {
+      display: block;
+      margin: 0;
+      line-height: 1;
+      border: 0;
+      font-weight: 400;
+      margin-bottom: 5px; }
+      footer .footer-top ul li a {
+        font-size: 16px;
+        line-height: 26px;
+        padding: 0;
+        display: inline-block;
+        color: #000;
+        margin-bottom: 0;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s linear; }
+        footer .footer-top ul li a:hover {
+          color: #266bf9; }
+    footer .footer-top .wedge .footer-logo {
+      margin: 0 0 20px; }
+    footer .footer-top .wedge .about-text {
+      font-size: 16px;
+      max-width: 270px;
+      line-height: 32px;
+      color: #3a3a3a;
+      font-weight: 400; }
+    footer .footer-top .service-wedge {
+      padding-left: 60px; }
+      footer .footer-top .service-wedge .services-list li a {
+        text-transform: capitalize; }
+        footer .footer-top .service-wedge .services-list li a:hover {
+          padding-left: 8px; }
+    footer .footer-top .contact-info .info-list li {
+      line-height: 26px; }
+  footer .footer-bottom {
+    background: #e2f2ff none repeat scroll 0 0;
+    padding: 25px 0 20px 0; }
+    footer .footer-bottom .copy-text {
+      color: #4d4d4d;
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 400; }
+      footer .footer-bottom .copy-text i {
+        color: #266bf9;
+        margin: 0 3px;
+        font-size: 16px; }
+      footer .footer-bottom .copy-text .company-name {
+        color: #4d4d4d;
+        font-weight: 300; }
+        footer .footer-bottom .copy-text .company-name strong {
+          font-weight: 600; }
+
 main #slider {
   height: 700px; }
   main #slider .main-slider {
@@ -5252,6 +5317,14 @@ main #blog .single-blog {
     padding-bottom: 80px; }
   .pb-section {
     padding-bottom: 80px; }
+  footer .footer-top {
+    padding: 80px 0 60px 0; }
+    footer .footer-top ul li a {
+      font-size: 14px;
+      line-height: 24px; }
+    footer .footer-top .wedge .about-text {
+      font-size: 14px;
+      line-height: 28px; }
   main #banner .single-banner .banner-content {
     top: 20px; }
     main #banner .single-banner .banner-content h3 {
@@ -5312,6 +5385,8 @@ main #blog .single-blog {
   .section-title .title {
     font-size: 36px;
     margin: 0 0 20px; }
+  footer .footer-top {
+    padding: 60px 0 40px 0; }
   main #banner .single-banner .banner-content {
     top: 20px;
     left: 30px; }
@@ -5339,7 +5414,10 @@ main #blog .single-blog {
 @media screen and (max-width: 1200px) {
   header #header-top .top-nav ul li:not(:last-child) {
     margin-right: 12px;
-    padding-right: 12px; } }
+    padding-right: 12px; }
+  footer .footer-bottom .copy-text {
+    font-size: 14px;
+    line-height: 24px; } }
 
 @media screen and (max-width: 992px) {
   .pb-section {
@@ -5349,6 +5427,8 @@ main #blog .single-blog {
     line-height: 26px; }
   header #header-top .welcome-text {
     justify-content: center; }
+  footer .footer-top .service-wedge {
+    padding-left: 0; }
   main #slider {
     height: 500px; }
     main #slider .main-slider .slide-animate .slider-content {
@@ -5407,6 +5487,16 @@ main #blog .single-blog {
     .section-title .title {
       font-size: 30px;
       margin: 0 0 15px; }
+  footer .footer-top {
+    padding: 50px 0 50px 0; }
+    footer .footer-top .wedge {
+      margin-bottom: 30px; }
+      footer .footer-top .wedge .about-text {
+        max-width: 454px; }
+    footer .footer-top .service-wedge {
+      margin-bottom: 30px; }
+  footer .footer-bottom .copy-text {
+    text-align: center; }
   main #slider {
     height: 450px; }
     main #slider .main-slider .slide-animate .slider-content {
@@ -5538,6 +5628,8 @@ main #blog .single-blog {
     width: 300px; }
   .section-title {
     margin-bottom: 30px; }
+  footer .footer-bottom .copy-text {
+    font-size: 13px; }
   main #slider .main-slider .slider-content {
     height: 400px; }
     main #slider .main-slider .slider-content span {
