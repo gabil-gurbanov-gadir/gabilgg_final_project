@@ -142,6 +142,16 @@
             }
         }
         // Feature end
+
+        // Blog start
+        #blog {
+            .single-blog {
+                &.mb-blog {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+        // Blog end
     }
     // Main End
 

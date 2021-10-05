@@ -751,5 +751,102 @@ main {
         }
     }
     // Partners end
+
+    // Blog start
+    #blog {
+        .single-blog {
+            display: flex;
+            .blog-image {
+                overflow: hidden;
+                border-radius: 20px;
+                width: 270px;
+                a {
+                    img {
+                        transition: all 0.3s ease 0s;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+            }
+            .blog-content {
+                width: calc(100% - 270px);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                margin-left: 30px;
+                .blog-date-author {
+                    line-height: 1;
+                    span {
+                        font-weight: 500;
+                        color: #393939;
+                        & + span {
+                            margin-left: 15px;
+                        }
+                        &.blog-author {
+                            a {
+                                color: #393939;
+                                display: inline-block;
+                                padding-left: 5px;
+                                &:hover {
+                                    color: $primary-color;
+                                }
+                            }
+                        }
+                        i {
+                            color: #266bf9;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                .blog-heading {
+                    margin: 17px 0 23px 0;
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 35px;
+                    .blog-heading-link {
+                        color: #2b2b2b;
+                        &:hover {
+                            color: $primary-color;
+                        }
+                    }
+                }
+                p {
+                    margin-bottom: 30px;
+                    color: #3a3a3a;
+                    line-height: 32px;
+                }
+                a.blog-btn {
+                    background: #4e4e4e;
+                    width: 180px;
+                    height: 54px;
+                    font-size: 18px;
+                    text-transform: capitalize;
+                    font-weight: 600;
+                    border: 1px solid #4e4e4e;
+                    color: #fff;
+                    &:hover {
+                        color: #fff;
+                        background: $primary-color;
+                        transform: translateY(-1px);
+                        border-color: $primary-color;
+                    }
+                }
+            }
+            &:hover {
+                .blog-image {
+                    a {
+                        img {
+                            transform: scale(1.1) rotate(3deg);
+                            transition: all 0.3s ease 0s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Blog end
 }
 // Main End
