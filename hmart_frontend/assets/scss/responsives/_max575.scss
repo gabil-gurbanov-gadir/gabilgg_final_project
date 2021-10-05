@@ -1,15 +1,51 @@
 @media screen and (max-width: 575px) {
-    ////Common
-    //Other
+    //#region Common
+
+    //#region Other Styles
+
+    // Primary Button start
     .btn-primary {
         border-radius: 16px;
         width: 180px;
         height: 50px;
         font-size: 16px;
     }
-    ////Pages
-    //Home
+    // Primary Button end
+
+    // Swiper Arrows start
+    .swiper {
+        &:hover {
+            .swiper-buttons {
+                div {
+                    width: 35px;
+                    height: 35px;
+                    line-height: 35px;
+                    &::after {
+                        font-size: 10px;
+                    }
+                }
+                .swiper-button-next {
+                    right: 10px;
+                }
+                .swiper-button-prev {
+                    left: 10px;
+                }
+            }
+        }
+    }
+    // Swiper Arrows end
+
+    //#endregion
+
+    //#endregion
+
+    //#region Pages
+
+    //#region Home Page
+
+    // Main Start
     main {
+        // Banner start
         #banner {
             .single-banner {
                 .banner-content {
@@ -32,6 +68,9 @@
                 }
             }
         }
+        // Banner end
+
+        // Product start
         #product {
             .product-tab-nav {
                 .product-tab-nav-list {
@@ -59,6 +98,9 @@
                 }
             }
         }
+        // Product end
+
+        // Fashion start
         #fashion {
             height: 300px;
             .title {
@@ -71,6 +113,9 @@
                 }
             }
         }
+        // Fashion end
+
+        // Feature start
         #feature_product {
             .feature-right-content {
                 .image-side {
@@ -96,5 +141,11 @@
                 }
             }
         }
+        // Feature end
     }
+    // Main End
+
+    //#endregion
+
+    //#endregion
 }

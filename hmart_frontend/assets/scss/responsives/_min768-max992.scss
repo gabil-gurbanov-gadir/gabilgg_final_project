@@ -1,14 +1,32 @@
 @media screen and (min-width: 768px) and (max-width: 992px) {
-    //Common
+    //#region Common
 
-    //spaces
+    //#region Spaces
 
     .py-section {
         padding-top: 60px;
         padding-bottom: 60px;
     }
+    //#endregion
 
+    //#region Other Styles
+
+    // Section Title start
+    .section-title {
+        .title {
+            font-size: 36px;
+            margin: 0 0 20px;
+        }
+    }
+    // Section Title end
+
+    //#endregion
+
+    //#endregion
+
+    // Main Start
     main {
+        // Banner start
         #banner {
             .single-banner {
                 .banner-content {
@@ -40,13 +58,19 @@
                 }
             }
         }
-        #feature_product {
-            .section-title {
-                .title {
-                    font-size: 36px;
-                    margin: 0 0 20px;
+        // Banner end
+
+        // Testimonial start
+        #testimonial {
+            .testimonial-slider {
+                .swiper-slide {
+                    .testi-inner {
+                        height: 360px;
+                    }
                 }
             }
         }
+        // Testimonial end
     }
+    // Main End
 }

@@ -1,6 +1,7 @@
 @media screen and (min-width: 993px) and (max-width: 1200px) {
-    //Common
-    //spaces
+    //#region Common
+
+    //#region Spaces
     .py-section {
         padding-top: 80px;
         padding-bottom: 80px;
@@ -8,7 +9,13 @@
     .pb-section {
         padding-bottom: 80px;
     }
+    //#endregion
+
+    //#endregion
+
+    // Main Start
     main {
+        // Banner start
         #banner {
             .single-banner {
                 .banner-content {
@@ -20,6 +27,9 @@
                 }
             }
         }
+        // Banner end
+
+        // Feature start
         #feature_product {
             .single-feature-content {
                 .top-content {
@@ -67,5 +77,20 @@
                 }
             }
         }
+        // Feature end
+
+        // Testimonial start
+        #testimonial {
+            padding-bottom: 60px;
+            .testimonial-slider {
+                .swiper-slide {
+                    .testi-inner {
+                        height: 325px;
+                    }
+                }
+            }
+        }
+        // Testimonial end
     }
+    // Main End
 }

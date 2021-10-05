@@ -1,4 +1,4 @@
-//Loader
+//#region Loader
 #loading {
     position: fixed;
     top: 0;
@@ -41,6 +41,7 @@
     left: 56px;
     animation-delay: 0;
 }
+
 @keyframes lds-facebook {
     0% {
         top: 8px;
@@ -52,9 +53,9 @@
         height: 32px;
     }
 }
+//#endregion
 
-//Header
-
+//#region Header
 header {
     background-color: #252525;
     #header-top {
@@ -279,7 +280,9 @@ header {
         }
     }
 }
+//#endregion
 
+//#region Canvas
 body.canvas-opening {
     overflow: hidden;
 }
@@ -547,7 +550,9 @@ body.canvas-opening {
         }
     }
 }
+//#endregion
 
+// Scroll Up Start
 #scrollUp {
     opacity: 0;
     &.show {
@@ -572,7 +577,44 @@ body.canvas-opening {
         transform: translateY(-1px);
     }
 }
+// Scroll Up End
 
+//#region Spaces
+.py-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.pt-section {
+    padding-top: 100px;
+}
+
+.pb-section {
+    padding-bottom: 100px;
+}
+
+.mb-product {
+    margin-bottom: 30px;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+//#endregion
+
+//#region Text Style
+.text-center {
+    text-align: center !important;
+}
+
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+//#endregion
+
+//#region Other Styles
+
+// Pimary Button start
 .btn-primary {
     display: flex;
     justify-content: center;
@@ -605,36 +647,57 @@ body.canvas-opening {
         }
     }
 }
+// Pimary Button end
 
-.py-section {
-    padding-top: 100px;
-    padding-bottom: 100px;
+// Swiper Arrows start
+.swiper {
+    .swiper-buttons {
+        div {
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            margin: auto;
+            border-radius: 50%;
+            box-shadow: 0 3px 25.5px 4.5px rgba(0, 0, 0, 0.06);
+            color: #000;
+            background-color: #fff;
+            &::after {
+                font-size: 18px;
+            }
+            &:hover {
+                background-color: $primary-color;
+                color: white;
+            }
+        }
+        .swiper-button-next {
+            right: 30px;
+        }
+        .swiper-button-prev {
+            left: 30px;
+        }
+    }
+    &:hover {
+        .swiper-buttons {
+            div {
+                opacity: 1;
+                visibility: visible;
+            }
+            .swiper-button-next {
+                right: 50px;
+            }
+            .swiper-button-prev {
+                left: 50px;
+            }
+        }
+    }
 }
+// Swiper Arrows end
 
-.pt-section {
-    padding-top: 100px;
-}
-
-.pb-section {
-    padding-bottom: 100px;
-}
-
-.mb-product {
-    margin-bottom: 30px;
-}
-
-.h-100 {
-    height: 100% !important;
-}
-
-.text-center {
-    text-align: center !important;
-}
-
-.text-capitalize {
-    text-transform: capitalize !important;
-}
-
+// Price start
 .price {
     font-size: 18px;
     font-family: Poppins, sans-serif;
@@ -664,3 +727,27 @@ body.canvas-opening {
         }
     }
 }
+// Price end
+
+// Section Title start
+.section-title {
+    line-height: 1;
+    margin-bottom: 50px;
+    .title {
+        font-size: 48px;
+        font-family: Poppins, sans-serif;
+        font-weight: 600;
+        display: inline-block;
+        color: #000;
+        margin: 0 0 28px;
+        line-height: 34px;
+    }
+    p {
+        line-height: 30px;
+        font-size: 18px;
+        color: #595959;
+    }
+}
+// Section Title end
+
+//#endregion

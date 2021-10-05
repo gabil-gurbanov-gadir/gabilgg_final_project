@@ -1,13 +1,50 @@
 @media screen and (max-width: 767px) {
-    ////Common
-    //Spaces
+    //#region Common
+    //#region Spaces
     .py-section {
         padding-top: 60px;
         padding-bottom: 60px;
     }
-    ////Pages
-    //Home
+    //#endregion
+
+    //#region Other Styles
+
+    // Swiper Arrows start
+    .swiper {
+        &:hover {
+            .swiper-buttons {
+                .swiper-button-next {
+                    right: 20px;
+                }
+                .swiper-button-prev {
+                    left: 20px;
+                }
+            }
+        }
+    }
+    // Swiper Arrows end
+
+    // Section Title start
+    .section-title {
+        margin-bottom: 40px;
+        .title {
+            font-size: 30px;
+            margin: 0 0 15px;
+        }
+    }
+    // Section Title end
+
+    //#endregion
+
+    //#endregion
+
+    //#region Pages
+
+    //#region Home Page
+
+    // Main Start
     main {
+        // Slider start
         #slider {
             height: 450px;
             .main-slider {
@@ -35,6 +72,9 @@
                 }
             }
         }
+        // Slider end
+
+        // Banner start
         #banner {
             .double-banners {
                 .single-banner {
@@ -44,19 +84,18 @@
                 }
             }
         }
+        // Banner end
+
+        // Product start
         #product {
             .product-tab-content {
                 margin-top: 40px;
             }
         }
+        // Product end
+
+        // Feature start
         #feature_product {
-            .section-title {
-                margin-bottom: 40px;
-                .title {
-                    font-size: 30px;
-                    margin: 0 0 15px;
-                }
-            }
             .single-feature-content {
                 .top-content {
                     top: 30px;
@@ -92,5 +131,28 @@
                 }
             }
         }
+        // Feature end
+
+        // Testimonial start
+        #testimonial {
+            .testimonial-slider {
+                .swiper-slide {
+                    .testi-inner {
+                        .testi-content {
+                            p {
+                                font-size: 18px;
+                                line-height: 32px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Testimonial end
     }
+    // Main End
+
+    //#endregion
+
+    //#endregion
 }

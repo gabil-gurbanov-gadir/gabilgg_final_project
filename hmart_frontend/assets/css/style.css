@@ -4492,6 +4492,28 @@ body.canvas-opening {
   #scrollUp:hover {
     transform: translateY(-1px); }
 
+.py-section {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+
+.pt-section {
+  padding-top: 100px; }
+
+.pb-section {
+  padding-bottom: 100px; }
+
+.mb-product {
+  margin-bottom: 30px; }
+
+.h-100 {
+  height: 100% !important; }
+
+.text-center {
+  text-align: center !important; }
+
+.text-capitalize {
+  text-transform: capitalize !important; }
+
 .btn-primary {
   display: flex;
   justify-content: center;
@@ -4520,27 +4542,40 @@ body.canvas-opening {
     color: #fff;
     box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5); }
 
-.py-section {
-  padding-top: 100px;
-  padding-bottom: 100px; }
+.swiper .swiper-buttons div {
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 0 3px 25.5px 4.5px rgba(0, 0, 0, 0.06);
+  color: #000;
+  background-color: #fff; }
+  .swiper .swiper-buttons div::after {
+    font-size: 18px; }
+  .swiper .swiper-buttons div:hover {
+    background-color: #266bf9;
+    color: white; }
 
-.pt-section {
-  padding-top: 100px; }
+.swiper .swiper-buttons .swiper-button-next {
+  right: 30px; }
 
-.pb-section {
-  padding-bottom: 100px; }
+.swiper .swiper-buttons .swiper-button-prev {
+  left: 30px; }
 
-.mb-product {
-  margin-bottom: 30px; }
+.swiper:hover .swiper-buttons div {
+  opacity: 1;
+  visibility: visible; }
 
-.h-100 {
-  height: 100% !important; }
+.swiper:hover .swiper-buttons .swiper-button-next {
+  right: 50px; }
 
-.text-center {
-  text-align: center !important; }
-
-.text-capitalize {
-  text-transform: capitalize !important; }
+.swiper:hover .swiper-buttons .swiper-button-prev {
+  left: 50px; }
 
 .price {
   font-size: 18px;
@@ -4566,6 +4601,22 @@ body.canvas-opening {
   .price span.new {
     font-weight: 500; }
 
+.section-title {
+  line-height: 1;
+  margin-bottom: 50px; }
+  .section-title .title {
+    font-size: 48px;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    color: #000;
+    margin: 0 0 28px;
+    line-height: 34px; }
+  .section-title p {
+    line-height: 30px;
+    font-size: 18px;
+    color: #595959; }
+
 main #slider {
   height: 700px; }
   main #slider .main-slider {
@@ -4573,13 +4624,6 @@ main #slider {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover; }
-    main #slider .main-slider:hover .swiper-buttons div {
-      opacity: 1;
-      visibility: visible; }
-    main #slider .main-slider:hover .swiper-buttons .swiper-button-next {
-      right: 50px; }
-    main #slider .main-slider:hover .swiper-buttons .swiper-button-prev {
-      left: 50px; }
     main #slider .main-slider .swiper-wrapper {
       box-sizing: border-box; }
     main #slider .main-slider .slide-animate.swiper-slide-active * {
@@ -4622,28 +4666,6 @@ main #slider {
   main #slider .swiper {
     width: 100%;
     height: 100%; }
-    main #slider .swiper .swiper-buttons div {
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      line-height: 50px;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s;
-      margin: auto;
-      border-radius: 50%;
-      box-shadow: 0 3px 25.5px 4.5px rgba(0, 0, 0, 0.06);
-      color: #000;
-      background-color: #fff; }
-      main #slider .swiper .swiper-buttons div::after {
-        font-size: 18px; }
-      main #slider .swiper .swiper-buttons div:hover {
-        background-color: #266bf9;
-        color: white; }
-    main #slider .swiper .swiper-buttons .swiper-button-next {
-      right: 30px; }
-    main #slider .swiper .swiper-buttons .swiper-button-prev {
-      left: 30px; }
 
 main #banner .single-banner {
   position: relative;
@@ -4881,22 +4903,6 @@ main #fashion {
       font-weight: 300;
       display: block; }
 
-main #feature_product .section-title {
-  line-height: 1;
-  margin-bottom: 50px; }
-  main #feature_product .section-title .title {
-    font-size: 48px;
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    display: inline-block;
-    color: #000;
-    margin: 0 0 28px;
-    line-height: 34px; }
-  main #feature_product .section-title p {
-    line-height: 30px;
-    font-size: 18px;
-    color: #595959; }
-
 main #feature_product .single-feature-content {
   position: relative;
   border: 2px solid #e2e2e2;
@@ -5106,6 +5112,58 @@ main #feature_product .feature-right-content {
   main #feature_product .feature-right-content.feature-right-mt {
     margin-top: 20px; }
 
+main #testimonial {
+  background-color: #f2f8fd;
+  padding-bottom: 80px; }
+  main #testimonial .testimonial-slider {
+    padding-top: 60px;
+    padding-bottom: 20px; }
+    main #testimonial .testimonial-slider .swiper-slide .testi-inner {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-content {
+        position: relative;
+        padding-left: 30px; }
+        main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-content p {
+          font-size: 20px;
+          color: #000;
+          font-style: italic;
+          line-height: 36px; }
+        main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-content::after {
+          position: absolute;
+          top: -2px;
+          left: 0;
+          width: 62px;
+          height: 44px;
+          content: "";
+          background-image: url(../../assets/uploads/testimonials/quote-shape.png);
+          background-repeat: no-repeat;
+          background-position: left top; }
+      main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-author {
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+        margin-top: 35px; }
+        main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-author .author-image img {
+          max-width: 100%;
+          width: 70px;
+          display: block; }
+        main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-author .author-name .name {
+          color: #266bf9;
+          font-size: 18px;
+          line-height: 1;
+          margin: 0;
+          font-weight: 600;
+          padding-left: 30px; }
+          main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-author .author-name .name span {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            color: #444141;
+            margin: 10px 0 0; }
+
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {
     padding-top: 80px;
@@ -5141,12 +5199,19 @@ main #feature_product .feature-right-content {
     main #feature_product .feature-right-content .content-side .product-feature {
       margin-top: 20px; }
       main #feature_product .feature-right-content .content-side .product-feature ul li {
-        font-size: 14px; } }
+        font-size: 14px; }
+  main #testimonial {
+    padding-bottom: 60px; }
+    main #testimonial .testimonial-slider .swiper-slide .testi-inner {
+      height: 325px; } }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .py-section {
     padding-top: 60px;
     padding-bottom: 60px; }
+  .section-title .title {
+    font-size: 36px;
+    margin: 0 0 20px; }
   main #banner .single-banner .banner-content {
     top: 20px;
     left: 30px; }
@@ -5166,9 +5231,8 @@ main #feature_product .feature-right-content {
     bottom: 25px; }
     main #banner .single-banner.first-banner .banner-content a {
       bottom: 0; }
-  main #feature_product .section-title .title {
-    font-size: 36px;
-    margin: 0 0 20px; } }
+  main #testimonial .testimonial-slider .swiper-slide .testi-inner {
+    height: 360px; } }
 
 @media screen and (max-width: 1200px) {
   header #header-top .top-nav ul li:not(:last-child) {
@@ -5178,6 +5242,9 @@ main #feature_product .feature-right-content {
 @media screen and (max-width: 992px) {
   .pb-section {
     padding-bottom: 60px; }
+  .section-title p {
+    font-size: 16px;
+    line-height: 26px; }
   header #header-top .welcome-text {
     justify-content: center; }
   main #slider {
@@ -5210,18 +5277,26 @@ main #feature_product .feature-right-content {
         font-size: 36px; }
   main #feature_product .mb-feature {
     margin-bottom: 35px; }
-  main #feature_product .section-title p {
-    font-size: 16px;
-    line-height: 26px; }
   main #feature_product .single-feature-content {
     flex-direction: column; }
     main #feature_product .single-feature-content .feature-image img {
-      width: 100%; } }
+      width: 100%; }
+  main #testimonial {
+    padding-bottom: 40px; } }
 
 @media screen and (max-width: 767px) {
   .py-section {
     padding-top: 60px;
     padding-bottom: 60px; }
+  .swiper:hover .swiper-buttons .swiper-button-next {
+    right: 20px; }
+  .swiper:hover .swiper-buttons .swiper-button-prev {
+    left: 20px; }
+  .section-title {
+    margin-bottom: 40px; }
+    .section-title .title {
+      font-size: 30px;
+      margin: 0 0 15px; }
   main #slider {
     height: 450px; }
     main #slider .main-slider .slide-animate .slider-content {
@@ -5241,11 +5316,6 @@ main #feature_product .feature-right-content {
     margin-top: 30px; }
   main #product .product-tab-content {
     margin-top: 40px; }
-  main #feature_product .section-title {
-    margin-bottom: 40px; }
-    main #feature_product .section-title .title {
-      font-size: 30px;
-      margin: 0 0 15px; }
   main #feature_product .single-feature-content .top-content {
     top: 30px; }
     main #feature_product .single-feature-content .top-content .title {
@@ -5264,7 +5334,10 @@ main #feature_product .feature-right-content {
   main #feature_product .feature-right-content .content-side {
     width: calc(100% - 230px);
     padding-top: 10px;
-    padding-bottom: 10px; } }
+    padding-bottom: 10px; }
+  main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-content p {
+    font-size: 18px;
+    line-height: 32px; } }
 
 @media screen and (max-width: 575px) {
   .btn-primary {
@@ -5272,6 +5345,16 @@ main #feature_product .feature-right-content {
     width: 180px;
     height: 50px;
     font-size: 16px; }
+  .swiper:hover .swiper-buttons div {
+    width: 35px;
+    height: 35px;
+    line-height: 35px; }
+    .swiper:hover .swiper-buttons div::after {
+      font-size: 10px; }
+  .swiper:hover .swiper-buttons .swiper-button-next {
+    right: 10px; }
+  .swiper:hover .swiper-buttons .swiper-button-prev {
+    left: 10px; }
   main #banner .single-banner .banner-content {
     top: 20px;
     left: 30px; }
@@ -5323,6 +5406,8 @@ main #feature_product .feature-right-content {
     width: 300px; }
   .list-wrapper {
     width: 300px; }
+  .section-title {
+    margin-bottom: 30px; }
   main #slider .main-slider .slider-content {
     height: 400px; }
     main #slider .main-slider .slider-content span {
@@ -5344,8 +5429,6 @@ main #feature_product .feature-right-content {
       font-size: 16px; }
   main #fashion .title {
     font-size: 28px; }
-  main #feature_product .section-title {
-    margin-bottom: 30px; }
   main #feature_product .single-feature-content .top-content .title {
     font-size: 20px; }
   main #feature_product .single-feature-content .top-content .price {

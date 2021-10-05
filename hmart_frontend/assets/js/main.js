@@ -1,8 +1,11 @@
+//#region Loading
 $(window).on("load", function () {
   $("#loading").hide();
 });
+//#endregion
 
 $(document).ready(function () {
+  //#region Sticky fixed
   if ($(window).scrollTop() >= 250) {
     if ($(window).width() < 993) {
       $("#sticky-header-bottom").addClass("fixed animate__fadeInDown");
@@ -26,7 +29,11 @@ $(document).ready(function () {
       $("#header-nav-menu").removeClass("fixed animate__fadeInDown");
     }
   });
+  //#endregion
 
+  //#region Canvas
+
+  //#region Wishlist
   $(document).on("click", "#wishlist-button", function (e) {
     e.preventDefault();
     $("body").addClass("canvas-opening");
@@ -44,7 +51,9 @@ $(document).ready(function () {
       $("#wishlist .list-wrapper").removeClass("canvas-opening");
     }
   );
+  //#endregion
 
+  //#region CartList
   $(document).on("click", "#cartlist-button", function (e) {
     e.preventDefault();
     $("body").addClass("canvas-opening");
@@ -58,7 +67,9 @@ $(document).ready(function () {
     $("#shadow-layout").addClass("d-none");
     $("#cart .list-wrapper").removeClass("canvas-opening");
   });
+  //#endregion
 
+  //#region Mobile-menu
   $(document).on("click", "#menu-button", function (e) {
     e.preventDefault();
     $("body").addClass("canvas-opening");
@@ -78,7 +89,11 @@ $(document).ready(function () {
       $("#mobile-menu .canvas-close").removeClass("move");
     }
   );
+  //#endregion
 
+  //#endregion
+
+  //#region Main Slider
   var swiper = new Swiper(".main-slider", {
     direction: "vertical",
     speed: 2000,
@@ -92,7 +107,9 @@ $(document).ready(function () {
       prevEl: ".swiper-button-prev",
     },
   });
+  //#endregion
 
+  //#region Scroll Up Button
   if ($(window).scrollTop() >= 350) {
     $("#scrollUp").removeClass("d-none");
     setTimeout(() => {
@@ -123,7 +140,9 @@ $(document).ready(function () {
     e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, 1000);
   });
+  //#endregion
 
+  //#region Countdown Time
   $("[data-countdown]").each(function () {
     $(this).countdown($(this).attr("data-countdown"), function (event) {
       $(this).html(
@@ -133,4 +152,26 @@ $(document).ready(function () {
       );
     });
   });
+  //#endregion
+
+  //#region Testimonial Slider
+  var swiper = new Swiper(".testimonial-slider", {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    speed: 1500,
+    loop: !0,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      478: { slidesPerView: 1 },
+      576: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 2 },
+      1200: { slidesPerView: 2 },
+    },
+  });
+  //#endregion
 });

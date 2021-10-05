@@ -1,6 +1,7 @@
 @media screen and (max-width: 480px) {
-    ////Common
-    //Canvas
+    //#region Common
+
+    //#region Canvas
     #mobile-menu {
         .menu {
             width: 300px;
@@ -9,9 +10,27 @@
     .list-wrapper {
         width: 300px;
     }
-    ////Pages
-    //Home
+    //#endregion
+
+    //#region Other Styles
+
+    // Section Title start
+    .section-title {
+        margin-bottom: 30px;
+    }
+    // Section Title end
+
+    //#endregion
+
+    //#endregion
+
+    //#region Pages
+
+    //#region Home Page
+
+    // Main Start
     main {
+        // Slider start
         #slider {
             .main-slider {
                 .slider-content {
@@ -35,6 +54,9 @@
                 }
             }
         }
+        // Slider end
+
+        // Product start
         #product {
             .product-tab-nav {
                 .product-tab-nav-list {
@@ -60,15 +82,18 @@
                 }
             }
         }
+        // Product end
+
+        // Fashion start
         #fashion {
             .title {
                 font-size: 28px;
             }
         }
+        // Fashion end
+
+        // Feature start
         #feature_product {
-            .section-title {
-                margin-bottom: 30px;
-            }
             .single-feature-content {
                 .top-content {
                     .title {
@@ -107,5 +132,11 @@
                 }
             }
         }
+        // Feature end
     }
+    // Main End
+
+    //#endregion
+
+    //#endregion
 }

@@ -1,10 +1,28 @@
 @media screen and (max-width: 992px) {
-    ////Common
-    //Spaces
+    //#region Common
+
+    //#region Spaces
     .pb-section {
         padding-bottom: 60px;
     }
-    //Header
+    //#endregion
+
+    //#region Other Styles
+
+    // Section Title start
+    .section-title {
+        p {
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+    // Section Title end
+
+    //#endregion
+
+    //#endregion
+
+    // Header Start
     header {
         #header-top {
             .welcome-text {
@@ -12,9 +30,15 @@
             }
         }
     }
-    ////Pages
-    //Home
+    // Header Start
+
+    //#region Pages
+
+    //#region Home Page
+
+    // Main Start
     main {
+        // Slider start
         #slider {
             height: 500px;
             .main-slider {
@@ -43,6 +67,9 @@
                 }
             }
         }
+        // Slider end
+
+        // Product start
         #product {
             .product-tab-nav {
                 .product-tab-nav-list {
@@ -56,6 +83,9 @@
                 }
             }
         }
+        // Product end
+
+        // Fashion start
         #fashion {
             height: 356px;
             .title {
@@ -67,15 +97,12 @@
                 }
             }
         }
+        // Fashion end
+
+        // Feature start
         #feature_product {
             .mb-feature {
                 margin-bottom: 35px;
-            }
-            .section-title {
-                p {
-                    font-size: 16px;
-                    line-height: 26px;
-                }
             }
             .single-feature-content {
                 flex-direction: column;
@@ -86,5 +113,17 @@
                 }
             }
         }
+        // Feature end
+
+        // Testimonial start
+        #testimonial {
+            padding-bottom: 40px;
+        }
+        // Testimonial end
     }
+    // Main End
+
+    //#endregion
+
+    //#endregion
 }
