@@ -58,6 +58,16 @@
     }
     // Footer end
 
+    // Main start
+    main {
+        #main-header {
+            .header-title {
+                font-size: 36px;
+            }
+        }
+    }
+    // Main end
+
     //#endregion
 
     //#region Pages
@@ -213,6 +223,53 @@
         // Blog end
     }
     // Main End
+
+    //#endregion
+
+    //#region About Page
+
+    // Main start
+    main {
+        // About start
+        #about {
+            max-height: 550px;
+            .about-wrapper {
+                .about-contant {
+                    .title {
+                        font-size: 32px;
+                    }
+                }
+                .promo-video {
+                    margin-top: 60px;
+                    .overlay-box {
+                        width: 60px;
+                        height: 60px;
+                        span {
+                            width: 60px;
+                            height: 60px;
+                            font-size: 24px;
+                            .animate {
+                                width: 60px;
+                                height: 60px;
+                                &::after,
+                                &::before {
+                                    width: 60px;
+                                    height: 60px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // About end
+        // Teams start
+        #teams {
+            margin-top: 190px;
+        }
+        // Teams end
+    }
+    // Main end
 
     //#endregion
 

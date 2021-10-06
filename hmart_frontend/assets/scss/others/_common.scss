@@ -55,7 +55,7 @@
 }
 //#endregion
 
-//#region Header
+// Header Start
 header {
     background-color: #252525;
     #header-top {
@@ -280,7 +280,7 @@ header {
         }
     }
 }
-//#endregion
+// Header End
 
 //#region Canvas
 body.canvas-opening {
@@ -612,6 +612,14 @@ body.canvas-opening {
 }
 //#endregion
 
+//#region Image Style
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+//#endregion
+
 //#region Other Styles
 
 // Pimary Button start
@@ -752,7 +760,7 @@ body.canvas-opening {
 
 //#endregion
 
-//#region Footer
+// Footer Start
 footer {
     color: #3a3a3a;
     background: #f2f8fd;
@@ -846,4 +854,54 @@ footer {
         }
     }
 }
-//#endregion
+// Footer End
+
+// Main Start
+main {
+    #main-header {
+        background-image: url(../../assets/uploads/commons/main-header-bg.png);
+        background-color: #cad5e1;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-bottom-width: 0;
+        height: 406px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        line-height: 1;
+        .header-title {
+            font-weight: 400;
+            text-transform: capitalize;
+            font-size: 60px;
+            color: #000;
+            margin: 0;
+        }
+        .page-list {
+            .page-item {
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 400;
+                text-transform: uppercase;
+                margin-top: 14px;
+                &.active {
+                    color: $primary-color;
+                }
+                a {
+                    color: #000;
+                }
+                & + .page-item {
+                    padding-left: 5px;
+                }
+                &:last-child::before {
+                    display: inline-block;
+                    padding-right: 10px;
+                    color: #266bf9;
+                    content: "//";
+                }
+            }
+        }
+    }
+}
+// Main End

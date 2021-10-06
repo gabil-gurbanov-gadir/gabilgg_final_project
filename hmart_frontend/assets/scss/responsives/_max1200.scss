@@ -1,7 +1,7 @@
 @media screen and (max-width: 1200px) {
     //#region Comman
 
-    // Header Start
+    // Header start
     header {
         #header-top {
             .top-nav {
@@ -16,7 +16,7 @@
             }
         }
     }
-    // Header End
+    // Header end
 
     // Footer start
     footer {
@@ -28,6 +28,14 @@
         }
     }
     // Footer end
+
+    // Main start
+    main {
+        #main-header {
+            height: 300px;
+        }
+    }
+    // Main end
 
     //#endregion
 }

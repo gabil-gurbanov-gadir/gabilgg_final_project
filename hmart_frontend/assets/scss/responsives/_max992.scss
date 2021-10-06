@@ -2,8 +2,15 @@
     //#region Common
 
     //#region Spaces
+
+    .pt-section {
+        padding-top: 60px;
+    }
     .pb-section {
         padding-bottom: 60px;
+    }
+    .mb-col {
+        margin-bottom: 30px;
     }
     //#endregion
 
@@ -39,6 +46,21 @@
         }
     }
     // Footer end
+
+    // Main start
+    main {
+        #main-header {
+            .header-title {
+                font-size: 42px;
+            }
+            .page-list {
+                .page-item {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    // Main end
 
     //#endregion
 
@@ -148,6 +170,34 @@
         // Blog end
     }
     // Main End
+
+    //#endregion
+
+    //#region About Page
+
+    // Main start
+    main {
+        // About start
+        #about {
+            .about-wrapper {
+                .about-contant {
+                    .title {
+                        font-size: 40px;
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+        // About end
+        // Features start
+        #features {
+            .feature-wrapper {
+                padding: 60px 25px;
+            }
+        }
+        // Features end
+    }
+    // Main end
 
     //#endregion
 

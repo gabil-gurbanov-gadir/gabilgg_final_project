@@ -99,13 +99,14 @@ $(document).ready(function () {
     speed: 2000,
     autoplay: {
       delay: 7000,
-      disableOnInteraction: false,
+      disableOnInteraction: !1,
     },
-    loop: true,
+    loop: !0,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    simulateTouch: !1,
   });
   // Main Slider end
 
@@ -190,4 +191,5 @@ $(document).ready(function () {
     },
   });
   // Partners end
+  $(".venobox").venobox();
 });

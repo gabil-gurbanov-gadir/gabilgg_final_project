@@ -148,5 +148,45 @@
 
     //#endregion
 
+    //#region About Page
+
+    // Main start
+    main {
+        // About start
+        #about {
+            max-height: 630px;
+        }
+        // About end
+        // Teams start
+        #teams {
+            margin-top: 150px;
+        }
+        // Teams end
+        // Features start
+        #features {
+            .feature-wrapper {
+                padding: 50px 15px;
+                .single-feature {
+                    .feature-icon {
+                        margin-right: 20px;
+                    }
+                }
+                .feature-content {
+                    width: calc(100% - 90px);
+                    .title {
+                        font-size: 20px;
+                    }
+                    .sub-title {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        // Features end
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }

@@ -32,6 +32,10 @@
 
     //#endregion
 
+    //#region Pages
+
+    //#region Home Page
+
     // Main Start
     main {
         // Banner start
@@ -89,4 +93,46 @@
         // Partners end
     }
     // Main End
+
+    //#endregion
+
+    //#region About Page
+
+    // Main start
+    main {
+        // About start
+        #about {
+            max-height: 520px;
+            .about-wrapper {
+                .promo-video {
+                    margin-top: 70px;
+                }
+            }
+        }
+        // About end
+        // Teams start
+        #teams {
+            margin-top: 235px;
+        }
+        // Teams end
+        // Features start
+        #features {
+            .feature-wrapper {
+                .feature-content {
+                    .title {
+                        font-size: 20px;
+                    }
+                    .sub-title {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        // Features end
+    }
+    // Main end
+
+    //#endregion
+
+    //#endregion
 }

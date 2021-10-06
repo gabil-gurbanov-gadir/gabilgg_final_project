@@ -6,6 +6,9 @@
         padding-top: 80px;
         padding-bottom: 80px;
     }
+    .pt-section {
+        padding-top: 80px;
+    }
     .pb-section {
         padding-bottom: 80px;
     }
@@ -34,6 +37,10 @@
     // Footer end
 
     //#endregion
+
+    //#region Pages
+
+    //#region Home Page
 
     // Main Start
     main {
@@ -155,4 +162,53 @@
         // Blog end
     }
     // Main End
+
+    //#endregion
+
+    //#region About Page
+
+    // Main start
+    main {
+        // About start
+        #about {
+            max-height: 584px;
+            .about-wrapper {
+                .promo-video {
+                    margin-top: 90px;
+                }
+            }
+        }
+        // About end
+        // Teams start
+        #teams {
+            margin-top: 329px;
+        }
+        // Teams end
+        // Features start
+        #features {
+            .feature-wrapper {
+                padding: 80px 25px;
+                .single-feature {
+                    .feature-icon {
+                        margin-right: 20px;
+                    }
+                }
+                .feature-content {
+                    width: calc(100% - 90px);
+                    .title {
+                        font-size: 20px;
+                    }
+                    .sub-title {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        // Features end
+    }
+    // Main end
+
+    //#endregion
+
+    //#endregion
 }

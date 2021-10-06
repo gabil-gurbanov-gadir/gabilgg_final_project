@@ -3996,9 +3996,6 @@
   box-sizing: border-box;
   font-family: "Poppins"; }
 
-body {
-  height: 1700px; }
-
 ol,
 ul,
 li {
@@ -4514,6 +4511,9 @@ body.canvas-opening {
 .text-capitalize {
   text-transform: capitalize !important; }
 
+.overflow-hidden {
+  overflow: hidden !important; }
+
 .btn-primary {
   display: flex;
   justify-content: center;
@@ -4681,6 +4681,43 @@ footer {
         font-weight: 300; }
         footer .footer-bottom .copy-text .company-name strong {
           font-weight: 600; }
+
+main #main-header {
+  background-image: url(../../assets/uploads/commons/main-header-bg.png);
+  background-color: #cad5e1;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-bottom-width: 0;
+  height: 406px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  line-height: 1; }
+  main #main-header .header-title {
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 60px;
+    color: #000;
+    margin: 0; }
+  main #main-header .page-list .page-item {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 14px; }
+    main #main-header .page-list .page-item.active {
+      color: #266bf9; }
+    main #main-header .page-list .page-item a {
+      color: #000; }
+    main #main-header .page-list .page-item + .page-item {
+      padding-left: 5px; }
+    main #main-header .page-list .page-item:last-child::before {
+      display: inline-block;
+      padding-right: 10px;
+      color: #266bf9;
+      content: "//"; }
 
 main #slider {
   height: 700px; }
@@ -5311,10 +5348,156 @@ main #blog .single-blog {
     transform: scale(1.1) rotate(3deg);
     transition: all 0.3s ease 0s; }
 
+main #about {
+  background-color: #f4f4f4;
+  max-height: 685px; }
+  main #about .about-wrapper .about-contant {
+    max-width: 890px;
+    margin: auto; }
+    main #about .about-wrapper .about-contant .title {
+      font-size: 60px;
+      font-weight: 700;
+      color: #444141;
+      line-height: 40px;
+      margin-bottom: 50px; }
+      main #about .about-wrapper .about-contant .title span {
+        font-size: 48px;
+        font-weight: 300;
+        display: block;
+        margin-bottom: 30px; }
+  main #about .about-wrapper .promo-video {
+    position: relative;
+    margin-top: 110px; }
+    main #about .about-wrapper .promo-video img {
+      max-width: 100%;
+      border-radius: 25px; }
+    main #about .about-wrapper .promo-video .overlay-box {
+      width: 80px;
+      height: 80px;
+      transition: all 0.3s ease;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
+      main #about .about-wrapper .promo-video .overlay-box span {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        left: 50%;
+        top: 50%;
+        z-index: 10;
+        color: #fff;
+        font-weight: 400;
+        font-size: 36px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.9s ease;
+        background-color: #266bf9; }
+        main #about .about-wrapper .promo-video .overlay-box span .animate {
+          background-color: transparent;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          box-shadow: 0 0 0 0 white;
+          animation: ripple 3s infinite; }
+          main #about .about-wrapper .promo-video .overlay-box span .animate::before, main #about .about-wrapper .promo-video .overlay-box span .animate::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 white;
+            animation: ripple 3s infinite;
+            content: ""; }
+          main #about .about-wrapper .promo-video .overlay-box span .animate::after {
+            animation-delay: 0.6s; }
+          main #about .about-wrapper .promo-video .overlay-box span .animate::before {
+            animation-delay: 0.9s; }
+
+main #teams {
+  margin-top: 385px; }
+  main #teams .team-wrapper .team-image img {
+    max-width: 100%;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+    transform: scale(1.01) rotate(0); }
+  main #teams .team-wrapper:hover .team-image img {
+    transform: scale(1.1) rotate(3deg); }
+  main #teams .team-wrapper .team-content {
+    margin-top: 30px;
+    transition: all 0.3s ease 0s;
+    background-color: #fff;
+    position: relative;
+    text-align: center;
+    line-height: 1; }
+    main #teams .team-wrapper .team-content .title {
+      font-size: 24px;
+      color: #000;
+      font-weight: 500;
+      transition: all 0.3s ease 0s; }
+    main #teams .team-wrapper .team-content .sub-title {
+      font-size: 16px;
+      font-weight: 400;
+      color: #000;
+      text-transform: uppercase;
+      margin: 9px 0 0;
+      display: block;
+      transition: all 0.3s ease 0s; }
+
+main #features .feature-wrapper {
+  position: relative;
+  border: 2px solid #e1e1e1;
+  padding: 100px 55px;
+  border-radius: 20px; }
+  main #features .feature-wrapper .single-feature {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff; }
+    main #features .feature-wrapper .single-feature .feature-icon {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      margin-right: 30px;
+      background-color: #266bf9; }
+      main #features .feature-wrapper .single-feature .feature-icon img {
+        transition: all 0.3s ease 0s; }
+    main #features .feature-wrapper .single-feature:hover .feature-icon img {
+      transform: scale(0.9) rotate(3deg); }
+    main #features .feature-wrapper .single-feature .feature-content {
+      width: calc(100% - 100px); }
+      main #features .feature-wrapper .single-feature .feature-content .title {
+        font-size: 24px;
+        color: #000;
+        font-weight: 600;
+        margin: 0 0 3px; }
+      main #features .feature-wrapper .single-feature .feature-content .sub-title {
+        font-size: 16px;
+        color: #000;
+        font-weight: 400; }
+
+@keyframes ripple {
+  70% {
+    -webkit-box-shadow: 0 0 0 70px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 70px rgba(255, 255, 255, 0); }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
+
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {
     padding-top: 80px;
     padding-bottom: 80px; }
+  .pt-section {
+    padding-top: 80px; }
   .pb-section {
     padding-bottom: 80px; }
   footer .footer-top {
@@ -5376,7 +5559,23 @@ main #blog .single-blog {
   main #blog .single-blog .blog-content a.blog-btn {
     font-size: 16px;
     width: 150px;
-    height: 50px; } }
+    height: 50px; }
+  main #about {
+    max-height: 584px; }
+    main #about .about-wrapper .promo-video {
+      margin-top: 90px; }
+  main #teams {
+    margin-top: 329px; }
+  main #features .feature-wrapper {
+    padding: 80px 25px; }
+    main #features .feature-wrapper .single-feature .feature-icon {
+      margin-right: 20px; }
+    main #features .feature-wrapper .feature-content {
+      width: calc(100% - 90px); }
+      main #features .feature-wrapper .feature-content .title {
+        font-size: 20px; }
+      main #features .feature-wrapper .feature-content .sub-title {
+        font-size: 14px; } }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .py-section {
@@ -5409,7 +5608,17 @@ main #blog .single-blog {
   main #testimonial .testimonial-slider .swiper-slide .testi-inner {
     height: 360px; }
   main #partners .partners-slider {
-    padding: 60px 0; } }
+    padding: 60px 0; }
+  main #about {
+    max-height: 520px; }
+    main #about .about-wrapper .promo-video {
+      margin-top: 70px; }
+  main #teams {
+    margin-top: 235px; }
+  main #features .feature-wrapper .feature-content .title {
+    font-size: 20px; }
+  main #features .feature-wrapper .feature-content .sub-title {
+    font-size: 14px; } }
 
 @media screen and (max-width: 1200px) {
   header #header-top .top-nav ul li:not(:last-child) {
@@ -5417,11 +5626,17 @@ main #blog .single-blog {
     padding-right: 12px; }
   footer .footer-bottom .copy-text {
     font-size: 14px;
-    line-height: 24px; } }
+    line-height: 24px; }
+  main #main-header {
+    height: 300px; } }
 
 @media screen and (max-width: 992px) {
+  .pt-section {
+    padding-top: 60px; }
   .pb-section {
     padding-bottom: 60px; }
+  .mb-col {
+    margin-bottom: 30px; }
   .section-title p {
     font-size: 16px;
     line-height: 26px; }
@@ -5429,6 +5644,10 @@ main #blog .single-blog {
     justify-content: center; }
   footer .footer-top .service-wedge {
     padding-left: 0; }
+  main #main-header .header-title {
+    font-size: 42px; }
+  main #main-header .page-list .page-item {
+    font-size: 16px; }
   main #slider {
     height: 500px; }
     main #slider .main-slider .slide-animate .slider-content {
@@ -5472,12 +5691,19 @@ main #blog .single-blog {
     main #blog .single-blog .blog-content {
       width: 100%;
       margin-left: 0;
-      margin-top: 30px; } }
+      margin-top: 30px; }
+  main #about .about-wrapper .about-contant .title {
+    font-size: 40px;
+    margin-bottom: 30px; }
+  main #features .feature-wrapper {
+    padding: 60px 25px; } }
 
 @media screen and (max-width: 767px) {
   .py-section {
     padding-top: 60px;
     padding-bottom: 60px; }
+  .mb-col {
+    margin-bottom: 30px; }
   .swiper:hover .swiper-buttons .swiper-button-next {
     right: 20px; }
   .swiper:hover .swiper-buttons .swiper-button-prev {
@@ -5497,6 +5723,8 @@ main #blog .single-blog {
       margin-bottom: 30px; }
   footer .footer-bottom .copy-text {
     text-align: center; }
+  main #main-header .header-title {
+    font-size: 36px; }
   main #slider {
     height: 450px; }
     main #slider .main-slider .slide-animate .slider-content {
@@ -5555,7 +5783,28 @@ main #blog .single-blog {
   main #blog .single-blog .blog-content a.blog-btn {
     font-size: 16px;
     width: 150px;
-    height: 50px; } }
+    height: 50px; }
+  main #about {
+    max-height: 550px; }
+    main #about .about-wrapper .about-contant .title {
+      font-size: 32px; }
+    main #about .about-wrapper .promo-video {
+      margin-top: 60px; }
+      main #about .about-wrapper .promo-video .overlay-box {
+        width: 60px;
+        height: 60px; }
+        main #about .about-wrapper .promo-video .overlay-box span {
+          width: 60px;
+          height: 60px;
+          font-size: 24px; }
+          main #about .about-wrapper .promo-video .overlay-box span .animate {
+            width: 60px;
+            height: 60px; }
+            main #about .about-wrapper .promo-video .overlay-box span .animate::after, main #about .about-wrapper .promo-video .overlay-box span .animate::before {
+              width: 60px;
+              height: 60px; }
+  main #teams {
+    margin-top: 190px; } }
 
 @media screen and (max-width: 575px) {
   .btn-primary {
@@ -5573,6 +5822,8 @@ main #blog .single-blog {
     right: 10px; }
   .swiper:hover .swiper-buttons .swiper-button-prev {
     left: 10px; }
+  main #main-header {
+    height: 260px; }
   main #banner .single-banner .banner-content {
     top: 20px;
     left: 30px; }
@@ -5669,4 +5920,18 @@ main #blog .single-blog {
         display: none; }
     main #feature_product .feature-right-content .content-side {
       width: 100%;
-      padding-right: 30px; } }
+      padding-right: 30px; }
+  main #about {
+    max-height: 630px; }
+  main #teams {
+    margin-top: 150px; }
+  main #features .feature-wrapper {
+    padding: 50px 15px; }
+    main #features .feature-wrapper .single-feature .feature-icon {
+      margin-right: 20px; }
+    main #features .feature-wrapper .feature-content {
+      width: calc(100% - 90px); }
+      main #features .feature-wrapper .feature-content .title {
+        font-size: 20px; }
+      main #features .feature-wrapper .feature-content .sub-title {
+        font-size: 14px; } }
