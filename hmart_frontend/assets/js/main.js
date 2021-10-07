@@ -191,5 +191,37 @@ $(document).ready(function () {
     },
   });
   // Partners end
-  $(".venobox").venobox();
+
+  // Modals start
+
+  $(document).on("click", ".add-to-cart", function (e) {
+    e.preventDefault();
+    $("body").addClass("canvas-opening");
+    $("#shadow-layout").removeClass("d-none");
+    $("#cart-modal").addClass("fade");
+    setTimeout(() => {
+      $("#shadow-layout").addClass("show");
+      $("#cart-modal").addClass("show");
+    }, 300);
+  });
+
+  $(document).on();
+
+  $(document).on(
+    "click",
+    "#cart-modal .btn-close, #shadow-layout",
+    function (e) {
+      e.preventDefault();
+
+      $("#shadow-layout").removeClass("show");
+      $("#cart-modal").removeClass("show");
+      setTimeout(() => {
+        $("#shadow-layout").addClass("d-none");
+        $("#cart-modal").removeClass("fade");
+        $("body").removeClass("canvas-opening");
+      }, 600);
+    }
+  );
+
+  // Modals end
 });
