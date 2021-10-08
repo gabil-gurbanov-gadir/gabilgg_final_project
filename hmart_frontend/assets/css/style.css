@@ -4608,71 +4608,6 @@ body.canvas-opening {
     font-size: 18px;
     color: #595959; }
 
-footer {
-  color: #3a3a3a;
-  background: #f2f8fd; }
-  footer .footer-top {
-    padding: 100px 0 100px 0; }
-    footer .footer-top .title {
-      font-size: 24px;
-      text-transform: capitalize;
-      font-weight: 500;
-      margin-bottom: 20px;
-      position: relative;
-      color: #323232; }
-    footer .footer-top ul li {
-      display: block;
-      margin: 0;
-      line-height: 1;
-      border: 0;
-      font-weight: 400;
-      margin-bottom: 5px; }
-      footer .footer-top ul li a {
-        font-size: 16px;
-        line-height: 26px;
-        padding: 0;
-        display: inline-block;
-        color: #000;
-        margin-bottom: 0;
-        display: inline-block;
-        position: relative;
-        transition: all 0.3s linear; }
-        footer .footer-top ul li a:hover {
-          color: #266bf9; }
-    footer .footer-top .wedge .footer-logo {
-      margin: 0 0 20px; }
-    footer .footer-top .wedge .about-text {
-      font-size: 16px;
-      max-width: 270px;
-      line-height: 32px;
-      color: #3a3a3a;
-      font-weight: 400; }
-    footer .footer-top .service-wedge {
-      padding-left: 60px; }
-      footer .footer-top .service-wedge .services-list li a {
-        text-transform: capitalize; }
-        footer .footer-top .service-wedge .services-list li a:hover {
-          padding-left: 8px; }
-    footer .footer-top .contact-info .info-list li {
-      line-height: 26px; }
-  footer .footer-bottom {
-    background: #e2f2ff none repeat scroll 0 0;
-    padding: 25px 0 20px 0; }
-    footer .footer-bottom .copy-text {
-      color: #4d4d4d;
-      font-size: 16px;
-      line-height: 26px;
-      font-weight: 400; }
-      footer .footer-bottom .copy-text i {
-        color: #266bf9;
-        margin: 0 3px;
-        font-size: 16px; }
-      footer .footer-bottom .copy-text .company-name {
-        color: #4d4d4d;
-        font-weight: 300; }
-        footer .footer-bottom .copy-text .company-name strong {
-          font-weight: 600; }
-
 .modal {
   position: fixed;
   top: 0;
@@ -4696,7 +4631,7 @@ footer {
       .modal.fade.show .modal-wrapper {
         transform: none; }
   .modal .modal-wrapper {
-    width: 500px;
+    max-width: 500px;
     min-height: 100%;
     padding: 35px;
     margin: 0 auto;
@@ -4767,6 +4702,71 @@ footer {
         cursor: pointer; }
         .modal .modal-wrapper .modal-content .btn-close:focus {
           box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+
+footer {
+  color: #3a3a3a;
+  background: #f2f8fd; }
+  footer .footer-top {
+    padding: 100px 0 100px 0; }
+    footer .footer-top .title {
+      font-size: 24px;
+      text-transform: capitalize;
+      font-weight: 500;
+      margin-bottom: 20px;
+      position: relative;
+      color: #323232; }
+    footer .footer-top ul li {
+      display: block;
+      margin: 0;
+      line-height: 1;
+      border: 0;
+      font-weight: 400;
+      margin-bottom: 5px; }
+      footer .footer-top ul li a {
+        font-size: 16px;
+        line-height: 26px;
+        padding: 0;
+        display: inline-block;
+        color: #000;
+        margin-bottom: 0;
+        display: inline-block;
+        position: relative;
+        transition: all 0.3s linear; }
+        footer .footer-top ul li a:hover {
+          color: #266bf9; }
+    footer .footer-top .wedge .footer-logo {
+      margin: 0 0 20px; }
+    footer .footer-top .wedge .about-text {
+      font-size: 16px;
+      max-width: 270px;
+      line-height: 32px;
+      color: #3a3a3a;
+      font-weight: 400; }
+    footer .footer-top .service-wedge {
+      padding-left: 60px; }
+      footer .footer-top .service-wedge .services-list li a {
+        text-transform: capitalize; }
+        footer .footer-top .service-wedge .services-list li a:hover {
+          padding-left: 8px; }
+    footer .footer-top .contact-info .info-list li {
+      line-height: 26px; }
+  footer .footer-bottom {
+    background: #e2f2ff none repeat scroll 0 0;
+    padding: 25px 0 20px 0; }
+    footer .footer-bottom .copy-text {
+      color: #4d4d4d;
+      font-size: 16px;
+      line-height: 26px;
+      font-weight: 400; }
+      footer .footer-bottom .copy-text i {
+        color: #266bf9;
+        margin: 0 3px;
+        font-size: 16px; }
+      footer .footer-bottom .copy-text .company-name {
+        color: #4d4d4d;
+        font-weight: 300; }
+        footer .footer-bottom .copy-text .company-name strong {
+          font-weight: 600; }
 
 main #main-header {
   background-image: url(../../assets/uploads/commons/main-header-bg.png);
@@ -5797,6 +5797,13 @@ main #features .feature-wrapper {
     .section-title .title {
       font-size: 30px;
       margin: 0 0 15px; }
+  .modal .modal-wrapper {
+    padding: 35px 0; }
+    .modal .modal-wrapper .modal-content .btn-close {
+      width: 30px;
+      height: 30px;
+      right: 0;
+      font-size: 8px; }
   footer .footer-top {
     padding: 50px 0 50px 0; }
     footer .footer-top .wedge {

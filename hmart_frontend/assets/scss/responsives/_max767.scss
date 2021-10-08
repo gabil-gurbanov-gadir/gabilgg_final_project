@@ -36,6 +36,22 @@
 
     //#endregion
 
+    // Modals start
+    .modal {
+        .modal-wrapper {
+            padding: 35px 0;
+            .modal-content {
+                .btn-close {
+                    width: 30px;
+                    height: 30px;
+                    right: 0;
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+    // Modals end
+
     // Footer start
     footer {
         .footer-top {
