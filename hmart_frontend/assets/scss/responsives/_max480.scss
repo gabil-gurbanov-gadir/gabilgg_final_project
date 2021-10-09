@@ -32,6 +32,35 @@
     }
     // Footer end
 
+    // Modals start
+    .modal {
+        &#quickview-modal {
+            .modal-wrapper {
+                .modal-content {
+                    .modal-details-content {
+                        .product-name {
+                            font-size: 26px;
+                        }
+                        .price {
+                            font-size: 26px;
+                        }
+                        .product-action {
+                            .add-to-cart {
+                                padding: 0 10px;
+                                font-size: 12px;
+                                margin-left: 5px;
+                            }
+                            .wishlist {
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Modals end
+
     //#endregion
 
     //#region Pages

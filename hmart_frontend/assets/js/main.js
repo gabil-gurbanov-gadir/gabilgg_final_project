@@ -94,7 +94,7 @@ $(document).ready(function () {
   //#endregion
 
   // Main Slider start
-  var swiper = new Swiper(".main-slider", {
+  var mainSlider = new Swiper(".main-slider", {
     direction: "vertical",
     speed: 2000,
     autoplay: {
@@ -239,6 +239,40 @@ $(document).ready(function () {
       $("#wishlist-modal").addClass("show");
     }, 300);
   });
+
+  $(document).on("click", ".quickview", function (e) {
+    e.preventDefault();
+    $("body").addClass("canvas-opening");
+    $("#shadow-layout").removeClass("d-none");
+    $("#quickview-modal").addClass("fade");
+    setTimeout(() => {
+      $("#shadow-layout").addClass("show");
+      $("#quickview-modal").addClass("show");
+    }, 300);
+  });
+
+  // Modal slider start
+
+  var modalSmallSlider = new Swiper(".modal-view-small-slider", {
+    spaceBetween: 10,
+    slidesPerView: 3,
+    freeMode: !0,
+    watchSlidesVisibility: !0,
+    watchSlidesProgress: !0,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  var modalBigSlider = new Swiper(".modal-view-big-slider", {
+    spaceBetween: 0,
+    loop: !0,
+    slidesPerView: 1,
+    centerMood: !0,
+    thumbs: { swiper: modalSmallSlider },
+  });
+  // Modal slider end
 
   // Modals end
 });

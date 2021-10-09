@@ -30,6 +30,17 @@
     }
     // Footer end
 
+    // Modal start
+    .modal {
+        &#quickview-modal {
+            .modal-wrapper {
+                max-width: 720px;
+                width: 720px;
+            }
+        }
+    }
+    // Modal end
+
     //#endregion
 
     //#region Pages

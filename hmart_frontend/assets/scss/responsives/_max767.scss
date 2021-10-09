@@ -49,6 +49,30 @@
                 }
             }
         }
+        &#quickview-modal {
+            .modal-wrapper {
+                width: 98%;
+                max-width: 100%;
+                padding: 35px 0;
+                .modal-content {
+                    padding: 15px;
+                    .modal-details-content {
+                        .product-name {
+                            font-size: 28px;
+                        }
+                        .price {
+                            font-size: 28px;
+                        }
+                        .product-action {
+                            .add-to-cart {
+                                padding: 0 12px;
+                                letter-spacing: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     // Modals end
 
