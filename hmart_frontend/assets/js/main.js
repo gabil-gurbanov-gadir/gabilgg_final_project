@@ -275,4 +275,37 @@ $(document).ready(function () {
   // Modal slider end
 
   // Modals end
+
+  // Shop range start
+  $("#slider-range").slider({
+    range: true,
+    min: 0,
+    max: 2000,
+    values: [400, 1600],
+    slide: function (event, ui) {
+      $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+    },
+  });
+  $("#amount").val(
+    "$" +
+      $("#slider-range").slider("values", 0) +
+      " - $" +
+      $("#slider-range").slider("values", 1)
+  );
+  // Shop range end
+
+  //Dropdown Sort start
+  $(document).on("click", ".header-action-btn", function (e) {
+    e.preventDefault();
+    $(".dropdown-menu").toggleClass("show");
+  });
+  $(document).on("click", function (e) {
+    e.preventDefault();
+    let target = $(e.target);
+    if (!target.hasClass("header-action-btn")) {
+      $(".dropdown-menu").removeClass("show");
+    }
+    // console.log("doc clik");
+  });
+  //Dropdown Sort end
 });
