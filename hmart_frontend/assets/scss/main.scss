@@ -4,6 +4,7 @@
 @import "../bootstrap-5.1.1/scss/list-group";
 @import "../bootstrap-5.1.1/scss/button-group";
 @import "../bootstrap-5.1.1/scss/buttons";
+@import "../bootstrap-5.1.1/scss/utilities";
 // Variables
 @import "./variables/colors";
 //Others
@@ -20,6 +21,7 @@
 @import "./responsives/min768-max992";
 @import "./responsives/min481-max767";
 @import "./responsives/max1200";
+@import "./responsives/min993";
 @import "./responsives/max992";
 @import "./responsives/max767";
 @import "./responsives/max575";

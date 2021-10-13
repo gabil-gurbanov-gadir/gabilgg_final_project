@@ -1,6 +1,14 @@
 @media screen and (max-width: 480px) {
     //#region Common
 
+    // Col sizes start
+
+    .col-xs-6 {
+        width: 100%;
+    }
+
+    // Col sizes end
+
     // Header start
     header {
         #productsList {

@@ -313,5 +313,36 @@
 
     //#endregion
 
+    //#region Shop Page
+
+    // Main Start
+    main {
+        #shop-products {
+            .shop-top-bar {
+                display: block !important;
+                & > * {
+                    margin-bottom: 20px;
+                }
+                .shop-tab-style {
+                    margin-top: 15px;
+                    margin-bottom: 20px;
+                }
+            }
+            .shop-bottom-products {
+                .pagination {
+                    a {
+                        height: 40px;
+                        width: 40px;
+                        line-height: 40px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    // Main End
+
+    //#endregion
+
     //#endregion
 }
