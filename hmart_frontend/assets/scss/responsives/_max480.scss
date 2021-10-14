@@ -249,5 +249,40 @@
 
     //#endregion
 
+    //#region Single Product Page
+
+    // Main start
+    main {
+        #product-detail {
+            .product-details-content {
+                .price {
+                    font-size: 26px;
+                }
+                .product-action {
+                    .add-to-cart {
+                        padding: 0 10px;
+                        font-size: 15px;
+                        margin-left: 5px;
+                    }
+                    .wishlist {
+                        margin-left: 5px;
+                    }
+                }
+            }
+            .description-review-wrapper {
+                .description-review-topbar {
+                    .tab-btn {
+                        margin-right: 4px;
+                        font-size: 14px;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }

@@ -328,4 +328,69 @@ $(document).ready(function () {
   });
 
   // Shop product list style change end
+
+  // Single Product Sliders start
+  var smallImages = new Swiper(".product-images-slider-thumbs", {
+    spaceBetween: 18,
+    slidesPerView: 3,
+    freeMode: !0,
+    watchSlidesVisibility: !0,
+    watchSlidesProgress: !0,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  var bigImages = new Swiper(".product-images-slider", {
+    spaceBetween: 0,
+    slidesPerView: 1,
+    effect: "fade",
+    fadeEffect: { crossFade: !0 },
+    thumbs: { swiper: smallImages },
+  });
+  // Single Product Sliders end
+
+  // Related products start
+  var swiper = new Swiper(".related-products-slider", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    speed: 1500,
+    loop: !0,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      480: { slidesPerView: 2 },
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 3 },
+      1200: { slidesPerView: 4 },
+    },
+  });
+  // Related products end
+
+  // Count Product start
+  $(document).on("click", ".operator", function (e) {
+    e.preventDefault();
+    let o = $(this);
+    let i = o.parent().find("input").val();
+    if ("+" === o.text()) var n = parseFloat(i) + 1;
+    else if (i > 1) n = parseFloat(i) - 1;
+    else n = 1;
+    o.parent().find("input").val(n);
+  });
+  // Count Product start
+
+  // Product Info Tabs start
+  $(document).on("click", ".description-review-topbar .tab-btn", function (e) {
+    e.preventDefault();
+    $(".description-review-topbar .tab-btn").removeClass("active");
+    $(this).addClass("active");
+    let dataTarget = $(this).attr("data-target");
+    $(".tab-content .tab-pane").removeClass("active");
+    $(dataTarget).addClass("active");
+  });
+  // Product Info Tabs end
 });

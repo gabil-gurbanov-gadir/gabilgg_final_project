@@ -201,5 +201,23 @@
 
     //#endregion
 
+    //#region Single Product Page
+
+    // Main start
+    main {
+        #product-detail {
+            .product-details-content {
+                margin-left: 0;
+                margin-top: 50px;
+            }
+            .description-review-wrapper {
+                margin-left: 0;
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }

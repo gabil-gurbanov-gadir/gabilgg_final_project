@@ -344,5 +344,52 @@
 
     //#endregion
 
+    //#region Single Product Page
+
+    // Main start
+    main {
+        #product-detail {
+            .product-details-content {
+                h2 {
+                    font-size: 28px;
+                }
+                .price {
+                    font-size: 28px;
+                }
+                .product-action {
+                    .add-to-cart {
+                        padding: 0 12px;
+                        letter-spacing: 0;
+                    }
+                }
+            }
+            .description-review-wrapper {
+                .description-review-topbar {
+                    .tab-btn {
+                        margin-right: 10px;
+                    }
+                }
+                .description-review-bottom {
+                    .single-review {
+                        display: block;
+                        .review-img {
+                            margin: 0 0 20px 0;
+                        }
+                        &.child-review {
+                            margin-left: 0;
+                        }
+                    }
+                    .ratting-form-wrapper {
+                        margin-top: 50px;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }

@@ -173,5 +173,23 @@
 
     //#endregion
 
+    //#region Single Product Page
+
+    // Main start
+    main {
+        #product-detail {
+            .description-review-wrapper {
+                .description-review-topbar {
+                    .tab-btn {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }
