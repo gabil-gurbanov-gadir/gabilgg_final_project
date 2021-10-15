@@ -384,9 +384,9 @@ $(document).ready(function () {
   // Count Product start
 
   // Product Info Tabs start
-  $(document).on("click", ".description-review-topbar .tab-btn", function (e) {
+  $(document).on("click", '[data-type="tab"]', function (e) {
     e.preventDefault();
-    $(".description-review-topbar .tab-btn").removeClass("active");
+    $('[data-type="tab"]').removeClass("active");
     $(this).addClass("active");
     let dataTarget = $(this).attr("data-target");
     $(".tab-content .tab-pane").removeClass("active");

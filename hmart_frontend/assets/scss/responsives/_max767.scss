@@ -391,5 +391,21 @@
 
     //#endregion
 
+    //#region Login-Register
+
+    // Main start
+    main {
+        #login-register {
+            .login-register-wrapper {
+                .login-form-container {
+                    padding: 40px 15px;
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }
