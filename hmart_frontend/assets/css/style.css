@@ -4930,6 +4930,115 @@ body.canvas-opening {
             width: 50px;
             height: 50px; }
 
+.page-title {
+  color: #000;
+  text-align: left;
+  font-size: 24px;
+  line-height: 16px;
+  font-style: normal;
+  text-transform: none;
+  margin: 0 0 30px;
+  font-weight: 600; }
+
+.table-responsive {
+  overflow-x: auto; }
+
+.product-table {
+  border: 1px solid #ebebeb;
+  width: 100%;
+  caption-side: bottom;
+  border-collapse: collapse; }
+  .product-table thead > tr {
+    background-color: #ebebeb;
+    border: 1px solid #ebebeb; }
+    .product-table thead > tr > th {
+      border-top: medium none;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 21px 45px 22px;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: middle;
+      white-space: nowrap; }
+  .product-table tbody > tr {
+    border-bottom: 1px solid #ebebeb; }
+    .product-table tbody > tr td {
+      color: #3a3a3a;
+      font-size: 16px;
+      padding: 30px 0;
+      text-align: center; }
+      .product-table tbody > tr td.product-image {
+        width: 150px; }
+        .product-table tbody > tr td.product-image img {
+          max-width: 100%;
+          display: block; }
+      .product-table tbody > tr td.product-name {
+        width: 435px; }
+        .product-table tbody > tr td.product-name a {
+          color: #3a3a3a;
+          font-size: 16px;
+          font-weight: 400; }
+      .product-table tbody > tr td.product-price-cart {
+        width: 435px; }
+      .product-table tbody > tr td.product-quantity {
+        width: 435px; }
+        .product-table tbody > tr td.product-quantity .plus-minus {
+          display: inline-block;
+          height: 40px;
+          padding: 0;
+          position: relative;
+          width: 110px; }
+          .product-table tbody > tr td.product-quantity .plus-minus .operator {
+            color: #3a3a3a;
+            cursor: pointer;
+            float: inherit;
+            font-size: 16px;
+            margin: 0;
+            position: absolute;
+            transition: all 0.3s ease 0s;
+            width: 20px;
+            text-align: center; }
+            .product-table tbody > tr td.product-quantity .plus-minus .operator.minus {
+              border-right: 1px solid #e5e5e5;
+              height: 40px;
+              left: 0;
+              padding-top: 6px;
+              top: 0; }
+            .product-table tbody > tr td.product-quantity .plus-minus .operator.plus {
+              border-left: 1px solid #e5e5e5;
+              height: 40px;
+              padding-top: 6px;
+              right: 0;
+              top: 0; }
+          .product-table tbody > tr td.product-quantity .plus-minus .count {
+            color: #3a3a3a;
+            float: left;
+            font-size: 16px;
+            height: 40px;
+            margin: 0;
+            width: 110px;
+            background: transparent none repeat scroll 0 0;
+            border: 1px solid #e1e1e1;
+            padding: 0;
+            text-align: center; }
+      .product-table tbody > tr td.product-to-cart > a {
+        background-color: #266bf9;
+        border-radius: 0;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        padding: 10px 12px;
+        text-transform: uppercase; }
+        .product-table tbody > tr td.product-to-cart > a:hover {
+          background-color: #000; }
+      .product-table tbody > tr td.product-remove a {
+        color: #3a3a3a;
+        font-size: 16px; }
+        .product-table tbody > tr td.product-remove a:hover {
+          color: #266bf9; }
+
 footer {
   color: #3a3a3a;
   background: #f2f8fd; }
@@ -6968,109 +7077,28 @@ main #login-register .login-register-wrapper .login-form-container {
       background-color: #266bf9;
       color: #fff; }
 
-main #wishlist-items .page-title {
-  color: #000;
-  text-align: left;
-  font-size: 24px;
-  line-height: 16px;
-  font-style: normal;
-  text-transform: none;
-  margin: 0 0 30px;
-  font-weight: 600; }
-
-main #wishlist-items .table-responsive {
-  overflow-x: auto; }
-
-main #wishlist-items .product-table {
-  border: 1px solid #ebebeb;
-  width: 100%;
-  caption-side: bottom;
-  border-collapse: collapse; }
-  main #wishlist-items .product-table thead > tr {
-    background-color: #ebebeb;
-    border: 1px solid #ebebeb; }
-    main #wishlist-items .product-table thead > tr > th {
-      border-top: medium none;
-      color: #000;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 21px 45px 22px;
-      text-align: center;
-      text-transform: uppercase;
-      vertical-align: middle;
-      white-space: nowrap; }
-  main #wishlist-items .product-table tbody > tr {
-    border-bottom: 1px solid #ebebeb; }
-    main #wishlist-items .product-table tbody > tr td {
-      color: #3a3a3a;
-      font-size: 16px;
-      padding: 30px 0;
-      text-align: center; }
-      main #wishlist-items .product-table tbody > tr td.product-image {
-        width: 150px; }
-        main #wishlist-items .product-table tbody > tr td.product-image img {
-          max-width: 100%;
-          display: block; }
-      main #wishlist-items .product-table tbody > tr td.product-name {
-        width: 435px; }
-        main #wishlist-items .product-table tbody > tr td.product-name a {
-          color: #3a3a3a;
-          font-size: 16px;
-          font-weight: 400; }
-      main #wishlist-items .product-table tbody > tr td.product-price-cart {
-        width: 435px; }
-      main #wishlist-items .product-table tbody > tr td.product-quantity {
-        width: 435px; }
-        main #wishlist-items .product-table tbody > tr td.product-quantity .plus-minus {
-          display: inline-block;
-          height: 40px;
-          padding: 0;
-          position: relative;
-          width: 110px; }
-          main #wishlist-items .product-table tbody > tr td.product-quantity .plus-minus .operator {
-            color: #3a3a3a;
-            cursor: pointer;
-            float: inherit;
-            font-size: 16px;
-            margin: 0;
-            position: absolute;
-            transition: all 0.3s ease 0s;
-            width: 20px;
-            text-align: center; }
-            main #wishlist-items .product-table tbody > tr td.product-quantity .plus-minus .operator.minus {
-              border-right: 1px solid #e5e5e5;
-              height: 40px;
-              left: 0;
-              padding-top: 6px;
-              top: 0; }
-            main #wishlist-items .product-table tbody > tr td.product-quantity .plus-minus .operator.plus {
-              border-left: 1px solid #e5e5e5;
-              height: 40px;
-              padding-top: 6px;
-              right: 0;
-              top: 0; }
-          main #wishlist-items .product-table tbody > tr td.product-quantity .plus-minus .count {
-            color: #3a3a3a;
-            float: left;
-            font-size: 16px;
-            height: 40px;
-            margin: 0;
-            width: 110px;
-            background: transparent none repeat scroll 0 0;
-            border: 1px solid #e1e1e1;
-            padding: 0;
-            text-align: center; }
-      main #wishlist-items .product-table tbody > tr td.product-to-cart > a {
-        background-color: #266bf9;
-        border-radius: 0;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1;
-        padding: 10px 12px;
-        text-transform: uppercase; }
-        main #wishlist-items .product-table tbody > tr td.product-to-cart > a:hover {
-          background-color: #000; }
+main #cart-items .shopping-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0 60px; }
+  main #cart-items .shopping-btn-wrapper a {
+    background-color: #f2f2f2;
+    border-radius: 0;
+    color: #000;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 18px 63px 17px;
+    text-transform: uppercase; }
+  main #cart-items .shopping-btn-wrapper .continue-shopping a:hover {
+    background-color: #266bf9;
+    color: #fff; }
+  main #cart-items .shopping-btn-wrapper .clear-cart a {
+    background-color: #266bf9;
+    color: #fff; }
+    main #cart-items .shopping-btn-wrapper .clear-cart a:hover {
+      background-color: #000; }
 
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {
