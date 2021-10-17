@@ -407,5 +407,23 @@
 
     //#endregion
 
+    //#region Cart
+
+    // Main start
+    main {
+        #cart-items {
+            .shopping-btn-wrapper {
+                display: block;
+                padding: 30px 0;
+                .continue-shopping {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }

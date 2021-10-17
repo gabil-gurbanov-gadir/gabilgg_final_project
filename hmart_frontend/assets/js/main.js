@@ -393,4 +393,21 @@ $(document).ready(function () {
     $(dataTarget).addClass("active");
   });
   // Product Info Tabs end
+
+  // Selection Checkbox start
+  $(document).on("change", ".checkbox input", function (e) {
+    let inputChanged = $(this)[0];
+    $(".checkbox input").each(function (e) {
+      if ($(this)[0] == inputChanged) {
+        if ($(this)[0].checked == true) {
+          $(this)[0].checked = true;
+        } else {
+          $(this)[0].checked = false;
+        }
+      } else {
+        $(this)[0].checked = false;
+      }
+    });
+  });
+  // Selection Checkbox end
 });
