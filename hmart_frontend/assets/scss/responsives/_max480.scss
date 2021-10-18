@@ -284,5 +284,28 @@
 
     //#endregion
 
+    //#region Contact Us Page
+
+    // Main start
+    main {
+        #contact {
+            .contact-wrapper {
+                padding: 50px 20px;
+                .contact-info {
+                    .single-contact {
+                        .info-box {
+                            .title {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }

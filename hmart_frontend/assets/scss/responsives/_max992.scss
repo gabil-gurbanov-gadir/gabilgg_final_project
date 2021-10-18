@@ -219,5 +219,29 @@
 
     //#endregion
 
+    //#region Contact Us Page
+
+    // Main start
+    main {
+        #contact {
+            .contact-wrapper {
+                padding: 50px 60px;
+                .contact-info {
+                    margin-top: 60px;
+                    flex-direction: column;
+                    .single-contact {
+                        width: auto;
+                        height: auto;
+                        margin-bottom: 50px;
+                        padding: 40px 0;
+                    }
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }

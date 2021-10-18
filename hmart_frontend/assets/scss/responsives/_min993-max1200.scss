@@ -249,5 +249,26 @@
 
     //#endregion
 
+    //#region Contact Us Page
+
+    // Main start
+    main {
+        #contact {
+            .contact-wrapper {
+                padding: 70px 80px;
+                .contact-info {
+                    margin-top: 80px;
+                    .single-contact {
+                        width: 240px;
+                        height: 250px;
+                    }
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
     //#endregion
 }
