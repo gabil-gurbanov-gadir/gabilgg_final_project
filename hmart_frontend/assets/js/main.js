@@ -38,7 +38,10 @@ $(document).ready(function () {
     e.preventDefault();
     $("body").addClass("canvas-opening");
     $("#shadow-layout").removeClass("d-none");
-    $("#wishlist .list-wrapper").addClass("canvas-opening");
+    setTimeout(() => {
+      $("#shadow-layout").addClass("show");
+      $("#wishlist .list-wrapper").addClass("canvas-opening");
+    }, 300);
   });
 
   $(document).on(
@@ -46,9 +49,12 @@ $(document).ready(function () {
     "#wishlist .canvas-close, #shadow-layout",
     function (e) {
       e.preventDefault();
-      $("body").removeClass("canvas-opening");
-      $("#shadow-layout").addClass("d-none");
       $("#wishlist .list-wrapper").removeClass("canvas-opening");
+      $("#shadow-layout").removeClass("show");
+      setTimeout(() => {
+        $("#shadow-layout").addClass("d-none");
+        $("body").removeClass("canvas-opening");
+      }, 600);
     }
   );
   //#endregion
@@ -58,14 +64,20 @@ $(document).ready(function () {
     e.preventDefault();
     $("body").addClass("canvas-opening");
     $("#shadow-layout").removeClass("d-none");
-    $("#cart .list-wrapper").addClass("canvas-opening");
+    setTimeout(() => {
+      $("#shadow-layout").addClass("show");
+      $("#wishlist .list-wrapper").addClass("canvas-opening");
+    }, 300);
   });
 
   $(document).on("click", "#cart .canvas-close, #shadow-layout", function (e) {
     e.preventDefault();
-    $("body").removeClass("canvas-opening");
-    $("#shadow-layout").addClass("d-none");
     $("#cart .list-wrapper").removeClass("canvas-opening");
+    $("#shadow-layout").removeClass("show");
+    setTimeout(() => {
+      $("#shadow-layout").addClass("d-none");
+      $("body").removeClass("canvas-opening");
+    }, 600);
   });
   //#endregion
 
@@ -74,8 +86,11 @@ $(document).ready(function () {
     e.preventDefault();
     $("body").addClass("canvas-opening");
     $("#shadow-layout").removeClass("d-none");
-    $("#mobile-menu .menu").addClass("canvas-opening");
-    $("#mobile-menu .canvas-close").addClass("move");
+    setTimeout(() => {
+      $("#shadow-layout").addClass("show");
+      $("#mobile-menu .menu").addClass("canvas-opening");
+      $("#mobile-menu .canvas-close").addClass("move");
+    }, 300);
   });
 
   $(document).on(
@@ -83,10 +98,13 @@ $(document).ready(function () {
     "#mobile-menu .canvas-close, #shadow-layout",
     function (e) {
       e.preventDefault();
-      $("body").removeClass("canvas-opening");
-      $("#shadow-layout").addClass("d-none");
-      $("#mobile-menu .menu").removeClass("canvas-opening");
       $("#mobile-menu .canvas-close").removeClass("move");
+      $("#mobile-menu .menu").removeClass("canvas-opening");
+      $("#shadow-layout").removeClass("show");
+      setTimeout(() => {
+        $("#shadow-layout").addClass("d-none");
+        $("body").removeClass("canvas-opening");
+      }, 600);
     }
   );
   //#endregion
