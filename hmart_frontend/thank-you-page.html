@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hmart – 404 Not Found</title>
+    <title>Hmart – Thank You</title>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/uploads/titles/logo_title.png" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -408,21 +408,31 @@
     <!-- =============================== -->
     <!-- Main Start -->
     <main>
-        <!-- 404 Not Found start -->
-        <section id="not-fount" data-bg-image="../../assets/uploads/404bg/bg-404.png">
+        <!--Thank You Page start -->
+        <section id="thank-you-page">
             <div class="container">
-                <div class="content-404">
-                    <h1 class="title">Oops!</h1>
-                    <h2 class="sub-title">Page not found!</h2>
-                    <p>You could either go back or go to homepage</p>
-                    <div class="buttons">
-                        <a class="btn-go-back" href="javascript: history.go(-1)">Go back</a>
-                        <a class="btn-homepage" href="index.html">Homepage</a>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="inner-complated text-center">
+                            <div class="img-complated">
+                                <img src="./assets/uploads/thank-you-page/cmpted_logo.png" alt="Complated Logo">
+                            </div>
+                            <p class="desc-complated">
+                                Thank you for ordering in our store. You will receive a confirmation email shortly.
+                            </p>
+                            <div class="btn-complated">
+                                <a class="btn-to-shop" href="shop.html">Continue Shopping </a>
+                            </div>
+                        </div>
+                        <div class="quick-order text-center">
+                            <h3 class="title">Call Us for Quick Order</h3>
+                            <a href="tel:+994124567890" id="quick-order-num">+994 124 567 890</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- 404 Not Found end -->
+        <!--Thank You Page end -->
     </main>
     <!-- Main End -->
     <!-- =============================== -->
@@ -523,12 +533,6 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/js/jquery.countdown.min.js"></script>
     <script src="./assets/js/main.js"></script>
-    <script>
-        $(document).ready(function (e) {
-            let srcBG = $("#not-fount").attr("data-bg-image");
-            $("#not-fount").css("background-image", "url(" + srcBG + ")");
-        });
-    </script>
 </body>
 
 </html>

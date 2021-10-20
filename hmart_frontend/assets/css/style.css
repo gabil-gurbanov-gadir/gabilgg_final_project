@@ -7903,6 +7903,47 @@ main #not-fount {
           border-color: #000;
           background-color: transparent; }
 
+main #thank-you-page {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  line-height: 32px; }
+  main #thank-you-page .inner-complated {
+    text-align: center; }
+    main #thank-you-page .inner-complated .img-complated {
+      margin: 0 0 30px; }
+      main #thank-you-page .inner-complated .img-complated img {
+        max-width: 100%; }
+    main #thank-you-page .inner-complated .desc-complated {
+      margin: 0 0 30px;
+      line-height: 24px; }
+    main #thank-you-page .inner-complated .btn-complated .btn-to-shop {
+      width: 210px;
+      background: #266bf9;
+      text-transform: capitalize;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      display: inline-block;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 5px;
+      font-size: 16px; }
+      main #thank-you-page .inner-complated .btn-complated .btn-to-shop:hover {
+        background-color: #000; }
+  main #thank-you-page .quick-order {
+    margin: 60px 0 0; }
+    main #thank-you-page .quick-order .title {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 0.5rem; }
+    main #thank-you-page .quick-order a {
+      font-size: 20px;
+      color: #eb2606;
+      margin: 15px 0 0;
+      display: inline-block;
+      font-weight: 500; }
+
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {
     padding-top: 80px;
@@ -8474,7 +8515,12 @@ main #not-fount {
     padding: 50px 30px; }
   main .blog-post .quate-speech-area .quate-speech {
     font-size: 18px;
-    line-height: 28px; } }
+    line-height: 28px; }
+  main #thank-you-page {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+    main #thank-you-page .quick-order .title {
+      font-size: 26px; } }
 
 @media screen and (max-width: 480px) {
   .col-xs-6 {
