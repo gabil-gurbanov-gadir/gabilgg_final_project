@@ -425,5 +425,140 @@
 
     //#endregion
 
+    //#region Blog Page
+
+    // Main Start
+    main {
+        #blog {
+            .pagination {
+                a {
+                    height: 40px;
+                    width: 40px;
+                    line-height: 40px;
+                    font-size: 16px;
+                }
+            }
+            &.blogs {
+                .single-blog {
+                    .blog-text {
+                        .blog-athor-date {
+                            span {
+                                font-size: 14px;
+                                & + span {
+                                    margin-left: 8px;
+                                }
+                            }
+                        }
+                        .blog-heading {
+                            margin: 15px 0 15px 0;
+                            font-size: 20px;
+                            line-height: 30px;
+                        }
+                        p {
+                            line-height: 28px;
+                            margin-bottom: 20px;
+                            font-size: 14px;
+                        }
+                        .blog-btn {
+                            font-size: 16px;
+                            width: 150px;
+                            height: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Main End
+
+    //#endregion
+
+    //#region Single Blog Page
+
+    // Main Start
+    main {
+        .blog-post {
+            .blog-info {
+                flex-direction: column;
+                align-items: flex-start;
+                .blog-single-tags {
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #acacac;
+                }
+                .blog-athor-date {
+                    margin-top: 15px;
+                }
+            }
+            .blog-title {
+                font-size: 24px;
+            }
+            .blog-content {
+                img {
+                    max-width: 100%;
+                    display: block;
+                    width: 80%;
+                    float: none;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+            }
+            .quate-speech-area {
+                padding: 30px 35px;
+                .quate-speech {
+                    font-size: 18px;
+                    line-height: 32px;
+                }
+                .quater {
+                    margin: 15px 0 0;
+                    font-size: 20px;
+                }
+            }
+        }
+        .comment-area {
+            .single-review {
+                display: block;
+                padding: 0;
+                .review-img {
+                    margin: 0 0 20px 0;
+                }
+                .review-content {
+                    padding-left: 0;
+                    .review-top-wrap {
+                        .review-left {
+                            .review-name {
+                                .title {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.child-review {
+                    margin-left: 0;
+                }
+            }
+        }
+        .blog-comment-form {
+            margin-top: 50px;
+        }
+        .blog-nav {
+            .blog-nav-wrap {
+                flex-direction: column;
+                .nav-right {
+                    margin-top: 15px;
+                    text-align: left;
+                    flex-direction: row;
+                    .media-side {
+                        margin-left: 20px;
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    // Main End
+
+    //#endregion
+
     //#endregion
 }

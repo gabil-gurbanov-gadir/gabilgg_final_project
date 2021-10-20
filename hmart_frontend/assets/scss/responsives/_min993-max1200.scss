@@ -270,5 +270,60 @@
 
     //#endregion
 
+    //#region Blog Page
+
+    // Main start
+    main {
+        #blog.blogs {
+            .single-blog {
+                .blog-text {
+                    .blog-athor-date {
+                        span {
+                            font-size: 14px;
+                            & + span {
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                    .blog-heading {
+                        margin: 15px 0 15px 0;
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+                    p {
+                        line-height: 28px;
+                        margin-bottom: 20px;
+                        font-size: 14px;
+                    }
+                    .blog-btn {
+                        font-size: 16px;
+                        width: 150px;
+                        height: 50px;
+                    }
+                }
+            }
+        }
+    }
+    // Main end
+
+    //#endregion
+
+    //#region Single Blog Page
+
+    // Main Start
+    main {
+        .blog-post {
+            .quate-speech-area {
+                .quate-speech {
+                    font-size: 18px;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+    // Main End
+
+    //#endregion
+
     //#endregion
 }

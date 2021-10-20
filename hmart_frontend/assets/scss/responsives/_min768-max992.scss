@@ -145,5 +145,36 @@
 
     //#endregion
 
+    //#region Single Blog Page
+
+    // Main Start
+    main {
+        .blog-post {
+            .blog-nav {
+                .blog-nav-wrap {
+                    .nav-left {
+                        .media-side {
+                            margin-left: 30px;
+                        }
+                    }
+                    .nav-right {
+                        .media-side {
+                            margin-right: 30px;
+                        }
+                    }
+                }
+            }
+            .quate-speech-area {
+                .quate-speech {
+                    font-size: 18px;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+    // Main End
+
+    //#endregion
+
     //#endregion
 }
