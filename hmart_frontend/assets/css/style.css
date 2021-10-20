@@ -4649,6 +4649,11 @@ body.canvas-opening {
     font-size: 18px;
     color: #595959; }
 
+[data-bg-image] {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; }
+
 .modal {
   position: fixed;
   top: 0;
@@ -7839,6 +7844,64 @@ main .blog-comment-form {
     margin-top: 30px; }
     main .blog-comment-form .submit-btn:hover {
       background-color: #000; }
+
+main #not-fount {
+  display: flex;
+  align-items: center;
+  height: 750px; }
+  main #not-fount .content-404 {
+    padding: 100px 0; }
+    main #not-fount .content-404 .title {
+      font-size: 100px;
+      font-weight: 400;
+      line-height: 1;
+      margin: 0; }
+    main #not-fount .content-404 .sub-title {
+      font-size: 64px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 30px; }
+    main #not-fount .content-404 p {
+      margin-bottom: 40px; }
+    main #not-fount .content-404 .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -20px;
+      margin-bottom: -20px; }
+      main #not-fount .content-404 .buttons a {
+        cursor: pointer;
+        box-shadow: none;
+        outline: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+        border-style: solid;
+        border-width: 2px;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 15px 40px;
+        text-align: center;
+        white-space: nowrap;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-radius: 500px;
+        height: auto;
+        width: auto; }
+        main #not-fount .content-404 .buttons a.btn-go-back {
+          border-color: #266bf9;
+          background-color: #266bf9;
+          color: #fff; }
+        main #not-fount .content-404 .buttons a.btn-homepage {
+          border-color: #000;
+          background-color: #000;
+          color: #fff;
+          margin-left: 20px; }
+        main #not-fount .content-404 .buttons a:hover {
+          color: #000;
+          border-color: #000;
+          background-color: transparent; }
 
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {

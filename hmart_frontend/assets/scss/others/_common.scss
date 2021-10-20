@@ -812,6 +812,14 @@ body.canvas-opening {
 }
 // Section Title end
 
+// Data-Bg-Image start
+[data-bg-image] {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+// Data-Bg-Image end
+
 //#endregion
 
 // Modal Start
