@@ -5927,14 +5927,18 @@ main #shop-products .shop-sidebar-wrapper {
   padding: 10px 30px 40px 30px; }
   main #shop-products .shop-sidebar-wrapper .sidebar-item.sidebar-list ul li {
     line-height: 32px; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item.sidebar-list ul li a {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item.sidebar-list ul li .sidebar-btn {
       color: #8a8a8a;
       font-size: 16px;
       display: inline-block;
       margin-top: 10px;
       font-weight: 300;
       line-height: 1; }
-      main #shop-products .shop-sidebar-wrapper .sidebar-item.sidebar-list ul li a:hover {
+      main #shop-products .shop-sidebar-wrapper .sidebar-item.sidebar-list ul li .sidebar-btn:hover {
+        color: #266bf9; }
+      main #shop-products .shop-sidebar-wrapper .sidebar-item.sidebar-list ul li .sidebar-btn:focus {
+        text-shadow: -3px 1px 9px #266bf9; }
+      main #shop-products .shop-sidebar-wrapper .sidebar-item.sidebar-list ul li .sidebar-btn.selected {
         color: #266bf9; }
   main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-title {
     font-size: 18px;
@@ -5981,44 +5985,71 @@ main #shop-products .shop-sidebar-wrapper {
       border: 5px solid #266bf9;
       cursor: pointer;
       transition: 0.3s; }
-  main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a {
+  main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button {
     display: inline-block;
     width: 14px;
     height: 14px;
     border-radius: 50%;
     margin: 0 0 0 10px; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-1 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.btn-color.selected {
+      transform: scale(1.35);
+      border: 0.5px solid #989c9c; }
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.btn-color:focus {
+      box-shadow: 0px 0px 12px 3px #266bf9;
+      border: 1px solid #266bf9; }
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-1 {
       background-color: #39ed8c; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-2 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-2 {
       background-color: #a6ed42; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-3 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-3 {
       background-color: #daed39; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-4 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-4 {
       background-color: #eed739; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-5 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-5 {
       background-color: #eca23a; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-6 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-6 {
       background-color: #f36768; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-7 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-7 {
       background-color: #e14755; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-8 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-8 {
       background-color: #dc83a3; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-9 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-9 {
       background-color: #dc82da; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-10 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-10 {
       background-color: #9a82dd; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-11 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-11 {
       background-color: #82c2db; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-12 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-12 {
       background-color: #6bd6b0; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-13 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-13 {
       background-color: #9ed76b; }
-    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li a.color-14 {
+    main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-color li button.color-14 {
       background-color: #9ed76b; }
   main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-brand ul li a {
     font-weight: 500; }
     main #shop-products .shop-sidebar-wrapper .sidebar-item .sidebar-widget-brand ul li a:hover {
       color: #266bf9; }
+  main #shop-products .shop-sidebar-wrapper .sidebar-button {
+    margin-top: 35px; }
+    main #shop-products .shop-sidebar-wrapper .sidebar-button .filter-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      background-color: #3e4141;
+      width: 180px;
+      height: 54px;
+      font-size: 18px;
+      text-transform: capitalize;
+      font-weight: 600;
+      border: 1px solid #3e4141;
+      color: #fff;
+      transition: all 0.3s ease 0s;
+      user-select: none;
+      cursor: pointer; }
+      main #shop-products .shop-sidebar-wrapper .sidebar-button .filter-btn:hover {
+        background: #266bf9;
+        border-color: #266bf9; }
 
 main #shop-products .shop-top-bar {
   margin-bottom: 40px;
