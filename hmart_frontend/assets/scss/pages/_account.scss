@@ -160,6 +160,87 @@ main {
                         color: #0a58ca;
                     }
                 }
+                .edit-address-form {
+                    input {
+                        display: inline-block;
+                        line-height: 50px;
+                        height: 50px;
+                        font-size: 15px;
+                        width: 100%;
+                        background: 0 0;
+                        border-radius: 0;
+                        text-align: left;
+                        box-shadow: none;
+                        padding-left: 20px;
+                        padding-right: 10px;
+                        outline: 0;
+                    }
+                    .input-radio {
+                        span {
+                            font-weight: 600;
+                            padding-right: 10px;
+                            input {
+                                &[type="radio"] {
+                                    width: 15px;
+                                    height: 15px;
+                                    margin-right: 2px;
+                                    position: relative;
+                                    top: 2px;
+                                }
+                            }
+                        }
+                    }
+                    .address-form-box {
+                        label {
+                            font-weight: 500;
+                            font-size: 16px;
+                            margin-bottom: 10px;
+                            display: block;
+                        }
+                        input {
+                            display: block;
+                            width: 100%;
+                            height: 45px;
+                            padding: 0 10px 0 20px;
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: #474747;
+                            border-radius: 3px;
+                            background-color: #fff;
+                            border: 1px solid #e2e2e2;
+                            line-height: 45px;
+                            &:focus {
+                                border-color: $primary-color;
+                            }
+                        }
+                    }
+                    .save_button {
+                        .btn-save {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: all 0.3s ease 0s;
+                            outline: 0;
+                            box-shadow: none;
+                            border-width: 2px;
+                            border-style: solid;
+                            border-radius: 18px;
+                            background-color: #3b3b3b;
+                            border-color: #3b3b3b;
+                            color: #fff;
+                            font-weight: 400;
+                            font-size: 14px;
+                            width: 130px;
+                            height: 45px;
+                            line-height: 45px;
+                            cursor: pointer;
+                            &:hover {
+                                border-color: $primary-color;
+                                background-color: $primary-color;
+                            }
+                        }
+                    }
+                }
                 .table_page {
                     table {
                         width: 100%;
