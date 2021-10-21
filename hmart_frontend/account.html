@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hmart – Blog</title>
+    <title>Hmart – Account</title>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/uploads/titles/logo_title.png" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -413,343 +413,134 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-12 text-center">
-                        <h2 class="header-title">Blog</h2>
+                        <h2 class="header-title">Account</h2>
                         <ul class="page-list">
                             <li class="page-item"><a href="index.html">Home</a></li>
-                            <li class="page-item active"> Blog</li>
+                            <li class="page-item active">Account</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Main-header end -->
-        <!-- Blog start -->
-        <section id="blog" class="blogs py-section">
+        <!-- Account start -->
+        <section id="account" class="py-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/3.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Wild Nick
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        The Pros and Cons of Smart Product
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="tab-buttons">
+                            <ul class="tab-list">
+                                <li><a href="#account-details" data-bs-toggle="tab" class="nav-link active">Account
+                                        details</a>
+                                </li>
+                                <li><a href="#address" data-bs-toggle="tab" class="nav-link">Addresses</a></li>
+                                <li> <a href="#orders" data-bs-toggle="tab" class="nav-link">Orders</a></li>
+                                <li><a href="login.html" class="nav-link">logout</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/4.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Omite Andle
-                                        </a>
-                                    </span>
+                    <div class="col-sm-12 col-md-9 col-lg-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="account-details">
+                                <h3>Account details </h3>
+                                <div class="details">
+                                    <div class="details_form_container">
+                                        <div class="account_details_form">
+                                            <form action="#">
+                                                <div class="input-radio">
+                                                    <span class="custom-radio"><input type="radio" value="0"
+                                                            name="id_gender"> Mr.</span>
+                                                    <span class="custom-radio"><input type="radio" value="1"
+                                                            name="id_gender"> Mrs.</span>
+                                                </div> <br>
+                                                <div class="account-form-box mb-4">
+                                                    <label>First Name</label>
+                                                    <input type="text" name="first-name">
+                                                </div>
+                                                <div class="account-form-box mb-4">
+                                                    <label>Last Name</label>
+                                                    <input type="text" name="last-name">
+                                                </div>
+                                                <div class="account-form-box mb-4">
+                                                    <label>Email</label>
+                                                    <input type="text" name="email-name">
+                                                </div>
+                                                <div class="account-form-box mb-4">
+                                                    <label>Password</label>
+                                                    <input type="password" name="user-password">
+                                                </div>
+                                                <div class="account-form-box mb-4">
+                                                    <label>Birthdate</label>
+                                                    <input type="date" name="birthday">
+                                                </div>
+                                                <span class="example">
+                                                    (E.g.: 07-Jul-1991)
+                                                </span>
+                                                <br>
+                                                <div class="save_button mt-3">
+                                                    <button class="btn-save" type="submit">Save</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        Books About Smart Product You Should Read
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
+                            </div>
+                            <div class="tab-pane" id="address">
+                                <p>The following addresses will be used on the checkout page by default.</p>
+                                <h5 class="billing-address">Billing address</h5>
+                                <a href="#" class="edit-address">Edit</a>
+                                <div class="address">
+                                    <span class="mb-1 d-inline-block"><strong>Address:</strong> Michael M Hoskins st.
+                                        Apr.25</span>,
+                                    <br>
+                                    <span class="mb-1 d-inline-block"><strong>City:</strong> Seattle</span>,
+                                    <br>
+                                    <span class="mb-1 d-inline-block"><strong>State/Region:</strong>
+                                        Washington(WA)</span>,
+                                    <br>
+                                    <span class="mb-1 d-inline-block"><strong>ZIP/Postal Code:</strong> 98101</span>,
+                                    <br>
+                                    <span><strong>Country:</strong> USA</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="orders">
+                                <h4>Orders</h4>
+                                <div class="table_page table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Order</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Total</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>May 10, 2018</td>
+                                                <td><span class="success">Completed</span></td>
+                                                <td>$25.00 for 1 item </td>
+                                                <td><a href="cart.html" class="view">view</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>May 10, 2018</td>
+                                                <td>Processing</td>
+                                                <td>$17.00 for 1 item </td>
+                                                <td><a href="cart.html" class="view">view</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/5.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Filp Kit
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        This Is Your Brain on Smart Product
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/1.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Odrl sala
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        The Biggest Problem With Smart Product
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/2.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Awesom Suk
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        20 Fabulous Infographics About Smart Product
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/3.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Dom Aokle
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        This Week's Top Stories About Smart Product
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/4.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Tanvir Boss
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        The 13 Best Pinterest Boards for Smart Product
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/5.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Omite Andle
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        Books About Smart Product You Should Read
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-xl-4 mb-5">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="blog-single.html">
-                                    <img src="./assets/uploads/blogs/1.png" alt="Blog Image">
-                                </a>
-                            </div>
-                            <div class="blog-text">
-                                <div class="blog-athor-date">
-                                    <span class="blog-date">
-                                        <i class="icon-calendar"></i>
-                                        27,Jun 2030
-                                    </span>
-                                    <span>
-                                        <a class="blog-author" href="blog.html">
-                                            <i class="icon-user"></i>
-                                            Filp Kit
-                                        </a>
-                                    </span>
-                                </div>
-                                <h5 class="blog-heading">
-                                    <a class="blog-heading-link" href="blog-single.html">
-                                        This Is Your Brain on Smart Product
-                                    </a>
-                                </h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incid
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                </p>
-                                <a href="blog-single.html" class="blog-btn"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pagination text-center">
-                    <div class="pages">
-                        <ul>
-                            <li class="li"><a class="page-link" href="#"><i class="icon-angle-left"></i></a>
-                            </li>
-                            <li class="li"><a class="page-link" href="#">1</a></li>
-                            <li class="li"><a class="page-link active" href="#">2</a></li>
-                            <li class="li"><a class="page-link" href="#">3</a></li>
-                            <li class="li"><a class="page-link" href="#"><i class="icon-angle-right"></i></a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Blog end -->
+        <!-- Account end -->
     </main>
     <!-- Main End -->
     <!-- =============================== -->
@@ -848,7 +639,12 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./assets/js/jquery.countdown.min.js"></script>
     <script src="./assets/js/main.js"></script>
-
+    <script>
+        $(document).ready(function (e) {
+            let srcBG = $("#not-fount").attr("data-bg-image");
+            $("#not-fount").css("background-image", "url(" + srcBG + ")");
+        });
+    </script>
 </body>
 
 </html>

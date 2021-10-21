@@ -4104,7 +4104,7 @@ header {
       margin: auto; }
       header #header-bottom .search-element form {
         position: relative; }
-        header #header-bottom .search-element form #search_product {
+        header #header-bottom .search-element form .search_product {
           height: 44px;
           width: 100%;
           background-color: #fff;
@@ -7975,6 +7975,155 @@ main #thank-you-page {
       display: inline-block;
       font-weight: 500; }
 
+main #account {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 32px;
+  visibility: visible;
+  color: #3a3a3a; }
+  main #account .tab-buttons .tab-list {
+    display: flex;
+    flex-direction: column; }
+  main #account .tab-buttons li {
+    margin-bottom: 10px; }
+    main #account .tab-buttons li:last-child {
+      margin-bottom: 0; }
+    main #account .tab-buttons li .nav-link {
+      padding: 0.5rem 1rem;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+      border: 0;
+      font-weight: 600;
+      color: #fff;
+      background-color: #000;
+      font-size: 16px;
+      text-transform: uppercase;
+      display: block; }
+      main #account .tab-buttons li .nav-link.active {
+        background-color: #266bf9; }
+  main #account .tab-content .tab-pane {
+    display: block;
+    overflow: hidden;
+    height: 0;
+    visibility: hidden;
+    max-width: 100%;
+    opacity: 0; }
+    main #account .tab-content .tab-pane.active {
+      height: auto;
+      visibility: visible;
+      opacity: 1;
+      overflow: visible; }
+    main #account .tab-content .tab-pane.fade {
+      transition: opacity 0.15s linear; }
+    main #account .tab-content .tab-pane.fade:not(.show) {
+      opacity: 0; }
+    main #account .tab-content .tab-pane h3 {
+      font-size: 1.75rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      line-height: 1.2; }
+    main #account .tab-content .tab-pane h4 {
+      font-size: 24px;
+      text-transform: capitalize;
+      font-weight: 600;
+      margin-bottom: 15px; }
+    main #account .tab-content .tab-pane .details input {
+      display: inline-block;
+      line-height: 50px;
+      height: 50px;
+      font-size: 15px;
+      width: 100%;
+      background: 0 0;
+      border-radius: 0;
+      text-align: left;
+      box-shadow: none;
+      padding-left: 20px;
+      padding-right: 10px;
+      outline: 0; }
+    main #account .tab-content .tab-pane .details .input-radio span {
+      font-weight: 600;
+      padding-right: 10px; }
+      main #account .tab-content .tab-pane .details .input-radio span input[type="radio"] {
+        width: 15px;
+        height: 15px;
+        margin-right: 2px;
+        position: relative;
+        top: 2px; }
+    main #account .tab-content .tab-pane .details .account-form-box label {
+      font-weight: 400;
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block; }
+    main #account .tab-content .tab-pane .details .account-form-box input {
+      display: block;
+      width: 100%;
+      height: 45px;
+      padding: 0 10px 0 20px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #474747;
+      border-radius: 3px;
+      background-color: #fff;
+      border: 1px solid #e2e2e2;
+      line-height: 45px; }
+      main #account .tab-content .tab-pane .details .account-form-box input:focus {
+        border-color: #266bf9; }
+    main #account .tab-content .tab-pane .details .save_button .btn-save {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease 0s;
+      outline: 0;
+      box-shadow: none;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 18px;
+      background-color: #3b3b3b;
+      border-color: #3b3b3b;
+      color: #fff;
+      font-weight: 400;
+      font-size: 14px;
+      width: 130px;
+      height: 45px;
+      line-height: 45px;
+      cursor: pointer; }
+      main #account .tab-content .tab-pane .details .save_button .btn-save:hover {
+        border-color: #266bf9;
+        background-color: #266bf9; }
+    main #account .tab-content .tab-pane .billing-address {
+      font-size: 20px;
+      text-transform: capitalize;
+      font-weight: 600;
+      margin-bottom: 10px;
+      margin-top: 10px; }
+    main #account .tab-content .tab-pane a {
+      color: #266bf9; }
+      main #account .tab-content .tab-pane a:hover {
+        color: #0a58ca; }
+    main #account .tab-content .tab-pane .table_page table {
+      width: 100%;
+      caption-side: bottom;
+      border-collapse: collapse; }
+      main #account .tab-content .tab-pane .table_page table thead {
+        background: #f2f2f2; }
+        main #account .tab-content .tab-pane .table_page table thead tr th {
+          color: #24262b;
+          border-bottom: 3px solid #266bf9;
+          font-size: 16px;
+          font-weight: 600;
+          text-transform: capitalize;
+          padding: 10px;
+          text-align: center; }
+      main #account .tab-content .tab-pane .table_page table tbody tr td {
+        font-weight: 600;
+        text-transform: capitalize;
+        font-size: 14px;
+        min-width: 150px;
+        border-bottom: 1px solid #ededed;
+        border-right: 1px solid #ededed;
+        text-align: center;
+        padding: 10px; }
+
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {
     padding-top: 80px;
@@ -8471,7 +8620,9 @@ main #thank-you-page {
       flex-direction: row; }
       main .blog-nav .blog-nav-wrap .nav-right .media-side {
         margin-left: 20px;
-        margin-right: 0; } }
+        margin-right: 0; }
+  main #account .tab-buttons {
+    margin-bottom: 50px; } }
 
 @media screen and (max-width: 575px) {
   .col-xs-6 {

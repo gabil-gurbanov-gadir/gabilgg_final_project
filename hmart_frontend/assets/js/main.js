@@ -428,4 +428,19 @@ $(document).ready(function () {
     });
   });
   // Selection Checkbox end
+
+  // Account tags start
+
+  $(document).on("click", "[data-bs-toggle='tab']", function (e) {
+    e.preventDefault();
+    $("[data-bs-toggle='tab']").removeClass("active");
+    $(".tab-pane").removeClass("show");
+    $(".tab-pane").removeClass("active");
+
+    $(this).addClass("active");
+    $($(this).attr("href")).addClass("active");
+    $($(this).attr("href")).addClass("show");
+  });
+
+  // Account tags end
 });
