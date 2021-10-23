@@ -1428,17 +1428,13 @@ footer {
 // Main Start
 main {
     #main-header {
-        background-image: url(../../assets/uploads/commons/main-header-bg.png);
         background-color: #cad5e1;
-        background-repeat: no-repeat;
-        background-position: center center;
         border-bottom-width: 0;
         height: 406px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-size: cover;
         line-height: 1;
         .header-title {
             font-weight: 400;

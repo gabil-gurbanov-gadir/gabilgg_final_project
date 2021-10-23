@@ -161,6 +161,17 @@ $(document).ready(function () {
   });
   //#endregion
 
+  // Bg_image Setting start
+  if ($("[data-bg-image]")) {
+    $("[data-bg-image]").each(function (e) {
+      $(this).css(
+        "background-image",
+        "url(" + $(this).attr("data-bg-image") + ")"
+      );
+    });
+  }
+  // Bg_image Setting end
+
   // Countdown Time start
   $("[data-countdown]").each(function () {
     $(this).countdown($(this).attr("data-countdown"), function (event) {
@@ -315,11 +326,15 @@ $(document).ready(function () {
   //Dropdown Sort start
   $(document).on("click", ".header-action-btn", function (e) {
     e.preventDefault();
+    console.log($(this));
     $(".dropdown-menu").toggleClass("show");
   });
   $(document).on("click", function (e) {
     let target = $(e.target);
-    if (!target.hasClass("header-action-btn")) {
+    if (
+      !target.hasClass("header-action-btn") &&
+      !target.hasClass("icon-angle-down")
+    ) {
       $(".dropdown-menu").removeClass("show");
     }
     // console.log("doc clik");
