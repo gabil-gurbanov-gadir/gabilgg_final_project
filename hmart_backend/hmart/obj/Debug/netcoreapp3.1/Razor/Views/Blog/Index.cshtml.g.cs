@@ -26,8 +26,15 @@ using hmart.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\Views\_ViewImports.cshtml"
+using hmart.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"524f44526989a1404d27681b6b4965218fe41a31", @"/Views/Blog/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b85ad9a448adf54ff7e52d9ba7ce107d1d39fe47", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bcf7da1b003d35ea00a890a99ffd6acd3dc9c389", @"/Views/_ViewImports.cshtml")]
     public class Views_Blog_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -86,7 +93,7 @@ using hmart.Models;
                     <h2 class=""header-title"">Blog</h2>
                     <ul class=""page-list"">
                         <li class=""page-item"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a317739", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a317934", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -119,9 +126,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a319643", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a319838", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a319930", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3110125", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -164,7 +171,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3112710", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3112906", async() => {
                 WriteLiteral("\r\n                                    The Pros and Cons of Smart Product\r\n                                ");
             }
             );
@@ -188,7 +195,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3114426", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3114622", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -212,9 +219,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3115946", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3116142", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3116234", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3116430", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -257,7 +264,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3119017", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3119213", async() => {
                 WriteLiteral("\r\n                                    Books About Smart Product You Should Read\r\n                                ");
             }
             );
@@ -281,7 +288,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3120740", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3120936", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -305,9 +312,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3122260", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3122456", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3122548", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3122744", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -350,7 +357,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3125328", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3125524", async() => {
                 WriteLiteral("\r\n                                    This Is Your Brain on Smart Product\r\n                                ");
             }
             );
@@ -374,7 +381,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3127045", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3127241", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -398,9 +405,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3128565", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3128761", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3128853", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3129049", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -443,7 +450,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3131634", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3131830", async() => {
                 WriteLiteral("\r\n                                    The Biggest Problem With Smart Product\r\n                                ");
             }
             );
@@ -467,7 +474,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3133354", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3133550", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -491,9 +498,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3134874", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3135070", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3135162", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3135358", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -536,7 +543,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3137945", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3138141", async() => {
                 WriteLiteral("\r\n                                    20 Fabulous Infographics About Smart Product\r\n                                ");
             }
             );
@@ -560,7 +567,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3139671", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3139867", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -584,9 +591,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3141191", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3141387", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3141479", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3141675", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -629,7 +636,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3144260", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3144456", async() => {
                 WriteLiteral("\r\n                                    This Week\'s Top Stories About Smart Product\r\n                                ");
             }
             );
@@ -653,7 +660,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3145986", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3146182", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -677,9 +684,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3147506", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3147702", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3147794", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3147990", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -722,7 +729,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3150577", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3150773", async() => {
                 WriteLiteral("\r\n                                    The 13 Best Pinterest Boards for Smart Product\r\n                                ");
             }
             );
@@ -746,7 +753,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3152305", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3152501", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -770,9 +777,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3153825", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3154021", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3154113", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3154309", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -815,7 +822,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3156896", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3157092", async() => {
                 WriteLiteral("\r\n                                    Books About Smart Product You Should Read\r\n                                ");
             }
             );
@@ -839,7 +846,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3158619", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3158815", async() => {
                 WriteLiteral(" Read More");
             }
             );
@@ -863,9 +870,9 @@ using hmart.Models;
                     <div class=""single-blog"">
                         <div class=""blog-image"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3160139", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3160335", async() => {
                 WriteLiteral("\r\n                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3160427", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "524f44526989a1404d27681b6b4965218fe41a3160623", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -908,7 +915,7 @@ using hmart.Models;
                             </div>
                             <h5 class=""blog-heading"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3163207", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3163403", async() => {
                 WriteLiteral("\r\n                                    This Is Your Brain on Smart Product\r\n                                ");
             }
             );
@@ -932,7 +939,7 @@ using hmart.Models;
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3164924", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "524f44526989a1404d27681b6b4965218fe41a3165120", async() => {
                 WriteLiteral(" Read More");
             }
             );

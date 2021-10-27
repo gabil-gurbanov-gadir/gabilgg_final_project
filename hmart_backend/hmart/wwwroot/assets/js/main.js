@@ -36,6 +36,8 @@ $(document).ready(function () {
   //#region Wishlist
   $(document).on("click", "#wishlist-button", function (e) {
     e.preventDefault();
+    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+    $("body").css("margin-right", scrollSize.toString() + "px");
     $("body").addClass("canvas-opening");
     $("#shadow-layout").removeClass("d-none");
     setTimeout(() => {
@@ -53,6 +55,7 @@ $(document).ready(function () {
       $("#shadow-layout").removeClass("show");
       setTimeout(() => {
         $("#shadow-layout").addClass("d-none");
+        $("body").css("margin-right", "0");
         $("body").removeClass("canvas-opening");
       }, 600);
     }
@@ -62,11 +65,13 @@ $(document).ready(function () {
   //#region CartList
   $(document).on("click", "#cartlist-button", function (e) {
     e.preventDefault();
+    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+    $("body").css("margin-right", scrollSize.toString() + "px");
     $("body").addClass("canvas-opening");
     $("#shadow-layout").removeClass("d-none");
     setTimeout(() => {
       $("#shadow-layout").addClass("show");
-      $("#wishlist .list-wrapper").addClass("canvas-opening");
+      $("#cart .list-wrapper").addClass("canvas-opening");
     }, 300);
   });
 
@@ -76,6 +81,7 @@ $(document).ready(function () {
     $("#shadow-layout").removeClass("show");
     setTimeout(() => {
       $("#shadow-layout").addClass("d-none");
+      $("body").css("margin-right", "0");
       $("body").removeClass("canvas-opening");
     }, 600);
   });
@@ -84,7 +90,9 @@ $(document).ready(function () {
   //#region Mobile-menu
   $(document).on("click", "#menu-button", function (e) {
     e.preventDefault();
+    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
     $("body").addClass("canvas-opening");
+    $("body").css("margin-right", scrollSize.toString() + "px");
     $("#shadow-layout").removeClass("d-none");
     setTimeout(() => {
       $("#shadow-layout").addClass("show");
@@ -103,6 +111,7 @@ $(document).ready(function () {
       $("#shadow-layout").removeClass("show");
       setTimeout(() => {
         $("#shadow-layout").addClass("d-none");
+        $("body").css("margin-right", "0");
         $("body").removeClass("canvas-opening");
       }, 600);
     }
@@ -161,15 +170,15 @@ $(document).ready(function () {
   });
   //#endregion
 
-    // Bg_image Setting start
-    if ($("[data-bg-image]")) {
-        $("[data-bg-image]").each(function (e) {
-            $(this).css(
-                "background-image",
-                "url(" + $(this).attr("data-bg-image") + ")"
-            );
-        });
-    }
+  // Bg_image Setting start
+  if ($("[data-bg-image]")) {
+    $("[data-bg-image]").each(function (e) {
+      $(this).css(
+        "background-image",
+        "url(" + $(this).attr("data-bg-image") + ")"
+      );
+    });
+  }
   // Bg_image Setting end
 
   // Countdown Time start
@@ -226,59 +235,82 @@ $(document).ready(function () {
   $(document).on("click", ".modal", function (e) {
     let target = $(e.target);
     if (target.hasClass("modal") || target.hasClass("modal-wrapper")) {
+      $("body").css("margin-right", "0");
+      $("#header-nav-menu .nav-menu-list").css("margin-right", "0");
+      $("body").removeClass("canvas-opening");
       $("#shadow-layout").removeClass("show");
       $(".modal").removeClass("show");
       setTimeout(() => {
         $("#shadow-layout").addClass("d-none");
         $(".modal").removeClass("fade");
-        $("body").removeClass("canvas-opening");
       }, 600);
     }
   });
 
   $(document).on("click", ".btn-close", function (e) {
     e.preventDefault();
+    $("body").css("margin-right", "0");
+    $("#header-nav-menu .nav-menu-list").css("margin-right", "0");
+    $("body").removeClass("canvas-opening");
     $("#shadow-layout").removeClass("show");
     $(".modal").removeClass("show");
     setTimeout(() => {
       $("#shadow-layout").addClass("d-none");
       $(".modal").removeClass("fade");
-      $("body").removeClass("canvas-opening");
     }, 600);
   });
 
   $(document).on("click", ".add-to-cart", function (e) {
     e.preventDefault();
-    $("body").addClass("canvas-opening");
+    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
     $("#shadow-layout").removeClass("d-none");
     $("#cart-modal").addClass("fade");
     setTimeout(() => {
       $("#shadow-layout").addClass("show");
       $("#cart-modal").addClass("show");
+      $("body").addClass("canvas-opening");
+      $("body").css("margin-right", scrollSize.toString() + "px");
+      $("#header-nav-menu .nav-menu-list").css(
+        "margin-right",
+        scrollSize.toString() + "px"
+      );
     }, 300);
   });
 
   $(document).on("click", ".wishlist", function (e) {
     e.preventDefault();
-    $("body").addClass("canvas-opening");
+    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
     $("#shadow-layout").removeClass("d-none");
     $("#wishlist-modal").addClass("fade");
     setTimeout(() => {
       $("#shadow-layout").addClass("show");
       $("#wishlist-modal").addClass("show");
+      $("body").addClass("canvas-opening");
+      $("body").css("margin-right", scrollSize.toString() + "px");
+      $("#header-nav-menu .nav-menu-list").css(
+        "margin-right",
+        scrollSize.toString() + "px"
+      );
     }, 300);
   });
 
   $(document).on("click", ".quickview", function (e) {
     e.preventDefault();
-    $("body").addClass("canvas-opening");
+    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
     $("#shadow-layout").removeClass("d-none");
     $("#quickview-modal").addClass("fade");
     setTimeout(() => {
       $("#shadow-layout").addClass("show");
       $("#quickview-modal").addClass("show");
+      $("body").addClass("canvas-opening");
+      $("body").css("margin-right", scrollSize.toString() + "px");
+      $("#header-nav-menu .nav-menu-list").css(
+        "margin-right",
+        scrollSize.toString() + "px"
+      );
     }, 300);
   });
+  // Modal end
 
   // Modal slider start
 
@@ -458,4 +490,19 @@ $(document).ready(function () {
   });
 
   // Account tags end
+
+  // FileInput Choosing Names Show start
+
+  $(document).on("change", "#imageFile", function (e) {
+    if ($(this).val()) {
+      let fileName = $(this)[0].files.item(0).name;
+      if (fileName.length > 25) {
+        fileName = fileName.substring(0, 22) + "...";
+      }
+
+      $("#imageFileName").text(fileName);
+    }
+  });
+
+  // FileInput Choosing Names Show end
 });

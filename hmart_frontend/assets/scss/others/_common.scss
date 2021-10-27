@@ -8,8 +8,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
-    background-color: #96b6d28c;
+    z-index: 9999;
+    background-color: #0f4676;
 }
 
 .lds-facebook {
@@ -95,6 +95,14 @@ header {
                             margin-right: 15px;
                             font-size: 18px;
                             color: $primary-color;
+                        }
+                    }
+                    &.login-register {
+                        display: flex;
+                        justify-content: space-between;
+                        span {
+                            color: #cfd4df;
+                            margin: 0 10px;
                         }
                     }
                 }

@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hmart – Electronics</title>
+    <title>Hmart – @ViewData["Title"]</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/uploads/titles/logo_title.png" />
     <link rel="stylesheet" href="~/assets/css/venobox.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="~/assets/css/style.css">
 </head>
 
@@ -48,9 +49,13 @@
                                         <i class="icon-envelope-o"></i> demo@example.com
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="account.html">
-                                        <i class="icon-user"></i> Account
+                                <li class="login-register">
+                                    <a asp-controller="account" asp-action="login">
+                                        <i class="icon-user"></i> Login
+                                    </a>
+                                    <span> or </span>
+                                    <a asp-controller="account" asp-action="register">
+                                      Register
                                     </a>
                                 </li>
                             </ul>
@@ -278,7 +283,7 @@
                 </ul>
             </div>
             <div class="list-view">
-                <a href="wishlist.html">view wishlist</a>
+                <a asp-controller="account" asp-action="wishlist">view wishlist</a>
             </div>
         </div>
     </div>
@@ -359,8 +364,8 @@
                 </ul>
             </div>
             <div class="list-view">
-                <a href="cart.html">View Cart</a>
-                <a href="checkout.html" class="checkout">Checkout</a>
+                <a asp-controller="account" asp-action="cart">View Cart</a>
+                <a asp-controller="account" asp-action="checkout" class="checkout">Checkout</a>
             </div>
         </div>
     </div>

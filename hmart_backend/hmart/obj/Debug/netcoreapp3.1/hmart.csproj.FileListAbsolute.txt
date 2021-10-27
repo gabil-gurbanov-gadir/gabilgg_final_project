@@ -162,3 +162,12 @@ D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcor
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Index.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Detail.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Cart.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Wishlist.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Checkout.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NotFound.cshtml.g.cs
