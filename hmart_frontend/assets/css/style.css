@@ -5760,50 +5760,45 @@ main #main-header {
 
 main #slider {
   height: 700px; }
-  main #slider .main-slider {
-    background-image: url(../../assets/uploads/sliders/bg/slider-bg-1.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; }
-    main #slider .main-slider .swiper-wrapper {
-      box-sizing: border-box; }
-    main #slider .main-slider .slide-animate.swiper-slide-active * {
-      animation-name: fadeInUp; }
-    main #slider .main-slider .slide-animate * {
-      animation-name: fadeOutUp; }
-    main #slider .main-slider .slide-animate .slider-content {
+  main #slider .main-slider .swiper-wrapper {
+    box-sizing: border-box; }
+  main #slider .main-slider .slide-animate.swiper-slide-active * {
+    animation-name: fadeInUp; }
+  main #slider .main-slider .slide-animate * {
+    animation-name: fadeOutUp; }
+  main #slider .main-slider .slide-animate .slider-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 700px; }
+    main #slider .main-slider .slide-animate .slider-content span {
+      display: block;
+      font-size: 18px;
+      margin: 0 0 10px;
+      font-weight: 500;
+      color: #fff;
+      animation-delay: 0.5s;
+      animation-duration: 1s; }
+    main #slider .main-slider .slide-animate .slider-content h2.title-slider {
+      font-size: 60px;
+      font-weight: 600;
+      margin-bottom: 50px;
+      color: #fff;
+      line-height: 78px;
+      animation-delay: 1s;
+      animation-duration: 1s; }
+  main #slider .main-slider .slide-animate .slider-product {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 700px; }
+    main #slider .main-slider .slide-animate .slider-product .product-image {
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      height: 700px; }
-      main #slider .main-slider .slide-animate .slider-content span {
-        display: block;
-        font-size: 18px;
-        margin: 0 0 10px;
-        font-weight: 500;
-        color: #fff;
-        animation-delay: 0.5s;
-        animation-duration: 1s; }
-      main #slider .main-slider .slide-animate .slider-content h2.title-slider {
-        font-size: 60px;
-        font-weight: 600;
-        margin-bottom: 50px;
-        color: #fff;
-        line-height: 78px;
-        animation-delay: 1s;
-        animation-duration: 1s; }
-    main #slider .main-slider .slide-animate .slider-product {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      height: 700px; }
-      main #slider .main-slider .slide-animate .slider-product .product-image {
-        display: flex;
-        justify-content: center;
-        animation-delay: 1s;
-        animation-duration: 1s; }
-        main #slider .main-slider .slide-animate .slider-product .product-image img {
-          max-width: 100%; }
+      animation-delay: 1s;
+      animation-duration: 1s; }
+      main #slider .main-slider .slide-animate .slider-product .product-image img {
+        max-width: 100%; }
   main #slider .swiper {
     width: 100%;
     height: 100%; }

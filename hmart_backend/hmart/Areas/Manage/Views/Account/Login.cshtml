@@ -1,0 +1,67 @@
+﻿@model AdminLoginVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Admin Panel Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <link href="~/manage/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Custom Theme files -->
+    <link href="~/manage/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--js-->
+    <script src="~/manage/js/jquery-2.1.1.min.js"></script>
+    <!--icons-css-->
+    <link href="~/manage/css/font-awesome.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="login-main">
+            <div class="login-head">
+                <h1>Login</h1>
+            </div>
+            <div class="login-block">
+                <form method="post">
+                    <div class="input-container">
+                        <div class="red" asp-validation-summary="ModelOnly"></div>
+                    </div>
+                    <input asp-for="UserName" required="required" placeholder="Username">
+                    <span asp-validation-for="UserName" class="red validate-span"></span>
+                    <input asp-for="Password" required="required" class="lock" placeholder="Password">
+                    <span asp-validation-for="Password" class="red validate-span"></span>
+                    <div class="forgot-top-grids">
+                        <div class="forgot-grid">
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="brand1" value="">
+                                    <label for="brand1"><span></span>Remember me</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--inner block end here-->
+    
+
+    <!--scrolling js-->
+    <script src="~/manage/js/jquery.nicescroll.js"></script>
+    <script src="~/manage/js/scripts.js"></script>
+    <!--//scrolling js-->
+    <script src="~/manage/js/bootstrap.js"> </script>
+    <!-- mother grid end here-->
+</body>
+
+</html>

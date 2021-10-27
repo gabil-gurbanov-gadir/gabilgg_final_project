@@ -16,8 +16,6 @@ namespace hmart.Controllers
                 case 404:
                     ViewBag.errorMessage = "Page Not Found";
                     break;
-                default:
-                    break;
             }
 
             return View("NotFound");

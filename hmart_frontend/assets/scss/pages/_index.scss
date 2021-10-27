@@ -4,11 +4,6 @@ main {
     #slider {
         height: 700px;
         .main-slider {
-            background-image: url(../../assets/uploads/sliders/bg/slider-bg-1.png);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-
             .swiper-wrapper {
                 box-sizing: border-box;
             }
