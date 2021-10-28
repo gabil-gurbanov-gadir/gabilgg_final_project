@@ -169,6 +169,15 @@
         // Feature start
         #feature_product {
             .single-feature-content {
+                &.resposive-height {
+                    height: 600px;
+                    justify-content: flex-start;
+                    align-items: center;
+                    overflow: hidden;
+                    .feature-image {
+                        margin-top: 50px;
+                    }
+                }
                 .top-content {
                     top: 30px;
                     .title {

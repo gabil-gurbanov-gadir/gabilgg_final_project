@@ -1,5 +1,6 @@
 using hmart.DAL;
 using hmart.Models;
+using hmart.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -46,6 +47,8 @@ namespace hmart
                 opt.LoginPath = "/account/login";
                 opt.AccessDeniedPath = "/account/login";
             });
+
+            services.AddScoped<LayoutService>();
 
         }
 

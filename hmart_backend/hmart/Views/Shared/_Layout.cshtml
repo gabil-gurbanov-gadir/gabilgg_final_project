@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿
+@inject hmart.Services.LayoutService layoutS
+
+@{ 
+    Setting setting = layoutS.GetSetting();
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hmart – @ViewData["Title"]</title>
-    <link rel="shortcut icon" type="image/x-icon" href="~/assets/uploads/titles/logo_title.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/uploads/setting/@setting.TitleIconSrc" />
     <link rel="stylesheet" href="~/assets/css/venobox.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -40,13 +46,13 @@
                         <div class="top-nav">
                             <ul>
                                 <li>
-                                    <a href="tel:0123456789">
-                                        <i class="icon-phone"></i> +012 3456 789
+                                    <a href="tel:@setting.Phone1">
+                                        <i class="icon-phone"></i> @setting.Phone1
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="mailto:demo@example.com">
-                                        <i class="icon-envelope-o"></i> demo@example.com
+                                    <a href="mailto:@setting.Email">
+                                        <i class="icon-envelope-o"></i> @setting.Email
                                     </a>
                                 </li>
                                 <li class="login-register">
@@ -55,7 +61,7 @@
                                     </a>
                                     <span> or </span>
                                     <a asp-controller="account" asp-action="register">
-                                      Register
+                                        Register
                                     </a>
                                 </li>
                             </ul>
@@ -72,7 +78,7 @@
                     <div class="col-3">
                         <div class="header-logo">
                             <a asp-controller="home" asp-action="index">
-                                <img src="~/assets/uploads/logos/logo.png" alt="Header logo">
+                                <img src="~/uploads/setting/@setting.HeaderLogoSrc" alt="Header logo">
                             </a>
                         </div>
                     </div>
@@ -128,16 +134,16 @@
                             <a asp-controller="home" asp-action="index">Home</a>
                         </li>
                         <li>
-                            <a  asp-controller="home" asp-action="about">About</a>
+                            <a asp-controller="home" asp-action="about">About</a>
                         </li>
                         <li>
-                            <a  asp-controller="shop" asp-action="index">Shop</a>
+                            <a asp-controller="shop" asp-action="index">Shop</a>
                         </li>
                         <li>
-                            <a  asp-controller="blog" asp-action="index">Blog</a>
+                            <a asp-controller="blog" asp-action="index">Blog</a>
                         </li>
                         <li>
-                            <a  asp-controller="home" asp-action="contact">Contact</a>
+                            <a asp-controller="home" asp-action="contact">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -150,7 +156,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="header-logo">
-                            <a  asp-controller="home" asp-action="index">
+                            <a asp-controller="home" asp-action="index">
                                 <img src="~/assets/uploads/logos/logo.png" alt="Header logo">
                             </a>
                         </div>
@@ -395,19 +401,19 @@
                     </ul>
                 </li>
                 <li>
-                    <a  asp-controller="home" asp-action="index">Home</a>
+                    <a asp-controller="home" asp-action="index">Home</a>
                 </li>
                 <li>
-                    <a  asp-controller="home" asp-action="about">About</a>
+                    <a asp-controller="home" asp-action="about">About</a>
                 </li>
                 <li>
-                    <a  asp-controller="shop" asp-action="index">Shop</a>
+                    <a asp-controller="shop" asp-action="index">Shop</a>
                 </li>
                 <li>
-                    <a  asp-controller="blog" asp-action="index">Blog</a>
+                    <a asp-controller="blog" asp-action="index">Blog</a>
                 </li>
                 <li>
-                    <a  asp-controller="home" asp-action="contact">Contact</a>
+                    <a asp-controller="home" asp-action="contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -594,13 +600,12 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="wedge">
                             <div class="footer-logo">
-                                <a  asp-controller="home" asp-action="index">
-                                    <img src="~/assets/uploads/logos/footer-logo.png" alt="Footer Logo">
+                                <a asp-controller="home" asp-action="index">
+                                    <img src="~/uploads/setting/@setting.FooterLogoSrc" alt="Footer Logo">
                                 </a>
                             </div>
                             <p class="about-text">
-                                Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod
-                                templ incididunt ut labore
+                                @setting.AboutText
                             </p>
                         </div>
                     </div>
@@ -614,13 +619,13 @@
                                     <a href="">My Account</a>
                                 </li>
                                 <li>
-                                    <a  asp-controller="home" asp-action="contact">Contact</a>
+                                    <a asp-controller="home" asp-action="contact">Contact</a>
                                 </li>
                                 <li>
                                     <a href="">Shopping Cart</a>
                                 </li>
                                 <li>
-                                    <a  asp-controller="shop" asp-action="index">Shop</a>
+                                    <a asp-controller="shop" asp-action="index">Shop</a>
                                 </li>
                                 <li>
                                     <a href="">Services Login</a>
@@ -635,18 +640,18 @@
                             </h4>
                             <ul class="info-list">
                                 <li>
-                                    Address: Your Address Goes Here.
+                                    Address: @setting.Address
                                 </li>
                                 <li>
                                     Phone/Fax:
-                                    <a href="tel:0123456789">0123456789</a>
+                                    <a href="tel:@setting.Phone2">@setting.Phone2</a>
                                 </li>
                                 <li>
                                     Email:
-                                    <a href="mailto:demo@example.com">demo@example.com</a>
+                                    <a href="mailto:@setting.Email">@setting.Email</a>
                                 </li>
                                 <li>
-                                    <a href="https://demo@example.com">demo@example.com</a>
+                                    <a href="https://@setting.Site">@setting.Site</a>
                                 </li>
                             </ul>
                         </div>

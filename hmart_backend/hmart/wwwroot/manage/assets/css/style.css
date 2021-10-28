@@ -70,6 +70,11 @@
     margin: 0 !important;
 }
 
+.my-4 {
+    margin-top: 40px!important;
+    margin-bottom: 40px!important;
+}
+
 .mt-3{
     margin-top:30px;
 }
@@ -86,13 +91,9 @@
     padding:10px;
 }
 
-.rose {
-    background-color: #fdb8b873;
+.rose img {
+    max-height: 42px;
 }
-
-    .rose img {
-        max-height: 42px;
-    }
 
 .d-none{
     display:none!important;

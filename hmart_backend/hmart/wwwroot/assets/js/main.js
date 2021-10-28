@@ -335,6 +335,18 @@ $(document).ready(function () {
   });
   // Modal slider end
 
+  // Featured Main Product responsived start
+
+  if ($(".single-feature-content")[0]) {
+    if ($(".single-feature-content")[0].scrollHeight < 750) {
+      $(".single-feature-content").addClass("resposive-height");
+    } else {
+      $(".single-feature-content").removeClass("resposive-height");
+    }
+  }
+
+  // Featured Main Product responsived end
+
   // Modals end
 
   // Shop range start

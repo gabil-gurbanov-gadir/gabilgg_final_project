@@ -113,5 +113,33 @@ namespace hmart.Models
 
         [StringLength(maximumLength: 100)]
         public string Site { get; set; }
+
+
+        // About Setting
+
+        [StringLength(maximumLength: 100)]
+        public string AboutTitle { get; set; }
+
+        [StringLength(maximumLength: 100)]
+        public string AboutSubtitle { get; set; }
+
+        [StringLength(maximumLength: 700)]
+        public string AboutDesc { get; set; }
+
+        [StringLength(maximumLength: 200)]
+        public string PromoImgSrc { get; set; }
+
+        [NotMapped]
+        public IFormFile PromoImg { get; set; }
+
+        [StringLength(maximumLength: 200)]
+        public string PromoVideoLink { get; set; }
+
+        [StringLength(maximumLength: 100)]
+        public string AboutTeamTitle { get; set; }
+
+        [StringLength(maximumLength: 300)]
+        public string AboutTeamDesc { get; set; }
+
     }
 }

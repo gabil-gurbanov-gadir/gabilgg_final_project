@@ -61,6 +61,14 @@
         // Feature start
         #feature_product {
             .single-feature-content {
+                height: 612px;
+                &.resposive-height {
+                    height: 612px;
+                    align-items: flex-start;
+                    .feature-image {
+                        margin-top: 50px;
+                    }
+                }
                 .top-content {
                     top: 30px;
                     .title {

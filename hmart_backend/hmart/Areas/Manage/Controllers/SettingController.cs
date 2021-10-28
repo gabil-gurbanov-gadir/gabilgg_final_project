@@ -187,6 +187,30 @@ namespace hmart.Areas.Manage.Controllers
                 setting.MainBgImgSrc = newFileName;
             }
 
+            if (set.PromoImg != null)
+            {
+                if (set.PromoImg.ContentType != "image/jpeg" && set.PromoImg.ContentType != "image/png")
+                {
+                    ModelState.AddModelError("PromoImg", "You can choose file only .jpg, .jpeg or .png format!");
+                    return View(set);
+                }
+
+                if (set.PromoImg.Length > 5242880)
+                {
+                    ModelState.AddModelError("PromoImg", "You can choose file only maximum 5Mb !");
+                    return View(set);
+                }
+
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/setting", set.PromoImg);
+
+                if (!string.IsNullOrWhiteSpace(setting.PromoImgSrc))
+                {
+                    FileManager.Delete(_env.WebRootPath, "uploads/setting", setting.PromoImgSrc);
+                }
+
+                setting.PromoImgSrc = newFileName;
+            }
+
             setting.WellComeText = set.WellComeText;
             setting.FeaturedTitle = set.FeaturedTitle;
             setting.FeaturedDesc = set.FeaturedDesc;
@@ -205,6 +229,13 @@ namespace hmart.Areas.Manage.Controllers
             setting.Phone2 = set.Phone2;
             setting.Email = set.Email;
             setting.Site = set.Site;
+
+            setting.AboutTitle = set.AboutTitle;
+            setting.AboutSubtitle = set.AboutSubtitle;
+            setting.AboutDesc = set.AboutDesc;
+            setting.PromoVideoLink = set.PromoVideoLink;
+            setting.AboutTeamTitle = set.AboutTeamTitle;
+            setting.AboutTeamDesc = set.AboutTeamDesc;
 
             _context.SaveChanges();
 
