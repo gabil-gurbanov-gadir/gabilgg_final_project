@@ -23,5 +23,10 @@ namespace hmart.Models
 
         [NotMapped]
         public IFormFile ImageFile { get; set; }
+
+        public List<BlogComment> BlogComments { get; set; }
+        public List<BlogSubComment> BlogSubComments { get; set; }
+        public List<Review> Reviews { get; set; }
+
     }
 }

@@ -39,5 +39,6 @@ namespace hmart.Models
         public string Quoter { get; set; }
 
         public List<BlogTagBlog> BlogTagBlogs { get; set; }
+        public List<BlogComment> BlogComments { get; set; }
     }
 }

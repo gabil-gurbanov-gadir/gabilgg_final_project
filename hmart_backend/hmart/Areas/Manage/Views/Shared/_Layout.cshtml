@@ -31,7 +31,6 @@
     <!-- Custom Styles-->
     <link href="~/manage/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
-    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />*@
     <link rel="stylesheet" href="~/manage/assets/js/Lightweight-Chart/cssCharts.css">
     <link rel="stylesheet" href="~/manage/assets/css/style.css">
     @RenderSection("Styles", required: false)
@@ -129,51 +128,60 @@
                                         <a asp-controller="slider" asp-action="index">Sliders</a>
                                     </li>
                                     <li>
-                                        <a asp-controller="feature" asp-action="index">Features</a>
+                                        <a asp-controller="banner" asp-action="index">Banners</a>
                                     </li>
                                     <li>
-                                        <a asp-controller="notice" asp-action="index">Notices</a>
+                                        <a asp-controller="offer" asp-action="index">Offers</a>
                                     </li>
                                     <li>
                                         <a asp-controller="testimonial" asp-action="index">Testimonials</a>
                                     </li>
+                                    <li>
+                                        <a asp-controller="partner" asp-action="index">Partners</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="team" asp-action="index">Teams</a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="feature" asp-action="index">Features</a>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a asp-controller="teacher" asp-action="index">Teachers</a>
                             </li>
                             <li>
                                 <a asp-controller="category" asp-action="index">Categories</a>
                             </li>
                             <li>
-                                <a asp-controller="course" asp-action="index">Courses</a>
+                                <a asp-controller="brand" asp-action="index">Brands</a>
                             </li>
                             <li>
-                                <a asp-controller="evcategory" asp-action="index">Event Categories</a>
+                                <a asp-controller="product" asp-action="index">Products</a>
                             </li>
                             <li>
-                                <a asp-controller="event" asp-action="index">Events</a>
+                                <a asp-controller="producttag" asp-action="index">Product Tags</a>
                             </li>
                             <li>
-                                <a asp-controller="tag" asp-action="index">Tags</a>
+                                <a asp-controller="color" asp-action="index">Colors</a>
+                            </li>
+                            <li>
+                                <a asp-controller="blog" asp-action="index">Blogs</a>
+                            </li>
+                            <li>
+                                <a asp-controller="blogtag" asp-action="index">Blog Tags</a>
                             </li>
                             @*@if (!User.IsInRole("EditorAdmin"))
-                            {
-                                <li>
-                                    <a asp-controller="user" asp-action="index">Users</a>
-                                </li>
-                                <li>
-                                    <a asp-controller="subscribe" asp-action="index">Subscribes</a>
-                                </li>
-                                <li>
-                                    <a asp-controller="contactmessage" asp-action="index">Contact Messages</a>
-                                </li>
-                            }*@
+        {
+            <li>
+                <a asp-controller="user" asp-action="index">Users</a>
+            </li>
+            <li>
+                <a asp-controller="subscribe" asp-action="index">Subscribes</a>
+            </li>
+            <li>
+                <a asp-controller="contactmessage" asp-action="index">Contact Messages</a>
+            </li>
+        }*@
                             <li>
                                 <a asp-controller="user" asp-action="index">Users</a>
-                            </li>
-                            <li>
-                                <a asp-controller="subscribe" asp-action="index">Subscribes</a>
                             </li>
                             <li>
                                 <a asp-controller="contactmessage" asp-action="index">Contact Messages</a>

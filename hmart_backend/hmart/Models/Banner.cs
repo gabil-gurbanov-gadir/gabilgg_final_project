@@ -15,9 +15,9 @@ namespace hmart.Models
         [StringLength(maximumLength: 100)]
         public string Title { get; set; }
 
-        public double? Price { get; set; }
+        public double Price { get; set; }
 
-        public bool? IsMain { get; set; }
+        public bool IsMain { get; set; }
 
         [StringLength(maximumLength: 100)]
         public string Image { get; set; }

@@ -55,5 +55,6 @@ namespace hmart.Models
 
         public List<ProductTagProduct> ProductTagProducts { get; set; }
         public List<ProductColor> ProductColors { get; set; }
+        public List<Review> Reviews { get; set; }
     }
 }

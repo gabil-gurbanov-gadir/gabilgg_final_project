@@ -16,6 +16,8 @@ namespace hmart.Models
         [StringLength(maximumLength: 600)]
         public string Message { get; set; }
 
+        public DateTime? Date { get; set; }
+
         public int BlogId { get; set; }
 
         public Blog Blog { get; set; }

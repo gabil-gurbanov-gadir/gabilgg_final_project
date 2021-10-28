@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace hmart.Models
 {
-    public class ProductReview
+    public class Review
     {
         public int Id { get; set; }
 
