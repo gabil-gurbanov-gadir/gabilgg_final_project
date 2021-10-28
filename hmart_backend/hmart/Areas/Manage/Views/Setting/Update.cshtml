@@ -28,7 +28,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="card p-1 rose">
                                         <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator" style="width:auto" src="/assets/uploads/setting/@Model.TitleIconSrc" alt="Title Icon">
+                                            <img class="activator" style="width:auto" src="/uploads/setting/@Model.TitleIconSrc" alt="Title Icon">
                                         </div>
                                         <div class="input-field mt-3">
                                             <input asp-for="TitleIcon" class="d-none image-file">
@@ -42,7 +42,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="card p-1 rose">
                                         <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator" src="/assets/uploads/setting/@Model.HeaderLogoSrc" alt="Header Logo">
+                                            <img class="activator" src="/uploads/setting/@Model.HeaderLogoSrc" alt="Header Logo">
                                         </div>
                                         <div class="input-field mt-3">
                                             <input asp-for="HeaderLogo" class="d-none image-file">
@@ -57,7 +57,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="card p-1 rose">
                                         <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator" src="/assets/uploads/setting/@Model.FooterLogoSrc" alt="Footer Logo">
+                                            <img class="activator" src="/uploads/setting/@Model.FooterLogoSrc" alt="Footer Logo">
                                         </div>
                                         <div class="input-field mt-3">
                                             <input asp-for="FooterLogo" class="d-none image-file">
@@ -73,7 +73,7 @@
                                 <div class="col-md-12 col-sm-12">
                                     <div class="card p-1">
                                         <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator" src="/assets/uploads/setting/@Model.SliderBgImgSrc" alt="Slider Background Image">
+                                            <img class="activator" src="/uploads/setting/@Model.SliderBgImgSrc" alt="Slider Background Image">
                                         </div>
                                         <div class="input-field mt-3">
                                             <input asp-for="SliderBgImg" class="d-none image-file">
@@ -87,7 +87,7 @@
                                 <div class="col-md-12 col-sm-12">
                                     <div class="card p-1">
                                         <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator" src="/assets/uploads/setting/@Model.FashionBgImgSrc" alt="Fashion Background Image">
+                                            <img class="activator" src="/uploads/setting/@Model.FashionBgImgSrc" alt="Fashion Background Image">
                                         </div>
                                         <div class="input-field mt-3">
                                             <input asp-for="FashionBgImg" class="d-none image-file">
@@ -101,7 +101,7 @@
                                 <div class="col-md-12 col-sm-12">
                                     <div class="card p-1">
                                         <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator" src="/assets/uploads/setting/@Model.MainBgImgSrc" alt="Main Background Image">
+                                            <img class="activator" src="/uploads/setting/@Model.MainBgImgSrc" alt="Main Background Image">
                                         </div>
                                         <div class="input-field mt-3">
                                             <input asp-for="MainBgImg" class="d-none image-file">
@@ -209,6 +209,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="waves-effect waves-light btn btn-warning" style="width:200px">Update</button>
+                            <a asp-action="index" class="waves-effect waves-light btn btn-danger ml-2" style="width:200px">Cancel</a>
                         </form>
                         <div class="clearBoth"></div>
                     </div>

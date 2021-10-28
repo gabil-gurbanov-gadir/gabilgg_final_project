@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace hmart.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    //[Authorize(Roles = "SuperAdmin,Admin,EditorAdmin")]
     public class SettingController : Controller
     {
         private readonly AppDbContext _context;
@@ -56,11 +57,11 @@ namespace hmart.Areas.Manage.Controllers
                     return View(set);
                 }
 
-                string newFileName = FileManager.Save(_env.WebRootPath, "assets/uploads/setting", set.TitleIcon);
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/setting", set.TitleIcon);
 
                 if (!string.IsNullOrWhiteSpace(setting.TitleIconSrc))
                 {
-                    FileManager.Delete(_env.WebRootPath, "assets/uploads/setting", setting.TitleIconSrc);
+                    FileManager.Delete(_env.WebRootPath, "uploads/setting", setting.TitleIconSrc);
                 }
 
                 setting.TitleIconSrc = newFileName;
@@ -80,11 +81,11 @@ namespace hmart.Areas.Manage.Controllers
                     return View(set);
                 }
 
-                string newFileName = FileManager.Save(_env.WebRootPath, "assets/uploads/setting", set.HeaderLogo);
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/setting", set.HeaderLogo);
 
                 if (!string.IsNullOrWhiteSpace(setting.HeaderLogoSrc))
                 {
-                    FileManager.Delete(_env.WebRootPath, "assets/uploads/setting", setting.HeaderLogoSrc);
+                    FileManager.Delete(_env.WebRootPath, "uploads/setting", setting.HeaderLogoSrc);
                 }
 
                 setting.HeaderLogoSrc = newFileName;
@@ -104,11 +105,11 @@ namespace hmart.Areas.Manage.Controllers
                     return View(set);
                 }
 
-                string newFileName = FileManager.Save(_env.WebRootPath, "assets/uploads/setting", set.FooterLogo);
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/setting", set.FooterLogo);
 
                 if (!string.IsNullOrWhiteSpace(setting.FooterLogoSrc))
                 {
-                    FileManager.Delete(_env.WebRootPath, "assets/uploads/setting", setting.FooterLogoSrc);
+                    FileManager.Delete(_env.WebRootPath, "uploads/setting", setting.FooterLogoSrc);
                 }
 
                 setting.FooterLogoSrc = newFileName;
@@ -128,11 +129,11 @@ namespace hmart.Areas.Manage.Controllers
                     return View(set);
                 }
 
-                string newFileName = FileManager.Save(_env.WebRootPath, "assets/uploads/setting", set.SliderBgImg);
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/setting", set.SliderBgImg);
 
                 if (!string.IsNullOrWhiteSpace(setting.SliderBgImgSrc))
                 {
-                    FileManager.Delete(_env.WebRootPath, "assets/uploads/setting", setting.SliderBgImgSrc);
+                    FileManager.Delete(_env.WebRootPath, "uploads/setting", setting.SliderBgImgSrc);
                 }
 
                 setting.SliderBgImgSrc = newFileName;
@@ -152,11 +153,11 @@ namespace hmart.Areas.Manage.Controllers
                     return View(set);
                 }
 
-                string newFileName = FileManager.Save(_env.WebRootPath, "assets/uploads/setting", set.FashionBgImg);
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/setting", set.FashionBgImg);
 
                 if (!string.IsNullOrWhiteSpace(setting.FashionBgImgSrc))
                 {
-                    FileManager.Delete(_env.WebRootPath, "assets/uploads/setting", setting.FashionBgImgSrc);
+                    FileManager.Delete(_env.WebRootPath, "uploads/setting", setting.FashionBgImgSrc);
                 }
 
                 setting.FashionBgImgSrc = newFileName;
@@ -176,11 +177,11 @@ namespace hmart.Areas.Manage.Controllers
                     return View(set);
                 }
 
-                string newFileName = FileManager.Save(_env.WebRootPath, "assets/uploads/setting", set.MainBgImg);
+                string newFileName = FileManager.Save(_env.WebRootPath, "uploads/setting", set.MainBgImg);
 
                 if (!string.IsNullOrWhiteSpace(setting.MainBgImgSrc))
                 {
-                    FileManager.Delete(_env.WebRootPath, "assets/uploads/setting", setting.MainBgImgSrc);
+                    FileManager.Delete(_env.WebRootPath, "uploads/setting", setting.MainBgImgSrc);
                 }
 
                 setting.MainBgImgSrc = newFileName;

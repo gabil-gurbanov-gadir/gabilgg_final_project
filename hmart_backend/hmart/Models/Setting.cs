@@ -81,7 +81,7 @@ namespace hmart.Models
         [StringLength(maximumLength: 300)]
         public string FeaturedDesc { get; set; }
 
-        [Required]
+        [Required] 
         [StringLength(maximumLength: 100)]
         public string TestimonialsTitle { get; set; }
 

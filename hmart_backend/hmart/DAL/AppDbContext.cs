@@ -16,7 +16,7 @@ namespace hmart.DAL
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
-
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
     }
 }

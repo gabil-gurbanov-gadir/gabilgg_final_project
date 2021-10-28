@@ -27,6 +27,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\assets\uploads\setting\" />
+    <Folder Include="wwwroot\uploads\setting\" />
+    <Folder Include="wwwroot\uploads\sliders\" />
   </ItemGroup>
 
 </Project>

@@ -78,24 +78,12 @@
     margin-bottom:10px;
 }
 
+.ml-2{
+    margin-left:20px!important;
+}
+
 .p-1{
     padding:10px;
-}
-
-.facebook {
-    background-color: #4867aa;
-}
-
-.pinterest {
-    background-color: #AA2F28;
-}
-
-.twitter {
-    background-color: #009DED;
-}
-
-.vimeo {
-    background-color: #17B0DF;
 }
 
 .rose {
@@ -112,6 +100,10 @@
 
 .d-flex{
     display:flex!important;
+}
+
+.j-c-c{
+    justify-content:center;
 }
 
 .j-c-fe{

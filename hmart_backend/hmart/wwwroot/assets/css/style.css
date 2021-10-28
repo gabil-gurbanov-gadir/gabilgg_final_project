@@ -8485,9 +8485,13 @@ main .blog-comment-form {
       background-color: #000; }
 
 main #not-fount {
-  display: flex;
-  align-items: center;
-  height: 750px; }
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 750px;
+}
   main #not-fount .content-404 {
     padding: 100px 0; }
     main #not-fount .content-404 .title {

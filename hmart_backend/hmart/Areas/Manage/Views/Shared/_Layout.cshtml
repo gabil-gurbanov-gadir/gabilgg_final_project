@@ -17,6 +17,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hmart Admin Panel</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/manage/assets/img/AP-title-icon.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js" integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://kit.fontawesome.com/582d45796b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,9 +31,10 @@
     <!-- Custom Styles-->
     <link href="~/manage/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    @*<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />*@
     <link rel="stylesheet" href="~/manage/assets/js/Lightweight-Chart/cssCharts.css">
     <link rel="stylesheet" href="~/manage/assets/css/style.css">
+    @RenderSection("Styles", required: false)
 </head>
 
 <body>
