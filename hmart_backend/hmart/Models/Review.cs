@@ -10,11 +10,12 @@ namespace hmart.Models
     {
         public int Id { get; set; }
 
-        public double? Rate { get; set; }
+        public double Rate { get; set; }
 
         [StringLength(maximumLength: 700)]
         public string Message { get; set; }
 
+        public DateTime Date { get; set; }
         public int ProductId { get; set; }
         public Product Product { get; set; }
         public int AppUserId { get; set; }

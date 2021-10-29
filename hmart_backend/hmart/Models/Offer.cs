@@ -13,7 +13,7 @@ namespace hmart.Models
         public int ProductId { get; set; }
         public Product Product { get; set; }
 
-        public bool? IsMain { get; set; }
+        public bool IsMain { get; set; }
 
 
         [StringLength(maximumLength: 100)]
@@ -24,6 +24,8 @@ namespace hmart.Models
 
         [StringLength(maximumLength: 100)]
         public string Cushioning { get; set; }
-        public DateTime? OfferTime { get; set; }
+        public DateTime OfferTime { get; set; }
+
+        public int Order { get; set; }
     }
 }

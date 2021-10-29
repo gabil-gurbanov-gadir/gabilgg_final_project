@@ -19,6 +19,7 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>Order</th>
                                         <th>Title</th>
                                         <th>Price</th>
                                         <th>IsMain</th>
@@ -30,6 +31,7 @@
                                     @foreach (Banner banner in Model)
                                     {
                                     <tr>
+                                        <td>@banner.Order</td>
                                         <td>@banner.Title</td>
                                         <td>@banner.Price.ToString("#.00")</td>
                                         @if (banner.IsMain)
@@ -42,7 +44,7 @@
                                         }
 
                                         <td>
-                                            <img class="" style="width:100%" src="/uploads/banners/@banner.Image" alt="Banner Image"/>
+                                            <img class="" style="width:100%" src="/uploads/banners/@banner.Image" alt="Banner Image" />
                                         </td>
                                         <th>
                                             <a asp-action="edit" asp-route-id="@banner.Id" class="btn btn-warning w-100 mb-1">Edit</a>

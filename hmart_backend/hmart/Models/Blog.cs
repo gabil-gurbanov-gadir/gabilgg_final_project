@@ -21,7 +21,7 @@ namespace hmart.Models
         [NotMapped]
         public IFormFile ImageFile { get; set; }
 
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         [StringLength(maximumLength: 60)]
         public string Author { get; set; }

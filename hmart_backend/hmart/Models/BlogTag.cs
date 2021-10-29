@@ -14,5 +14,6 @@ namespace hmart.Models
         public string Name { get; set; }
 
         public List<BlogTagBlog> BlogTagBlogs { get; set; }
+        public int Order { get; set; }
     }
 }

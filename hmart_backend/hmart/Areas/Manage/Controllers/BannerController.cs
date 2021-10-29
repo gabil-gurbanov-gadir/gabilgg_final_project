@@ -44,7 +44,8 @@ namespace hmart.Areas.Manage.Controllers
             {
                 Title = banner.Title,
                 Price = banner.Price,
-                IsMain = banner.IsMain
+                IsMain = banner.IsMain,
+                Order = banner.Order
             };
 
             if (banner.ImageFile != null)
@@ -99,6 +100,7 @@ namespace hmart.Areas.Manage.Controllers
             if (banner == null) return View("NotFoundPage");
 
             banner.Title = bnr.Title;
+            banner.Order = bnr.Order;
             banner.Price = bnr.Price;
             banner.IsMain = bnr.IsMain;
 

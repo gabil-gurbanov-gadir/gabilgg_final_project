@@ -24,5 +24,6 @@ namespace hmart.Models
 
         [NotMapped]
         public IFormFile ImageFile { get; set; }
+        public int? Order { get; set; }
     }
 }

@@ -13,5 +13,7 @@ namespace hmart.Models
         [StringLength(maximumLength: 50)]
         public string Name { get; set; }
         public List<Product> Products { get; set; }
+
+        public int? Order { get; set; }
     }
 }

@@ -29,7 +29,7 @@
                                         </div>
                                     </div>
                                     <div class="row m-0">
-                                        <div class="input-field col s6">
+                                        <div class="input-field col s5">
                                             <input asp-for="Title" class="validate @(Model?.Title!=null?"valid":"")">
                                             <label asp-for="Title" class="@(Model?.Title!=null?"active":"")">Title</label>
                                             <span class="text-danger" asp-validation-for="Title"></span>
@@ -39,10 +39,15 @@
                                             <label asp-for="Price" class="@(Model?.Price!=null?"active":"")">Price</label>
                                             <span class="text-danger" asp-validation-for="Price"></span>
                                         </div>
-                                        <div class="input-field col s3">
-                                            <input asp-for="IsMain" class="validate filled-in @(Model?.IsMain!=null?"valid":"")"/>
+                                        <div class="input-field col s2">
+                                            <input asp-for="IsMain" class="validate filled-in @(Model?.IsMain!=null?"valid":"")" />
                                             <label asp-for="IsMain" class="@(Model?.IsMain!=null?"active":"")">IsMain</label>
                                             <span class="text-danger" asp-validation-for="IsMain"></span>
+                                        </div>
+                                        <div class="input-field col s1">
+                                            <input asp-for="Order" class="validate @(Model?.Order!=null?"valid":"")">
+                                            <label asp-for="Order" class="@(Model?.Order!=null?"active":"")">Order</label>
+                                            <span class="text-danger" asp-validation-for="Order"></span>
                                         </div>
                                     </div>
                                 </div>
