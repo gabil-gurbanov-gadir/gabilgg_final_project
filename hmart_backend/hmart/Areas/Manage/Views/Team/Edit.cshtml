@@ -1,4 +1,4 @@
-﻿@model Partner
+﻿@model Team
 @{
     ViewData["Title"] = "Edit";
 }
@@ -9,21 +9,21 @@
             <div class="col-lg-9">
                 <div class="card">
                     <div class="card-action">
-                        Edit Partner
+                        Edit Team
                     </div>
                     <div class="card-content">
                         <form class="col s12" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col s12">
                                     <div class="row">
-                                        <div class="col-md-6 col-sm-6">
+                                        <div class="col-md-6 col-sm-12">
                                             <div class="card p-1">
                                                 <div class="image-poster">
                                                     @if (Model?.Image != null)
                                                     {
-                                                        <div class="image-wrapper" style="position:relative">
+                                                        <div class="image-wrapper d-flex j-c-c" style="position:relative">
                                                             <span id="deleteImage" class="delete-image" style="position:absolute"><i class="fas fa-times"></i></span>
-                                                            <img style="width:100%" src="~/uploads/partners/@Model.Image" alt="Partner Image" />
+                                                            <img style="width:100%" src="~/uploads/teams/@Model.Image" />
                                                             <input type="hidden" name="Image" value="@Model.Image" />
                                                         </div>
                                                     }
@@ -36,7 +36,7 @@
                                                 <div class="input-field mt-12">
                                                     <input asp-for="ImageFile" class="d-none image-file">
                                                     <label asp-for="ImageFile" class="p-s input-file white">
-                                                        <span class="d-i-b p-a">Banner Image</span>
+                                                        <span class="d-i-b p-a">About Image</span>
                                                     </label>
                                                     <span class="text-danger" asp-validation-for="ImageFile"></span>
                                                 </div>
@@ -44,6 +44,16 @@
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <div class="row m-0">
+                                                <div class="input-field col s12">
+                                                    <input asp-for="Fullname" class="validate @(Model?.Fullname!=null?"valid":"")">
+                                                    <label asp-for="Fullname" class="@(Model?.Fullname!=null?"active":"")">Fullname</label>
+                                                    <span class="text-danger" asp-validation-for="Fullname"></span>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <input asp-for="Position" class="validate @(Model?.Position!=null?"valid":"")">
+                                                    <label asp-for="Position" class="@(Model?.Position!=null?"active":"")">Position</label>
+                                                    <span class="text-danger" asp-validation-for="Position"></span>
+                                                </div>
                                                 <div class="input-field col s4">
                                                     <input asp-for="Order" class="validate @(Model?.Order!=null?"valid":"")">
                                                     <label asp-for="Order" class="@(Model?.Order!=null?"active":"")">Order</label>

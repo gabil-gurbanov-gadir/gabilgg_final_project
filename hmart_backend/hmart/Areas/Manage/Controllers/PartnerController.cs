@@ -37,7 +37,10 @@ namespace hmart.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Partner partner)
         {
-            Partner newPartner = new Partner();
+            Partner newPartner = new Partner
+            {
+                Order = partner.Order
+            };
 
             if (partner.ImageFile != null)
             {
@@ -118,6 +121,9 @@ namespace hmart.Areas.Manage.Controllers
 
                 partner.Image = null;
             }
+
+            partner.Order = prt.Order;
+
             _context.SaveChanges();
 
             return RedirectToAction("index");

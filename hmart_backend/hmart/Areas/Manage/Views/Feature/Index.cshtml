@@ -1,4 +1,4 @@
-﻿@model List<Partner>
+﻿@model List<Feature>
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,9 +9,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-action">
-                        Partners Table
+                        Features Table
                         <div class="create-div d-flex j-c-fe">
-                            <a asp-action="create" class="btn btn-success">Create Partner</a>
+                            <a asp-action="create" class="btn btn-success">Create Feature</a>
                         </div>
                     </div>
                     <div class="card-content">
@@ -19,37 +19,36 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th style="width:200px">Order</th>
-                                        <th style="width:200px">Image</th>
-                                        <th style="width:200px">Button</th>
+                                        <th>Order</th>
+                                        <th>Title</th>
+                                        <th>Subtitle</th>
+                                        <th style="width:125px">Image</th>
+                                        <th>Button</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (Partner partner in Model)
+                                    @foreach (Feature feature in Model)
                                     {
                                         <tr>
-                                            <td>
-                                                @partner?.Order
-                                            </td>
-                                            <td>
-                                                <img style="width:200px" src="/uploads/partners/@partner.Image" alt="partner Image" />
+                                            <td>@feature.Order</td>
+                                            <td>@feature.Title</td>
+                                            <td>@feature.Subtitle</td>
+                                            <td class="d-flex j-c-c">
+                                                <img class="" style="width:100%" src="/uploads/features/@feature.Image" alt="Feature Image" />
                                             </td>
                                             <th>
-                                                <a asp-action="edit" asp-route-id="@partner.Id" style="width:200px" class="btn btn-warning d-block ml-auto mb-1">Edit</a>
-                                                <a asp-action="delete" asp-route-id="@partner.Id" style="width:200px" class="btn btn-danger d-block ml-auto">Delete</a>
+                                                <a asp-action="edit" asp-route-id="@feature.Id" class="btn btn-warning w-100 mb-1">Edit</a>
+                                                <a asp-action="delete" asp-route-id="@feature.Id" class="btn btn-danger w-100">Delete</a>
                                             </th>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
