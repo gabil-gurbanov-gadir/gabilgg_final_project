@@ -83,6 +83,10 @@
     margin-bottom:10px;
 }
 
+.ml-auto{
+    margin-left: auto;
+}
+
 .ml-2{
     margin-left:20px!important;
 }
@@ -97,6 +101,10 @@
 
 .d-none{
     display:none!important;
+}
+
+.d-block {
+    display: block !important;
 }
 
 .d-flex{

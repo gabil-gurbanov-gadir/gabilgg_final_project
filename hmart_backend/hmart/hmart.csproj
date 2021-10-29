@@ -28,6 +28,8 @@
   <ItemGroup>
     <Folder Include="wwwroot\assets\uploads\setting\" />
     <Folder Include="wwwroot\uploads\banners\" />
+    <Folder Include="wwwroot\uploads\partners\" />
+    <Folder Include="wwwroot\uploads\testimonials\" />
     <Folder Include="wwwroot\uploads\setting\" />
     <Folder Include="wwwroot\uploads\sliders\" />
   </ItemGroup>

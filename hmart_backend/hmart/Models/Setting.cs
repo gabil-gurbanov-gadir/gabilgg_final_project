@@ -12,6 +12,7 @@ namespace hmart.Models
     {
         public int Id { get; set; }
 
+        [Required]
         [StringLength(maximumLength: 200)]
         public string TitleIconSrc { get; set; }
 
@@ -42,6 +43,7 @@ namespace hmart.Models
         [NotMapped]
         public IFormFile FooterLogo { get; set; }
 
+        [Required]
         [StringLength(maximumLength: 200)]
         public string MainBgImgSrc { get; set; }
 
@@ -117,15 +119,18 @@ namespace hmart.Models
 
         // About Setting
 
+        [Required]
         [StringLength(maximumLength: 100)]
         public string AboutTitle { get; set; }
 
+        [Required]
         [StringLength(maximumLength: 100)]
         public string AboutSubtitle { get; set; }
 
         [StringLength(maximumLength: 700)]
         public string AboutDesc { get; set; }
 
+        [Required]
         [StringLength(maximumLength: 200)]
         public string PromoImgSrc { get; set; }
 
@@ -135,6 +140,7 @@ namespace hmart.Models
         [StringLength(maximumLength: 200)]
         public string PromoVideoLink { get; set; }
 
+        [Required]
         [StringLength(maximumLength: 100)]
         public string AboutTeamTitle { get; set; }
 
