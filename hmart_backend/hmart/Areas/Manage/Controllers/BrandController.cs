@@ -36,6 +36,12 @@ namespace hmart.Areas.Manage.Controllers
         {
             if (!ModelState.IsValid) return View();
 
+            if (_context.Brands.Any(x => x.Order == brand.Order))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
+
             Brand newBrand = new Brand
             {
                 Name = brand.Name,
@@ -64,6 +70,12 @@ namespace hmart.Areas.Manage.Controllers
         {
 
             if (!ModelState.IsValid) return View();
+
+            if (_context.Brands.Any(x => x.Order == brnd.Order && x.Id != brnd.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Brand brand = _context.Brands.FirstOrDefault(x => x.Id == brnd.Id);
 

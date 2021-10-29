@@ -38,12 +38,13 @@ namespace hmart.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Team team)
         {
-            Team newTeam = new Team
+            if (!ModelState.IsValid) return View();
+
+            if (_context.Teams.Any(x => x.Order == team.Order))
             {
-                Fullname = team.Fullname,
-                Position = team.Position,
-                Order = team.Order
-            };
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             if (team.ImageFile != null)
             {
@@ -59,10 +60,10 @@ namespace hmart.Areas.Manage.Controllers
                     return View();
                 }
 
-                newTeam.Image = FileManager.Save(_env.WebRootPath, "uploads/teams", team.ImageFile);
+                team.Image = FileManager.Save(_env.WebRootPath, "uploads/teams", team.ImageFile);
             }
 
-            _context.Teams.Add(newTeam);
+            _context.Teams.Add(team);
 
             try
             {
@@ -70,7 +71,7 @@ namespace hmart.Areas.Manage.Controllers
             }
             catch (Exception)
             {
-                FileManager.Delete(_env.WebRootPath, "uploads/teams", newTeam.Image);
+                FileManager.Delete(_env.WebRootPath, "uploads/teams", team.Image);
             }
 
             return RedirectToAction("Index");
@@ -90,6 +91,12 @@ namespace hmart.Areas.Manage.Controllers
         public IActionResult Edit(Team tm)
         {
             if (!ModelState.IsValid) return View();
+
+            if (_context.Teams.Any(x => x.Order == tm.Order && x.Id != tm.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Team team = _context.Teams.FirstOrDefault(x => x.Id == tm.Id);
 

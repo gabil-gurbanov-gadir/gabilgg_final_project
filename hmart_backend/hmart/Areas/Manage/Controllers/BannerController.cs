@@ -40,13 +40,11 @@ namespace hmart.Areas.Manage.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-            Banner newBanner = new Banner
+            if (_context.Banners.Any(x => x.Order == banner.Order))
             {
-                Title = banner.Title,
-                Price = banner.Price,
-                IsMain = banner.IsMain,
-                Order = banner.Order
-            };
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             if (banner.ImageFile != null)
             {
@@ -62,10 +60,10 @@ namespace hmart.Areas.Manage.Controllers
                     return View();
                 }
 
-                newBanner.Image = FileManager.Save(_env.WebRootPath, "uploads/banners", banner.ImageFile);
+                banner.Image = FileManager.Save(_env.WebRootPath, "uploads/banners", banner.ImageFile);
             }
 
-            _context.Banners.Add(newBanner);
+            _context.Banners.Add(banner);
 
             try
             {
@@ -73,7 +71,7 @@ namespace hmart.Areas.Manage.Controllers
             }
             catch (Exception)
             {
-                FileManager.Delete(_env.WebRootPath, "uploads/banners", newBanner.Image);
+                FileManager.Delete(_env.WebRootPath, "uploads/banners", banner.Image);
             }
 
 
@@ -94,6 +92,12 @@ namespace hmart.Areas.Manage.Controllers
         public IActionResult Edit(Banner bnr)
         {
             if (!ModelState.IsValid) return View();
+
+            if (_context.Banners.Any(x => x.Order == bnr.Order && x.Id != bnr.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Banner banner = _context.Banners.FirstOrDefault(x => x.Id == bnr.Id);
 

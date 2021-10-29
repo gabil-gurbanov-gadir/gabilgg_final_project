@@ -40,12 +40,11 @@ namespace hmart.Areas.Manage.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-            Feature newFeature = new Feature
+            if (_context.Features.Any(x => x.Order == feature.Order))
             {
-                Title = feature.Title,
-                Subtitle = feature.Subtitle,
-                Order = feature.Order
-            };
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             if (feature.ImageFile != null)
             {
@@ -61,10 +60,10 @@ namespace hmart.Areas.Manage.Controllers
                     return View();
                 }
 
-                newFeature.Image = FileManager.Save(_env.WebRootPath, "uploads/features", feature.ImageFile);
+                feature.Image = FileManager.Save(_env.WebRootPath, "uploads/features", feature.ImageFile);
             }
 
-            _context.Features.Add(newFeature);
+            _context.Features.Add(feature);
 
             try
             {
@@ -72,7 +71,7 @@ namespace hmart.Areas.Manage.Controllers
             }
             catch (Exception)
             {
-                FileManager.Delete(_env.WebRootPath, "uploads/features", newFeature.Image);
+                FileManager.Delete(_env.WebRootPath, "uploads/features", feature.Image);
             }
 
             return RedirectToAction("index");
@@ -92,6 +91,12 @@ namespace hmart.Areas.Manage.Controllers
         public IActionResult Edit(Feature ftr)
         {
             if (!ModelState.IsValid) return View();
+
+            if (_context.Features.Any(x => x.Order == ftr.Order && x.Id != ftr.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Feature feature = _context.Features.FirstOrDefault(x => x.Id == ftr.Id);
 

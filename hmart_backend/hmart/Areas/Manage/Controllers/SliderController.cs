@@ -36,33 +36,31 @@ namespace hmart.Areas.Manage.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Slider sld)
+        public IActionResult Create(Slider slider)
         {
             if (!ModelState.IsValid) return View();
 
-            Slider slider = new Slider
+            if (_context.Sliders.Any(x => x.Order == slider.Order))
             {
-                Title = sld.Title,
-                Subtitle = sld.Subtitle,
-                BtnText = sld.BtnText,
-                Order = sld.Order
-            };
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
-            if (sld.ImageFile != null)
+            if (slider.ImageFile != null)
             {
-                if (sld.ImageFile.ContentType != "image/jpeg" && sld.ImageFile.ContentType != "image/png")
+                if (slider.ImageFile.ContentType != "image/jpeg" && slider.ImageFile.ContentType != "image/png")
                 {
                     ModelState.AddModelError("ImageFile", "You can choose file only .jpg, .jpeg or .png format!");
                     return View();
                 }
 
-                if (sld.ImageFile.Length > 5242880)
+                if (slider.ImageFile.Length > 5242880)
                 {
                     ModelState.AddModelError("ImageFile", "You can choose file only maximum 5Mb !");
                     return View();
                 }
 
-                slider.Image = FileManager.Save(_env.WebRootPath, "uploads/sliders", sld.ImageFile);
+                slider.Image = FileManager.Save(_env.WebRootPath, "uploads/sliders", slider.ImageFile);
             }
 
             _context.Sliders.Add(slider);
@@ -94,6 +92,12 @@ namespace hmart.Areas.Manage.Controllers
         public IActionResult Edit(Slider sld)
         {
             if (!ModelState.IsValid) return View();
+
+            if (_context.Sliders.Any(x => x.Order == sld.Order && x.Id != sld.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Slider slider = _context.Sliders.FirstOrDefault(x => x.Id == sld.Id);
 

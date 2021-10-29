@@ -15,12 +15,6 @@ namespace hmart.Models
         [StringLength(maximumLength: 100)]
         public string Name { get; set; }
 
-        [StringLength(maximumLength: 100)]
-        public string Image { get; set; }
-
-        [NotMapped]
-        public IFormFile ImageFile { get; set; }
-
         [StringLength(maximumLength: 800)]
         public string Desc { get; set; }
 
@@ -47,14 +41,37 @@ namespace hmart.Models
         public bool IsAvailable { get; set; }
         public bool IsOnOffer { get; set; }
 
+
+        [NotMapped]
+        public IFormFile PosterImage { get; set; }
+
+        [NotMapped]
+        public IFormFile HoverPosterImage { get; set; }
+
+        [NotMapped]
+        public List<IFormFile> Images { get; set; }
+
+        [NotMapped]
+        public List<int> ImageIds { get; set; }
+
+        [NotMapped]
+        public List<int> TagIds { get; set; }
+
+        [NotMapped]
+        public List<int> ColorIds { get; set; }
+
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
         public int BrandId { get; set; }
         public Brand Brand { get; set; }
 
+
+        public List<BasketItem> BasketItems { get; set; }
+        public List<ProImage> ProImages { get; set; }
         public List<ProductTagProduct> ProductTagProducts { get; set; }
         public List<ProductColor> ProductColors { get; set; }
         public List<Review> Reviews { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
     }
 }

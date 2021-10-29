@@ -36,13 +36,13 @@ namespace hmart.Areas.Manage.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-            Category newCategory = new Category
+            if (_context.Categories.Any(x => x.Order == category.Order))
             {
-                Name = category.Name,
-                Order = category.Order
-            };
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
-            _context.Categories.Add(newCategory);
+            _context.Categories.Add(category);
 
             _context.SaveChanges();
 
@@ -64,6 +64,12 @@ namespace hmart.Areas.Manage.Controllers
         {
 
             if (!ModelState.IsValid) return View();
+
+            if (_context.Categories.Any(x => x.Order == ctg.Order && x.Id != ctg.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Category category = _context.Categories.FirstOrDefault(x => x.Id == ctg.Id);
 

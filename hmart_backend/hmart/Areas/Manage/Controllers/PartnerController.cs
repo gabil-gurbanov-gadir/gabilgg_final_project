@@ -37,10 +37,13 @@ namespace hmart.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Partner partner)
         {
-            Partner newPartner = new Partner
+            if (!ModelState.IsValid) return View();
+
+            if (_context.Partners.Any(x => x.Order == partner.Order))
             {
-                Order = partner.Order
-            };
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             if (partner.ImageFile != null)
             {
@@ -56,10 +59,10 @@ namespace hmart.Areas.Manage.Controllers
                     return View();
                 }
 
-                newPartner.Image = FileManager.Save(_env.WebRootPath, "uploads/partners", partner.ImageFile);
+                partner.Image = FileManager.Save(_env.WebRootPath, "uploads/partners", partner.ImageFile);
             }
 
-            _context.Partners.Add(newPartner);
+            _context.Partners.Add(partner);
 
             try
             {
@@ -67,7 +70,7 @@ namespace hmart.Areas.Manage.Controllers
             }
             catch (Exception)
             {
-                FileManager.Delete(_env.WebRootPath, "uploads/partners", newPartner.Image);
+                FileManager.Delete(_env.WebRootPath, "uploads/partners", partner.Image);
             }
 
             return RedirectToAction("index");
@@ -87,6 +90,12 @@ namespace hmart.Areas.Manage.Controllers
         public IActionResult Edit(Partner prt)
         {
             if (!ModelState.IsValid) return View();
+
+            if (_context.Partners.Any(x => x.Order == prt.Order && x.Id != prt.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Partner partner = _context.Partners.FirstOrDefault(x => x.Id == prt.Id);
 

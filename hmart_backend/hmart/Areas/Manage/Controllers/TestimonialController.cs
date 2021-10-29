@@ -38,33 +38,31 @@ namespace hmart.Areas.Manage.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Testimonial tsm)
+        public IActionResult Create(Testimonial testimonial)
         {
             if (!ModelState.IsValid) return View();
 
-            Testimonial testimonial = new Testimonial
+            if (_context.Testimonials.Any(x => x.Order == testimonial.Order))
             {
-                FullName = tsm.FullName,
-                Position = tsm.Position,
-                Desc = tsm.Desc,
-                Order = tsm.Order
-            };
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
-            if (tsm.ImageFile != null)
+            if (testimonial.ImageFile != null)
             {
-                if (tsm.ImageFile.ContentType != "image/jpeg" && tsm.ImageFile.ContentType != "image/png")
+                if (testimonial.ImageFile.ContentType != "image/jpeg" && testimonial.ImageFile.ContentType != "image/png")
                 {
                     ModelState.AddModelError("ImageFile", "You can choose file only .jpg, .jpeg or .png format!");
                     return View();
                 }
 
-                if (tsm.ImageFile.Length > 5242880)
+                if (testimonial.ImageFile.Length > 5242880)
                 {
                     ModelState.AddModelError("ImageFile", "You can choose file only maximum 5Mb !");
                     return View();
                 }
 
-                testimonial.Image = FileManager.Save(_env.WebRootPath, "uploads/testimonials", tsm.ImageFile);
+                testimonial.Image = FileManager.Save(_env.WebRootPath, "uploads/testimonials", testimonial.ImageFile);
             }
 
             _context.Testimonials.Add(testimonial);
@@ -96,6 +94,12 @@ namespace hmart.Areas.Manage.Controllers
         public IActionResult Edit(Testimonial tsm)
         {
             if (!ModelState.IsValid) return View();
+
+            if (_context.Testimonials.Any(x => x.Order == tsm.Order && x.Id != tsm.Id))
+            {
+                ModelState.AddModelError("Order", "Order is required!");
+                return View();
+            }
 
             Testimonial testimonial = _context.Testimonials.FirstOrDefault(x => x.Id == tsm.Id);
 
