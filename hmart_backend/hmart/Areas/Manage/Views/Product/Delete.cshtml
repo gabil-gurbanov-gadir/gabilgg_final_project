@@ -1,6 +1,7 @@
-﻿@model Product
+﻿
+@model Product
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Delete";
 }
 
 <div id="page-wrapper">
@@ -9,7 +10,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-action">
-                        Create Product
+                        Delete Product
                     </div>
                     <div class="card-content">
                         <form class="col s12" method="post" enctype="multipart/form-data">
@@ -17,7 +18,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="Name" class="validate @(Model?.Name!=null?"valid":"")">
+                                            <input asp-for="Name" class="validate @(Model?.Name!=null?"valid":"")" disabled>
                                             <label asp-for="Name" class="@(Model?.Name!=null?"active":"")">Name</label>
                                             <span class="text-danger" asp-validation-for="Name"></span>
                                         </div>
@@ -26,7 +27,7 @@
                                 <div class="col-lg-3 col-md-6 col-sm-12">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="Code" class="validate @(Model?.Code!=null?"valid":"")">
+                                            <input asp-for="Code" class="validate @(Model?.Code!=null?"valid":"")" disabled>
                                             <label asp-for="Code" class="@(Model?.Code!=null?"active":"")">Code</label>
                                             <span class="text-danger" asp-validation-for="Code"></span>
                                         </div>
@@ -35,7 +36,7 @@
                                 <div class="col-lg-2 col-md-4 col-sm-6">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="CostPrice" class="validate @(Model?.CostPrice!=null?"valid":"")" />
+                                            <input asp-for="CostPrice" class="validate @(Model?.CostPrice!=null?"valid":"")" disabled />
                                             <label asp-for="CostPrice" class="@(Model?.CostPrice!=null?"active":"")">Cost Price</label>
                                             <span class="text-danger" asp-validation-for="CostPrice"></span>
                                         </div>
@@ -44,7 +45,7 @@
                                 <div class="col-lg-2 col-md-4 col-sm-6">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="Price" class="validate @(Model?.Price!=null?"valid":"")">
+                                            <input asp-for="Price" class="validate @(Model?.Price!=null?"valid":"")" disabled />
                                             <label asp-for="Price" class="@(Model?.Price!=null?"active":"")">Price</label>
                                             <span class="text-danger" asp-validation-for="Price"></span>
                                         </div>
@@ -53,7 +54,7 @@
                                 <div class="col-lg-2 col-md-4 col-sm-6">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="DiscountPercent" class="validate @(Model?.DiscountPercent!=null?"valid":"")">
+                                            <input asp-for="DiscountPercent" class="validate @(Model?.DiscountPercent!=null?"valid":"")" disabled />
                                             <label asp-for="DiscountPercent" class="@(Model?.DiscountPercent!=null?"active":"")">Discount Percent</label>
                                             <span class="text-danger" asp-validation-for="DiscountPercent"></span>
                                         </div>
@@ -62,7 +63,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="Dimensions" class="validate @(Model?.Dimensions!=null?"valid":"")">
+                                            <input asp-for="Dimensions" class="validate @(Model?.Dimensions!=null?"valid":"")" disabled />
                                             <label asp-for="Dimensions" class="@(Model?.Dimensions!=null?"active":"")">Dimensions</label>
                                             <span class="text-danger" asp-validation-for="Dimensions"></span>
                                         </div>
@@ -71,7 +72,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="Materials" class="validate @(Model?.Materials!=null?"valid":"")">
+                                            <input asp-for="Materials" class="validate @(Model?.Materials!=null?"valid":"")" disabled />
                                             <label asp-for="Materials" class="@(Model?.Materials!=null?"active":"")">Materials</label>
                                             <span class="text-danger" asp-validation-for="Materials"></span>
                                         </div>
@@ -80,7 +81,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="Weight" class="validate @(Model?.Weight!=null?"valid":"")">
+                                            <input asp-for="Weight" class="validate @(Model?.Weight!=null?"valid":"")" disabled />
                                             <label asp-for="Weight" class="@(Model?.Weight!=null?"active":"")">Weight</label>
                                             <span class="text-danger" asp-validation-for="Weight"></span>
                                         </div>
@@ -89,8 +90,8 @@
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="IsOnOffer" class="validate filled-in @(Model?.IsOnOffer!=null?"valid":"")">
-                                            <label asp-for="IsOnOffer" class="@(Model?.IsOnOffer!=null?"active":"")">Is On Offer</label>
+                                            <input asp-for="IsOnOffer" class="validate filled-in @(Model?.IsOnOffer!=null?"valid":"")" disabled />
+                                            <label asp-for="IsOnOffer">Is On Offer</label>
                                             <span class="text-danger" asp-validation-for="IsOnOffer"></span>
                                         </div>
                                     </div>
@@ -98,7 +99,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <textarea asp-for="Desc" class="validate @(Model?.Desc!=null?"valid":"")"></textarea>
+                                            <textarea asp-for="Desc" class="validate @(Model?.Desc!=null?"valid":"")" disabled ></textarea>
                                             <label asp-for="Desc" class="@(Model?.Desc!=null?"active":"")">Desc</label>
                                             <span class="text-danger" asp-validation-for="Desc"></span>
                                         </div>
@@ -107,7 +108,7 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <textarea asp-for="OtherInfo" class="validate @(Model?.OtherInfo!=null?"valid":"") materialize-textarea"></textarea>
+                                            <textarea asp-for="OtherInfo" class="validate @(Model?.OtherInfo!=null?"valid":"") materialize-textarea" disabled></textarea>
                                             <label asp-for="OtherInfo" class="@(Model?.OtherInfo!=null?"active":"")">OtherInfo</label>
                                             <span class="text-danger" asp-validation-for="OtherInfo"></span>
                                         </div>
@@ -115,45 +116,58 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6 col-md-12">
+                                @{
+                                    ProImage poster = Model?.ProImages.FirstOrDefault(x => x.PosterStatus == true);
+                                    ProImage hoverPoster = Model?.ProImages.FirstOrDefault(x => x.PosterStatus == false);
+                                    List<ProImage> images = Model?.ProImages.Where(x => x.PosterStatus == null).ToList();
+                                }
+                                <div class="col-md-6 col-sm-6">
                                     <div class="card p-1">
-                                        <div class="input-field">
-                                            <input asp-for="PosterImage" class="d-none image-file">
-                                            <label asp-for="PosterImage" class="p-s input-file white">
-                                                <span class="d-i-b p-a">Poster Image</span>
-                                            </label>
-                                            <span class="text-danger" asp-validation-for="PosterImage"></span>
+                                        <div class="image-poster">
+                                            @if (poster != null)
+                                            {
+                                                <div class="image-wrapper" style="position:relative">
+                                                    <img style="width:50%" src="~/uploads/products/@poster.Image" alt="Poster Image" />
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-12">
+                                <div class="col-md-6 col-sm-6">
                                     <div class="card p-1">
-                                        <div class="input-field">
-                                            <input asp-for="HoverPosterImage" class="d-none image-file">
-                                            <label asp-for="HoverPosterImage" class="p-s input-file white">
-                                                <span class="d-i-b p-a">Hover Poster Image</span>
-                                            </label>
-                                            <span class="text-danger" asp-validation-for="HoverPosterImage"></span>
+                                        <div class="image-poster">
+                                            @if (hoverPoster != null)
+                                            {
+                                                <div class="image-wrapper" style="position:relative">
+                                                    <img style="width:50%" src="~/uploads/products/@hoverPoster.Image" alt="Poster Image" />
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="card p-1">
-                                        <div class="input-field">
-                                            <input asp-for="Images" class="d-none image-file">
-                                            <label asp-for="Images" class="p-s input-file white">
-                                                <span class="d-i-b p-a">Other Images</span>
-                                            </label>
-                                            <span class="text-danger" asp-validation-for="Images"></span>
+                                @if (images != null)
+                                {
+                                    @foreach (var item in images)
+                                    {
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="card p-1">
+                                                <div class="image-poster">
+                                                    <div class="image-wrapper" style="position:relative">
+                                                        <img style="width:100%" src="~/uploads/products/@item.Image" alt="Product Image" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    }
+                                }
+                            </div>
+                            <div class="row">
                                 <div class="col-lg-3 col-md-5 col-sm-6 mt-1">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="Count" class="validate @(Model?.Count!=null?"valid":"")">
+                                            <input asp-for="Count" class="validate @(Model?.Count!=null?"valid":"")" disabled />
                                             <label asp-for="Count" class="@(Model?.Count!=null?"active":"")">Count</label>
                                             <span class="text-danger" asp-validation-for="Count"></span>
                                         </div>
@@ -162,7 +176,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6 mt-1">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <input asp-for="CreatedAt" class="validate @(Model?.CreatedAt!=null?"valid":"")">
+                                            <input asp-for="CreatedAt" class="validate @(Model?.CreatedAt!=null?"valid":"")" disabled />
                                             <label asp-for="CreatedAt" class="active">CreatedAt</label>
                                             <span class="text-danger" asp-validation-for="CreatedAt"></span>
                                         </div>
@@ -173,7 +187,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6 mt-1">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <select class="form-control" style="height:65%" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id","Name"))">
+                                            <select class="form-control" style="height:65%" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id","Name"))" disabled>
                                             </select>
                                             <label asp-for="CategoryId" class="active">Categories: </label>
                                             <span class="text-danger" asp-validation-for="CategoryId"></span>
@@ -183,7 +197,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6 mt-1">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <select class="form-control" style="height:65%" asp-for="BrandId" asp-items="@(new SelectList(ViewBag.Brands, "Id","Name"))">
+                                            <select class="form-control" style="height:65%" asp-for="BrandId" asp-items="@(new SelectList(ViewBag.Brands, "Id","Name"))" disabled>
                                             </select>
                                             <label asp-for="BrandId" class="active">Brands: </label>
                                             <span class="text-danger" asp-validation-for="BrandId"></span>
@@ -193,7 +207,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6 mt-1">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <select class="form-control" style="height: 65%; overflow-y: auto; background-image: none;" asp-for="TagIds" asp-items="@(new SelectList(ViewBag.Tags, "Id","Name"))">
+                                            <select class="form-control" style="height: 65%; overflow-y: auto; background-image: none;" asp-for="TagIds" asp-items="@(new SelectList(ViewBag.Tags, "Id","Name"))" disabled>
                                             </select>
                                             <label asp-for="TagIds" class="active">Tags: </label>
                                             <span class="text-danger" asp-validation-for="TagIds"></span>
@@ -203,7 +217,7 @@
                                 <div class="col-lg-3 col-md-5 col-sm-6 mt-1">
                                     <div class="row m-0">
                                         <div class="input-field col s12">
-                                            <select class="form-control" style="height: 65%; overflow-y: auto; background-image: none;" asp-for="ColorIds" asp-items="@(new SelectList(ViewBag.Colors, "Id","Name"))">
+                                            <select class="form-control" style="height: 65%; overflow-y: auto; background-image: none;" asp-for="ColorIds" asp-items="@(new SelectList(ViewBag.Colors, "Id","Name"))" disabled>
                                             </select>
                                             <label asp-for="ColorIds" class="active">Colors: </label>
                                             <span class="text-danger" asp-validation-for="ColorIds"></span>
@@ -211,8 +225,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="waves-effect waves-light btn btn-success" style="width:200px">Create</button>
-                            <a asp-action="index" class="waves-effect waves-light btn btn-danger ml-2" style="width:200px">Cancel</a>
+                            <button type="submit" class="waves-effect waves-light btn btn-danger" style="width:200px">Delete</button>
+                            <a asp-action="index" class="waves-effect waves-light btn btn-success ml-2" style="width:200px">Cancel</a>
                         </form>
                         <div class="clearBoth"></div>
                     </div>
@@ -226,8 +240,6 @@
     <script>
         $(document).ready(function () {
             $(document).on("change", ".image-file", function () {
-                //let inputFile = "";
-                console.log("changed");
                 let inputName = "";
                 if ($(this)[0].files.length>0) {
                     $(this).next().text("");
@@ -259,17 +271,12 @@
                     }
                 }
 
-                //inputFile = $(this)[0].files[0].name;
-                //if (inputFile.length > 25) {
-                //    inputFile = inputFile.substring(0, 22) + "..."
-                //}
-                //$(this).next().append(inputFile);
                 $(this).next().addClass("valid");
                 $(this).next().children().addClass("active");
             });
 
             $(document).on("click", "span#deleteImage", function (e) {
-                $(this).parent().parent().remove();
+                $(this).parent().parent().parent().parent().remove();
             });
         });
     </script>

@@ -21,6 +21,7 @@ namespace hmart.Models
         [StringLength(maximumLength: 50)]
         public string Code { get; set; }
 
+        public int Count { get; set; }
         public double CostPrice { get; set; }
         public double Price { get; set; }
         public int? DiscountPercent { get; set; }
@@ -37,8 +38,9 @@ namespace hmart.Models
 
         [StringLength(maximumLength: 200)]
         public string OtherInfo { get; set; }
-        public bool IsNew { get; set; }
-        public bool IsAvailable { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime CreatedAt { get; set; }
         public bool IsOnOffer { get; set; }
 
 

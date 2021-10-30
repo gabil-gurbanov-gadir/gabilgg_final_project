@@ -21,6 +21,7 @@ namespace hmart.DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Review> Reviews { get; set; }
         public DbSet<ProductTag> ProductTags { get; set; }
         public DbSet<ProductTagProduct> ProductTagProducts { get; set; }
         public DbSet<Color> Colors { get; set; }
@@ -36,5 +37,9 @@ namespace hmart.DAL
         public DbSet<BlogSubComment> BlogSubComments { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Feature> Features { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ProImage> ProImages { get; set; }
     }
 }

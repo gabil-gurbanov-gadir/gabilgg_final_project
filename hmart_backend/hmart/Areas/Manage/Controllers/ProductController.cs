@@ -25,7 +25,7 @@ namespace hmart.Areas.Manage.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> products = _context.Products.ToList();
+            List<Product> products = _context.Products.Include(x=>x.ProImages).ToList();
 
             return View(products);
         }
@@ -130,6 +130,7 @@ namespace hmart.Areas.Manage.Controllers
 
             product.ProImages = new List<ProImage>();
             product.ProductTagProducts = new List<ProductTagProduct>();
+            product.ProductColors = new List<ProductColor>();
 
             ProImage posterImage = new ProImage()
             {
@@ -147,16 +148,18 @@ namespace hmart.Areas.Manage.Controllers
 
             product.ProImages.Add(hoverPosterImage);
 
-
-            foreach (var item in product.Images)
+            if (product.Images != null)
             {
-                ProImage productImage = new ProImage()
+                foreach (var item in product.Images)
                 {
-                    PosterStatus = null,
-                    Image = FileManager.Save(_env.WebRootPath, "uploads/products", item)
-                };
+                    ProImage productImage = new ProImage()
+                    {
+                        PosterStatus = null,
+                        Image = FileManager.Save(_env.WebRootPath, "uploads/products", item)
+                    };
 
-                product.ProImages.Add(productImage);
+                    product.ProImages.Add(productImage);
+                }
             }
 
             if (product.TagIds != null)
@@ -172,7 +175,26 @@ namespace hmart.Areas.Manage.Controllers
                 }
             }
 
+            if (product.ColorIds != null)
+            {
+                foreach (var item in product.ColorIds)
+                {
+                    ProductColor productColor = new ProductColor()
+                    {
+                        ColorId = item
+                    };
+
+                    product.ProductColors.Add(productColor);
+                }
+            }
+
             #endregion
+
+            product.Rate = 0;
+            if (product.CreatedAt == null)
+            {
+                product.CreatedAt = DateTime.Now;
+            }
 
             _context.Products.Add(product);
 
@@ -184,7 +206,7 @@ namespace hmart.Areas.Manage.Controllers
             {
                 foreach (var item in product.ProImages)
                 {
-                    FileManager.Delete(_env.WebRootPath, "uploads/books", item.Image);
+                    FileManager.Delete(_env.WebRootPath, "uploads/products", item.Image);
                 }
             }
 
@@ -193,10 +215,11 @@ namespace hmart.Areas.Manage.Controllers
 
         public IActionResult Edit(int id)
         {
-            Product product = _context.Products.Include(x => x.ProImages).Include(x => x.ProductTagProducts).FirstOrDefault(x => x.Id == id);
+            Product product = _context.Products.Include(x => x.ProImages).Include(x => x.ProductTagProducts).Include(x => x.ProductColors).FirstOrDefault(x => x.Id == id);
 
 
             product.TagIds = product.ProductTagProducts.Select(x => x.ProductTagId).ToList();
+            product.ColorIds = product.ProductColors.Select(x => x.ColorId).ToList();
 
             if (product == null) return View("NotFoundPage");
 
@@ -207,5 +230,299 @@ namespace hmart.Areas.Manage.Controllers
 
             return View(product);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Product product)
+        {
+            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Brands = _context.Brands.ToList();
+            ViewBag.Colors = _context.Colors.ToList();
+            ViewBag.Tags = _context.ProductTags.ToList();
+
+            if (!ModelState.IsValid) return View();
+
+            Product existProduct = _context.Products
+                .Include(x => x.ProImages)
+                .Include(x => x.ProductTagProducts)
+                .Include(x => x.ProductColors)
+                .FirstOrDefault(x => x.Id == product.Id);
+
+            if (existProduct == null) return View("NotFoundPage");
+
+            #region AnyCheck
+
+            if (!_context.Categories.Any(x => x.Id == product.CategoryId))
+            {
+                ModelState.AddModelError("CategoryId", "Have not Category like this name!");
+                return View(existProduct);
+            }
+
+            if (!_context.Brands.Any(x => x.Id == product.BrandId))
+            {
+                ModelState.AddModelError("BrandId", "Have not Brand like this name!");
+                return View(existProduct);
+            }
+
+            if (_context.Products.Any(x => x.Code == product.Code && product.Code != existProduct.Code))
+            {
+                ModelState.AddModelError("Code", "Code is required!");
+                return View(existProduct);
+            }
+
+            #endregion
+
+            #region ImageChack
+
+            if (product.PosterImage != null)
+            {
+                if (product.PosterImage.ContentType != "image/jpeg" && product.PosterImage.ContentType != "image/png")
+                {
+                    ModelState.AddModelError("PosterImage", "You can choose file only .jpg, .jpeg or .png format!");
+                    return View(existProduct);
+                }
+
+                if (product.PosterImage.Length > 5242880)
+                {
+                    ModelState.AddModelError("PosterImage", "You can choose file only maximum 5Mb !");
+                    return View(existProduct);
+                }
+            }
+
+            if (product.HoverPosterImage != null)
+            {
+                if (product.HoverPosterImage.ContentType != "image/jpeg" && product.HoverPosterImage.ContentType != "image/png")
+                {
+                    ModelState.AddModelError("HoverPosterImage", "You can choose file only .jpg, .jpeg or .png format!");
+                    return View(existProduct);
+                }
+
+                if (product.HoverPosterImage.Length > 5242880)
+                {
+                    ModelState.AddModelError("HoverPosterImage", "You can choose file only maximum 5Mb !");
+                    return View(existProduct);
+                }
+            }
+
+            if (product.Images != null)
+            {
+                foreach (var item in product.Images)
+                {
+                    if (item.ContentType != "image/jpeg" && item.ContentType != "image/png")
+                    {
+                        ModelState.AddModelError("Images", "You can choose file only .jpg, .jpeg or .png format!");
+                        return View(existProduct);
+                    }
+
+                    if (item.Length > 5242880)
+                    {
+                        ModelState.AddModelError("Images", "You can choose file only maximum 5Mb !");
+                        return View(existProduct);
+                    }
+                }
+            }
+
+            #endregion
+
+
+            existProduct.Name = product.Name;
+            existProduct.Desc = product.Desc;
+            existProduct.Code = product.Code;
+            existProduct.CostPrice = product.CostPrice;
+            existProduct.Price = product.Price;
+            existProduct.DiscountPercent = product.DiscountPercent;
+            existProduct.Weight = product.Weight;
+            existProduct.Dimensions = product.Dimensions;
+            existProduct.Materials = product.Materials;
+            existProduct.OtherInfo = product.OtherInfo;
+            existProduct.Count = product.Count;
+            existProduct.CreatedAt = product.CreatedAt;
+            existProduct.IsOnOffer = product.IsOnOffer;
+            existProduct.CategoryId = product.CategoryId;
+            existProduct.BrandId = product.BrandId;
+
+            List<string> newFileNames = new List<string>();
+
+            if (product.PosterImage != null)
+            {
+                string filename = FileManager.Save(_env.WebRootPath, "uploads/products", product.PosterImage);
+                ProImage oldPoster = existProduct.ProImages.FirstOrDefault(x => x.PosterStatus == true);
+
+                if (oldPoster != null)
+                {
+                    FileManager.Delete(_env.WebRootPath, "uploads/products", oldPoster.Image);
+                    oldPoster.Image = filename;
+                }
+                else
+                {
+                    ProImage productImage = new ProImage()
+                    {
+                        PosterStatus = true,
+                        Image = filename
+                    };
+                    existProduct.ProImages.Add(productImage);
+                }
+
+                newFileNames.Add(filename);
+
+            }
+
+            if (product.HoverPosterImage != null)
+            {
+                string filename = FileManager.Save(_env.WebRootPath, "uploads/products", product.HoverPosterImage);
+                ProImage oldPoster = existProduct.ProImages.FirstOrDefault(x => x.PosterStatus == false);
+
+                if (oldPoster != null)
+                {
+                    FileManager.Delete(_env.WebRootPath, "uploads/products", oldPoster.Image);
+                    oldPoster.Image = filename;
+                }
+                else
+                {
+                    ProImage productImage = new ProImage()
+                    {
+                        PosterStatus = false,
+                        Image = filename
+                    };
+                    existProduct.ProImages.Add(productImage);
+                }
+                newFileNames.Add(filename);
+            }
+
+            if (product.ImageIds != null)
+            {
+                foreach (var item in existProduct.ProImages.FindAll(x => x.PosterStatus == null))
+                {
+                    if (!product.ImageIds.Any(x => x == item.Id))
+                    {
+                        FileManager.Delete(_env.WebRootPath, "uploads/products", item.Image);
+
+                        _context.ProImages.Remove(item);
+                    }
+                }
+            }
+
+            if (product.Images != null)
+            {
+                foreach (var item in product.Images)
+                {
+                    string newFileName = FileManager.Save(_env.WebRootPath, "uploads/products", item);
+
+                    ProImage productImage = new ProImage()
+                    {
+                        Image = newFileName
+                    };
+                    existProduct.ProImages.Add(productImage);
+
+                    newFileNames.Add(newFileName);
+                }
+            }
+
+            if (product.TagIds != null)
+            {
+                List<ProductTagProduct> productTags = new List<ProductTagProduct>();
+                foreach (var item in product.TagIds)
+                {
+                    ProductTagProduct productTag = new ProductTagProduct()
+                    {
+                        ProductTagId = item
+                    };
+                    productTags.Add(productTag);
+                }
+                existProduct.ProductTagProducts = productTags;
+            }
+            else
+            {
+                existProduct.ProductTagProducts.Clear();
+            }
+
+            if (product.ColorIds != null)
+            {
+                List<ProductColor> productColors = new List<ProductColor>();
+                foreach (var item in product.ColorIds)
+                {
+                    ProductColor productColor = new ProductColor()
+                    {
+                        ColorId = item
+                    };
+                    productColors.Add(productColor);
+                }
+                existProduct.ProductColors = productColors;
+            }
+            else
+            {
+                existProduct.ProductColors.Clear();
+            }
+
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                foreach (var item in newFileNames)
+                {
+                    FileManager.Delete(_env.WebRootPath, "uploads/products", item);
+                }
+
+                return View("NotFoundPage");
+            }
+
+            return RedirectToAction("index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+
+            Product product = _context.Products
+                .Include(x => x.ProImages)
+                .Include(x => x.ProductTagProducts)
+                .Include(x => x.ProductColors)
+                .FirstOrDefault(x => x.Id == id);
+
+            if (product == null) return View("NotFoundPage");
+
+
+            product.TagIds = product.ProductTagProducts.Select(x => x.ProductTagId).ToList();
+            product.ColorIds = product.ProductColors.Select(x => x.ColorId).ToList();
+
+            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Brands = _context.Brands.ToList();
+            ViewBag.Colors = _context.Colors.ToList();
+            ViewBag.Tags = _context.ProductTags.ToList();
+
+            return View(product);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Product product)
+        {
+            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Brands = _context.Brands.ToList();
+            ViewBag.Colors = _context.Colors.ToList();
+            ViewBag.Tags = _context.ProductTags.ToList();
+
+
+            Product existProduct = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == product.Id);
+
+            if (existProduct == null) return View("NotFoundPage");
+
+            if (existProduct.ProImages != null)
+            {
+                foreach (var item in existProduct.ProImages)
+                {
+                    FileManager.Delete(_env.WebRootPath, "uploads/products", item.Image);
+                }
+            }
+
+            _context.Products.Remove(existProduct);
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
+
     }
 }

@@ -83,10 +83,24 @@
 
 @section Scripts{
     <script>
-        $(document).on("click", "span#deleteImage", function (e) {
-            console.log($("form.user .image-poster"));
+        $(document).ready(function () {
+            $(document).on("change", ".image-file", function () {
+                let inputFile = "";
+                if ($(this)[0].files[0]) {
+                    inputFile = $(this)[0].files[0].name;
+                    if (inputFile.length > 25) {
+                        inputFile = inputFile.substring(0, 22) + "..."
+                    }
+                    $(this).next().text("");
+                    $(this).next().append(inputFile);
+                }
+                $(this).next().addClass("valid");
+                $(this).next().children().addClass("active");
+            });
 
-            $(this).parent().parent().remove();
+            $(document).on("click", "span#deleteImage", function (e) {
+                $(this).parent().parent().remove();
+            });
         });
     </script>
 }

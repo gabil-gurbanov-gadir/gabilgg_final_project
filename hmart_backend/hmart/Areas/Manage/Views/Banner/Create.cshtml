@@ -18,6 +18,11 @@
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
                                             <div class="card p-1">
+                                                <div class="image-poster">
+                                                    <div class="image-wrapper d-none" style="position:relative">
+                                                        <img style="width:100%" src="" class="banner-image" alt="Banner Image" />
+                                                    </div>
+                                                </div>
                                                 <div class="input-field mt-12">
                                                     <input asp-for="ImageFile" class="d-none image-file">
                                                     <label asp-for="ImageFile" class="p-s input-file white">
@@ -66,13 +71,21 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
-            $(document).on("change", ".image-file", function () {
+            let imageInputValue;
+            $(document).on("change", ".image-file", function (e) {
                 let inputFile = "";
-                inputFile = $(this)[0].files[0].name;
-                if (inputFile.length>25) {
-                    inputFile = inputFile.substring(0,22) + "..."
+                if ($(this)[0].files[0]) {
+                    inputFile = $(this)[0].files[0].name;
+                    if (inputFile.length > 25) {
+                        inputFile = inputFile.substring(0, 22) + "..."
+                    }
+                    $(this).next().text("");
+                    $(this).next().append(inputFile);
+                    imageInputValue = URL.createObjectURL(e.target.files[0]);
+
+                    $(".banner-image").parent().removeClass("d-none");
+                    $(".banner-image").fadeIn("fast").attr('src', imageInputValue);
                 }
-                $(this).next().append(inputFile);
                 $(this).next().addClass("valid");
                 $(this).next().children().addClass("active");
             })
