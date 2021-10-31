@@ -29,6 +29,22 @@ namespace hmart.Areas.Manage.Controllers
 
             return View(products);
         }
+
+        public IActionResult Detail(int id)
+        {
+            Product product = _context.Products
+                .Include(x => x.ProImages)
+                .Include(x => x.Category)
+                .Include(x => x.Brand)
+                .Include(x => x.ProductTagProducts).ThenInclude(x => x.ProductTag)
+                .Include(x => x.ProductColors).ThenInclude(x => x.Color)
+                .FirstOrDefault(x => x.Id == id);
+
+            if (product == null) return View("NotFoundPage");
+
+            return View(product);
+        }
+
         public IActionResult Create()
         {
             ViewBag.Categories = _context.Categories.ToList();
@@ -215,7 +231,11 @@ namespace hmart.Areas.Manage.Controllers
 
         public IActionResult Edit(int id)
         {
-            Product product = _context.Products.Include(x => x.ProImages).Include(x => x.ProductTagProducts).Include(x => x.ProductColors).FirstOrDefault(x => x.Id == id);
+            Product product = _context.Products
+                .Include(x => x.ProImages)
+                .Include(x => x.ProductTagProducts)
+                .Include(x => x.ProductColors)
+                .FirstOrDefault(x => x.Id == id);
 
 
             product.TagIds = product.ProductTagProducts.Select(x => x.ProductTagId).ToList();
