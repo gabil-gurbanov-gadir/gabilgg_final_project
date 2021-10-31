@@ -20,13 +20,14 @@ namespace hmart.Areas.Manage.Controllers
         }
         public IActionResult Index()
         {
-            List<Brand> categories = _context.Brands.ToList();
+            List<Brand> brands = _context.Brands.ToList();
 
-            return View(categories);
+            return View(brands);
         }
 
         public IActionResult Create()
         {
+            ViewBag.BrandsCount = _context.Brands.Count();
             return View();
         }
 
@@ -34,6 +35,8 @@ namespace hmart.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Brand brand)
         {
+            ViewBag.BrandsCount = _context.Brands.Count();
+
             if (!ModelState.IsValid) return View();
 
             if (_context.Brands.Any(x => x.Order == brand.Order))
@@ -57,6 +60,8 @@ namespace hmart.Areas.Manage.Controllers
 
         public IActionResult Edit(int id)
         {
+            ViewBag.BrandsCount = _context.Brands.Count();
+
             Brand brand = _context.Brands.FirstOrDefault(x => x.Id == id);
 
             if (brand == null) return View("NotFoundPage");
@@ -68,6 +73,8 @@ namespace hmart.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Brand brnd)
         {
+
+            ViewBag.BrandsCount = _context.Brands.Count();
 
             if (!ModelState.IsValid) return View();
 

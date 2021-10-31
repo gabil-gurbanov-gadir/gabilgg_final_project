@@ -1,4 +1,4 @@
-﻿@model Brand
+﻿@model Color
 @{
     ViewData["Title"] = "Delete";
 }
@@ -9,7 +9,7 @@
             <div class="col-lg-9">
                 <div class="card">
                     <div class="card-action">
-                        Delete Brand
+                        Delete Color
                     </div>
                     <div class="card-content">
                         <form class="col s12" method="post" enctype="multipart/form-data">
@@ -19,6 +19,13 @@
                                         <input asp-for="Name" class="validate @(Model?.Name!=null?"valid":"")" disabled>
                                         <label asp-for="Name" class="@(Model?.Name!=null?"active":"")">Name</label>
                                         <span class="text-danger" asp-validation-for="Name"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-5 col-sm-6">
+                                    <div class="input-field">
+                                        <input asp-for="Code" class="validate @(Model?.Code!=null?"valid":"")" disabled>
+                                        <label asp-for="Code" class="@(Model?.Code!=null?"active":"")">Code</label>
+                                        <span class="text-danger" asp-validation-for="Code"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-6">

@@ -66,6 +66,15 @@
     width:100%;
 }
 
+.border-0{
+    border:none!important;
+}
+
+.border-top-1{
+    border:none!important;
+    border-top:1px solid #ddd!important;
+}
+
 .m-0 {
     margin: 0 !important;
 }
@@ -85,6 +94,10 @@
 
 .mb-1{
     margin-bottom:10px;
+}
+
+.mb-3{
+    margin-bottom:30px;
 }
 
 .ml-auto{
@@ -133,6 +146,10 @@
 
 .j-c-sb{
     justify-content:space-between;
+}
+
+.j-c-sa {
+    justify-content: space-around!important;
 }
 
 .a-i-c{
@@ -253,3 +270,22 @@ span#deleteImage {
 .badge-info {
     background-color: #25eeee;
 }
+
+span.color-code {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-left: 5px;
+    border-radius: 50%;
+    border: 0.8px solid white;
+    box-shadow: 0 0 5px black;
+}
+
+    span.color-code.create {
+        width: 100%;
+        height: 5px;
+        border-radius: 10px;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }

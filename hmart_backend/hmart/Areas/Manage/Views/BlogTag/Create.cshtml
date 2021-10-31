@@ -1,4 +1,4 @@
-﻿@model Brand
+﻿@model BlogTag
 @{
     ViewData["Title"] = "Create";
 }
@@ -9,7 +9,7 @@
             <div class="col-lg-9 col-md-12">
                 <div class="card">
                     <div class="card-action">
-                        Create Brand
+                        Create Blog Tag
                     </div>
                     <div class="card-content">
                         <form class="col s12" method="post" enctype="multipart/form-data">
@@ -30,8 +30,8 @@
                                 </div>
                                 <div class="col-lg-2 col-md-4 col-sm-6">
                                     <div class="input-field">
-                                        <input type="text" name="countBrand" value="@ViewBag.BrandsCount" id="countBrand" class="validate valid" disabled>
-                                        <label for="countBrand" class="active">Count Brand</label>
+                                        <input type="text" name="countBlogTag" value="@ViewBag.BlogTagsCount" id="countBlogTag" class="validate valid" disabled>
+                                        <label for="countBlogTag" class="active">Count BlogTag</label>
                                     </div>
                                 </div>
                             </div>

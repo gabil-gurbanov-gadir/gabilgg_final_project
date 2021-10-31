@@ -6,7 +6,7 @@
 <div id="page-wrapper">
     <div id="page-inner">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-9 col-md-12">
                 <div class="card">
                     <div class="card-action">
                         Edit Brand
@@ -14,18 +14,24 @@
                     <div class="card-content">
                         <form class="col s12" method="post" enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="row m-0">
-                                        <div class="input-field col s4">
-                                            <input asp-for="Name" class="validate @(Model?.Name!=null?"valid":"")">
-                                            <label asp-for="Name" class="@(Model?.Name!=null?"active":"")">Name</label>
-                                            <span class="text-danger" asp-validation-for="Name"></span>
-                                        </div>
-                                        <div class="input-field col s4">
-                                            <input asp-for="Order" class="validate @(Model?.Order!=null?"valid":"")">
-                                            <label asp-for="Order" class="@(Model?.Order!=null?"active":"")">Order</label>
-                                            <span class="text-danger" asp-validation-for="Order"></span>
-                                        </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="input-field">
+                                        <input asp-for="Name" class="validate @(Model?.Name!=null?"valid":"")">
+                                        <label asp-for="Name" class="@(Model?.Name!=null?"active":"")">Name</label>
+                                        <span class="text-danger" asp-validation-for="Name"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="input-field">
+                                        <input asp-for="Order" class="validate @(Model?.Order!=null?"valid":"")">
+                                        <label asp-for="Order" class="@(Model?.Order!=null?"active":"")">Order</label>
+                                        <span class="text-danger" asp-validation-for="Order"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6">
+                                    <div class="input-field">
+                                        <input type="text" name="countBrand" value="@ViewBag.BrandsCount" id="countBrand" class="validate valid" disabled>
+                                        <label for="countBrand" class="active">Count Brand</label>
                                     </div>
                                 </div>
                             </div>
@@ -39,13 +45,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts{
-    <script>
-        $(document).on("click", "span#deleteImage", function (e) {
-            console.log($("form.user .image-poster"));
-
-            $(this).parent().parent().remove();
-        });
-    </script>
-}

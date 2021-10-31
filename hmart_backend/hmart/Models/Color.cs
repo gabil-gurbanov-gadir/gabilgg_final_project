@@ -12,8 +12,10 @@ namespace hmart.Models
 
         [StringLength(maximumLength: 50)]
         public string Name { get; set; }
-        public List<ProductColor> ProductColors { get; set; }
 
+        [StringLength(maximumLength: 10)]
+        public string Code { get; set; }
+        public List<ProductColor> ProductColors { get; set; }
         public int Order { get; set; }
     }
 }
