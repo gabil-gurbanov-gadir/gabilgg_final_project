@@ -29,6 +29,7 @@
     <Folder Include="wwwroot\assets\uploads\setting\" />
     <Folder Include="wwwroot\uploads\banners\" />
     <Folder Include="wwwroot\uploads\features\" />
+    <Folder Include="wwwroot\uploads\blogs\" />
     <Folder Include="wwwroot\uploads\products\" />
     <Folder Include="wwwroot\uploads\teams\" />
     <Folder Include="wwwroot\uploads\partners\" />

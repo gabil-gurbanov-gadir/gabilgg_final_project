@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using hmart.DAL;
 
 namespace hmart.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211101070433_BlogsTableColumnsEdited")]
+    partial class BlogsTableColumnsEdited
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,7 +285,6 @@ namespace hmart.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Author")
-                        .IsRequired()
                         .HasColumnType("nvarchar(60)")
                         .HasMaxLength(60);
 
@@ -291,7 +292,6 @@ namespace hmart.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Desc")
-                        .IsRequired()
                         .HasColumnType("nvarchar(600)")
                         .HasMaxLength(600);
 
@@ -312,12 +312,10 @@ namespace hmart.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("Text")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasMaxLength(6000);
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
 

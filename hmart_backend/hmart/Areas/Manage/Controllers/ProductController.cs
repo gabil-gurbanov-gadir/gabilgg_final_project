@@ -362,6 +362,46 @@ namespace hmart.Areas.Manage.Controllers
             existProduct.CategoryId = product.CategoryId;
             existProduct.BrandId = product.BrandId;
 
+
+            if (product.TagIds != null)
+            {
+                List<ProductTagProduct> productTags = new List<ProductTagProduct>();
+                foreach (var item in product.TagIds)
+                {
+                    ProductTagProduct productTag = new ProductTagProduct()
+                    {
+                        ProductTagId = item
+                    };
+                    productTags.Add(productTag);
+                }
+                existProduct.ProductTagProducts = productTags;
+            }
+            else
+            {
+                existProduct.ProductTagProducts.Clear();
+            }
+
+            if (product.ColorIds != null)
+            {
+                List<ProductColor> productColors = new List<ProductColor>();
+                foreach (var item in product.ColorIds)
+                {
+                    ProductColor productColor = new ProductColor()
+                    {
+                        ColorId = item
+                    };
+                    productColors.Add(productColor);
+                }
+                existProduct.ProductColors = productColors;
+            }
+            else
+            {
+                existProduct.ProductColors.Clear();
+            }
+
+
+            #region ImageUpload
+
             List<string> newFileNames = new List<string>();
 
             if (product.PosterImage != null)
@@ -439,41 +479,7 @@ namespace hmart.Areas.Manage.Controllers
                 }
             }
 
-            if (product.TagIds != null)
-            {
-                List<ProductTagProduct> productTags = new List<ProductTagProduct>();
-                foreach (var item in product.TagIds)
-                {
-                    ProductTagProduct productTag = new ProductTagProduct()
-                    {
-                        ProductTagId = item
-                    };
-                    productTags.Add(productTag);
-                }
-                existProduct.ProductTagProducts = productTags;
-            }
-            else
-            {
-                existProduct.ProductTagProducts.Clear();
-            }
-
-            if (product.ColorIds != null)
-            {
-                List<ProductColor> productColors = new List<ProductColor>();
-                foreach (var item in product.ColorIds)
-                {
-                    ProductColor productColor = new ProductColor()
-                    {
-                        ColorId = item
-                    };
-                    productColors.Add(productColor);
-                }
-                existProduct.ProductColors = productColors;
-            }
-            else
-            {
-                existProduct.ProductColors.Clear();
-            }
+            #endregion
 
             try
             {
