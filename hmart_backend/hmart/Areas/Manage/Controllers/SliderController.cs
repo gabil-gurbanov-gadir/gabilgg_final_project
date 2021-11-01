@@ -1,6 +1,7 @@
 ﻿using hmart.DAL;
 using hmart.Helpers;
 using hmart.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,7 @@ using System.Linq;
 namespace hmart.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin,EditorAdmin")]
+    [Authorize(Roles = "SuperAdmin,Admin,EditorAdmin")]
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;

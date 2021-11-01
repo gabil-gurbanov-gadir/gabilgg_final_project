@@ -27,6 +27,40 @@ namespace hmart.Areas.Manage.Controllers
             return View();
         }
 
+        #region Ehtiyat
+        //public async Task<IActionResult> Create()
+        //{
+
+        //    await _roleManager.CreateAsync(new IdentityRole { Name = "SuperAdmin" });
+        //    await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+        //    await _roleManager.CreateAsync(new IdentityRole { Name = "EditorAdmin" });
+        //    await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
+
+        //    return Ok();
+        //}
+
+
+        //public async Task<IActionResult> Create()
+        //{
+
+        //AppUser admin = new AppUser
+        //{
+        //    UserName = "sadmin123",
+        //    FisrtName = "Super",
+        //    LastName = "Admin"
+        //};
+
+        //await _userManager.CreateAsync(admin, "sadmin123");
+
+        //    AppUser sadmin = await _userManager.FindByNameAsync("sadmin123");
+
+        //    await _userManager.AddToRoleAsync(sadmin, "SuperAdmin");
+
+        //    return Ok();
+        //}
+        #endregion
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(AdminLoginVM adminLoginVM)
@@ -50,6 +84,13 @@ namespace hmart.Areas.Manage.Controllers
             }
 
             return RedirectToAction("index", "dashboard");
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("login", "account");
         }
     }
 }

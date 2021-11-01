@@ -1,5 +1,6 @@
 ﻿using hmart.DAL;
 using hmart.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace hmart.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin,EditorAdmin")]
+    [Authorize(Roles = "SuperAdmin,Admin,EditorAdmin")]
     public class BlogTagController : Controller
     {
         private readonly AppDbContext _context;
