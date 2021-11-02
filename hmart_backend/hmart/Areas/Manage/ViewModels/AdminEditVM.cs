@@ -9,6 +9,7 @@ namespace hmart.Areas.Manage.ViewModels
     public class AdminEditVM
     {
         public string Id { get; set; }
+
         [Required]
         [StringLength(maximumLength: 50)]
         public string FirstName { get; set; }

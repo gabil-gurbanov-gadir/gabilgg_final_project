@@ -116,8 +116,16 @@
     margin-left: 10px !important;
 }
 
+.ml-15{
+    margin-left:15px!important;
+}
+
 .ml-2{
     margin-left:20px!important;
+}
+
+.ml-25{
+    margin-left:25px!important;
 }
 
 @media only screen and (max-width: 576px) {
@@ -367,3 +375,15 @@ span.color-code {
         border-radius: 5px;
         text-shadow: 0 0 5px black;
     }
+
+.collapse.in.overflow-y{
+    height:85vh;
+    overflow-y:auto;
+}
+
+@media only screen and (max-width: 576px) {
+    .create-div {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+}

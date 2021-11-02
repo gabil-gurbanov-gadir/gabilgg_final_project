@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="input-field">
-                                        <input asp-for="Author" class="validate filled-in @(Model?.Author!=null?"valid":"")"  disabled/>
+                                        <input asp-for="Author" class="validate filled-in @(Model?.Author!=null?"valid":"")" disabled />
                                         <label asp-for="Author" class="@(Model?.Author!=null?"active":"")">Author</label>
                                         <span class="text-danger" asp-validation-for="Author"></span>
                                     </div>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="input-field">
-                                        <input asp-for="Quoter" class="validate filled-in @(Model?.Quoter!=null?"valid":"")"  disabled/>
+                                        <input asp-for="Quoter" class="validate filled-in @(Model?.Quoter!=null?"valid":"")" disabled />
                                         <label asp-for="Quoter" class="@(Model?.Quoter!=null?"active":"")">Quoter</label>
                                         <span class="text-danger" asp-validation-for="Quoter"></span>
                                     </div>
@@ -102,8 +102,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="waves-effect waves-light btn btn-danger" style="width:180px">Delete</button>
-                            <a asp-action="index" class="waves-effect waves-light btn btn-success m-lt-buttons-1" style="width:180px">Cancel</a>
+                            <div class="row ml-15">
+                                <div class="col-lg-12 mb-3">
+                                    <h3 class="ml-25">Are you sure?</h3>
+                                </div>
+                                <div class="col-lg-12">
+                                    <button type="submit" class="waves-effect waves-light btn btn-danger" style="width:180px">Delete</button>
+                                    <a asp-action="index" class="waves-effect waves-light btn btn-success m-lt-buttons-1" style="width:180px">Cancel</a>
+                                </div>
+                            </div>
                         </form>
                         <div class="clearBoth"></div>
                     </div>

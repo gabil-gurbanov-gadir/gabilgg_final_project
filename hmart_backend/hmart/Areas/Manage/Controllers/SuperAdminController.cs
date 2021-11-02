@@ -109,12 +109,12 @@ namespace hmart.Areas.Manage.Controllers
 
             if (_userManager.Users.Any(x => x.UserName == adminEditVM.UserName) && existAdmin.UserName != adminEditVM.UserName)
             {
-                ModelState.AddModelError("UserName", "Bu username istifade edilir!");
+                ModelState.AddModelError("UserName", "This username is using!");
                 return View(adminEditVM);
             }
             if (_userManager.Users.Any(x => x.Email == adminEditVM.Email) && existAdmin.Email != adminEditVM.Email)
             {
-                ModelState.AddModelError("Email", "Bu e-mail istifade edilir!");
+                ModelState.AddModelError("Email", "This email is using!");
                 return View(adminEditVM);
             }
 
@@ -122,13 +122,13 @@ namespace hmart.Areas.Manage.Controllers
             {
                 if (adminEditVM.Password != adminEditVM.ConfirmPassword)
                 {
-                    ModelState.AddModelError("ConfirmPassword", "Sifre tekrari duzgun yazilmayib!");
+                    ModelState.AddModelError("ConfirmPassword", "The password confirmation does not match!");
                     return View(adminEditVM);
                 }
 
                 if (adminEditVM.OldPassword == null)
                 {
-                    ModelState.AddModelError("OldPassword", "Sifrenizi qeyd edin!");
+                    ModelState.AddModelError("OldPassword", "Write your old password!");
                     return View(adminEditVM);
                 }
 
@@ -159,10 +159,32 @@ namespace hmart.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
-
         public async Task<IActionResult> Delete(string id)
         {
+            ViewBag.Roles = _roleManager.Roles.Where(x => x.Name != "Member" && x.Name != "SuperAdmin");
+
             AppUser admin = await _userManager.FindByIdAsync(id);
+
+            if (admin == null) return View("NotFoundPage");
+
+            AdminDeleteVM adminDeleteVM = new AdminDeleteVM()
+            {
+                Id = admin.Id,
+                FirstName = admin.FisrtName,
+                LastName = admin.LastName,
+                UserName = admin.UserName,
+                Email = admin.Email,
+                Role = _userManager.GetRolesAsync(admin).Result.FirstOrDefault()
+            };
+
+            return View(adminDeleteVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(AdminDeleteVM adminDeleteVM)
+        {
+            AppUser admin = await _userManager.FindByIdAsync(adminDeleteVM.Id);
 
             if (admin == null) return View("NotFoundPage");
 
@@ -171,73 +193,75 @@ namespace hmart.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
-        //public async Task<IActionResult> Set()
-        //{
-        //    AppUser sadmin = await _userManager.FindByNameAsync(User.Identity.Name);
+        public async Task<IActionResult> Set()
+        {
+            AppUser sadmin = await _userManager.FindByNameAsync(User.Identity.Name);
 
-        //    AdminSetM superAdminM = new AdminSetM
-        //    {
-        //        FullName = sadmin.FullName,
-        //        UserName = sadmin.UserName,
-        //        Email = sadmin.Email
-        //    };
+            AdminSetVM adminSetVM = new AdminSetVM
+            {
+                FirstName = sadmin.FisrtName,
+                LastName = sadmin.LastName,
+                UserName = sadmin.UserName,
+                Email = sadmin.Email
+            };
 
-        //    return View(superAdminM);
-        //}
+            return View(adminSetVM);
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Set(AdminSetM sAM)
-        //{
-        //    if (!ModelState.IsValid) return View();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Set(AdminSetVM adminSetVM)
+        {
+            if (!ModelState.IsValid) return View();
 
-        //    AppUser sadmin = await _userManager.FindByNameAsync(User.Identity.Name);
+            AppUser sadmin = await _userManager.FindByNameAsync(User.Identity.Name);
 
-        //    if (_userManager.Users.Any(x => x.UserName == sAM.UserName) && sadmin.UserName != sAM.UserName)
-        //    {
-        //        ModelState.AddModelError("UserName", "Bu username istifade edilir!");
-        //        return View(sAM);
-        //    }
-        //    if (_userManager.Users.Any(x => x.Email == sAM.Email) && sadmin.Email != sAM.Email)
-        //    {
-        //        ModelState.AddModelError("Email", "Bu e-mail istifade edilir!");
-        //        return View(sAM);
-        //    }
+            if (_userManager.Users.Any(x => x.UserName == adminSetVM.UserName) && sadmin.UserName != adminSetVM.UserName)
+            {
+                ModelState.AddModelError("UserName", "This username is using!");
+                return View(adminSetVM);
+            }
+            if (_userManager.Users.Any(x => x.Email == adminSetVM.Email) && sadmin.Email != adminSetVM.Email)
+            {
+                ModelState.AddModelError("Email", "This email is using!");
+                return View(adminSetVM);
+            }
 
-        //    if (sAM.Password != null)
-        //    {
-        //        if (sAM.Password != sAM.ConfirmPassword)
-        //        {
-        //            ModelState.AddModelError("ConfirmPassword", "Sifre tekrari duzgun yazilmayib!");
-        //            return View(sAM);
-        //        }
+            if (adminSetVM.Password != null)
+            {
+                if (adminSetVM.Password != adminSetVM.ConfirmPassword)
+                {
+                    ModelState.AddModelError("ConfirmPassword", "The password confirmation does not match!");
+                    return View(adminSetVM);
+                }
 
-        //        if (sAM.OldPassword == null)
-        //        {
-        //            ModelState.AddModelError("OldPassword", "Sifrenizi qeyd edin!");
-        //            return View(sAM);
-        //        }
+                if (adminSetVM.OldPassword == null)
+                {
+                    ModelState.AddModelError("OldPassword", "Write your old password!");
+                    return View(adminSetVM);
+                }
 
-        //        var result = await _userManager.ChangePasswordAsync(sadmin, sAM.OldPassword, sAM.Password);
+                var result = await _userManager.ChangePasswordAsync(sadmin, adminSetVM.OldPassword, adminSetVM.Password);
 
-        //        if (!result.Succeeded)
-        //        {
-        //            foreach (var item in result.Errors)
-        //            {
-        //                ModelState.AddModelError("", item.Description);
-        //                return View();
-        //            }
-        //        }
+                if (!result.Succeeded)
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                        return View();
+                    }
+                }
 
-        //    }
+            }
 
-        //    sadmin.FullName = sAM.FullName;
-        //    sadmin.UserName = sAM.UserName;
-        //    sadmin.Email = sAM.Email;
+            sadmin.FisrtName = adminSetVM.FirstName;
+            sadmin.LastName = adminSetVM.LastName;
+            sadmin.UserName = adminSetVM.UserName;
+            sadmin.Email = adminSetVM.Email;
 
-        //    await _userManager.UpdateAsync(sadmin);
+            await _userManager.UpdateAsync(sadmin);
 
-        //    return RedirectToAction("index", "dashboard");
-        //}
+            return RedirectToAction("index", "dashboard");
+        }
     }
 }

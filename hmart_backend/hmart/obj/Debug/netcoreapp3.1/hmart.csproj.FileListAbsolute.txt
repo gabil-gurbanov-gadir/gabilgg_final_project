@@ -227,10 +227,16 @@ D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcor
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Create.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Edit.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Delete.cshtml.g.cs
-D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\hmart.csproj.AssemblyReference.cache
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Blog\Detail.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\User\Index.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Admin\Index.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\SuperAdmin\Index.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\SuperAdmin\Create.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\SuperAdmin\Edit.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\SuperAdmin\Set.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\SuperAdmin\Delete.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Index.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Create.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Edit.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Role\Delete.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Admin\Set.cshtml.g.cs

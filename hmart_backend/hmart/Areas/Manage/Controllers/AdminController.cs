@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using hmart.Areas.Manage.ViewModels;
+using hmart.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +10,85 @@ using System.Threading.Tasks;
 
 namespace hmart.Areas.Manage.Controllers
 {
+    [Area("Manage")]
+    [Authorize(Roles = "Admin,EditorAdmin")]
     public class AdminController : Controller
     {
-        public IActionResult Index()
+        private readonly UserManager<AppUser> _userManager;
+
+        public AdminController(UserManager<AppUser> userManager)
         {
-            return View();
+            _userManager = userManager;
+        }
+        public async Task<IActionResult> Set()
+        {
+            AppUser admin = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            AdminSetVM adminSetVM = new AdminSetVM
+            {
+                FirstName = admin.FisrtName,
+                LastName = admin.LastName,
+                UserName = admin.UserName,
+                Email = admin.Email
+            };
+
+            return View(adminSetVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Set(AdminSetVM adminSetVM)
+        {
+            if (!ModelState.IsValid) return View();
+
+            AppUser admin = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (_userManager.Users.Any(x => x.UserName == adminSetVM.UserName) && admin.UserName != adminSetVM.UserName)
+            {
+                ModelState.AddModelError("UserName", "Bu username istifade edilir!");
+                return View(adminSetVM);
+            }
+            if (_userManager.Users.Any(x => x.Email == adminSetVM.Email) && admin.Email != adminSetVM.Email)
+            {
+                ModelState.AddModelError("Email", "Bu e-mail istifade edilir!");
+                return View(adminSetVM);
+            }
+
+            if (adminSetVM.Password != null)
+            {
+                if (adminSetVM.Password != adminSetVM.ConfirmPassword)
+                {
+                    ModelState.AddModelError("ConfirmPassword", "Sifre tekrari duzgun yazilmayib!");
+                    return View(adminSetVM);
+                }
+
+                if (adminSetVM.OldPassword == null)
+                {
+                    ModelState.AddModelError("OldPassword", "Sifrenizi qeyd edin!");
+                    return View(adminSetVM);
+                }
+
+                var result = await _userManager.ChangePasswordAsync(admin, adminSetVM.OldPassword, adminSetVM.Password);
+
+                if (!result.Succeeded)
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                        return View();
+                    }
+                }
+
+            }
+
+            admin.FisrtName = adminSetVM.FirstName;
+            admin.LastName = adminSetVM.LastName;
+            admin.UserName = adminSetVM.UserName;
+            admin.Email = adminSetVM.Email;
+
+            await _userManager.UpdateAsync(admin);
+
+            return RedirectToAction("index", "dashboard");
         }
     }
 }

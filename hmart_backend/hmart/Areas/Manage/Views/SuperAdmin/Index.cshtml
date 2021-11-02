@@ -1,5 +1,4 @@
-﻿@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> userM
-
+﻿
 @model List<AppUser>
 @{
     ViewData["Title"] = "Index";
@@ -13,7 +12,8 @@
                     <div class="card-action">
                         Admins Table
                         <div class="create-div d-flex j-c-fe">
-                            <a asp-action="create" class="btn btn-success">Create Admin</a>
+                            <a asp-controller="role" asp-action="index" class="btn btn-warning">Show Admin Roles</a>
+                            <a asp-action="create" class="btn btn-success m-lt-buttons-1">Create Admin</a>
                         </div>
                     </div>
                     <div class="card-content">

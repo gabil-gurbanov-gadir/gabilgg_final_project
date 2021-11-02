@@ -77,7 +77,7 @@
                                         <div class="image-poster">
                                             <div class="image-wrapper @(Model.Image==null?"d-none":"")" style="position:relative">
                                                 <img style="width:100%" src="~/uploads/blogs/@(Model.Image!=null?Model.Image:"")" id="blogImg" class="blog-image" alt="Blog Image" />
-                                                <input asp-for="Image" type="hidden"/>
+                                                <input asp-for="Image" type="hidden" />
                                             </div>
                                         </div>
                                         <div class="input-field mt-12">
@@ -116,8 +116,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="waves-effect waves-light btn btn-success" style="width:180px">Edit</button>
-                            <a asp-action="index" class="waves-effect waves-light btn btn-danger m-lt-buttons-1" style="width:180px">Cancel</a>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button type="submit" class="waves-effect waves-light btn btn-success" style="width:180px">Edit</button>
+                                    <a asp-action="index" class="waves-effect waves-light btn btn-danger m-lt-buttons-1" style="width:180px">Cancel</a>
+                                </div>
+                            </div>
                         </form>
                         <div class="clearBoth"></div>
                     </div>
