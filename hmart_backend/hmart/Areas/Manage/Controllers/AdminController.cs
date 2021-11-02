@@ -45,12 +45,12 @@ namespace hmart.Areas.Manage.Controllers
 
             if (_userManager.Users.Any(x => x.UserName == adminSetVM.UserName) && admin.UserName != adminSetVM.UserName)
             {
-                ModelState.AddModelError("UserName", "Bu username istifade edilir!");
+                ModelState.AddModelError("UserName", "This username is using!");
                 return View(adminSetVM);
             }
             if (_userManager.Users.Any(x => x.Email == adminSetVM.Email) && admin.Email != adminSetVM.Email)
             {
-                ModelState.AddModelError("Email", "Bu e-mail istifade edilir!");
+                ModelState.AddModelError("Email", "This email is using!");
                 return View(adminSetVM);
             }
 
@@ -58,13 +58,13 @@ namespace hmart.Areas.Manage.Controllers
             {
                 if (adminSetVM.Password != adminSetVM.ConfirmPassword)
                 {
-                    ModelState.AddModelError("ConfirmPassword", "Sifre tekrari duzgun yazilmayib!");
+                    ModelState.AddModelError("ConfirmPassword", "The password confirmation does not match!");
                     return View(adminSetVM);
                 }
 
                 if (adminSetVM.OldPassword == null)
                 {
-                    ModelState.AddModelError("OldPassword", "Sifrenizi qeyd edin!");
+                    ModelState.AddModelError("OldPassword", "Write your old password!");
                     return View(adminSetVM);
                 }
 

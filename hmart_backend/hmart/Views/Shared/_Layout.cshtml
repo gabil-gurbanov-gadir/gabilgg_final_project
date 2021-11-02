@@ -1,7 +1,14 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> userM
 @inject hmart.Services.LayoutService layoutS
 
-@{ 
+@{
+    AppUser user = null;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        user = userM.FindByNameAsync(User.Identity.Name).Result;
+    }
+
     Setting setting = layoutS.GetSetting();
 }
 <!DOCTYPE html>
@@ -55,15 +62,30 @@
                                         <i class="icon-envelope-o"></i> @setting.Email
                                     </a>
                                 </li>
-                                <li class="login-register">
-                                    <a asp-controller="account" asp-action="login">
-                                        <i class="icon-user"></i> Login
-                                    </a>
-                                    <span> or </span>
-                                    <a asp-controller="account" asp-action="register">
-                                        Register
-                                    </a>
-                                </li>
+                                @if (user == null || user.IsAdmin)
+                                {
+                                    <li class="login-register">
+                                        <a asp-controller="account" asp-action="login">
+                                            <i class="icon-user"></i> Login
+                                        </a>
+                                        <span> or </span>
+                                        <a asp-controller="account" asp-action="register">
+                                            Register
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="account-info">
+                                        <a asp-controller="account" asp-action="detail">
+                                            <span class="profil-image" style="background-image:url(@(user.Image==null?"/assets/uploads/users/user-default.png": "/uploads/users/"+user.Image))"></span> @(user.FisrtName!=null&&user.LastName!=null?user.FisrtName+" "+user.LastName:user.UserName)
+                                        </a>
+                                        /
+                                        <a asp-controller="account" asp-action="logout">
+                                            Logout
+                                        </a>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </div>

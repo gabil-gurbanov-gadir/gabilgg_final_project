@@ -10,7 +10,7 @@ namespace hmart.ViewModels
     {
         [Required]
         [StringLength(maximumLength: 25)]
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(maximumLength: 25)]

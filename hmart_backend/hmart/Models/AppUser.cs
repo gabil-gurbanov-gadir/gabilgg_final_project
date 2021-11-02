@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,6 +18,19 @@ namespace hmart.Models
         [StringLength(maximumLength: 50)]
         public string LastName { get; set; }
         public bool IsAdmin { get; set; }
+
+        [BindProperty]
+        public string Gender { get; set; }
+        public string[] Genders = new[] { "Mr.", "Mrs." };
+
+        public DateTime? BirthDay { get; set; }
+
+        public string Address { get; set; }
+
+        public string City { get; set; }
+        public string StateOrRegion { get; set; }
+        public string ZipOrPostalCode { get; set; }
+        public string Country { get; set; }
 
         [StringLength(maximumLength: 100)]
         public string Image { get; set; }

@@ -1,12 +1,13 @@
-﻿
+﻿@model UserVM
 @{
     ViewData["Title"] = "Account";
+    Setting setting = ViewBag.Setting;
 }
 
 <!-- Main Start -->
 <main>
     <!-- Main-header start -->
-    <section id="main-header" data-bg-image="../assets/uploads/commons/main-header-bg.png">
+    <section id="main-header" data-bg-image=uploads/setting/@setting.MainBgImgSrc>
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
@@ -41,98 +42,142 @@
                 </div>
                 <div class="col-sm-12 col-md-9 col-lg-9">
                     <div class="tab-content">
-                        <div class="tab-pane fade active show" id="account-details">
+                        <div class="tab-pane @(Model.DataTab=="details"?"fade active show":"")" id="account-details">
                             <h3>Account details </h3>
                             <div class="details">
                                 <div class="details_form_container">
                                     <div class="account_details_form">
-                                        <form action="#">
-                                            <div class="input-radio">
-                                                <span class="custom-radio">
-                                                    <input type="radio" value="0"
-                                                           name="id_gender"> Mr.
-                                                </span>
-                                                <span class="custom-radio">
-                                                    <input type="radio" value="1"
-                                                           name="id_gender"> Mrs.
-                                                </span>
-                                            </div> <br>
-                                            <div class="account-form-box mb-4">
-                                                <label>First Name</label>
-                                                <input type="text" name="first-name">
-                                            </div>
-                                            <div class="account-form-box mb-4">
-                                                <label>Last Name</label>
-                                                <input type="text" name="last-name">
-                                            </div>
-                                            <div class="account-form-box mb-4">
-                                                <label>Email</label>
-                                                <input type="text" name="email-name">
-                                            </div>
-                                            <div class="account-form-box mb-4">
-                                                <label>Password</label>
-                                                <input type="password" name="user-password">
-                                            </div>
-                                            <div class="account-form-box mb-4">
-                                                <label>Birthdate</label>
-                                                <input type="date" name="birthday">
-                                            </div>
-                                            <span class="example">
-                                                (E.g.: 07-Jul-1991)
-                                            </span>
-                                            <br>
-                                            <div class="save_button mt-3">
-                                                <button class="btn-save" type="submit">Save</button>
+                                        <form method="post" action="account/detail"  enctype="multipart/form-data">
+                                            <input asp-for="DataTab" type="hidden" value="details" />
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="input-radio">
+                                                        @foreach (var gender in Model.Genders)
+                                                        {
+                                                            <span class="custom-radio">
+                                                                <input type="radio" asp-for="Gender" value="@gender" />@gender<br disable />
+                                                            </span>
+                                                        }
+
+                                                        <span class="text-danger" asp-validation-for="Gender"></span>
+                                                    </div> <br>
+                                                           <div class="account-form-box mb-4">
+                                                               <label asp-for="FirstName">First Name</label>
+                                                               <input asp-for="FirstName" >
+                                                               <span class="text-danger" asp-validation-for="FirstName"></span>
+                                                           </div>
+                                                           <div class="account-form-box mb-4">
+                                                               <label asp-for="LastName">Last Name</label>
+                                                               <input asp-for="LastName">
+                                                               <span class="text-danger" asp-validation-for="LastName"></span>
+                                                           </div>
+                                                           <div class="account-form-box mb-4">
+                                                               <label asp-for="Email">Email</label>
+                                                               <input asp-for="Email">
+                                                               <span class="text-danger" asp-validation-for="Email"></span>
+                                                           </div>
+                                                           <div class="account-form-box mb-4">
+                                                               <label asp-for="Password">Password</label>
+                                                               <input asp-for="Password">
+                                                               <span class="text-danger" asp-validation-for="Password"></span>
+                                                           </div>
+                                                           <div class="account-form-box mb-4">
+                                                               <label asp-for="ConfirmPassword">Confirm Password</label>
+                                                               <input asp-for="ConfirmPassword">
+                                                               <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                                                           </div>
+                                                           <div class="account-form-box mb-4">
+                                                               <label asp-for="BirthDay">Birthdate</label>
+                                                               <input asp-for="BirthDay">
+                                                               <span class="text-danger" asp-validation-for="BirthDay"></span>
+                                                           </div>
+                                                    <span class="example">
+                                                        (E.g.: 07-Jul-1991)
+                                                    </span>
+                                                    <br>
+                                                    <div class="save_button mt-3">
+                                                        <button class="btn-save" type="submit">Save</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="detail-profil-image">
+                                                        @{
+                                                            string src = "";
+                                                            if (Model.Image == null)
+                                                            {
+                                                                src = "user-default.png";
+                                                            }
+                                                            else
+                                                            {
+                                                                src = Model.Image;
+                                                            }
+                                                        }
+                                                        <div class="image-content" style="background-image: url(@Url.Content(" /uploads/users/" + src))">
+                                                        </div>
+                                                        <div class="hidden-input">
+                                                            <input asp-for="Image" type="hidden">
+                                                        </div>
+                                                        <div class="account-form-box mb-4">
+                                                            <label asp-for="ImageFile">Birthdate</label>
+                                                            <input asp-for="ImageFile">
+                                                            <span class="text-danger" asp-validation-for="ImageFile"></span>
+                                                        </div>
+                                                    </div>
+                                                    </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="address">
+                        <div class="tab-pane @(Model.DataTab=="address"?"fade active show":"")" id="address">
                             <p>The following addresses will be used on the checkout page by default.</p>
                             <h5 class="billing-address">Billing address</h5>
                             <div class="address">
                                 <a href="#" class="edit-address">Edit</a>
                                 <br>
                                 <strong>Address:</strong>
-                                <span class="mb-1 d-inline-block street-apt"> Michael M Hoskins st. Apr.25</span>,
+                                <span class="mb-1 d-inline-block street-apt">@Model.Address</span>,
                                 <br>
                                 <strong>City:</strong>
-                                <span class="mb-1 d-inline-block city"> Seattle</span>,
+                                <span class="mb-1 d-inline-block city"> @Model.City</span>,
                                 <br>
                                 <strong>State/Region:</strong>
-                                <span class="mb-1 d-inline-block state-region"> Washington(WA)</span>,
+                                <span class="mb-1 d-inline-block state-region"> @Model.StateOrRegion</span>,
                                 <br>
                                 <strong>ZIP/Postal Code:</strong>
-                                <span class="mb-1 d-inline-block zip-postal"> 98101</span>,
+                                <span class="mb-1 d-inline-block zip-postal"> @Model.ZipOrPostalCode</span>,
                                 <br>
                                 <strong>Country:</strong>
-                                <span class="country"> USA</span>
+                                <span class="country"> @Model.Country</span>
                             </div>
                             <div class="edit-address-form d-none">
-                                <form action="#">
+                                <form method="post">
+                                    <input asp-for="DataTab" type="hidden" value="address" />
                                     <div class="address-form-box mb-4">
-                                        <label>Address</label>
-                                        <input type="text" name="street_apt" id="street_apt"
-                                               value="Michael M Hoskins st. Apr.25">
+                                        <label asp-for="Address">Address</label>
+                                        <input asp-for="Address">
+                                        <span class="text-danger" asp-validation-for="Address"></span>
                                     </div>
                                     <div class="address-form-box mb-4">
-                                        <label>City</label>
-                                        <input type="text" name="city" id="city" value="Seattle">
+                                        <label asp-for="City">City</label>
+                                        <input asp-for="City">
+                                        <span class="text-danger" asp-validation-for="City"></span>
                                     </div>
                                     <div class="address-form-box mb-4">
-                                        <label>State/Region</label>
-                                        <input type="text" name="state_region" id="state_region"
-                                               value="Washington(WA)">
+                                        <label asp-for="StateOrRegion">State/Region</label>
+                                        <input asp-for="StateOrRegion">
+                                        <span class="text-danger" asp-validation-for="StateOrRegion"></span>
                                     </div>
                                     <div class="address-form-box mb-4">
-                                        <label>ZIP/Postal Code</label>
-                                        <input type="text" name="zip_postal" id="zip_postal" value="98101">
+                                        <label asp-for="ZipOrPostalCode">ZIP/Postal Code</label>
+                                        <input asp-for="ZipOrPostalCode">
+                                        <span class="text-danger" asp-validation-for="ZipOrPostalCode"></span>
                                     </div>
                                     <div class="address-form-box mb-4">
-                                        <label>Country</label>
-                                        <input type="text" name="country" id="country" value="USA">
+                                        <label asp-for="ZipOrPostalCode">Country</label>
+                                        <input asp-for="ZipOrPostalCode">
+                                        <span class="text-danger" asp-validation-for="ZipOrPostalCode"></span>
                                     </div>
                                     <div class="save_button mt-3">
                                         <button class="btn-save" id="btn_save_address" type="submit">Save</button>
@@ -153,22 +198,43 @@
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>May 10, 2018</td>
-                                            <td><span class="success">Completed</span></td>
-                                            <td>$25.00 for 1 item </td>
-                                            <td><a asp-action="cart" class="view">view</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>May 10, 2018</td>
-                                            <td>Processing</td>
-                                            <td>$17.00 for 1 item </td>
-                                            <td><a asp-action="cart" class="view">view</a></td>
-                                        </tr>
-                                    </tbody>
+                                    @{
+                                        int order = 1;
+                                    }
+                                <tbody>
+                                    @if (ViewBag.Orders != null)
+                                    {
+                                        @foreach (Order item in ViewBag.Orders)
+                                        {
+                                    <tr>
+                                        <td>@order</td>
+                                        <td>@item.CreatedAt.ToString("MMM dd, yyyy") May 10, 2018</td>
+                                        @if (item.Status == null)
+                                        {
+                                            <td><span class="orange-text">Processing</span></td>
+                                        }
+                                        else if (item.Status == true)
+                                        {
+                                            <td><span class="green-text">Completed</span></td>
+                                        }
+                                        else
+                                        {
+                                            <td><span class="red-text">Rejected</span></td>
+                                        }
+
+                                        <td>$@item.TotalPrice for @item.OrderItems.Count() item </td>
+                                        <td><a asp-action="cart" class="view">view</a></td>
+                                    </tr>
+                                        }
+                                    }
+                                    <tr>
+                                        <td>2</td>
+                                        <td>May 10, 2018</td>
+                                        <td>Processing</td>
+                                        <td>$17.00 for 1 item </td>
+                                        <td><a asp-action="cart" class="view">view</a></td>
+                                    </tr>
+                                </tbody>
                                 </table>
                             </div>
                         </div>
@@ -180,3 +246,33 @@
     <!-- Account end -->
 </main>
 <!-- Main End -->
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".edit-address", function (e) {
+                e.preventDefault();
+                let address = {
+                    stritApt: $(".street-apt").text(),
+                    city: $(".city").text(),
+                    stateRegion: $(".state-region").text(),
+                    zipPostal: $(".zip-postal").text(),
+                    country: $(".country").text()
+                }
+                $(".address").addClass("d-none");
+
+                $("#street_apt").val(address.stritApt);
+                $("#city").val(address.city);
+                $("#state_region").val(address.stateRegion);
+                $("#zip_postal").val(address.zipPostal);
+                $("#country").val(address.country);
+
+                $(".edit-address-form").removeClass("d-none");
+            });
+            $(document).on("click", "#btn_save_address", function (e) {
+               
+                $(".edit-address-form").addClass("d-none");
+                $(".address").removeClass("d-none");
+            });
+        });
+    </script>
+}

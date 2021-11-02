@@ -447,38 +447,64 @@
                                     <div class="details_form_container">
                                         <div class="account_details_form">
                                             <form action="#">
-                                                <div class="input-radio">
-                                                    <span class="custom-radio"><input type="radio" value="0"
-                                                            name="id_gender"> Mr.</span>
-                                                    <span class="custom-radio"><input type="radio" value="1"
-                                                            name="id_gender"> Mrs.</span>
-                                                </div> <br>
-                                                <div class="account-form-box mb-4">
-                                                    <label>First Name</label>
-                                                    <input type="text" name="first-name">
-                                                </div>
-                                                <div class="account-form-box mb-4">
-                                                    <label>Last Name</label>
-                                                    <input type="text" name="last-name">
-                                                </div>
-                                                <div class="account-form-box mb-4">
-                                                    <label>Email</label>
-                                                    <input type="text" name="email-name">
-                                                </div>
-                                                <div class="account-form-box mb-4">
-                                                    <label>Password</label>
-                                                    <input type="password" name="user-password">
-                                                </div>
-                                                <div class="account-form-box mb-4">
-                                                    <label>Birthdate</label>
-                                                    <input type="date" name="birthday">
-                                                </div>
-                                                <span class="example">
-                                                    (E.g.: 07-Jul-1991)
-                                                </span>
-                                                <br>
-                                                <div class="save_button mt-3">
-                                                    <button class="btn-save" type="submit">Save</button>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="input-radio">
+                                                            <span class="custom-radio"><input type="radio" value="0"
+                                                                    name="id_gender"> Mr.</span>
+                                                            <span class="custom-radio"><input type="radio" value="1"
+                                                                    name="id_gender"> Mrs.</span>
+                                                        </div> <br>
+                                                        <div class="account-form-box mb-4">
+                                                            <label>First Name</label>
+                                                            <input type="text" name="first-name">
+                                                        </div>
+                                                        <div class="account-form-box mb-4">
+                                                            <label>Last Name</label>
+                                                            <input type="text" name="last-name">
+                                                        </div>
+                                                        <div class="account-form-box mb-4">
+                                                            <label>Email</label>
+                                                            <input type="text" name="email-name">
+                                                        </div>
+                                                        <div class="account-form-box mb-4">
+                                                            <label>Password</label>
+                                                            <input type="password" name="user-password">
+                                                        </div>
+                                                        <div class="account-form-box mb-4">
+                                                            <label>Birthdate</label>
+                                                            <input type="date" name="birthday">
+                                                        </div>
+                                                        <span class="example">
+                                                            (E.g.: 07-Jul-1991)
+                                                        </span>
+                                                        <br>
+                                                        <div class="save_button mt-3">
+                                                            <button class="btn-save" type="submit">Save</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="detail-profil-image">
+                                                            <div class="image-content"
+                                                                style="background-image: url(assets/uploads/users/user-default.png)">
+                                                            </div>
+                                                            <div class="image-input-conten">
+                                                                <span class="choose-info">Choose File for Change Profil
+                                                                    Image</span>
+                                                                <div class="image-input-wrap">
+                                                                    <label asp-for="ImageFile">
+                                                                        <input class="detail-image-input"
+                                                                            asp-for="ImageFile">
+                                                                        <span id="imageFileName" class="file-custom">
+                                                                            Choose File ...
+                                                                        </span>
+                                                                    </label>
+                                                                    <span class="text-danger"
+                                                                        asp-validation-for="ImageFile"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>
@@ -674,8 +700,6 @@
     <script src="./assets/js/main.js"></script>
     <script>
         $(document).ready(function (e) {
-            let srcBG = $("#not-fount").attr("data-bg-image");
-            $("#not-fount").css("background-image", "url(" + srcBG + ")");
             $(document).on("click", ".edit-address", function (e) {
                 e.preventDefault();
                 let address = {

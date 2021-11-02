@@ -1,12 +1,13 @@
-﻿
+﻿@model UserRegisterVM
 @{
     ViewData["Title"] = "Register";
+    Setting setting = ViewBag.Setting;
 }
 
 <!-- Main Start -->
 <main>
     <!-- Main-header start -->
-    <section id="main-header" data-bg-image="../assets/uploads/commons/main-header-bg.png">
+    <section id="main-header" data-bg-image=@setting.MainBgImgSrc>
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
@@ -23,15 +24,23 @@
     <!-- Register start -->
     <section id="login-register" class="py-section">
         <div class="container">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-7 col-md-12 mb-col">
                         <div class="form-container">
                             <div class="login-register-form">
-                                <input name="user-email" placeholder="Email" type="email" />
-                                <input type="text" name="user-name" placeholder="Username" />
-                                <input type="password" name="user-password" placeholder="Password" />
-                                <input type="password" name="repeat-password" placeholder="Repeat Password" />
+                                <input asp-for="Email" placeholder="Email" />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+
+                                <input asp-for="UserName" placeholder="Username" />
+                                <span class="text-danger" asp-validation-for="UserName"></span>
+
+                                <input asp-for="Password" placeholder="Password" />
+                                <span class="text-danger" asp-validation-for="Password"></span>
+
+                                <input asp-for="ConfirmPassword" placeholder="Repeat Password" />
+                                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+
                                 <div class="button-box">
                                     <button type="submit"><span>Register</span></button>
                                 </div>
@@ -45,12 +54,13 @@
                             </div>
                             <span class="choose-info">Choose File for Change Profil Image</span>
                             <div class="image-input-wrap">
-                                <label for="imageFile">
-                                    <input class="register-image-input" type="file" name="imageFile" id="imageFile">
+                                <label asp-for="ImageFile">
+                                    <input class="register-image-input" asp-for="ImageFile">
                                     <span id="imageFileName" class="file-custom">
                                         Choose File ...
                                     </span>
                                 </label>
+                                <span class="text-danger" asp-validation-for="ImageFile"></span>
                             </div>
                         </div>
                     </div>
@@ -61,3 +71,26 @@
     <!-- Register end -->
 </main>
 <!-- Main End -->
+@section Scripts{ 
+
+    <script>
+        $(document).ready(function () {
+            let imageInputValue;
+            $(document).on("change", ".register-image-input", function (e) {
+                let inputFile = "";
+                if ($(this)[0].files[0]) {
+                    inputFile = $(this)[0].files[0].name;
+                    if (inputFile.length > 25) {
+                        inputFile = inputFile.substring(0, 22) + "..."
+                    }
+                    $(this).next().text("");
+                    $(this).next().append(inputFile);
+                    imageInputValue = URL.createObjectURL(e.target.files[0]);
+
+                    $("#profilImg").fadeIn("fast").attr('src', imageInputValue);
+                }
+            });
+        });
+    </script>
+
+}
