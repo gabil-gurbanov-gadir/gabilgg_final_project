@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,6 +44,8 @@ namespace hmart.Controllers
 
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
+            if (user == null) return View("NotFound");
+
             AccountDetailVM accountDetailVM = new AccountDetailVM
             {
                 FirstName = user.FisrtName,
@@ -67,13 +70,13 @@ namespace hmart.Controllers
 
             if (!ModelState.IsValid) return View(accountDetailVM);
 
-            if (_userManager.Users.Any(x => x.NormalizedUserName == accountDetailVM.UserName.ToUpper()))
+            if (_userManager.Users.Any(x => x.NormalizedUserName == accountDetailVM.UserName.ToUpper() && user.UserName.ToUpper()!=accountDetailVM.UserName.ToUpper()))
             {
                 ModelState.AddModelError("UserName", "This username is using!");
                 return View();
             }
 
-            if (_userManager.Users.Any(x => x.NormalizedEmail == accountDetailVM.Email.ToUpper()))
+            if (_userManager.Users.Any(x => x.NormalizedEmail == accountDetailVM.Email.ToUpper() && user.Email.ToUpper() != accountDetailVM.Email.ToUpper()))
             {
                 ModelState.AddModelError("Email", "This email is using!");
                 return View();
@@ -100,7 +103,7 @@ namespace hmart.Controllers
                     foreach (var item in result.Errors)
                     {
                         ModelState.AddModelError("", item.Description);
-                        return View();
+                        return View(accountDetailVM);
                     }
                 }
 
@@ -155,20 +158,92 @@ namespace hmart.Controllers
                 FileManager.Delete(_env.WebRootPath, "uploads/users", accountDetailVM.Image);
             }
 
-            return View();
+            return RedirectToAction("Detail");
         }
 
+        [Authorize(Roles = "Member")]
         public async Task<IActionResult> Address()
         {
             ViewBag.Setting = _context.Settings.FirstOrDefault();
 
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            return View();
+            if (user == null) return View("NotFound");
+
+            AccountAddressVM accountAddressVM = new AccountAddressVM
+            {
+                Address = user.Address,
+                City = user.City,
+                StateOrRegion = user.StateOrRegion,
+                ZipOrPostalCode = user.ZipOrPostalCode,
+                Country = user.Country
+            };
+
+            return View(accountAddressVM);
         }
 
-        public IActionResult Register()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Address(AccountAddressVM accountAddressVM)
         {
+            ViewBag.Setting = _context.Settings.FirstOrDefault();
+
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (user == null) return View("NotFound");
+
+            user.Address = accountAddressVM.Address;
+            user.City = accountAddressVM.City;
+            user.StateOrRegion = accountAddressVM.StateOrRegion;
+            user.ZipOrPostalCode = accountAddressVM.ZipOrPostalCode;
+            user.Country = accountAddressVM.Country;
+
+
+            await _userManager.UpdateAsync(user);
+
+            return RedirectToAction("Address");
+        }
+
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> Orders()
+        {
+            ViewBag.Setting = _context.Settings.FirstOrDefault();
+
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (user == null) return View("NotFound");
+
+            List<Order> orders = _context.Orders.Where(x => x.AppUserId == user.Id).ToList();
+
+            return View(orders);
+        }
+
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> OrderDetail(int id)
+        {
+            ViewBag.Setting = _context.Settings.FirstOrDefault();
+
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (user == null) return View("NotFound");
+
+            Order order = _context.Orders.Include(x=>x.OrderItems).FirstOrDefault(x => x.Id == id && x.AppUserId == user.Id);
+
+            if(order == null) return View("NotFound");
+
+            return View(order);
+        }
+
+        [Authorize(Roles = "Member")]
+        public async Task<IActionResult> Register()
+        {
+
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            ViewBag.Setting = _context.Settings.FirstOrDefault();
+
+            if (user != null) return RedirectToAction("Detail");
+
             ViewBag.Setting = _context.Settings.FirstOrDefault();
             return View();
         }
@@ -355,19 +430,19 @@ namespace hmart.Controllers
         //    return RedirectToAction("login");
         //}
 
-        //public IActionResult Cart()
-        //{
-        //    return View();
-        //}
+        public IActionResult Cart()
+        {
+            return View();
+        }
 
-        //public IActionResult Wishlist()
-        //{
-        //    return View();
-        //}
+        public IActionResult Wishlist()
+        {
+            return View();
+        }
 
-        //public IActionResult Checkout()
-        //{
-        //    return View();
-        //}
+        public IActionResult Checkout()
+        {
+            return View();
+        }
     }
 }

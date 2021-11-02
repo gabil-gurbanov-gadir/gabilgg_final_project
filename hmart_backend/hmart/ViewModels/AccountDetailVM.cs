@@ -10,6 +10,7 @@ namespace hmart.ViewModels
 {
     public class AccountDetailVM
     {
+        [StringLength(maximumLength: 25)]
         public string FirstName { get; set; }
 
         [StringLength(maximumLength: 25)]
@@ -46,7 +47,8 @@ namespace hmart.ViewModels
         public string Gender { get; set; }
         public string[] Genders = new[] { "Mr.", "Mrs." };
 
-        [StringLength(maximumLength: 25)]
+
+        [DataType(DataType.Date)]
         public DateTime? BirthDay { get; set; }
     }
 }

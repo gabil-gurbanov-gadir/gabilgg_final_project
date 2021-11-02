@@ -242,5 +242,8 @@ D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcor
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Admin\Set.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\ContactMessage\Index.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\ContactMessage\Delete.cshtml.g.cs
-D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\hmart.csproj.AssemblyReference.cache
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Detail.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Address.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Orders.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\OrderDetail.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\hmart.csproj.AssemblyReference.cache

@@ -4692,7 +4692,7 @@ header {
           display: flex;
           align-items: center; }
           header #header-top .top-nav ul li:first-child {
-            width: 145px; }
+            width: 160px; }
           header #header-top .top-nav ul li:not(:last-child) {
             margin-right: 15px;
             padding-right: 15px;

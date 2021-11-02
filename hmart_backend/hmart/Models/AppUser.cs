@@ -23,6 +23,8 @@ namespace hmart.Models
         public string Gender { get; set; }
         public string[] Genders = new[] { "Mr.", "Mrs." };
 
+
+        [DataType(DataType.Date)]
         public DateTime? BirthDay { get; set; }
 
         public string Address { get; set; }
