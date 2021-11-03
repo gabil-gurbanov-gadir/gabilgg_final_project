@@ -84,6 +84,15 @@ namespace hmart.Areas.Manage.Controllers
                 return View();
             }
 
+            if (product.IsOnOffer)
+            {
+                if (product.DiscountPercent==null)
+                {
+                    ModelState.AddModelError("DiscountPercent", "Product is on offer must be discount percent!");
+                    return View();
+                }
+            }
+
             #region ImageChack
 
             if (product.PosterImage == null)
@@ -290,6 +299,15 @@ namespace hmart.Areas.Manage.Controllers
             {
                 ModelState.AddModelError("Code", "Code is required!");
                 return View(existProduct);
+            }
+
+            if (product.IsOnOffer)
+            {
+                if (product.DiscountPercent == null)
+                {
+                    ModelState.AddModelError("DiscountPercent", "Product is on offer must be discount percent!");
+                    return View();
+                }
             }
 
             #endregion
