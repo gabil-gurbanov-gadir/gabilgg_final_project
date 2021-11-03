@@ -181,7 +181,11 @@ main {
                 }
             }
         }
-        .product-tab-content {
+        .tab-pane {
+            display: none;
+            &.active {
+                display: block;
+            }
             margin-top: 60px;
             .product {
                 position: relative;
@@ -236,6 +240,21 @@ main {
                             width: 100%;
                             opacity: 1;
                             &.hover-image {
+                                position: absolute;
+                                z-index: 2;
+                                top: 0;
+                                left: 0;
+                                opacity: 0;
+                            }
+                        }
+                        div {
+                            height: 265px;
+                            transition: all 0.3s ease 0s;
+                            &.poster {
+                                z-index: 3;
+                                opacity: 1;
+                            }
+                            &.hover-poster {
                                 position: absolute;
                                 z-index: 2;
                                 top: 0;
@@ -325,6 +344,15 @@ main {
                                 transform: scale(1.1) rotate(0);
                                 opacity: 0;
                                 &.hover-image {
+                                    opacity: 1;
+                                }
+                            }
+                            div {
+                                transform: scale(1.1) rotate(0);
+                                &.poster {
+                                    opacity: 0;
+                                }
+                                &.hover-poster {
                                     opacity: 1;
                                 }
                             }

@@ -140,9 +140,16 @@
                     }
                 }
             }
-            .product-tab-content {
+            .tab-pane {
                 margin-top: 40px;
                 .product {
+                    .product-image {
+                        .image {
+                            div {
+                                height: 350px;
+                            }
+                        }
+                    }
                     .content {
                         .title {
                             a {

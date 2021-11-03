@@ -5165,6 +5165,9 @@ body.canvas-opening {
 .mb-product {
   margin-bottom: 30px; }
 
+.w-custom-100 {
+  width: 100% !important; }
+
 .h-100 {
   height: 100% !important; }
 
@@ -5909,9 +5912,12 @@ main #product .product-tab-nav .product-tab-nav-list .product-nav-item {
       background-color: #266bf9;
       border-color: #266bf9; }
 
-main #product .product-tab-content {
+main #product .tab-pane {
+  display: none;
   margin-top: 60px; }
-  main #product .product-tab-content .product {
+  main #product .tab-pane.active {
+    display: block; }
+  main #product .tab-pane .product {
     position: relative;
     border-width: 2px;
     background: #fff;
@@ -5921,7 +5927,7 @@ main #product .product-tab-content {
     padding: 5px;
     transition: all 0.3s ease 0s;
     z-index: 0; }
-    main #product .product-tab-content .product .badges {
+    main #product .tab-pane .product .badges {
       position: absolute;
       top: 15px;
       left: 15px;
@@ -5929,7 +5935,7 @@ main #product .product-tab-content {
       display: flex;
       flex-direction: column;
       transition: all 0.3s ease 0s; }
-      main #product .product-tab-content .product .badges span {
+      main #product .tab-pane .product .badges span {
         font-size: 14px;
         line-height: 1.75;
         display: block;
@@ -5939,32 +5945,44 @@ main #product .product-tab-content {
         border-radius: 5px;
         color: #fff;
         font-weight: 600; }
-        main #product .product-tab-content .product .badges span.sale {
+        main #product .tab-pane .product .badges span.sale {
           background: #266bf9; }
-        main #product .product-tab-content .product .badges span.new {
+        main #product .tab-pane .product .badges span.new {
           background-color: #000; }
-        main #product .product-tab-content .product .badges span + span {
+        main #product .tab-pane .product .badges span + span {
           margin-top: 12px; }
-    main #product .product-tab-content .product .product-image {
+    main #product .tab-pane .product .product-image {
       position: relative;
       overflow: hidden; }
-      main #product .product-tab-content .product .product-image .image {
+      main #product .tab-pane .product .product-image .image {
         position: relative;
         display: block;
         overflow: hidden; }
-        main #product .product-tab-content .product .product-image .image img {
+        main #product .tab-pane .product .product-image .image img {
           z-index: 3;
           max-width: 100%;
           transition: all 0.3s ease 0s;
           width: 100%;
           opacity: 1; }
-          main #product .product-tab-content .product .product-image .image img.hover-image {
+          main #product .tab-pane .product .product-image .image img.hover-image {
             position: absolute;
             z-index: 2;
             top: 0;
             left: 0;
             opacity: 0; }
-    main #product .product-tab-content .product .content {
+        main #product .tab-pane .product .product-image .image div {
+          height: 265px;
+          transition: all 0.3s ease 0s; }
+          main #product .tab-pane .product .product-image .image div.poster {
+            z-index: 3;
+            opacity: 1; }
+          main #product .tab-pane .product .product-image .image div.hover-poster {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            opacity: 0; }
+    main #product .tab-pane .product .content {
       position: relative;
       z-index: 5;
       display: flex;
@@ -5974,20 +5992,20 @@ main #product .product-tab-content {
       line-height: 1;
       background-color: #fff;
       padding: 0 0 30px; }
-      main #product .product-tab-content .product .content .category a {
+      main #product .tab-pane .product .content .category a {
         font-size: 14px;
         color: #666;
         font-weight: 500; }
-        main #product .product-tab-content .product .content .category a:hover {
+        main #product .tab-pane .product .content .category a:hover {
           color: #266bf9; }
-      main #product .product-tab-content .product .content .title {
+      main #product .tab-pane .product .content .title {
         font-size: 16px;
         margin: 10px 0 15px; }
-        main #product .product-tab-content .product .content .title a {
+        main #product .tab-pane .product .content .title a {
           color: #000;
           font-size: 16px;
           font-weight: 600; }
-    main #product .product-tab-content .product .actions {
+    main #product .tab-pane .product .actions {
       position: absolute;
       display: flex;
       flex-direction: row;
@@ -6006,7 +6024,7 @@ main #product .product-tab-content {
       z-index: 11;
       border-radius: 0 0 13px 13px;
       width: calc(100% + 5px); }
-      main #product .product-tab-content .product .actions .action {
+      main #product .tab-pane .product .actions .action {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -6020,26 +6038,32 @@ main #product .product-tab-content {
         background-color: #707070;
         font-size: 20px;
         cursor: pointer; }
-        main #product .product-tab-content .product .actions .action + .action {
+        main #product .tab-pane .product .actions .action + .action {
           margin-left: 10px; }
-    main #product .product-tab-content .product:hover {
+    main #product .tab-pane .product:hover {
       transform: scaleY(1.05);
       z-index: 1; }
-      main #product .product-tab-content .product:hover .badges {
+      main #product .tab-pane .product:hover .badges {
         z-index: 5; }
-      main #product .product-tab-content .product:hover .product-image .image img {
+      main #product .tab-pane .product:hover .product-image .image img {
         transform: scale(1.1) rotate(0);
         opacity: 0; }
-        main #product .product-tab-content .product:hover .product-image .image img.hover-image {
+        main #product .tab-pane .product:hover .product-image .image img.hover-image {
           opacity: 1; }
-      main #product .product-tab-content .product:hover .content .title a {
+      main #product .tab-pane .product:hover .product-image .image div {
+        transform: scale(1.1) rotate(0); }
+        main #product .tab-pane .product:hover .product-image .image div.poster {
+          opacity: 0; }
+        main #product .tab-pane .product:hover .product-image .image div.hover-poster {
+          opacity: 1; }
+      main #product .tab-pane .product:hover .content .title a {
         color: #474747; }
-        main #product .product-tab-content .product:hover .content .title a:hover {
+        main #product .tab-pane .product:hover .content .title a:hover {
           color: #266bf9; }
-      main #product .product-tab-content .product:hover .actions {
+      main #product .tab-pane .product:hover .actions {
         opacity: 1;
         visibility: visible; }
-        main #product .product-tab-content .product:hover .actions .action:hover {
+        main #product .tab-pane .product:hover .actions .action:hover {
           color: white;
           background-color: #266bf9; }
 
@@ -8913,6 +8937,8 @@ main #account {
     main #banner .single-banner .banner-content h3 {
       font-size: 32px;
       line-height: 44px; }
+  main #product .tab-pane .product .product-image .image div {
+    height: 285px; }
   main #feature_product .single-feature-content {
     height: 612px; }
     main #feature_product .single-feature-content.resposive-height {
@@ -9047,6 +9073,8 @@ main #account {
     bottom: 25px; }
     main #banner .single-banner.first-banner .banner-content a {
       bottom: 0; }
+  main #product .tab-pane .product .product-image .image div {
+    height: 325px; }
   main #feature_product .single-feature-content.resposive-height {
     height: 700px;
     justify-content: flex-start;
@@ -9234,6 +9262,8 @@ main #account {
         margin: auto; }
   main #banner .double-banners .single-banner:first-child {
     margin-top: 30px; }
+  main #product .tab-pane .product .product-image .image div {
+    height: 235px; }
   main #product .product-tab-content {
     margin-top: 40px; }
   main #feature_product .single-feature-content.resposive-height {
@@ -9536,9 +9566,11 @@ main #account {
     width: auto;
     font-size: 12px;
     padding: 0 15px; }
-  main #product .product-tab-content {
+  main #product .tab-pane {
     margin-top: 40px; }
-    main #product .product-tab-content .product .content .title a {
+    main #product .tab-pane .product .product-image .image div {
+      height: 350px; }
+    main #product .tab-pane .product .content .title a {
       font-size: 16px; }
   main #fashion .title {
     font-size: 28px; }

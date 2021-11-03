@@ -451,11 +451,25 @@ namespace hmart.Areas.Manage.Controllers
                 newFileNames.Add(filename);
             }
 
-            if (product.ImageIds != null)
+
+            if (existProduct.ProImages.FindAll(x => x.PosterStatus == null)!=null)
             {
-                foreach (var item in existProduct.ProImages.FindAll(x => x.PosterStatus == null))
+
+                if (product.ImageIds != null)
                 {
-                    if (!product.ImageIds.Any(x => x == item.Id))
+                    foreach (var item in existProduct.ProImages.FindAll(x => x.PosterStatus == null))
+                    {
+                        if (!product.ImageIds.Any(x => x == item.Id))
+                        {
+                            FileManager.Delete(_env.WebRootPath, "uploads/products", item.Image);
+
+                            _context.ProImages.Remove(item);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var item in existProduct.ProImages.FindAll(x => x.PosterStatus == null))
                     {
                         FileManager.Delete(_env.WebRootPath, "uploads/products", item.Image);
 

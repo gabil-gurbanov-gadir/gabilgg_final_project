@@ -165,7 +165,6 @@ D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcor
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Detail.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
-D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Cart.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Wishlist.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Checkout.cshtml.g.cs
@@ -246,4 +245,8 @@ D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcor
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Address.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\Orders.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Views\Account\OrderDetail.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Offer\Index.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Offer\Create.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Offer\Edit.cshtml.g.cs
+D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Offer\Delete.cshtml.g.cs
 D:\code\final_project\gabilgg_final_project\hmart_backend\hmart\obj\Debug\netcoreapp3.1\hmart.csproj.AssemblyReference.cache

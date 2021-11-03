@@ -83,6 +83,22 @@
         }
         // Banner end
 
+        // Products start
+        #product {
+            .tab-pane {
+                .product {
+                    .product-image {
+                        .image {
+                            div {
+                                height: 325px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Products end
+
         // Featured start
         #feature_product {
             .single-feature-content {

@@ -158,6 +158,22 @@
         }
         // Banner end
 
+        // Products start
+        #product {
+            .tab-pane {
+                .product {
+                    .product-image {
+                        .image {
+                            div {
+                                height: 235px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Products end
+
         // Product start
         #product {
             .product-tab-content {

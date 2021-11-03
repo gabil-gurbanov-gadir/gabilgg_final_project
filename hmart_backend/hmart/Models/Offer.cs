@@ -24,6 +24,7 @@ namespace hmart.Models
 
         [StringLength(maximumLength: 100)]
         public string Cushioning { get; set; }
+
         public DateTime OfferTime { get; set; }
 
         public int Order { get; set; }
