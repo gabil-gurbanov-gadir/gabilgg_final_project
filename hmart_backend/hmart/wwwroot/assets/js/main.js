@@ -294,46 +294,96 @@ $(document).ready(function () {
     }, 300);
   });
 
-  $(document).on("click", ".quickview", function (e) {
-    e.preventDefault();
-    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
-    $("#shadow-layout").removeClass("d-none");
-    $("#quickview-modal").addClass("fade");
-    setTimeout(() => {
-      $("#shadow-layout").addClass("show");
-      $("#quickview-modal").addClass("show");
-      $("body").addClass("canvas-opening");
-      $("body").css("margin-right", scrollSize.toString() + "px");
-      $("#header-nav-menu .nav-menu-list").css(
-        "margin-right",
-        scrollSize.toString() + "px"
-      );
-    }, 300);
-  });
+  //$(document).on("click", ".quickview", function (e) {
+  //  e.preventDefault();
+    
+  //});
   // Modal end
 
   // Modal slider start
 
-  var modalSmallSlider = new Swiper(".modal-view-small-slider", {
-    spaceBetween: 10,
-    slidesPerView: 3,
-    freeMode: !0,
-    watchSlidesVisibility: !0,
-    watchSlidesProgress: !0,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+  //var modalSmallSlider = new Swiper(".modal-view-small-slider", {
+  //  spaceBetween: 10,
+  //  slidesPerView: 3,
+  //  freeMode: !0,
+  //  watchSlidesVisibility: !0,
+  //  watchSlidesProgress: !0,
+  //  navigation: {
+  //    nextEl: ".swiper-button-next",
+  //    prevEl: ".swiper-button-prev",
+  //  },
+  //});
 
-  var modalBigSlider = new Swiper(".modal-view-big-slider", {
-    spaceBetween: 0,
-    loop: !0,
-    slidesPerView: 1,
-    centerMood: !0,
-    thumbs: { swiper: modalSmallSlider },
-  });
+  //var modalBigSlider = new Swiper(".modal-view-big-slider", {
+  //  spaceBetween: 0,
+  //  loop: !0,
+  //  slidesPerView: 1,
+  //  centerMood: !0,
+  //  thumbs: { swiper: modalSmallSlider },
+  //});
   // Modal slider end
+
+    //#region Modal
+    $(document).on("click", ".quickview", function (e) {
+        e.preventDefault();
+
+        var url = $(this).attr("href");
+
+        async function ResponseHtml() {
+            const response = await fetch(url)
+                .then(resp => resp.text())
+                .then(data =>
+
+                    $("#quickview-modal .modal-content").html(data)
+                );
+        }
+
+        ResponseHtml();
+
+        setTimeout(() => {
+            var modalSmallSlider = new Swiper(".modal-view-small-slider", {
+                spaceBetween: 10,
+                slidesPerView: 3,
+                freeMode: !0,
+                watchSlidesVisibility: !0,
+                watchSlidesProgress: !0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+            var modalBigSlider = new Swiper(".modal-view-big-slider", {
+                spaceBetween: 0,
+                loop: !0,
+                slidesPerView: 1,
+                centerMood: !0,
+                thumbs: { swiper: modalSmallSlider },
+            });
+
+            setTimeout(() => {
+                let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+                $("#shadow-layout").removeClass("d-none");
+                $("#quickview-modal").addClass("fade");
+                setTimeout(() => {
+                    $("#shadow-layout").addClass("show");
+                    $("#quickview-modal").addClass("show");
+                    $("body").addClass("canvas-opening");
+                    $("body").css("margin-right", scrollSize.toString() + "px");
+                    $("#header-nav-menu .nav-menu-list").css(
+                        "margin-right",
+                        scrollSize.toString() + "px"
+                    );
+                }, 300);
+            }, 10);
+
+        }, 180);
+       
+
+       
+    });
+
+    //#endregion 
 
   // Featured Main Product responsived start
 
@@ -517,4 +567,33 @@ $(document).ready(function () {
   });
 
   // FileInput Choosing Names Show end
+
+  // Toast start 
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+    if ($("#toast-message").length) {
+        if ($("#toast-message").attr("data-succeded") == "true") {
+            toastr["success"]($("#toast-message").attr("data-text"))
+        }
+        else {
+            toastr["error"]($("#toast-message").attr("data-text"))
+        }
+    }
+  // Toast end
 });

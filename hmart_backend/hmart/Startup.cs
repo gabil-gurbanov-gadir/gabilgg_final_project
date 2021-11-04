@@ -64,7 +64,7 @@ namespace hmart
             else
             {
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
-                //app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
             app.UseHttpsRedirection();

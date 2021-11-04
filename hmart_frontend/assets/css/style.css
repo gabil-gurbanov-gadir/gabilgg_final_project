@@ -6336,7 +6336,9 @@ main #testimonial {
         main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-author .author-image img {
           max-width: 100%;
           width: 70px;
-          display: block; }
+          display: block;
+          border-radius: 50%;
+          border: 1.6px solid #c6cbce; }
         main #testimonial .testimonial-slider .swiper-slide .testi-inner .testi-author .author-name .name {
           color: #266bf9;
           font-size: 18px;

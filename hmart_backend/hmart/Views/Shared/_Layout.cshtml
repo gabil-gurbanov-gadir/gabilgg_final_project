@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/assets/css/style.css">
 </head>
 
@@ -36,6 +37,18 @@
             <div></div>
         </div>
     </div>
+
+    <!-- Toast Messages Start -->
+    @if (TempData["Succeed"] != null)
+    {
+        <input type="hidden" id="toast-message" data-text="@TempData["Succeed"]" data-succeded="true" />
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <input type="hidden" id="toast-message" data-text="@TempData["Error"]" data-succeded="false" />
+    }
+    <!-- Toast Messages End -->
     <!-- Header Start -->
     <header>
         <!-- Header top start -->
@@ -494,7 +507,7 @@
     <!-- QuickView Modal start -->
     <section id="quickview-modal" class="modal">
         <div class="modal-wrapper">
-            <div class="modal-content text-center">
+            <div class="modal-content  text-center">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 col-xs-12 mb-col">
                         <div class="modal-view-big-slider swiper">
@@ -708,6 +721,7 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="~/assets/js/jquery.countdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/assets/js/main.js"></script>
     @RenderSection("Scripts", required: false)
 </body>

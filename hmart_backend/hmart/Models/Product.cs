@@ -75,5 +75,27 @@ namespace hmart.Models
         public List<ProductColor> ProductColors { get; set; }
         public List<Review> Reviews { get; set; }
         public List<OrderItem> OrderItems { get; set; }
+
+        public string GetPosterImage()
+        {
+            return ProImages.FirstOrDefault(x => x.PosterStatus == true).Image;
+        }
+
+        public string GetHoverPosterImage()
+        {
+            return ProImages.FirstOrDefault(x => x.PosterStatus == false).Image;
+        }
+
+        public List<string> GetImages()
+        {
+            List<string> images = new List<string>();
+
+            foreach (var item in ProImages.Where(x=>x.PosterStatus==null))
+            {
+                images.Add(item.Image);
+            }
+
+            return images;
+        }
     }
 }
