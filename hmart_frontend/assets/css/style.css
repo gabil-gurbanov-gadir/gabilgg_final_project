@@ -4922,13 +4922,18 @@ body.canvas-opening {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 20;
   opacity: 0;
   visibility: hidden;
   transition: 0.6s all; }
   #shadow-layout.show {
     opacity: 1;
     visibility: visible; }
+
+#cart {
+  height: 100vh;
+  position: absolute;
+  z-index: 999; }
 
 .list-wrapper {
   background-color: white;
@@ -4941,14 +4946,14 @@ body.canvas-opening {
   left: auto;
   display: block;
   width: 400px;
-  height: 100%;
   padding: 20px;
   transition: all 0.5s ease 0s;
   overflow: auto;
   visibility: visible;
   transform: translate(100%); }
   .list-wrapper.canvas-opening {
-    transform: translate(0px); }
+    transform: translate(0px);
+    height: 100vh; }
   .list-wrapper .list-header {
     display: flex;
     justify-content: space-between;
@@ -4995,20 +5000,27 @@ body.canvas-opening {
       margin-bottom: 0;
       padding-bottom: 0;
       border-bottom: 0; }
+      .list-wrapper .list-items ul li:last-child p {
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        font-weight: 600; }
+        .list-wrapper .list-items ul li:last-child p .total-text-title {
+          color: #266bf9; }
     .list-wrapper .list-items ul li a.img {
       width: 110px; }
       .list-wrapper .list-items ul li a.img img {
-        max-width: 100%;
+        max-width: 80%;
         border: 1px solid #ebebeb; }
     .list-wrapper .list-items ul li .content {
       position: relative; }
       .list-wrapper .list-items ul li .content a.title {
-        color: #000;
+        color: #000 !important;
         font-weight: 500;
         display: block;
         padding-top: 8px; }
         .list-wrapper .list-items ul li .content a.title:hover {
-          color: #266bf9; }
+          color: #266bf9 !important; }
       .list-wrapper .list-items ul li .content a#remove {
         line-height: 1.5;
         position: absolute;
@@ -5018,8 +5030,10 @@ body.canvas-opening {
         color: #000;
         font-size: 16px; }
       .list-wrapper .list-items ul li .content .quantity-price {
-        font-size: 14px;
-        display: block;
+        font-size: 19px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-top: 10px; }
         .list-wrapper .list-items ul li .content .quantity-price .amount {
           color: #266bf9;
@@ -5385,6 +5399,16 @@ body.canvas-opening {
         cursor: pointer; }
         .modal .modal-wrapper .modal-content .btn-close:focus {
           box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+    .modal .modal-wrapper.out-of-stock p.modal-message {
+      margin-bottom: 15px;
+      font-size: 20px; }
+      .modal .modal-wrapper.out-of-stock p.modal-message .check {
+        width: 30px;
+        height: 30px;
+        border: 2px solid #e53030;
+        border-radius: 50%;
+        font-size: 22px;
+        color: #e53030; }
   .modal#quickview-modal .modal-wrapper {
     max-width: 960px;
     width: 960px; }
@@ -8555,7 +8579,8 @@ main #not-fount {
       font-size: 64px;
       font-weight: 400;
       line-height: 1.2;
-      margin-bottom: 30px; }
+      margin-bottom: 30px;
+      width: 50%; }
     main #not-fount .content-404 p {
       margin-bottom: 40px; }
     main #not-fount .content-404 .buttons {
@@ -9042,7 +9067,15 @@ main #account {
     height: 50px; }
   main .blog-post .quate-speech-area .quate-speech {
     font-size: 18px;
-    line-height: 32px; } }
+    line-height: 32px; }
+  main #not-fount {
+    height: 500px; }
+    main #not-fount .content-404 {
+      padding: 80px 0; }
+      main #not-fount .content-404 .title {
+        font-size: 80px; }
+      main #not-fount .content-404 .sub-title {
+        font-size: 50px; } }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .py-section {
@@ -9103,7 +9136,22 @@ main #account {
     margin-right: 30px; }
   main .blog-post .quate-speech-area .quate-speech {
     font-size: 18px;
-    line-height: 32px; } }
+    line-height: 32px; }
+  main #not-fount {
+    height: 450px; }
+    main #not-fount .content-404 {
+      padding: 60px 0; }
+      main #not-fount .content-404 .title {
+        font-size: 70px; }
+      main #not-fount .content-404 .sub-title {
+        font-size: 35px; }
+      main #not-fount .content-404 p {
+        margin-bottom: 30px;
+        width: 50%; }
+      main #not-fount .content-404 .buttons a {
+        padding: 10px 25px; }
+        main #not-fount .content-404 .buttons a.btn-homepage {
+          margin-left: 10px; } }
 
 @media screen and (max-width: 1200px) {
   header #header-top .top-nav ul li:not(:last-child) {
@@ -9442,7 +9490,23 @@ main #account {
         margin-left: 20px;
         margin-right: 0; }
   main #account .tab-buttons {
-    margin-bottom: 50px; } }
+    margin-bottom: 50px; }
+  main #not-fount {
+    height: 400px; }
+    main #not-fount .content-404 {
+      padding: 40px 0; }
+      main #not-fount .content-404 .title {
+        font-size: 55px; }
+      main #not-fount .content-404 .sub-title {
+        font-size: 25px; }
+      main #not-fount .content-404 p {
+        margin-bottom: 30px;
+        width: 50%; }
+      main #not-fount .content-404 .buttons a {
+        font-size: 14px;
+        padding: 6px 12px; }
+        main #not-fount .content-404 .buttons a.btn-homepage {
+          margin-left: 5px; } }
 
 @media screen and (max-width: 575px) {
   .col-xs-6 {
@@ -9624,4 +9688,25 @@ main #account {
   main #contact .contact-wrapper {
     padding: 50px 20px; }
     main #contact .contact-wrapper .contact-info .single-contact .info-box .title {
-      font-size: 20px; } }
+      font-size: 20px; }
+  main #not-fount {
+    height: 400px; }
+    main #not-fount .content-404 {
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      display: flex; }
+      main #not-fount .content-404 .title {
+        font-size: 50px;
+        margin-bottom: 10px; }
+      main #not-fount .content-404 .sub-title {
+        font-size: 20px;
+        width: 100%; }
+      main #not-fount .content-404 p {
+        margin-bottom: 30px;
+        width: 100%; }
+      main #not-fount .content-404 .buttons a {
+        font-size: 14px;
+        padding: 6px 12px; }
+        main #not-fount .content-404 .buttons a.btn-homepage {
+          margin-left: 5px; } }

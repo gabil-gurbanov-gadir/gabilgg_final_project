@@ -597,5 +597,39 @@
 
     //#endregion
 
+    //#region 404 Page
+
+    // Main Start
+    main {
+        #not-fount {
+            height: 400px;
+            .content-404 {
+                padding: 40px 0;
+                .title {
+                    font-size: 55px;
+                }
+                .sub-title {
+                    font-size: 25px;
+                }
+                p {
+                    margin-bottom: 30px;
+                    width: 50%;
+                }
+                .buttons {
+                    a {
+                        font-size: 14px;
+                        padding: 6px 12px;
+                        &.btn-homepage {
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Main End
+
+    //#endregion
+
     //#endregion
 }

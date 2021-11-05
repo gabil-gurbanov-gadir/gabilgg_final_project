@@ -260,22 +260,22 @@ $(document).ready(function () {
     }, 600);
   });
 
-  $(document).on("click", ".add-to-cart", function (e) {
-    e.preventDefault();
-    let scrollSize = window.innerWidth - document.documentElement.clientWidth;
-    $("#shadow-layout").removeClass("d-none");
-    $("#cart-modal").addClass("fade");
-    setTimeout(() => {
-      $("#shadow-layout").addClass("show");
-      $("#cart-modal").addClass("show");
-      $("body").addClass("canvas-opening");
-      $("body").css("margin-right", scrollSize.toString() + "px");
-      $("#header-nav-menu .nav-menu-list").css(
-        "margin-right",
-        scrollSize.toString() + "px"
-      );
-    }, 300);
-  });
+  //$(document).on("click", ".add-to-cart", function (e) {
+  //  e.preventDefault();
+  //  let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+  //  $("#shadow-layout").removeClass("d-none");
+  //  $("#cart-modal").addClass("fade");
+  //  setTimeout(() => {
+  //    $("#shadow-layout").addClass("show");
+  //    $("#cart-modal").addClass("show");
+  //    $("body").addClass("canvas-opening");
+  //    $("body").css("margin-right", scrollSize.toString() + "px");
+  //    $("#header-nav-menu .nav-menu-list").css(
+  //      "margin-right",
+  //      scrollSize.toString() + "px"
+  //    );
+  //  }, 300);
+  //});
 
   $(document).on("click", ".wishlist", function (e) {
     e.preventDefault();
@@ -327,14 +327,21 @@ $(document).ready(function () {
     $(document).on("click", ".quickview", function (e) {
         e.preventDefault();
 
-        var url = $(this).attr("href");
+        let url = $(this).attr("href");
+        let id = url.substring(url.lastIndexOf("/")+1);
 
         async function ResponseHtml() {
             const response = await fetch(url)
-                .then(resp => resp.text())
-                .then(data =>
-
-                    $("#quickview-modal .modal-content").html(data)
+                .then(resp=> {
+                    if (!resp.ok) {
+                        let url = window.location.href + 'details?id=' + id + '2&&code=404&&name=Product';
+                        window.location.href = url;
+                    }
+                    return resp.text();
+                })
+                .then(data => {
+                    $("#quickview-modal .modal-content").html(data);
+                }
                 );
         }
 
@@ -377,10 +384,71 @@ $(document).ready(function () {
                 }, 300);
             }, 10);
 
-        }, 180);
+        }, 300);
        
 
        
+    });
+
+    //#endregion 
+
+    //#region AddToBasket
+    $(document).on("click", ".add-to-cart", function (e) {
+        e.preventDefault();
+
+        let url = $(this).attr("href");
+        let id = url.substring(url.lastIndexOf("/") + 1);
+
+        async function ResponseHtml() {
+            const response = await fetch(url)
+                .then(resp => {
+                    if (!resp.ok) {
+                        let url = window.location.href + 'details?id=' + id + '2&&code=404&&name=Product';
+                        window.location.href = url;
+                    } else if (resp.status == 204) {
+                        return 204;
+                    }
+                    return resp.text();
+                })
+                .then(data => {
+                    if (data != 204) {
+                        $(".basket-partial").html(data);
+
+                        let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+                        $("#shadow-layout").removeClass("d-none");
+                        $("#cart-modal").addClass("fade");
+                        setTimeout(() => {
+                            $("#shadow-layout").addClass("show");
+                            $("#cart-modal").addClass("show");
+                            $("body").addClass("canvas-opening");
+                            $("body").css("margin-right", scrollSize.toString() + "px");
+                            $("#header-nav-menu .nav-menu-list").css(
+                                "margin-right",
+                                scrollSize.toString() + "px"
+                            );
+                        }, 300);
+                    } else {
+                        console.log("204 qayitdi");
+                        let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+                        $("#shadow-layout").removeClass("d-none");
+                        $("#out-of-product").addClass("fade");
+                        setTimeout(() => {
+                            $("#shadow-layout").addClass("show");
+                            $("#out-of-product").addClass("show");
+                            $("body").addClass("canvas-opening");
+                            $("body").css("margin-right", scrollSize.toString() + "px");
+                            $("#header-nav-menu .nav-menu-list").css(
+                                "margin-right",
+                                scrollSize.toString() + "px"
+                            );
+                        }, 300);
+                    }
+                }
+                );
+        }
+
+        ResponseHtml();
+
     });
 
     //#endregion 

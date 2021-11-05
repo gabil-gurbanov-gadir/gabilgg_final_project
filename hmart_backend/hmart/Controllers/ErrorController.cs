@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using hmart.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,19 @@ namespace hmart.Controllers
             {
                 case 404:
                     ViewBag.errorMessage = "Page Not Found";
+                    break;
+            }
+
+            return View("NotFound");
+        }
+
+        [HttpGet("details")]
+        public IActionResult HttpStatusCodeHandler(ErrorMessage errorM)
+        {
+            switch (errorM.Code)
+            {
+                case 404:
+                    ViewBag.errorMessage = errorM.Name +" by Id: \""+errorM.Id+ "\" not found";
                     break;
             }
 

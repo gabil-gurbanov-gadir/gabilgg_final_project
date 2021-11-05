@@ -370,7 +370,7 @@ body.canvas-opening {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 20;
     opacity: 0;
     visibility: hidden;
     transition: 0.6s all;
@@ -379,7 +379,11 @@ body.canvas-opening {
         visibility: visible;
     }
 }
-
+#cart {
+    height: 100vh;
+    position: absolute;
+    z-index: 999;
+}
 .list-wrapper {
     background-color: white;
     font-size: 14px;
@@ -391,7 +395,6 @@ body.canvas-opening {
     left: auto;
     display: block;
     width: 400px;
-    height: 100%;
     padding: 20px;
     transition: all 0.5s ease 0s;
     overflow: auto;
@@ -399,6 +402,7 @@ body.canvas-opening {
     transform: translate(100%);
     &.canvas-opening {
         transform: translate(0px);
+        height: 100vh;
     }
     .list-header {
         display: flex;
@@ -457,12 +461,21 @@ body.canvas-opening {
                     margin-bottom: 0;
                     padding-bottom: 0;
                     border-bottom: 0;
+                    p {
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 22px;
+                        font-weight: 600;
+                        .total-text-title {
+                            color: $primary-color;
+                        }
+                    }
                 }
                 a {
                     &.img {
                         width: 110px;
                         img {
-                            max-width: 100%;
+                            max-width: 80%;
                             border: 1px solid #ebebeb;
                         }
                     }
@@ -471,12 +484,12 @@ body.canvas-opening {
                     position: relative;
                     a {
                         &.title {
-                            color: #000;
+                            color: #000 !important;
                             font-weight: 500;
                             display: block;
                             padding-top: 8px;
                             &:hover {
-                                color: $primary-color;
+                                color: $primary-color !important;
                             }
                         }
                         &#remove {
@@ -490,8 +503,10 @@ body.canvas-opening {
                         }
                     }
                     .quantity-price {
-                        font-size: 14px;
-                        display: block;
+                        font-size: 19px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
                         margin-top: 10px;
                         .amount {
                             color: $primary-color;
@@ -966,6 +981,22 @@ body.canvas-opening {
                 cursor: pointer;
                 &:focus {
                     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+                }
+            }
+        }
+        &.out-of-stock {
+            p {
+                &.modal-message {
+                    margin-bottom: 15px;
+                    font-size: 20px;
+                    .check {
+                        width: 30px;
+                        height: 30px;
+                        border: 2px solid #e53030;
+                        border-radius: 50%;
+                        font-size: 22px;
+                        color: #e53030;
+                    }
                 }
             }
         }
