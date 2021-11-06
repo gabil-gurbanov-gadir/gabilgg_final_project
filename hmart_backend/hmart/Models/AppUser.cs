@@ -44,5 +44,8 @@ namespace hmart.Models
         public List<BlogSubComment> BlogSubComments { get; set; }
         public List<Review> Reviews { get; set; }
 
+        public List<BasketItem> BasketItems { get; set; }
+        public List<WishListItem> WishListItems { get; set; }
+
     }
 }

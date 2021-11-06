@@ -46,7 +46,7 @@
                             <p>The following addresses will be used on the checkout page by default.</p>
                             <h5 class="billing-address">Billing address</h5>
                             <div class="address">
-                                <a href="#" class="edit-address">Edit</a>
+                                <a class="edit-address">Edit</a>
                                 <br>
                                 <strong>Address:</strong>
                                 <span class="mb-1 d-inline-block street-apt">@Model.Address</span>,
@@ -109,7 +109,7 @@
     <script>
         $(document).ready(function () {
             $(document).on("click", ".edit-address", function (e) {
-               
+                e.preventDefault();
                 $(".address").addClass("d-none");
                 $(".edit-address-form").removeClass("d-none");
             });

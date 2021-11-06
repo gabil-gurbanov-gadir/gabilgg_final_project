@@ -57,7 +57,6 @@ namespace hmart.Controllers
 
             if (product.Count == 0)
             {
-                basketData = null;
                 return NoContent();
             }
 
@@ -275,6 +274,171 @@ namespace hmart.Controllers
             }
 
             return PartialView("_BasketPartial", basketData);
+        }
+
+        public IActionResult AddToWishList(int id)
+        {
+            Product product = _context.Products.Include(x => x.WishListItems).FirstOrDefault(x => x.Id == id);
+
+            WishListVM wishListVM = new WishListVM
+            {
+                Products = new List<Product>(),
+                IsAddBtn = true
+            };
+
+            if (product.Count == 0)
+            {
+                return NoContent();
+            }
+
+            if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))
+            {
+                AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+
+                WishListItem wishListItem = product.WishListItems?.FirstOrDefault(x => x.AppUserId == user.Id);
+                if (wishListItem != null)
+                {
+                    return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status201Created);
+                }
+                else
+                {
+                    wishListItem = new WishListItem
+                    {
+                        AppUserId = user.Id,
+                        ProductId = id
+                    };
+
+                    product.WishListItems.Add(wishListItem);
+                }
+
+                _context.SaveChanges();
+
+                foreach (var item in _context.WishListItems.Include(x => x.AppUser).Include(x => x.Product).ThenInclude(x => x.ProImages).Where(x => x.AppUser.UserName == User.Identity.Name).ToList())
+                {
+                    Product wishProduct = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                    if (wishProduct != null)
+                    {
+                        wishListVM.Products.Add(wishProduct);
+                        wishListVM.Count++;
+                    }
+                }
+            }
+            else
+            {
+                var basket = HttpContext.Request.Cookies["WishList"];
+
+                List<WishListCookieItemVM> wishListCookieItemVMs = new List<WishListCookieItemVM>();
+
+                if (basket == null)
+                {
+                    wishListCookieItemVMs = new List<WishListCookieItemVM>()
+                    {
+                        new WishListCookieItemVM()
+                        {
+                            ProductId = product.Id
+                         }
+                     };
+                }
+                else
+                {
+                    wishListCookieItemVMs = JsonConvert.DeserializeObject<List<WishListCookieItemVM>>(basket);
+                    WishListCookieItemVM wishListCookieItemVM = wishListCookieItemVMs.FirstOrDefault(x => x.ProductId == product.Id);
+                    if (wishListCookieItemVM == null)
+                    {
+                        wishListCookieItemVM = new WishListCookieItemVM()
+                        {
+                            ProductId = product.Id
+                        };
+                        wishListCookieItemVMs.Add(wishListCookieItemVM);
+                    }
+                    else
+                    {
+                        return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status201Created);
+                    }
+                }
+
+                var wishListCookieItemVMsStr = JsonConvert.SerializeObject(wishListCookieItemVMs);
+
+                HttpContext.Response.Cookies.Append("WishList", wishListCookieItemVMsStr);
+
+                foreach (var item in wishListCookieItemVMs)
+                {
+                        Product wishProductForCookie = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                    if (wishProductForCookie != null)
+                    {
+                        wishListVM.Products.Add(wishProductForCookie);
+                        wishListVM.Count++;
+                    }
+                }
+            }
+
+            return PartialView("_WishListPartial", wishListVM);
+        }
+
+        public IActionResult DeleteFromWishList (int id)
+        {
+            Product product = _context.Products.Include(x => x.WishListItems).FirstOrDefault(b => b.Id == id);
+
+            WishListVM wishListVM = new WishListVM()
+            {
+                Products = new List<Product>(),
+                IsAddBtn = false
+            };
+
+            if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))
+            {
+                AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+                WishListItem wishListItem = product.WishListItems.FirstOrDefault(x => x.AppUserId == user.Id);
+                
+                    product.WishListItems.Remove(wishListItem);
+
+                _context.SaveChanges();
+
+                foreach (var item in _context.WishListItems.Include(x => x.AppUser).Include(x => x.Product).ThenInclude(x => x.ProImages).Where(x => x.AppUser.UserName == User.Identity.Name).ToList())
+                {
+                    Product wishProduct = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                    if (wishProduct != null)
+                    {
+                        wishListVM.Products.Add(wishProduct);
+                        wishListVM.Count++;
+                    }
+                }
+            }
+            else
+            {
+                var wishList = HttpContext.Request.Cookies["WishList"];
+                List<WishListCookieItemVM> wishListCookieItemVMs;
+
+
+                wishListCookieItemVMs = JsonConvert.DeserializeObject<List<WishListCookieItemVM>>(wishList);
+
+                WishListCookieItemVM wishListCookieItemVM = wishListCookieItemVMs.FirstOrDefault(x => x.ProductId == id);
+
+                    wishListCookieItemVMs.Remove(wishListCookieItemVM);
+
+                var wishListCookieItemVMsStr = JsonConvert.SerializeObject(wishListCookieItemVMs);
+                HttpContext.Response.Cookies.Append("WishList", wishListCookieItemVMsStr);
+
+
+                foreach (var item in wishListCookieItemVMs)
+                {
+                        Product wishProductForCookie = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                    if (wishProductForCookie != null)
+                    {
+                        wishListVM.Products.Add(wishProductForCookie);
+                        wishListVM.Count++;
+                    }
+
+                }
+            }
+
+            return PartialView("_WishListPartial", wishListVM);
         }
     }
 }

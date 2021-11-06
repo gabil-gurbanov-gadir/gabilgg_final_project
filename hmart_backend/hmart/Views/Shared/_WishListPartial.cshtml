@@ -1,87 +1,73 @@
-﻿@model BasketVM
+﻿@model WishListVM
 
-@if (Model.Count > 0)
+@if (Model.Products.Count > 0)
 {
-    <a class="shop-bag action_icon" id="cartlist-button">
-        <i class="icon-basket"></i>
+    <a class="action_icon" id="wishlist-button">
+        <i class="icon-heart1"></i>
         <span>@Model.Count</span>
     </a>
-    <!-- Cart Start -->
-    <div id="cart">
+    <!-- WishList Start -->
+    <div id="wishlist">
         <div class="list-wrapper @(Model.IsAddBtn?"":"canvas-opening")">
             <div class="list-header">
-                <h3>Cart</h3>
+                <h3>Wishlist</h3>
                 <button class="canvas-close">
                 </button>
             </div>
             <div class="list-items">
                 <ul>
-                    @foreach (var item in Model.BasketItemVMs)
+                    @foreach (var item in Model.Products)
                     {
-
                         <li>
                             <div class="row">
                                 <div class="col-4">
-                                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="img">
-                                        <img src="~/uploads/products/@item.Product?.GetPosterImage()" alt="@item.Product?.Name">
+                                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item?.Id" class="img">
+                                        <img src="~/uploads/products/@item?.GetPosterImage()" alt="@item?.Name">
                                     </a>
                                 </div>
                                 <div class="col-8">
                                     <div class="content">
-                                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="title">@item.Product?.Name</a>
+                                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item?.Id" class="title">@item?.Name</a>
                                         <span class="quantity-price">
-                                            @item.Count <span>×</span>
-
-                                            @if (item.Product?.DiscountPercent == null)
+                                            @if (item?.DiscountPercent == null)
                                             {
                                                 <span class="amount">
-                                                    $@item.Product?.Price.ToString("#.00")
+                                                    $@item?.Price.ToString("#.00")
                                                 </span>
                                             }
                                             else
                                             {
-                                                var discountPrice = item.Product?.Price - item.Product?.Price * item.Product?.DiscountPercent / 100;
+                                                var discountPrice = item?.Price - item?.Price * item?.DiscountPercent / 100;
                                                 <span class="amount">
                                                     $@discountPrice?.ToString("#.00")
                                                 </span>
                                             }
                                         </span>
-                                        <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@item.Product.Id" class="remove-from-basket">×</a>
+                                        <a asp-controller="shop" asp-action="deletefromwishlist" asp-route-id="@item?.Id" class="remove-from-wishList">×</a>
                                     </div>
                                 </div>
                             </div>
                         </li>
                     }
-                    <li>
-                        <div class="row">
-                            <div class="col-12">
-                                <p>
-                                    <span class="total-text-title">Total Price: </span>
-                                    <span class="total-price">@Model.TotalPrice.ToString("#.00")</span>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </div>
             <div class="list-view">
-                <a asp-controller="account" asp-action="cart">View Cart</a>
-                <a asp-controller="account" asp-action="checkout" class="checkout">Checkout</a>
+                <a asp-controller="account" asp-action="wishlist">view wishlist</a>
             </div>
         </div>
     </div>
-    <!-- Cart End -->
+    <!-- WishList End -->
 }
 else
 {
-    <a class="shop-bag action_icon" id="cartlist-button">
-        <i class="icon-basket"></i>
+    <a class="action_icon" id="wishlist-button">
+        <i class="icon-heart1"></i>
     </a>
-    <!-- Cart Start -->
-    <div id="cart">
+    <!-- WishList Start -->
+    <div id="wishlist">
         <div class="list-wrapper @(Model.IsAddBtn?"":"canvas-opening")">
             <div class="list-header">
-                <h3>Cart</h3>
+                <h3>Wishlist</h3>
                 <button class="canvas-close">
                 </button>
             </div>
@@ -92,7 +78,7 @@ else
                             <div class="col-12">
                                 <div class="content">
                                     <span style="display:block;font-size: 20px;color: #266bf9;text-align: center;padding: 5px 10px;border: 2px solid #266bf99c;border-radius: 5px;box-shadow: inset 0px 0px 9px #266bf9;">
-                                        Cart is empty ( ^_^')
+                                        WishList is empty ...('^_^)...
                                     </span>
                                 </div>
                             </div>
@@ -102,5 +88,5 @@ else
             </div>
         </div>
     </div>
-    <!-- Cart End -->
+    <!-- WishList End -->
 }

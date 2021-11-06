@@ -70,6 +70,7 @@ namespace hmart.Models
 
 
         public List<BasketItem> BasketItems { get; set; }
+        public List<WishListItem> WishListItems { get; set; }
         public List<ProImage> ProImages { get; set; }
         public List<ProductTagProduct> ProductTagProducts { get; set; }
         public List<ProductColor> ProductColors { get; set; }

@@ -38,6 +38,7 @@ namespace hmart.DAL
         public DbSet<Team> Teams { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<WishListItem> WishListItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ProImage> ProImages { get; set; }

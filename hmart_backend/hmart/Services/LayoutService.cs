@@ -100,5 +100,49 @@ namespace hmart.Services
 
             return basketData;
         }
+
+        public WishListVM GetWishList()
+        {
+            var wishList = _httpContextAccessor.HttpContext.Request.Cookies["WishList"];
+
+            WishListVM wishListVM = new WishListVM
+            {
+                Products = new List<Product>()
+            };
+
+            if (_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == _httpContextAccessor.HttpContext.User.Identity.Name && x.IsAdmin == false))
+            {
+                var wishListItems = _context.WishListItems.Include(x => x.AppUser).Include(x => x.Product).ThenInclude(x => x.ProImages).Where(x => x.AppUser.UserName == _httpContextAccessor.HttpContext.User.Identity.Name);
+                foreach (var item in wishListItems)
+                {
+                    Product wishProduct = item.Product;
+
+                    wishListVM.Products.Add(wishProduct);
+                    wishListVM.Count++;
+                }
+            }
+            else
+            {
+                if (wishList != null)
+                {
+                    List<WishListCookieItemVM> wishListCookieItemVMs = JsonConvert.DeserializeObject<List<WishListCookieItemVM>>(wishList);
+
+
+
+                    foreach (var item in wishListCookieItemVMs)
+                    {
+                         Product wishProductForCookie = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                        if (wishProductForCookie != null)
+                        {
+                            wishListVM.Products.Add(wishProductForCookie);
+                            wishListVM.Count++;
+                        }
+                    }
+                }
+            }
+
+            return wishListVM;
+        }
     }
 }

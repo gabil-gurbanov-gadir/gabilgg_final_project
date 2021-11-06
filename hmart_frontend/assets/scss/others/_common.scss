@@ -180,7 +180,8 @@ header {
                     }
                 }
 
-                &.shop-bag {
+                &.shop-bag,
+                &.action_icon {
                     position: relative;
                     margin-left: 15px;
                     span {
@@ -506,6 +507,17 @@ body.canvas-opening {
                             color: #000;
                             font-size: 16px;
                         }
+
+                        &.remove-from-wishList {
+                            line-height: 1.5;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            padding: 0 3px;
+                            color: #000;
+                            font-size: 16px;
+                        }
+
                         &#remove {
                             line-height: 1.5;
                             position: absolute;
@@ -1102,19 +1114,21 @@ body.canvas-opening {
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                color: #000;
+                color: #29ac52;
                 line-height: 1;
+                font-size: 20px;
                 .check {
-                    width: 16px;
-                    height: 16px;
-                    border: 0.75px solid rgba(0, 0, 0, 0.747);
-                    border-radius: 50%;
-                    font-size: 12px;
-                    color: #000;
+                    color: #fff;
                     margin-right: 10px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    width: 30px;
+                    height: 30px;
+                    border: 2px solid #30e568;
+                    background-color: #30e568;
+                    border-radius: 50%;
+                    font-size: 22px;
                 }
             }
             .modal-product {
@@ -1163,14 +1177,13 @@ body.canvas-opening {
             p {
                 &.modal-message {
                     margin-bottom: 15px;
-                    font-size: 20px;
+                    color: #c42929;
                     .check {
-                        width: 30px;
-                        height: 30px;
-                        border: 2px solid #e53030;
+                        border-color: #e53030;
                         border-radius: 50%;
                         font-size: 22px;
-                        color: #e53030;
+                        color: #fff;
+                        background-color: #e53030;
                     }
                 }
             }

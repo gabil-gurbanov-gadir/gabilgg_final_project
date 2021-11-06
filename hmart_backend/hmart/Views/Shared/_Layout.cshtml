@@ -11,6 +11,7 @@
 
     Setting setting = layoutS.GetSetting();
     BasketVM basket = layoutS.GetBasket();
+    WishListVM wishList = layoutS.GetWishList();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -148,9 +149,98 @@
                     </div>
                     <div class="col-3">
                         <div class="header-actions">
-                            <a class="action_icon" href="" id="wishlist-button">
-                                <i class="icon-heart1"></i>
-                            </a>
+                            <div class="wishList-partial">
+                                @if (wishList.Products.Count > 0)
+                                {
+                                    <a class="action_icon" id="wishlist-button">
+                                        <i class="icon-heart1"></i>
+                                        <span>@wishList.Count</span>
+                                    </a>
+                                    <!-- WishList Start -->
+                                    <div id="wishlist">
+                                        <div class="list-wrapper">
+                                            <div class="list-header">
+                                                <h3>Wishlist</h3>
+                                                <button class="canvas-close">
+                                                </button>
+                                            </div>
+                                            <div class="list-items">
+                                                <ul>
+                                                    @foreach (var item in wishList.Products)
+                                                    {
+                                                        <li>
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item?.Id" class="img">
+                                                                        <img src="~/uploads/products/@item?.GetPosterImage()" alt="@item?.Name">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <div class="content">
+                                                                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item?.Id" class="title">@item?.Name</a>
+                                                                        <span class="quantity-price">
+                                                                            @if (item?.DiscountPercent == null)
+                                                                            {
+                                                                                <span class="amount">
+                                                                                    $@item?.Price.ToString("#.00")
+                                                                                </span>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                var discountPrice = item?.Price - item?.Price * item?.DiscountPercent / 100;
+                                                                                <span class="amount">
+                                                                                    $@discountPrice?.ToString("#.00")
+                                                                                </span>
+                                                                            }
+                                                                        </span>
+                                                                        <a asp-controller="shop" asp-action="deletefromwishlist" asp-route-id="@item?.Id" class="remove-from-wishList">×</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                            <div class="list-view">
+                                                <a asp-controller="account" asp-action="wishlist">view wishlist</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- WishList End -->
+                                }
+                                else
+                                {
+                                    <a class="action_icon" id="wishlist-button">
+                                        <i class="icon-heart1"></i>
+                                    </a>
+                                    <!-- WishList Start -->
+                                    <div id="wishlist">
+                                        <div class="list-wrapper">
+                                            <div class="list-header">
+                                                <h3>Wishlist</h3>
+                                                <button class="canvas-close">
+                                                </button>
+                                            </div>
+                                            <div class="list-items">
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="content">
+                                                                    <span style="display:block;font-size: 20px;color: #266bf9;text-align: center;padding: 5px 10px;border: 2px solid #266bf99c;border-radius: 5px;box-shadow: inset 0px 0px 9px #266bf9;">
+                                                                        WishList is empty ...('^_^)...
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- WishList End -->
+                                }
+                            </div>
                             <div class="basket-partial">
                                 @if (basket.BasketItemVMs.Count > 0)
                                 {
@@ -300,9 +390,98 @@
                     </div>
                     <div class="col">
                         <div class="header-actions">
-                            <a class="action_icon" id="wishlist-button">
-                                <i class="icon-heart1"></i>
-                            </a>
+                            <div class="wishList-partial">
+                                @if (wishList.Products.Count > 0)
+                                {
+                                    <a class="action_icon" id="wishlist-button">
+                                        <i class="icon-heart1"></i>
+                                        <span>@wishList.Count</span>
+                                    </a>
+                                    <!-- WishList Start -->
+                                    <div id="wishlist">
+                                        <div class="list-wrapper">
+                                            <div class="list-header">
+                                                <h3>Wishlist</h3>
+                                                <button class="canvas-close">
+                                                </button>
+                                            </div>
+                                            <div class="list-items">
+                                                <ul>
+                                                    @foreach (var item in wishList.Products)
+                                                    {
+                                                        <li>
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item?.Id" class="img">
+                                                                        <img src="~/uploads/products/@item?.GetPosterImage()" alt="@item?.Name">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <div class="content">
+                                                                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item?.Id" class="title">@item?.Name</a>
+                                                                        <span class="quantity-price">
+                                                                            @if (item?.DiscountPercent == null)
+                                                                            {
+                                                                                <span class="amount">
+                                                                                    $@item?.Price.ToString("#.00")
+                                                                                </span>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                var discountPrice = item?.Price - item?.Price * item?.DiscountPercent / 100;
+                                                                                <span class="amount">
+                                                                                    $@discountPrice?.ToString("#.00")
+                                                                                </span>
+                                                                            }
+                                                                        </span>
+                                                                        <a asp-controller="shop" asp-action="deletefromwishlist" asp-route-id="@item?.Id" class="remove-from-wishList">×</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                            <div class="list-view">
+                                                <a asp-controller="account" asp-action="wishlist">view wishlist</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- WishList End -->
+                                }
+                                else
+                                {
+                                    <a class="action_icon" id="wishlist-button">
+                                        <i class="icon-heart1"></i>
+                                    </a>
+                                    <!-- WishList Start -->
+                                    <div id="wishlist">
+                                        <div class="list-wrapper">
+                                            <div class="list-header">
+                                                <h3>Wishlist</h3>
+                                                <button class="canvas-close">
+                                                </button>
+                                            </div>
+                                            <div class="list-items">
+                                                <ul>
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="content">
+                                                                    <span style="display:block;font-size: 20px;color: #266bf9;text-align: center;padding: 5px 10px;border: 2px solid #266bf99c;border-radius: 5px;box-shadow: inset 0px 0px 9px #266bf9;">
+                                                                        WishList is empty ...('^_^)...
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- WishList End -->
+                                }
+                            </div>
                             <div class="basket-partial">
                                 @if (basket.BasketItemVMs.Count > 0)
                                 {
@@ -454,84 +633,7 @@
     <!-- =============================== -->
     <!-- Shadow Layout -->
     <div id="shadow-layout" class="d-none"></div>
-    <!-- WishList Start -->
-    <div id="wishlist">
-        <div class="list-wrapper">
-            <div class="list-header">
-                <h3>Wishlist</h3>
-                <button class="canvas-close">
-                </button>
-            </div>
-            <div class="list-items">
-                <ul>
-                    <li>
-                        <div class="row">
-                            <div class="col-4">
-                                <a href="" class="img">
-                                    <img src="~/assets/uploads/products/1.png" alt="phone">
-                                </a>
-                            </div>
-                            <div class="col-8">
-                                <div class="content">
-                                    <a href="" class="title">Modern Smart Phone</a>
-                                    <span class="quantity-price">
-                                        <span class="amount">
-                                            $ 21.86
-                                        </span>
-                                    </span>
-                                    <a href="" class="remove-from-basket">×</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="row">
-                            <div class="col-4">
-                                <a href="" class="img">
-                                    <img src="~/assets/uploads/products/1.png" alt="phone">
-                                </a>
-                            </div>
-                            <div class="col-8">
-                                <div class="content">
-                                    <a href="" class="title">Modern Smart Phone</a>
-                                    <span class="quantity-price">
-                                        <span class="amount">
-                                            $ 21.86
-                                        </span>
-                                    </span>
-                                    <a href="" class="remove-from-basket">×</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="row">
-                            <div class="col-4">
-                                <a href="" class="img">
-                                    <img src="~/assets/uploads/products/1.png" alt="phone">
-                                </a>
-                            </div>
-                            <div class="col-8">
-                                <div class="content">
-                                    <a href="" class="title">Modern Smart Phone</a>
-                                    <span class="quantity-price">
-                                        <span class="amount">
-                                            $ 21.86
-                                        </span>
-                                    </span>
-                                    <a href="" class="remove-from-basket">×</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="list-view">
-                <a asp-controller="account" asp-action="wishlist">view wishlist</a>
-            </div>
-        </div>
-    </div>
-    <!-- WishList End -->
+    
     <!-- Mobile Menu Start -->
     <div id="mobile-menu">
         <div class="menu">
@@ -610,7 +712,7 @@
                     <span class="check">
                         <i class="icon-check"></i>
                     </span>
-                    Added to Wishlist successfully!
+                    <span id="modal_message_text" style="display:block">Added to Wishlist successfully!</span>
                 </p>
                 <div class="modal-product">
                     <img src="~/assets/uploads/products/1.png" alt="product">
