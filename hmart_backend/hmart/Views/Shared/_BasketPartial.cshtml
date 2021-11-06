@@ -2,13 +2,13 @@
 
 @if (Model != null)
 {
-    <a href="" class="shop-bag" id="cartlist-button">
+    <a class="shop-bag action_icon" id="cartlist-button">
         <i class="icon-basket"></i>
         <span>@Model.Count</span>
     </a>
     <!-- Cart Start -->
     <div id="cart">
-        <div class="list-wrapper">
+        <div class="list-wrapper @(Model.IsAddBtn?"":"canvas-opening")">
             <div class="list-header">
                 <h3>Cart</h3>
                 <button class="canvas-close">
@@ -22,13 +22,13 @@
                         <li>
                             <div class="row">
                                 <div class="col-4">
-                                    <a href="" class="img">
+                                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="img">
                                         <img src="~/uploads/products/@item.Product?.GetPosterImage()" alt="@item.Product?.Name">
                                     </a>
                                 </div>
                                 <div class="col-8">
                                     <div class="content">
-                                        <a href="" class="title">@item.Product?.Name</a>
+                                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="title">@item.Product?.Name</a>
                                         <span class="quantity-price">
                                             @item.Count <span>x</span>
 
@@ -46,7 +46,7 @@
                                                 </span>
                                             }
                                         </span>
-                                        <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@item.Product.Id" id="remove">×</a>
+                                        <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@item.Product.Id" class="remove-from-basket">×</a>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
 }
 else
 {
-    <a href="" class="shop-bag" id="cartlist-button">
+    <a class="shop-bag action_icon" id="cartlist-button">
         <i class="icon-basket"></i>
     </a>
     <!-- Cart Start -->

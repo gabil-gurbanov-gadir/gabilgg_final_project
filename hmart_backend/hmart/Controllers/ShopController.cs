@@ -51,7 +51,8 @@ namespace hmart.Controllers
             BasketVM basketData = new BasketVM()
             {
                 BasketItemVMs = new List<BasketItemVM>(),
-                TotalPrice = 0
+                TotalPrice = 0,
+                IsAddBtn=true
             };
 
             if (product.Count == 0)
@@ -110,11 +111,11 @@ namespace hmart.Controllers
             {
                 var basket = HttpContext.Request.Cookies["Basket"];
 
-                List<BasketCookieItemVM> basketCookieItems = new List<BasketCookieItemVM>();
+                List<BasketCookieItemVM> basketCookieItemVMs = new List<BasketCookieItemVM>();
 
                 if (basket == null)
                 {
-                    basketCookieItems = new List<BasketCookieItemVM>()
+                    basketCookieItemVMs = new List<BasketCookieItemVM>()
                     {
                         new BasketCookieItemVM()
                         {
@@ -125,28 +126,28 @@ namespace hmart.Controllers
                 }
                 else
                 {
-                    basketCookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(basket);
-                    BasketCookieItemVM basketCookieItem = basketCookieItems.FirstOrDefault(x => x.ProductId == product.Id);
-                    if (basketCookieItem == null)
+                    basketCookieItemVMs = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(basket);
+                    BasketCookieItemVM basketCookieItemVM = basketCookieItemVMs.FirstOrDefault(x => x.ProductId == product.Id);
+                    if (basketCookieItemVM == null)
                     {
-                        basketCookieItem = new BasketCookieItemVM()
+                        basketCookieItemVM = new BasketCookieItemVM()
                         {
                             ProductId = product.Id,
                             Count = 1
                         };
-                        basketCookieItems.Add(basketCookieItem);
+                        basketCookieItemVMs.Add(basketCookieItemVM);
                     }
                     else
                     {
-                        basketCookieItem.Count++;
+                        basketCookieItemVM.Count++;
                     }
                 }
 
-                var basketCookieItemsStr = JsonConvert.SerializeObject(basketCookieItems);
+                var basketCookieItemsStr = JsonConvert.SerializeObject(basketCookieItemVMs);
 
                 HttpContext.Response.Cookies.Append("Basket", basketCookieItemsStr);
 
-                foreach (var item in basketCookieItems)
+                foreach (var item in basketCookieItemVMs)
                 {
 
                     BasketItemVM basketItem = new BasketItemVM()
@@ -168,6 +169,108 @@ namespace hmart.Controllers
                         basketData.BasketItemVMs.Add(basketItem);
                         basketData.Count++;
                     }
+                }
+            }
+
+            return PartialView("_BasketPartial", basketData);
+        }
+
+        public IActionResult DeleteFromBasket(int id)
+        {
+            Product product = _context.Products.Include(x => x.BasketItems).FirstOrDefault(b => b.Id == id);
+
+            BasketVM basketData = new BasketVM()
+            {
+                BasketItemVMs = new List<BasketItemVM>(),
+                TotalPrice = 0,
+                IsAddBtn = false
+            };
+
+            if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))
+            {
+                AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+                BasketItem basketItem = product.BasketItems.FirstOrDefault(x => x.AppUserId == user.Id);
+                if (basketItem.Count > 1)
+                {
+                    basketItem.Count--;
+                }
+                else
+                {
+                    product.BasketItems.RemoveAll(x => x.AppUserId == user.Id);
+                }
+
+                _context.SaveChanges();
+
+                foreach (var item in _context.BasketItems.Include(x => x.AppUser).Include(x => x.Product).ThenInclude(x => x.ProImages).Where(x => x.AppUser.UserName == User.Identity.Name).ToList())
+                {
+                    BasketItemVM basketItemVM = new BasketItemVM()
+                    {
+                        Product = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId),
+                        Count = item.Count
+                    };
+
+                    if (basketItemVM.Product != null)
+                    {
+                        if (basketItemVM.Product.DiscountPercent == null)
+                        {
+                            basketData.TotalPrice += basketItemVM.Product.Price * basketItemVM.Count;
+                        }
+                        else
+                        {
+                            basketData.TotalPrice += (double)((basketItemVM.Product.Price - basketItemVM.Product.Price * basketItemVM.Product.DiscountPercent / 100) * basketItemVM.Count);
+                        }
+                        basketData.BasketItemVMs.Add(basketItemVM);
+                        basketData.Count++;
+                    }
+                }
+            }
+            else
+            {
+                var basket = HttpContext.Request.Cookies["Basket"];
+                List<BasketCookieItemVM> basketCookieItemVMs;
+
+
+                basketCookieItemVMs = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(basket);
+
+                BasketCookieItemVM basketItemVM = basketCookieItemVMs.FirstOrDefault(x => x.ProductId == id);
+
+                if (basketItemVM.Count > 1)
+                {
+                    basketCookieItemVMs.FirstOrDefault(x => x.ProductId == id).Count--;
+                }
+                else
+                {
+                    basketCookieItemVMs.RemoveAll(x => x.ProductId == id);
+                }
+
+                var basketCookieItemsStr = JsonConvert.SerializeObject(basketCookieItemVMs);
+                HttpContext.Response.Cookies.Append("Basket", basketCookieItemsStr);
+
+
+
+                foreach (var item in basketCookieItemVMs)
+                {
+                    BasketItemVM basketItemVMForCookie = new BasketItemVM()
+                    {
+                        Product = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId),
+                        Count = item.Count
+                    };
+
+                    if (basketItemVMForCookie.Product != null)
+                    {
+                        if (basketItemVMForCookie.Product.DiscountPercent == null)
+                        {
+                            basketData.TotalPrice += basketItemVMForCookie.Product.Price * basketItemVMForCookie.Count;
+                        }
+                        else
+                        {
+                            basketData.TotalPrice += (double)((basketItemVMForCookie.Product.Price - basketItemVMForCookie.Product.Price * basketItemVMForCookie.Product.DiscountPercent / 100) * basketItemVMForCookie.Count);
+                        }
+                        basketData.BasketItemVMs.Add(basketItemVMForCookie);
+                        basketData.Count++;
+                    }
+
                 }
             }
 

@@ -171,8 +171,15 @@ header {
             justify-content: flex-end;
             align-items: center;
             a {
-                display: flex;
-                color: white;
+                &.action_icon {
+                    display: flex;
+                    color: white;
+
+                    i {
+                        font-size: 20px;
+                    }
+                }
+
                 &.shop-bag {
                     position: relative;
                     margin-left: 15px;
@@ -192,9 +199,6 @@ header {
                         width: 21px;
                         height: 21px;
                     }
-                }
-                i {
-                    font-size: 20px;
                 }
             }
         }
@@ -384,6 +388,7 @@ body.canvas-opening {
     position: absolute;
     z-index: 999;
 }
+
 .list-wrapper {
     background-color: white;
     font-size: 14px;
@@ -492,6 +497,15 @@ body.canvas-opening {
                                 color: $primary-color !important;
                             }
                         }
+                        &.remove-from-basket {
+                            line-height: 1.5;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            padding: 0 3px;
+                            color: #000;
+                            font-size: 16px;
+                        }
                         &#remove {
                             line-height: 1.5;
                             position: absolute;
@@ -538,6 +552,167 @@ body.canvas-opening {
             text-align: center;
             &:hover {
                 background-color: $primary-color;
+            }
+        }
+    }
+}
+
+.basket-partial {
+    .list-wrapper {
+        background-color: white;
+        font-size: 14px;
+        font-weight: 400;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        right: 0;
+        left: auto;
+        display: block;
+        width: 400px;
+        padding: 20px;
+        transition: all 0.5s ease 0s;
+        overflow: auto;
+        visibility: visible;
+        transform: translate(100%);
+        &.canvas-opening {
+            transform: translate(0px);
+            height: 100vh;
+        }
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            h3 {
+                font-size: 20px;
+                font-weight: 700;
+            }
+            .canvas-close {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                border: 0;
+                background-color: transparent;
+                &::before {
+                    position: absolute;
+                    top: calc(50% - 1px);
+                    left: 0;
+                    width: 20px;
+                    height: 2px;
+                    content: "";
+                    transition: all 0.5s ease 0s;
+                    transform: rotate(45deg);
+                    background-color: $primary-color;
+                }
+                &::after {
+                    position: absolute;
+                    top: calc(50% - 1px);
+                    left: 0;
+                    width: 20px;
+                    height: 2px;
+                    content: "";
+                    transition: all 0.5s ease 0s;
+                    transform: rotate(-45deg);
+                    background-color: $primary-color;
+                }
+                &:hover {
+                    &::before {
+                        transform: rotate(180deg);
+                    }
+                    &::after {
+                        transform: rotate(0);
+                    }
+                }
+            }
+        }
+        .list-items {
+            ul {
+                li {
+                    margin-bottom: 30px;
+                    padding-bottom: 30px;
+                    border-bottom: 1px solid #ebebeb;
+                    &:last-child {
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                        border-bottom: 0;
+                        p {
+                            display: flex;
+                            justify-content: space-between;
+                            font-size: 22px;
+                            font-weight: 600;
+                            .total-text-title {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                    a {
+                        &.img {
+                            width: 110px;
+                            img {
+                                max-width: 80%;
+                                border: 1px solid #ebebeb;
+                            }
+                        }
+                    }
+                    .content {
+                        position: relative;
+                        a {
+                            &.title {
+                                color: #000 !important;
+                                font-weight: 500;
+                                display: block;
+                                padding-top: 8px;
+                                &:hover {
+                                    color: $primary-color !important;
+                                }
+                            }
+                            &.remove-from-basket {
+                                line-height: 1.5;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                padding: 0 3px;
+                                color: #000;
+                                font-size: 16px;
+                            }
+                        }
+                        .quantity-price {
+                            font-size: 19px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-top: 10px;
+                            .amount {
+                                color: $primary-color;
+                                font-weight: 500;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .list-view {
+            a {
+                display: block;
+                text-transform: capitalize;
+                font-weight: 500;
+                font-size: 16px;
+                border: none;
+                color: #fff;
+                box-shadow: none;
+                padding: 10px 15px;
+                line-height: 26px;
+                border: none;
+                background: #000;
+                border-radius: 0;
+                width: auto;
+                height: auto;
+                margin-top: 30px;
+                text-align: center;
+                &:hover {
+                    background-color: $primary-color;
+                }
             }
         }
     }

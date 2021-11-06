@@ -453,6 +453,54 @@ $(document).ready(function () {
 
     //#endregion 
 
+    //#region RemoveFromBasket
+    $(document).on("click", ".remove-from-basket", function (e) {
+        e.preventDefault();
+
+        let url = $(this).attr("href");
+        let id = url.substring(url.lastIndexOf("/") + 1);
+
+        async function ResponseHtml() {
+            const response = await fetch(url)
+                .then(resp => {
+                    if (!resp.ok) {
+                        let url = window.location.href + 'details?id=' + id + '&&code=404&&name=Product';
+                        window.location.href = url;
+                    } else if (resp.status == 204) {
+                        return 204;
+                    }
+                    return resp.text();
+                })
+                .then(data => {
+                    if (data != 204) {
+                        $(".basket-partial").html(data);
+
+                    } else {
+                        console.log("204 qayitdi");
+                        let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+                        $("#shadow-layout").removeClass("d-none");
+                        $("#out-of-product").addClass("fade");
+                        setTimeout(() => {
+                            $("#shadow-layout").addClass("show");
+                            $("#out-of-product").addClass("show");
+                            $("body").addClass("canvas-opening");
+                            $("body").css("margin-right", scrollSize.toString() + "px");
+                            $("#header-nav-menu .nav-menu-list").css(
+                                "margin-right",
+                                scrollSize.toString() + "px"
+                            );
+                        }, 300);
+                    }
+                }
+                );
+        }
+
+        ResponseHtml();
+
+    });
+
+    //#endregion
+
   // Featured Main Product responsived start
 
   if ($(".single-feature-content")[0]) {

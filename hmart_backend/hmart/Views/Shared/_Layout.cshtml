@@ -148,13 +148,13 @@
                     </div>
                     <div class="col-3">
                         <div class="header-actions">
-                            <a href="" id="wishlist-button">
+                            <a class="action_icon" href="" id="wishlist-button">
                                 <i class="icon-heart1"></i>
                             </a>
                             <div class="basket-partial">
                                 @if (basket.BasketItemVMs.Count > 0)
                                 {
-                                    <a href="" class="shop-bag" id="cartlist-button">
+                                    <a class="shop-bag action_icon" id="cartlist-button">
                                         <i class="icon-basket"></i>
                                         <span>@basket.Count</span>
                                     </a>
@@ -173,13 +173,13 @@
                                                         <li>
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <a href="" class="img">
+                                                                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="img">
                                                                         <img src="~/uploads/products/@item.Product?.GetPosterImage()" alt="@item.Product?.Name">
                                                                     </a>
                                                                 </div>
                                                                 <div class="col-8">
                                                                     <div class="content">
-                                                                        <a href="" class="title">@item.Product?.Name</a>
+                                                                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="title">@item.Product?.Name</a>
                                                                         <span class="quantity-price">
                                                                             @item.Count <span>x</span>
 
@@ -197,7 +197,7 @@
                                                                                 </span>
                                                                             }
                                                                         </span>
-                                                                        <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@item.Product.Id" id="remove">×</a>
+                                                                        <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@item.Product.Id" class="remove-from-basket">×</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -225,7 +225,7 @@
                                 }
                                 else
                                 {
-                                    <a href="" class="shop-bag" id="cartlist-button">
+                                    <a class="shop-bag action_icon" id="cartlist-button">
                                         <i class="icon-basket"></i>
                                     </a>
                                     <!-- Cart Start -->
@@ -294,19 +294,19 @@
                     <div class="col">
                         <div class="header-logo">
                             <a asp-controller="home" asp-action="index">
-                                <img src="~/assets/uploads/logos/logo.png" alt="Header logo">
+                                <img src="~/uploads/setting/@setting.HeaderLogoSrc" alt="Header logo">
                             </a>
                         </div>
                     </div>
                     <div class="col">
                         <div class="header-actions">
-                            <a href="" id="wishlist-button">
+                            <a class="action_icon" id="wishlist-button">
                                 <i class="icon-heart1"></i>
                             </a>
                             <div class="basket-partial">
                                 @if (basket.BasketItemVMs.Count > 0)
                                 {
-                                    <a href="" class="shop-bag" id="cartlist-button">
+                                    <a class="shop-bag action_icon" id="cartlist-button">
                                         <i class="icon-basket"></i>
                                         <span>@basket.Count</span>
                                     </a>
@@ -325,13 +325,13 @@
                                                         <li>
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <a href="" class="img">
+                                                                    <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="img">
                                                                         <img src="~/uploads/products/@item.Product?.GetPosterImage()" alt="@item.Product?.Name">
                                                                     </a>
                                                                 </div>
                                                                 <div class="col-8">
                                                                     <div class="content">
-                                                                        <a href="" class="title">@item.Product?.Name</a>
+                                                                        <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Product?.Id" class="title">@item.Product?.Name</a>
                                                                         <span class="quantity-price">
                                                                             @item.Count <span>x</span>
 
@@ -349,7 +349,7 @@
                                                                                 </span>
                                                                             }
                                                                         </span>
-                                                                        <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@item.Product.Id" id="remove">×</a>
+                                                                        <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@item.Product.Id" class="remove-from-basket">×</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -377,7 +377,7 @@
                                 }
                                 else
                                 {
-                                    <a href="" class="shop-bag" id="cartlist-button">
+                                    <a class="shop-bag action_icon" id="cartlist-button">
                                         <i class="icon-basket"></i>
                                     </a>
                                     <!-- Cart Start -->
@@ -479,7 +479,7 @@
                                             $ 21.86
                                         </span>
                                     </span>
-                                    <a href="" id="remove">×</a>
+                                    <a href="" class="remove-from-basket">×</a>
                                 </div>
                             </div>
                         </div>
@@ -499,7 +499,7 @@
                                             $ 21.86
                                         </span>
                                     </span>
-                                    <a href="" id="remove">×</a>
+                                    <a href="" class="remove-from-basket">×</a>
                                 </div>
                             </div>
                         </div>
@@ -519,7 +519,7 @@
                                             $ 21.86
                                         </span>
                                     </span>
-                                    <a href="" id="remove">×</a>
+                                    <a href="" class="remove-from-basket">×</a>
                                 </div>
                             </div>
                         </div>

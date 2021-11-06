@@ -10,5 +10,7 @@ namespace hmart.ViewModels
         public List<BasketItemVM> BasketItemVMs { get; set; }
         public int Count { get; set; }
         public double TotalPrice { get; set; }
+
+        public bool IsAddBtn { get; set; }
     }
 }
