@@ -34,10 +34,7 @@ namespace hmart.Controllers
             {
                 query = query.Where(x => x.BrandId == brandId);
             }
-            else
-            {
-                brandId = _context.Brands.FirstOrDefault().Id;
-            }
+
             if (searchName != null)
             {
                 query = query.Where(x => x.Name.ToLower().Contains(searchName.ToLower()));
@@ -47,11 +44,11 @@ namespace hmart.Controllers
             {
                 query = query.Where(x => x.ProductTagProducts.Any(x => x.ProductTagId == tagId));
             }
+
             if (colorId != null)
             {
                 query = query.Where(x => x.ProductColors.Any(x => x.ColorId == colorId));
             }
-
 
             int totalProducts = query.Count();
 
@@ -524,6 +521,85 @@ namespace hmart.Controllers
             if (products == null) return Json(new { status = 404 });
 
             return PartialView("_ProductsSearchPartial", products);
+        }
+
+        public IActionResult Pagenation(int? categoryId, int? brandId, string searchName, int? tagId, int? colorId, string sortingBy, int page = 1)
+        {
+            var query = _context.Products.AsQueryable();
+            if (categoryId != null)
+            {
+                query = query.Where(x => x.CategoryId == categoryId);
+            }
+
+            if (brandId != null)
+            {
+                query = query.Where(x => x.BrandId == brandId);
+            }
+
+            if (searchName != null)
+            {
+                query = query.Where(x => x.Name.ToLower().Contains(searchName.ToLower()));
+            }
+
+            if (tagId != null)
+            {
+                query = query.Where(x => x.ProductTagProducts.Any(x => x.ProductTagId == tagId));
+            }
+
+            if (colorId != null)
+            {
+                query = query.Where(x => x.ProductColors.Any(x => x.ColorId == colorId));
+            }
+
+            if (sortingBy != null)
+            {
+                switch (sortingBy)
+                {
+                    case "a_to_z":
+                        query = query.OrderBy(x => x.Name);
+                            break;
+                    case "z_to_a":
+                        query = query.OrderByDescending(x => x.Name);
+                        break;
+                    case "low_to_high":
+                        query = query.OrderBy(x => x.DiscountPercent==null?x.Price:x.Price-x.Price*x.DiscountPercent/100);
+                        break;
+                    case "high_to_low":
+                        query = query.OrderByDescending(x => x.DiscountPercent == null ? x.Price : x.Price - x.Price * x.DiscountPercent / 100);
+                        break;
+                    case "new":
+                        query = query.OrderByDescending(x => x.CreatedAt);
+                        break;
+                    case "old":
+                        query = query.OrderBy(x => x.CreatedAt);
+                        break;
+                    default:
+                        sortingBy = null;
+                        break;
+                }
+            }
+
+            int totalProducts = query.Count();
+
+            PagenationVM pagenationVM = new PagenationVM
+            {
+                SelectedPage = 1,
+                TotalPages = (int)Math.Ceiling(totalProducts / 12d),
+                TotalProducts = totalProducts,
+                CategoryId = categoryId,
+                BrandId = brandId,
+                ColorId = colorId,
+                TagId = tagId,
+                SearchName = searchName,
+                SortingBy = sortingBy,
+                Products = query
+                .Include(c => c.Category)
+                .Include(ptp => ptp.ProductTagProducts).ThenInclude(pt => pt.ProductTag)
+                .Include(pi => pi.ProImages)
+                .Take(12).ToList()
+            };
+
+            return PartialView("_ProductsPartial", pagenationVM);
         }
     }
 }

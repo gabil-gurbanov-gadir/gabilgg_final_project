@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-12">
+                <div class="col-lg-9 col-md-12" id="for_fetch_div">
                     <div class="shop-top-bar d-flex">
                         <p class="compare-product"> <span>@Model.Products.Count()</span> Product Found of <span>@Model.TotalProducts</span></p>
                         <div class="shop-tab-style">
@@ -107,18 +107,18 @@
                             <div class="sort-product">
                                 <p>Sort By:</p>
                             </div>
-                            <div class="header-bottom-set dropdown">
+                            <div class="header-bottom-set dropdown pagination">
                                 <button class="dropdown-toggle header-action-btn">
                                     Default
                                     <i class="icon-angle-down"></i>
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" asp-action="sortingbyatoz">Name, A to Z</a></li>
-                                    <li><a class="dropdown-item" asp-action="sortingbyztoa">Name, Z to A</a></li>
-                                    <li><a class="dropdown-item" asp-action="sortingbylowtohigh">Price, low to high</a></li>
-                                    <li><a class="dropdown-item" asp-action="sortingbyhightolow">Price, high to low</a></li>
-                                    <li><a class="dropdown-item" asp-action="sortingbynew">Sort By new</a></li>
-                                    <li><a class="dropdown-item" asp-action="sortingbyold">Sort By old</a></li>
+                                <ul class="dropdown-menu pagination_list">
+                                    <li><a class="dropdown-item" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" asp-route-sortingBy="a_to_z">Name, A to Z</a></li>
+                                    <li><a class="dropdown-item" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" asp-route-sortingBy="z_to_a">Name, Z to A</a></li>
+                                    <li><a class="dropdown-item" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" asp-route-sortingBy="low_to_high">Price, low to high</a></li>
+                                    <li><a class="dropdown-item" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" asp-route-sortingBy="high_to_low">Price, high to low</a></li>
+                                    <li><a class="dropdown-item" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" asp-route-sortingBy="new">Sort By new</a></li>
+                                    <li><a class="dropdown-item" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" asp-route-sortingBy="old">Sort By old</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -284,17 +284,68 @@
                         </div>
                         <div class="pagination text-center text-lg-end">
                             <div class="pages">
-                                <ul>
-                                    <li class="li">
-                                        <a class="page-link" href="#"><i class="icon-angle-left"></i></a>
+                                <ul class="pagination_list">
+                                    <li class="li @(Model.SelectedPage<=1?"disabled":"")">
+                                        <a asp-action="pagenation" asp-route-page="@(Model.SelectedPage-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" class="page-link"><i class="icon-angle-left"></i></a>
                                     </li>
-                                    <li class="li"><a class="page-link" href="#">1</a></li>
-                                    <li class="li"><a class="page-link active" href="#">2</a></li>
-                                    <li class="li"><a class="page-link" href="#">3</a></li>
-                                    <li class="li">
-                                        <a class="page-link" href="#">
-                                            <i class="icon-angle-right"></i>
-                                        </a>
+                                    @if (Model.SelectedPage == 1)
+                                    {
+                                        @if (Model.TotalPages >= 3)
+                                        {
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="1" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">1</a></li>
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="2" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">2</a></li>
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="3" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">3</a></li>
+                                        }
+                                        else if (Model.TotalPages == 2)
+                                        {
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="1" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">1</a></li>
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="2" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">2</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="1" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">1</a></li>
+                                        }
+
+                                    }
+                                    else if (Model.SelectedPage == Model.TotalPages)
+                                    {
+                                        @if (Model.TotalPages >= 3)
+                                        {
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.TotalPages-2)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.TotalPages-2)</a></li>
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.TotalPages-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.TotalPages-1)</a></li>
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.TotalPages" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.TotalPages</a></li>
+                                        }
+                                        else if (ViewBag.TotalPages == 2)
+                                        {
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.TotalPages-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.TotalPages-1)</a></li>
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.TotalPages" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.TotalPages</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.TotalPages" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.TotalPages</a></li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @if (Model.TotalPages >= 3)
+                                        {
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.SelectedPage-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.SelectedPage-1)</a></li>
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.SelectedPage</a></li>
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.SelectedPage+1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.SelectedPage+1)</a></li>
+                                        }
+                                        else if (ViewBag.TotalPages == 2)
+                                        {
+                                            <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.SelectedPage-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.SelectedPage-1)</a></li>
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.SelectedPage</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.SelectedPage</a></li>
+                                        }
+
+                                    }
+                                    <li class="li @(Model.SelectedPage>Model.TotalPages-1?"disabled":"")">
+                                        <a asp-action="pagenation" asp-route-page="@(Model.SelectedPage+1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId" class="page-link"><i class="icon-angle-right"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -368,6 +419,43 @@
                 }
 
                 console.log("min: " + min + " - max: " + max);
+            });
+
+            $(document).on("click", ".pagination ul.pagination_list a", function (e) {
+                e.preventDefault();
+                let url = $(this).attr("href");
+                console.log(url);
+
+                async function ResponseHtml() {
+                    const response = await fetch(url)
+                        .then(resp => resp.text())
+                        .then(data => {
+
+                            $("#for_fetch_div").html(data);
+                            if ($("[data-bg-image]")) {
+                                $("[data-bg-image]").each(function (e) {
+                                    $(this).css(
+                                        "background-image",
+                                        "url(" + $(this).attr("data-bg-image") + ")"
+                                    );
+                                });
+                            }
+                        }
+                        );
+                }
+
+                ResponseHtml();
+
+                // Bg_image Setting start
+                if ($("[data-bg-image]")) {
+                    $("[data-bg-image]").each(function (e) {
+                        $(this).css(
+                            "background-image",
+                            "url(" + $(this).attr("data-bg-image") + ")"
+                        );
+                    });
+                }
+                // Bg_image Setting end
             });
         });
     </script>

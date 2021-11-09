@@ -1257,6 +1257,18 @@ body.canvas-opening {
 }
 // Product end
 
+// Disabled a tag start
+li {
+    &.disabled {
+        a {
+            pointer-events: none;
+            cursor: default;
+            background-color: beige !important;
+        }
+    }
+}
+// Disabled a tag end
+
 //#endregion
 
 // Modal Start
