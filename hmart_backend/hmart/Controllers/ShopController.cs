@@ -29,10 +29,7 @@ namespace hmart.Controllers
             {
                 query = query.Where(x => x.CategoryId == categoryId);
             }
-            else
-            {
-                categoryId = _context.Categories.FirstOrDefault().Id;
-            }
+
             if (brandId != null)
             {
                 query = query.Where(x => x.BrandId == brandId);
@@ -102,7 +99,6 @@ namespace hmart.Controllers
             ////    .Take(12).ToList();
 
             return View(shopVM);
-            //return View();
         }
         public IActionResult Detail()
         {
@@ -517,6 +513,17 @@ namespace hmart.Controllers
             }
 
             return PartialView("_WishListPartial", wishListVM);
+        }
+
+        public IActionResult Search(string searchName)
+        {
+            if (searchName == null) return Json(new { status = 404 });
+
+            List<Product> products = _context.Products.Include(x=>x.ProImages).Where(x => x.Name.ToLower().Contains(searchName.ToLower())).ToList();
+
+            if (products == null) return Json(new { status = 404 });
+
+            return PartialView("_ProductsSearchPartial", products);
         }
     }
 }

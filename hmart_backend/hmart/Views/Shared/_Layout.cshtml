@@ -127,8 +127,8 @@
                                     <i class="icon-search"></i>
                                 </a>
                             </form>
-                            <div class="productsList d-none">
-                                <ul>
+                            <div class="productsList">
+                                <ul class="d-none">
                                     <li class="product-search-li">
                                         <a href="">
                                             <div class="product-search-item">
@@ -606,8 +606,8 @@
                             <i class="icon-search"></i>
                         </a>
                     </form>
-                    <div class="productsList d-none">
-                        <ul>
+                    <div class="productsList">
+                        <ul class="d-none">
                             <li class="product-search-li">
                                 <a href="">
                                     <div class="product-search-item">
@@ -746,7 +746,7 @@
                     Out of Stock!
                 </p>
                 <div class="modal-product">
-                    <img src="./assets/images/b1.jpg" alt="out of stock">
+                    <img src="../assets/images/b1.jpg" alt="out of stock">
                 </div>
                 <button class="btn-close">
                     <i class="icon-close1"></i>
@@ -857,55 +857,48 @@
 
     <script>
         $(document).ready(function () {
-
-            @*$(document).on("keyup", "#search_product", function (e) {
-
+            $(document).on("keypress", ".search_product", function (e) {
                 if (e.keyCode == 13) {
                     e.preventDefault();
-                    let url = $(".product_search_btn").attr("href");
-
-                    async function ResponseHtml() {
-                        const response = await fetch(url)
-                            .then(resp => resp.text())
-                            .then(data =>
-
-                                $(".productsList").html(data)
-                            );
-                    }
-
-                    ResponseHtml();
+                }
+            });
+            $(document).on("keyup", ".search_product", function (e) {
+                e.preventDefault();
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    window.location.href = $(this).next().attr("href");
                 }
 
                 let val = $(this).val();
-                let url = "/course/search?name=" + val;
+                let urlList = "/shop/search?searchName=" + val;
 
                 let href = "";
-                $("#course_search_btn").attr("href", href);
+                $(".product_search_btn").attr("href", href);
 
-                href = "/shop/pagenation" + "?name=" + val;
-                $("#course_search_btn").attr("href", href);
+                href = "/shop/index" + "?searchName=" + val;
+                $(".product_search_btn").attr("href", href);
 
-                if ($(location).attr("href").search("categoryId") > -1) {
+                @*if ($(location).attr("href").search("categoryId") > -1) {
                     let categoryId = $(location).attr("href").split("categoryId=").pop();
-                    url = "/course/search?name=" + val + "&categoryId=" + categoryId;
+                    url = "/shop/search?name=" + val + "&categoryId=" + categoryId;
 
                     let href = "";
                     $("#course_search_btn").attr("href", href);
 
                     href = "/course/pagenation" + "?name=" + val + "&categoryId=" + categoryId + "&page=" +@ViewBag.SelectedPage;
                     $("#course_search_btn").attr("href", href);
-                }
-                console.log(url);
+                }*@
+                console.log(urlList);
 
 
 
                 async function ResponseHtml() {
-                    const response = await fetch(url)
+                    const response = await fetch(urlList)
                         .then(resp => resp.text())
                         .then(data => {
 
                             if (data != '{"status":404}') {
-                                $("#coursesList").html(data)
+                                $(".productsList").html(data)
                             }
                         }
                         );
@@ -915,19 +908,9 @@
 
             $(document).on("click", "#course_search_btn", function (e) {
                 e.preventDefault();
-                let url = $(this).attr("href");
 
-                async function ResponseHtml() {
-                    const response = await fetch(url)
-                        .then(resp => resp.text())
-                        .then(data =>
-
-                            $("#courses").html(data)
-                        );
-                }
-
-                ResponseHtml();
-            });*@
+                window.location.href = $(this).attr("href");
+            });
 
 
         });

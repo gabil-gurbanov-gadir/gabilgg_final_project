@@ -4745,7 +4745,7 @@ header {
           border: 0;
           border-radius: 5px;
           padding-right: 80px; }
-        header #header-bottom .search-element form #product_search_btn {
+        header #header-bottom .search-element form .product_search_btn {
           position: absolute;
           top: 0;
           right: 0;
