@@ -97,14 +97,23 @@ main {
                             height: 14px;
                             border-radius: 50%;
                             margin: 0 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-top: 10px;
+                            padding: 10px;
+                            color: white;
+                            text-shadow: 0 0 3px #212529;
+                            border: 0.5px solid white;
+                            box-shadow: 0 0 2px #212529;
                             &.btn-color {
                                 &.selected {
                                     transform: scale(1.35);
                                     border: 0.5px solid #989c9c;
                                 }
                                 &:focus {
-                                    box-shadow: 0px 0px 12px 3px $primary-color;
-                                    border: 1px solid $primary-color;
+                                    box-shadow: 0px 0px 6px #363a41;
+                                    border: 1px solid white;
                                 }
                             }
                             &.color-1 {
@@ -351,333 +360,158 @@ main {
                     &.fade:not(.show) {
                         opacity: 0;
                     }
-                    .shop-grid-wrap {
-                        .product {
-                            position: relative;
-                            border-width: 2px;
-                            background: #fff;
-                            border-color: #e1e1e1;
-                            border-style: solid;
-                            border-radius: 13px;
-                            padding: 5px;
-                            transition: all 0.3s ease 0s;
-                            z-index: 0;
-                            .badges {
-                                position: absolute;
-                                top: 15px;
-                                left: 15px;
-                                z-index: 4;
-                                display: flex;
-                                flex-direction: column;
-                                transition: all 0.3s ease 0s;
-                                span {
-                                    font-size: 14px;
-                                    line-height: 1.75;
-                                    display: block;
-                                    padding: 0 12px;
-                                    text-align: center;
-                                    text-transform: uppercase;
-                                    border-radius: 5px;
-                                    color: #fff;
-                                    font-weight: 600;
-                                    &.sale {
-                                        background: $primary-color;
-                                    }
-                                    &.new {
-                                        background-color: #000;
-                                    }
-                                    & + span {
-                                        margin-top: 12px;
-                                    }
-                                }
-                            }
-                            .product-image {
-                                position: relative;
-                                overflow: hidden;
-                                .image {
-                                    position: relative;
-                                    display: block;
-                                    overflow: hidden;
-                                    img {
-                                        z-index: 3;
-                                        max-width: 100%;
-                                        transition: all 0.3s ease 0s;
-                                        width: 100%;
-                                        opacity: 1;
-                                        &.hover-image {
-                                            position: absolute;
-                                            z-index: 2;
-                                            top: 0;
-                                            left: 0;
-                                            opacity: 0;
-                                        }
-                                    }
-                                }
-                            }
-                            .content {
-                                position: relative;
-                                z-index: 5;
-                                display: flex;
-                                transition: all 0.3s ease 0s;
-                                flex-direction: column;
-                                align-items: center;
-                                line-height: 1;
-                                background-color: #fff;
-                                padding: 0 0 30px;
-                                .category {
-                                    a {
-                                        font-size: 14px;
-                                        color: #666;
-                                        font-weight: 500;
-                                        &:hover {
-                                            color: $primary-color;
-                                        }
-                                    }
-                                }
-                                .title {
-                                    font-size: 16px;
-                                    margin: 10px 0 15px;
-                                    a {
-                                        color: #000;
-                                        font-size: 16px;
-                                        font-weight: 600;
-                                    }
-                                }
-                            }
-                            .actions {
-                                position: absolute;
-                                display: flex;
-                                flex-direction: row;
-                                opacity: 0;
-                                visibility: hidden;
-                                transition: all 0.3s ease 0s;
-                                top: calc(100% - 15px);
-                                left: 50%;
-                                transform: translateX(-50%);
-                                width: 100%;
-                                justify-content: center;
-                                height: 60px;
-                                background: #fff;
-                                border: 2px solid #e1e1e1;
-                                border-top: none;
-                                z-index: 11;
-                                border-radius: 0 0 13px 13px;
-                                width: calc(100% + 5px);
-                                .action {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    flex-direction: column;
-                                    width: 40px;
-                                    height: 40px;
-                                    transition: all 0.3s ease 0s;
-                                    text-decoration: none;
-                                    color: #fff;
-                                    border-radius: 5px;
-                                    background-color: #707070;
-                                    font-size: 20px;
-                                    cursor: pointer;
-                                    & + .action {
-                                        margin-left: 10px;
-                                    }
-                                    &:hover {
-                                        color: #fff;
-                                        background: $primary-color;
-                                    }
-                                }
-                            }
-                            &:hover {
-                                transform: scaleY(1.05);
-                                z-index: 1;
-                                .badges {
-                                    z-index: 5;
-                                }
-                                .product-image {
-                                    .image {
-                                        img {
-                                            transform: scale(1.1) rotate(0);
-                                            opacity: 0;
-                                            &.hover-image {
-                                                opacity: 1;
-                                            }
-                                        }
-                                    }
-                                }
-                                .content {
-                                    .title {
-                                        a {
-                                            color: #474747;
-                                            &:hover {
-                                                color: $primary-color;
-                                            }
-                                        }
-                                    }
-                                }
-                                .actions {
-                                    opacity: 1;
-                                    visibility: visible;
-                                    .action {
-                                        &:hover {
-                                            color: white;
-                                            background-color: $primary-color;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
                     .shop-list-wrap {
-                        .product {
-                            position: relative;
-                            border-width: 2px;
-                            background: #fff;
-                            border-color: #e1e1e1;
-                            border-style: solid;
-                            border-radius: 13px;
-                            padding: 5px;
-                            margin-bottom: 0;
-                            -webkit-transition: all 0.3s ease 0s;
-                            transition: all 0.3s ease 0s;
-                            z-index: 0;
-                            .thumb {
-                                position: relative;
-                                overflow: hidden;
-                                .image {
-                                    position: relative;
-                                    display: block;
-                                    overflow: hidden;
-                                    img {
-                                        z-index: 1;
-                                        max-width: 100%;
-                                        transition: all 0.3s ease 0s;
-                                        width: 100%;
-                                        &.hover-image {
-                                            position: absolute;
-                                            z-index: 2;
-                                            top: 0;
-                                            left: 0;
-                                            opacity: 0;
-                                        }
-                                    }
-                                }
-                                .badges {
-                                    position: absolute;
-                                    top: 15px;
-                                    left: 15px;
-                                    z-index: 4;
-                                    display: flex;
-                                    flex-direction: column;
-                                    transition: all 0.3s ease 0s;
-                                    span {
-                                        font-size: 14px;
-                                        line-height: 1.75;
-                                        display: block;
-                                        padding: 0 12px;
-                                        text-align: center;
-                                        text-transform: uppercase;
-                                        border-radius: 5px;
-                                        color: #fff;
-                                        font-weight: 600;
-                                        &.sale {
-                                            background: $primary-color;
-                                        }
-                                        &.new {
-                                            background-color: #000;
-                                        }
-                                        & + span {
-                                            margin-top: 12px;
-                                        }
-                                    }
-                                }
-                            }
-                            &:hover {
-                                .thumb {
-                                    .image {
-                                        img {
-                                            transform: scale(1.01) rotate(0);
-                                            &:not(:last-child) {
-                                                opacity: 0;
-                                            }
-                                            &.hover-image {
-                                                opacity: 1;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        .content-desc-wrap {
-                            line-height: 32px;
-                            .content {
-                                position: relative;
-                                z-index: 1;
-                                display: flex;
-                                flex-direction: column;
-                                transition: all 0.3s ease 0s;
-                                background-color: #fff;
-                                .category {
-                                    a {
-                                        font-size: 14px;
-                                        color: #666;
-                                        font-weight: 500;
-                                        &:hover {
-                                            color: $primary-color;
-                                        }
-                                    }
-                                }
-                                .title {
-                                    margin: 0 0 15px;
-                                    font-family: Poppins, sans-serif;
-                                    a {
-                                        text-decoration: none;
-                                        color: #000;
-                                        font-size: 18px;
-                                        font-weight: 600;
-                                        &:hover {
-                                            color: $primary-color;
-                                        }
-                                    }
-                                }
-                                p {
-                                    line-height: 1.7;
-                                    color: #3a3a3a;
-                                }
-                            }
-                            .box-inner {
-                                margin-top: 10px;
-                                .price {
-                                    display: block;
-                                    margin-bottom: 20px;
-                                }
-                                .actions {
-                                    display: flex;
-                                    flex-direction: row;
-                                    transition: all 0.3s ease 0s;
-                                    .action {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        flex-direction: column;
-                                        width: 40px;
-                                        height: 40px;
-                                        transition: all 0.3s ease 0s;
-                                        text-decoration: none;
-                                        color: #fff;
-                                        border-radius: 5px;
-                                        background-color: #707070;
-                                        font-size: 20px;
-                                        cursor: pointer;
-                                        & + .action {
-                                            margin-left: 10px;
-                                        }
-                                        &:hover {
-                                            color: #fff;
-                                            background: $primary-color;
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        // .product {
+                        //     position: relative;
+                        //     border-width: 2px;
+                        //     background: #fff;
+                        //     border-color: #e1e1e1;
+                        //     border-style: solid;
+                        //     border-radius: 13px;
+                        //     padding: 5px;
+                        //     margin-bottom: 0;
+                        //     -webkit-transition: all 0.3s ease 0s;
+                        //     transition: all 0.3s ease 0s;
+                        //     z-index: 0;
+                        //     .thumb {
+                        //         position: relative;
+                        //         overflow: hidden;
+                        //         .image {
+                        //             position: relative;
+                        //             display: block;
+                        //             overflow: hidden;
+                        //             img {
+                        //                 z-index: 1;
+                        //                 max-width: 100%;
+                        //                 transition: all 0.3s ease 0s;
+                        //                 width: 100%;
+                        //                 &.hover-image {
+                        //                     position: absolute;
+                        //                     z-index: 2;
+                        //                     top: 0;
+                        //                     left: 0;
+                        //                     opacity: 0;
+                        //                 }
+                        //             }
+                        //         }
+                        //         .badges {
+                        //             position: absolute;
+                        //             top: 15px;
+                        //             left: 15px;
+                        //             z-index: 4;
+                        //             display: flex;
+                        //             flex-direction: column;
+                        //             transition: all 0.3s ease 0s;
+                        //             span {
+                        //                 font-size: 14px;
+                        //                 line-height: 1.75;
+                        //                 display: block;
+                        //                 padding: 0 12px;
+                        //                 text-align: center;
+                        //                 text-transform: uppercase;
+                        //                 border-radius: 5px;
+                        //                 color: #fff;
+                        //                 font-weight: 600;
+                        //                 &.sale {
+                        //                     background: $primary-color;
+                        //                 }
+                        //                 &.new {
+                        //                     background-color: #000;
+                        //                 }
+                        //                 & + span {
+                        //                     margin-top: 12px;
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        //     &:hover {
+                        //         .thumb {
+                        //             .image {
+                        //                 img {
+                        //                     transform: scale(1.01) rotate(0);
+                        //                     &:not(:last-child) {
+                        //                         opacity: 0;
+                        //                     }
+                        //                     &.hover-image {
+                        //                         opacity: 1;
+                        //                     }
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        // .content-desc-wrap {
+                        //     line-height: 32px;
+                        //     .content {
+                        //         position: relative;
+                        //         z-index: 1;
+                        //         display: flex;
+                        //         flex-direction: column;
+                        //         transition: all 0.3s ease 0s;
+                        //         background-color: #fff;
+                        //         .category {
+                        //             a {
+                        //                 font-size: 14px;
+                        //                 color: #666;
+                        //                 font-weight: 500;
+                        //                 &:hover {
+                        //                     color: $primary-color;
+                        //                 }
+                        //             }
+                        //         }
+                        //         .title {
+                        //             margin: 0 0 15px;
+                        //             font-family: Poppins, sans-serif;
+                        //             a {
+                        //                 text-decoration: none;
+                        //                 color: #000;
+                        //                 font-size: 18px;
+                        //                 font-weight: 600;
+                        //                 &:hover {
+                        //                     color: $primary-color;
+                        //                 }
+                        //             }
+                        //         }
+                        //         p {
+                        //             line-height: 1.7;
+                        //             color: #3a3a3a;
+                        //         }
+                        //     }
+                        //     .box-inner {
+                        //         margin-top: 10px;
+                        //         .price {
+                        //             display: block;
+                        //             margin-bottom: 20px;
+                        //         }
+                        //         .actions {
+                        //             display: flex;
+                        //             flex-direction: row;
+                        //             transition: all 0.3s ease 0s;
+                        //             .action {
+                        //                 display: flex;
+                        //                 align-items: center;
+                        //                 justify-content: center;
+                        //                 flex-direction: column;
+                        //                 width: 40px;
+                        //                 height: 40px;
+                        //                 transition: all 0.3s ease 0s;
+                        //                 text-decoration: none;
+                        //                 color: #fff;
+                        //                 border-radius: 5px;
+                        //                 background-color: #707070;
+                        //                 font-size: 20px;
+                        //                 cursor: pointer;
+                        //                 & + .action {
+                        //                     margin-left: 10px;
+                        //                 }
+                        //                 &:hover {
+                        //                     color: #fff;
+                        //                     background: $primary-color;
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
                     }
                 }
             }

@@ -22,9 +22,87 @@ namespace hmart.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? categoryId, int? brandId, string searchName, int? tagId, int? colorId)
         {
-            return View();
+            var query = _context.Products.AsQueryable();
+            if (categoryId != null)
+            {
+                query = query.Where(x => x.CategoryId == categoryId);
+            }
+            else
+            {
+                categoryId = _context.Categories.FirstOrDefault().Id;
+            }
+            if (brandId != null)
+            {
+                query = query.Where(x => x.BrandId == brandId);
+            }
+            else
+            {
+                brandId = _context.Brands.FirstOrDefault().Id;
+            }
+            if (searchName != null)
+            {
+                query = query.Where(x => x.Name.ToLower().Contains(searchName.ToLower()));
+            }
+
+            if (tagId != null)
+            {
+                query = query.Where(x => x.ProductTagProducts.Any(x => x.ProductTagId == tagId));
+            }
+            if (colorId != null)
+            {
+                query = query.Where(x => x.ProductColors.Any(x => x.ColorId == colorId));
+            }
+
+
+            int totalProducts = query.Count();
+
+            ShopVM shopVM = new ShopVM
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+
+                SelectedPage = 1,
+                TotalPages = (int)Math.Ceiling(totalProducts / 12d),
+                TotalProducts = totalProducts,
+                CategoryId = categoryId,
+                BrandId = brandId,
+                ColorId = colorId,
+                TagId = tagId,
+                SearchName = searchName,
+                MinPrice = (int)Math.Round((double)(_context.Products.Min(p => p.DiscountPercent == null ? p.Price : (p.Price - p.Price * p.DiscountPercent / 100)))),
+                MaxPrice = (int)Math.Round((double)(_context.Products.Max(p => p.DiscountPercent == null ? p.Price : (p.Price - p.Price * p.DiscountPercent / 100)))),
+
+                Categories = _context.Categories
+                .Include(c => c.Products).ToList(),
+
+                Brands = _context.Brands
+                .Include(c => c.Products).ToList(),
+
+                Colors = _context.Colors
+                .Include(c => c.ProductColors).ThenInclude(pc => pc.Product)
+                .ToList(),
+
+                Products = query
+                .Include(c => c.Category)
+                .Include(ptp => ptp.ProductTagProducts).ThenInclude(pt => pt.ProductTag)
+                .Include(pi => pi.ProImages)
+                .Take(12).ToList()
+            };
+
+            ////ViewBag.SelectedPage = 1;
+            ////ViewBag.TotalPages = (int)Math.Ceiling(totalProducts / 12d);
+            ////ViewBag.TotalProducts = totalProducts;
+            ////ViewBag.CategoryId = categoryId;
+            ////ViewBag.Name = name;
+            ////ViewBag.TagId = tagId;
+            ////List<Product> products = query
+            ////    .Include(c => c.Category)
+            ////    .Include(ptp => ptp.ProductTagProducts).ThenInclude(pt => pt.ProductTag)
+            ////    .Take(12).ToList();
+
+            return View(shopVM);
+            //return View();
         }
         public IActionResult Detail()
         {

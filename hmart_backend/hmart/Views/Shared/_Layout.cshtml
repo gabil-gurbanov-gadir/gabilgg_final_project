@@ -123,11 +123,11 @@
                         <div class="search-element">
                             <form class="form-search" autocomplete="off">
                                 <input type="text" placeholder="Search" name="search" class="search_product">
-                                <a href="" id="product_search_btn">
+                                <a href="" class="product_search_btn">
                                     <i class="icon-search"></i>
                                 </a>
                             </form>
-                            <div id="productsList" class="d-none">
+                            <div class="productsList d-none">
                                 <ul>
                                     <li class="product-search-li">
                                         <a href="">
@@ -602,11 +602,11 @@
                 <div class="search-element">
                     <form class="form-search" autocomplete="off">
                         <input type="text" placeholder="Search" name="search" class="search_product">
-                        <a href="" id="product_search_btn">
+                        <a href="" class="product_search_btn">
                             <i class="icon-search"></i>
                         </a>
                     </form>
-                    <div id="productsList" class="d-none">
+                    <div class="productsList d-none">
                         <ul>
                             <li class="product-search-li">
                                 <a href="">
@@ -633,7 +633,7 @@
     <!-- =============================== -->
     <!-- Shadow Layout -->
     <div id="shadow-layout" class="d-none"></div>
-    
+
     <!-- Mobile Menu Start -->
     <div id="mobile-menu">
         <div class="menu">
@@ -854,6 +854,84 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/assets/js/main.js"></script>
     @RenderSection("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+
+            @*$(document).on("keyup", "#search_product", function (e) {
+
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    let url = $(".product_search_btn").attr("href");
+
+                    async function ResponseHtml() {
+                        const response = await fetch(url)
+                            .then(resp => resp.text())
+                            .then(data =>
+
+                                $(".productsList").html(data)
+                            );
+                    }
+
+                    ResponseHtml();
+                }
+
+                let val = $(this).val();
+                let url = "/course/search?name=" + val;
+
+                let href = "";
+                $("#course_search_btn").attr("href", href);
+
+                href = "/shop/pagenation" + "?name=" + val;
+                $("#course_search_btn").attr("href", href);
+
+                if ($(location).attr("href").search("categoryId") > -1) {
+                    let categoryId = $(location).attr("href").split("categoryId=").pop();
+                    url = "/course/search?name=" + val + "&categoryId=" + categoryId;
+
+                    let href = "";
+                    $("#course_search_btn").attr("href", href);
+
+                    href = "/course/pagenation" + "?name=" + val + "&categoryId=" + categoryId + "&page=" +@ViewBag.SelectedPage;
+                    $("#course_search_btn").attr("href", href);
+                }
+                console.log(url);
+
+
+
+                async function ResponseHtml() {
+                    const response = await fetch(url)
+                        .then(resp => resp.text())
+                        .then(data => {
+
+                            if (data != '{"status":404}') {
+                                $("#coursesList").html(data)
+                            }
+                        }
+                        );
+                }
+                ResponseHtml();
+            });
+
+            $(document).on("click", "#course_search_btn", function (e) {
+                e.preventDefault();
+                let url = $(this).attr("href");
+
+                async function ResponseHtml() {
+                    const response = await fetch(url)
+                        .then(resp => resp.text())
+                        .then(data =>
+
+                            $("#courses").html(data)
+                        );
+                }
+
+                ResponseHtml();
+            });*@
+
+
+        });
+    </script>
 </body>
 
 </html>

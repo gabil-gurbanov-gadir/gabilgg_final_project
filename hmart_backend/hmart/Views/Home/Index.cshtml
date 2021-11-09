@@ -134,20 +134,22 @@
                                             <div class="product-image w-custom-100">
                                                 <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id" class="image w-custom-100">
                                                     <div class="poster w-custom-100" data-bg-image='../uploads/products/@item.GetPosterImage()'></div>
-                                                    <div class="hover-poster w-custom-100" data-bg-image='./uploads/products/@item.GetHoverPosterImage()'></div>
+                                                    <div class="hover-poster w-custom-100" data-bg-image='../uploads/products/@item.GetHoverPosterImage()'></div>
                                                 </a>
                                             </div>
                                             <div class="content">
-                                                <span class="category"><a asp-controller="shop" asp-action="index" asp-route-categoryId="@item.Category.Id">@item.Category.Name</a></span>
+                                                <span class="category">
+                                                <a asp-controller="shop" asp-action="index" asp-route-categoryId="@item.Category.Id">@item.Category.Name</a>
+                                                </span>
                                                 <h5 class="title">
                                                     <a asp-controller="shop" asp-action="detail" asp-route-id="@item.Id">
                                                         @item.Name
                                                     </a>
                                                 </h5>
                                                 <span class="price">
-                                                    @if (item.DiscountPercent != null)
+                                                    @if (item.DiscountPercent != null && item.Count > 0)
                                                     {
-                                                         newPrice = (double)(item.Price - item.Price * item.DiscountPercent / 100);
+                                                        newPrice = (double)(item.Price - item.Price * item.DiscountPercent / 100);
 
                                                         <span class="old">$@item.Price.ToString("#.00")</span>
                                                         <span class="new">$@newPrice.ToString("#.00")</span>
@@ -214,9 +216,9 @@
                                                     </a>
                                                 </h5>
                                                 <span class="price">
-                                                    @if (item.DiscountPercent != null)
+                                                    @if (item.DiscountPercent != null && item.Count > 0)
                                                     {
-                                                         newPrice = (double)(item.Price - item.Price * item.DiscountPercent / 100);
+                                                        newPrice = (double)(item.Price - item.Price * item.DiscountPercent / 100);
 
                                                         <span class="old">$@item.Price.ToString("#.00")</span>
                                                         <span class="new">$@newPrice.ToString("#.00")</span>
@@ -283,9 +285,9 @@
                                                     </a>
                                                 </h5>
                                                 <span class="price">
-                                                    @if (item.DiscountPercent != null)
+                                                    @if (item.DiscountPercent != null && item.Count > 0)
                                                     {
-                                                         newPrice = (double)(item.Price - item.Price * item.DiscountPercent / 100);
+                                                        newPrice = (double)(item.Price - item.Price * item.DiscountPercent / 100);
 
                                                         <span class="old">$@item.Price.ToString("#.00")</span>
                                                         <span class="new">$@newPrice.ToString("#.00")</span>

@@ -33,7 +33,7 @@ $(document).ready(function () {
 
   //#region Canvas
 
-  //#region Wishlist
+  //#region Wishlist canvas
   $(document).on("click", "#wishlist-button", function (e) {
     e.preventDefault();
     let scrollSize = window.innerWidth - document.documentElement.clientWidth;
@@ -62,7 +62,7 @@ $(document).ready(function () {
   );
   //#endregion
 
-  //#region CartList
+  //#region CartList canvas
   $(document).on("click", "#cartlist-button", function (e) {
     e.preventDefault();
     let scrollSize = window.innerWidth - document.documentElement.clientWidth;
@@ -230,7 +230,7 @@ $(document).ready(function () {
   });
   // Partners end
 
-  // Modals start
+  //#region Modals Close Btn
 
   $(document).on("click", ".modal", function (e) {
     let target = $(e.target);
@@ -277,9 +277,9 @@ $(document).ready(function () {
   //  }, 300);
   //});
 
-  // Modal end
+  //#endregion
 
-    //#region Modal
+  //#region Show QuickView (Detail) modal
     $(document).on("click", ".quickview", function (e) {
         e.preventDefault();
 
@@ -348,7 +348,7 @@ $(document).ready(function () {
 
     //#endregion 
 
-    //#region AddToBasket
+  //#region AddToBasket
     $(document).on("click", ".add-to-cart", function (e) {
         e.preventDefault();
 
@@ -414,7 +414,7 @@ $(document).ready(function () {
 
     //#endregion 
 
-    //#region RemoveFromBasket
+  //#region RemoveFromBasket
     $(document).on("click", ".remove-from-basket", function (e) {
         e.preventDefault();
 
@@ -442,7 +442,7 @@ $(document).ready(function () {
 
     //#endregion
 
-    //#region AddToWishList
+  //#region AddToWishList
     $(document).on("click", ".wishlist", function (e) {
         e.preventDefault();
         let url = $(this).attr("href");
@@ -545,7 +545,7 @@ $(document).ready(function () {
 
     //#endregion 
 
-    //#region RemoveFromWishList
+  //#region RemoveFromWishList
     $(document).on("click", ".remove-from-wishList", function (e) {
         e.preventDefault();
 
@@ -586,24 +586,6 @@ $(document).ready(function () {
   // Featured Main Product responsived end
 
   // Modals end
-
-  // Shop range start
-  $("#slider-range").slider({
-    range: true,
-    min: 0,
-    max: 2000,
-    values: [400, 1600],
-    slide: function (event, ui) {
-      $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-    },
-  });
-  $("#amount").val(
-    "$" +
-      $("#slider-range").slider("values", 0) +
-      " - $" +
-      $("#slider-range").slider("values", 1)
-  );
-  // Shop range end
 
   //Dropdown Sort start
   $(document).on("click", ".header-action-btn", function (e) {
