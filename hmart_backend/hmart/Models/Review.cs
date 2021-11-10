@@ -20,5 +20,7 @@ namespace hmart.Models
         public Product Product { get; set; }
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
+
+        public bool? IsAccepting { get; set; }
     }
 }

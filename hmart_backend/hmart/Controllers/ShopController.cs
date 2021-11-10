@@ -97,9 +97,32 @@ namespace hmart.Controllers
 
             return View(shopVM);
         }
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
-            return View();
+            Product product = _context.Products
+                .Include(x => x.Category)
+                .Include(x => x.Brand)
+                .Include(x => x.ProImages)
+                .Include(x => x.Reviews).ThenInclude(x => x.AppUser)
+                .Include(x => x.ProductTagProducts).ThenInclude(x => x.ProductTag)
+                .Include(x => x.ProductColors).ThenInclude(x => x.Color)
+                .FirstOrDefault(x => x.Id == id);
+
+            if (product == null) return View("NotFound");
+
+            ProductDetailVM productDetailVM = new ProductDetailVM
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Product = product,
+                RelatedProducts = _context.Products
+                .Include(x=>x.Category)
+                .Include(x=>x.ProImages)
+                .Where(x => x.CategoryId == product.CategoryId 
+                || x.BrandId == product.BrandId)
+                .Take(8).ToList()
+            };
+
+            return View(productDetailVM);
         }
 
         public IActionResult GetDetail(int id)

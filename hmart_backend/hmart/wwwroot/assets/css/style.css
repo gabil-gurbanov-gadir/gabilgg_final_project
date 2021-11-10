@@ -5602,6 +5602,9 @@ li.disabled a {
   cursor: default;
   background-color: beige !important; }
 
+.vbox-container img {
+  max-width: 50%; }
+
 .modal {
   position: fixed;
   top: 0;
@@ -7122,7 +7125,16 @@ main #product-detail .product-images-slider-thumbs {
     transition: all 0.3s ease 0s;
     border: 2px solid #e1e1e1;
     border-radius: 10px; }
+  main #product-detail .product-images-slider-thumbs .swiper-slide .image_of_small_slider {
+    width: auto;
+    max-width: 100%;
+    transition: all 0.3s ease 0s;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    height: 120px; }
   main #product-detail .product-images-slider-thumbs .swiper-slide:hover img, main #product-detail .product-images-slider-thumbs .swiper-slide.swiper-slide-thumb-active img {
+    border-color: #266bf9; }
+  main #product-detail .product-images-slider-thumbs .swiper-slide:hover .image_of_small_slider, main #product-detail .product-images-slider-thumbs .swiper-slide.swiper-slide-thumb-active .image_of_small_slider {
     border-color: #266bf9; }
   main #product-detail .product-images-slider-thumbs .swiper-buttons div {
     width: 30px;
@@ -7411,13 +7423,20 @@ main #product-detail .description-review-wrapper {
       line-height: 1; }
       main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper h3 {
         margin: 0;
-        font-size: 18px;
-        font-weight: 500;
-        color: #000; }
+        font-size: 22px;
+        font-weight: 600;
+        color: #847070;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e1e1e1; }
       main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper .star-box {
         display: flex;
+        align-items: center;
         margin: 10px 0 20px; }
-        main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper .star-box span {
+        main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper .star-box .rating-product {
+          display: flex;
+          flex-direction: column;
+          align-items: center; }
+        main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper .star-box > span {
           margin: 0 15px 0 0;
           font-size: 18px;
           color: #000;
@@ -7426,6 +7445,9 @@ main #product-detail .description-review-wrapper {
           overflow: hidden;
           font-size: 14px;
           color: #ffde00; }
+        main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper .star-box span.star span {
+          width: 25px;
+          height: 25px; }
       main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper .rating-form-style {
         margin-bottom: 10px; }
         main #product-detail .description-review-wrapper .description-review-bottom .ratting-form-wrapper .rating-form-style input {
