@@ -35,29 +35,24 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td><a asp-action="detail" asp-route-id="@item.Id">@item.Name</a></td>
-                                            <td>@item.Code</td>
-                                            <td class="text-center">@item.CostPrice</td>
-                                            <td class="text-center">@item.Price</td>
-                                            <td class="text-center">@item.Count</td>
-                                            <td class="text-center">
-                                                <img class="border border-2" style="width: 60%; border: 0.7px solid #00000035" src="/uploads/products/@item.ProImages.FirstOrDefault(x=>x.PosterStatus==true).Image" />
-                                            </td>
-                                            @*@if (!User.IsInRole("EditorAdmin"))
+                                    <tr>
+                                        <td><a asp-action="detail" asp-route-id="@item.Id">@item.Name</a></td>
+                                        <td>@item.Code</td>
+                                        <td class="text-center">@item.CostPrice</td>
+                                        <td class="text-center">@item.Price</td>
+                                        <td class="text-center">@item.Count</td>
+                                        <td class="text-center">
+                                            <img class="border border-2" style="width: 60%; border: 0.7px solid #00000035" src="/uploads/products/@item.ProImages.FirstOrDefault(x=>x.PosterStatus==true).Image" />
+                                        </td>
+                                        <td>
+                                            <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-warning w-100 mb-1">Edit</a>
+                                            <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger w-100 mb-1">Delete</a>
+                                            @if (!User.IsInRole("EditorAdmin"))
                                             {
-                                                <td class="text-center"><a asp-action="join" asp-route-courseId="@item.Id" class="btn btn-success">@item.CourseJoins.Count Joins</a></td>
-                                            }*@
-
-                                            <td>
-                                                @*@if (!User.IsInRole("EditorAdmin"))
-                                                {
-                                                    <a asp-action="message" asp-route-courseId="@item.Id" class="btn btn-info w-100 mb-1"><span style="margin-right: 16px; font-size: 18px;">@item.CourseMessages.Count</span><i style="font-size:18px" class="material-icons dp48">message</i></a>
-                                                }*@
-                                                <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-warning w-100 mb-1">Edit</a>
-                                                <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger w-100">Delete</a>
+                                                <a asp-action="reviews" asp-route-productId="@item.Id" class="btn btn-info w-100">Reviews(@(item.Reviews.Count() > 0 ? item.Reviews.Count() : 0))</a>
+                                            }
                                             </td>
-                                        </tr>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>

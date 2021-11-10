@@ -15,10 +15,10 @@ namespace hmart.Models
         [StringLength(maximumLength: 700)]
         public string Message { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime CreatedAt { get; set; }
         public int ProductId { get; set; }
         public Product Product { get; set; }
-        public int AppUserId { get; set; }
+        public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 
         public bool? IsAccepting { get; set; }

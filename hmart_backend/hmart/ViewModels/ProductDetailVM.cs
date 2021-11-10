@@ -11,6 +11,7 @@ namespace hmart.ViewModels
         public Setting Setting { get; set; }
         public Product Product { get; set; }
 
+        public AddReviewVM AddReviewVM { get; set; }
         public List<Product> RelatedProducts { get; set; }
     }
 }

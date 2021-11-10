@@ -215,17 +215,18 @@
                                             <h3>Add a Review</h3>
                                             <hr />
                                             <div class="ratting-form">
-                                                <form method="post" asp-controller="shop" asp-action="addcomment">
+                                                <form method="post" asp-controller="shop" asp-action="addreview">
+                                                    <input type="hidden" asp-for="AddReviewVM.ProductId" value="@Model.Product.Id" />
                                                     <div class="star-box">
                                                         <span>Your rating:</span>
                                                         <div class="rating-product">
-                                                            <input id="input-id" name="rate" type="number" class="rating" min=0 max=5 step=1 data-size="md">
+                                                            <input id="input-id" asp-for="AddReviewVM.Rate" class="rating" min=0 max=5 step=1 data-size="md">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="rating-form-style form-submit">
-                                                                <textarea name="Your Review"
+                                                                <textarea asp-for="AddReviewVM.Message"
                                                                           placeholder="Message"></textarea>
                                                                 <button class="btn btn-primary btn-hover-color-primary "
                                                                         type="submit" value="Submit">
@@ -234,7 +235,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" name="BookId" value="@Model.Product.Id" />
                                                 </form>
                                             </div>
                                         </div>

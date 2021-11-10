@@ -1,6 +1,7 @@
 ﻿using hmart.DAL;
 using hmart.Models;
 using hmart.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -623,6 +624,44 @@ namespace hmart.Controllers
             };
 
             return PartialView("_ProductsPartial", pagenationVM);
+        }
+
+        [Authorize(Roles = "Member")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddReview(AddReviewVM addReviewVM)
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "You can't submit without rate or your message length can't be longer from 250 !";
+                return RedirectToAction("detail", "shop", new { id = addReviewVM.ProductId });
+            }
+               
+            Product product = _context.Products.Include(x => x.Reviews).FirstOrDefault(x => x.Id == addReviewVM.ProductId);
+            if (product == null)
+                return View("NotFound");
+
+            if (_context.Reviews.Any(x => x.ProductId == addReviewVM.ProductId && x.IsAccepting == true && x.AppUserId == user.Id))
+            {
+                TempData["Error"] = "You can't again give rate to this product!";
+                return RedirectToAction("detail", "shop", new { id = addReviewVM.ProductId });
+            }
+
+
+            Review review = new Review
+            {
+                ProductId = addReviewVM.ProductId,
+                AppUserId = user.Id,
+                Message = addReviewVM.Message,
+                Rate = addReviewVM.Rate,
+                CreatedAt = DateTime.UtcNow
+            };
+            product.Reviews.Add(review);
+
+            _context.SaveChanges();
+            return RedirectToAction("detail", "shop", new { id = addReviewVM.ProductId });
         }
     }
 }

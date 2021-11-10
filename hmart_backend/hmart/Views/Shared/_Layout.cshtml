@@ -747,7 +747,7 @@
                     Out of Stock!
                 </p>
                 <div class="modal-product">
-                    <img src="../assets/images/b1.jpg" alt="out of stock">
+                    <img src="@((string)ViewData["Title"] == "Detail"?"../":"")../assets/images/b1.jpg" alt="out of stock">
                 </div>
                 <button class="btn-close">
                     <i class="icon-close1"></i>
@@ -878,18 +878,6 @@
 
                 href = "/shop/index" + "?searchName=" + val;
                 $(".product_search_btn").attr("href", href);
-
-                @*if ($(location).attr("href").search("categoryId") > -1) {
-                    let categoryId = $(location).attr("href").split("categoryId=").pop();
-                    url = "/shop/search?name=" + val + "&categoryId=" + categoryId;
-
-                    let href = "";
-                    $("#course_search_btn").attr("href", href);
-
-                    href = "/course/pagenation" + "?name=" + val + "&categoryId=" + categoryId + "&page=" +@ViewBag.SelectedPage;
-                    $("#course_search_btn").attr("href", href);
-                }*@
-                console.log(urlList);
 
 
 

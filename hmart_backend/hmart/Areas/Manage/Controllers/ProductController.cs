@@ -26,7 +26,10 @@ namespace hmart.Areas.Manage.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> products = _context.Products.Include(x=>x.ProImages).ToList();
+            List<Product> products = _context.Products
+                .Include(x=>x.ProImages)
+                .Include(x=>x.Reviews)
+                .ToList();
 
             return View(products);
         }
@@ -45,6 +48,7 @@ namespace hmart.Areas.Manage.Controllers
 
             return View(product);
         }
+
 
         public IActionResult Create()
         {
@@ -583,5 +587,70 @@ namespace hmart.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
+        public IActionResult Reviews(int productId)
+        {
+            if(!_context.Products.Any(x => x.Id == productId)) return View("NotFoundPage");
+
+            ViewBag.ProductId = productId;
+
+            List<Review> reviews = _context.Reviews
+                .Include(x=>x.AppUser).ThenInclude(x=>x.Reviews)
+                .Where(x => x.ProductId == productId).ToList();
+
+            return View(reviews);
+        }
+
+        public IActionResult ReviewAccept(int productId, int id)
+        {
+            Review review = _context.Reviews.FirstOrDefault(x => x.Id == id && x.ProductId == productId);
+
+            if (review == null) return View("NotFoundPage");
+
+            ViewBag.ProductId = productId;
+
+            foreach (var item in _context.Reviews)
+            {
+                if (item.AppUserId == review.AppUserId)
+                {
+                    item.IsAccepting = false;
+                }
+            }
+
+            review.IsAccepting = true;
+
+            _context.SaveChanges();
+
+            Product product = _context.Products.Include(x => x.Reviews).FirstOrDefault(x => x.Id == review.ProductId);
+
+            var acceptedReviews = product.Reviews.Where(x => x.IsAccepting == true);
+
+            product.Rate = acceptedReviews.Count() == 0d ? 0 : acceptedReviews.Average(x => (double)x.Rate);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("reviews", new { productId = review.ProductId });
+        }
+
+        public IActionResult ReviewReject(int productId, int id)
+        {
+            Review review = _context.Reviews.FirstOrDefault(x => x.Id == id && x.ProductId == productId);
+
+            if (review == null) return View("NotFoundPage");
+
+            ViewBag.ProductId = productId;
+
+            review.IsAccepting = false;
+            _context.SaveChanges();
+
+            Product product = _context.Products.Include(x => x.Reviews).FirstOrDefault(x => x.Id == review.ProductId);
+
+            var acceptedReviews = product.Reviews.Where(x => x.IsAccepting == true);
+
+            product.Rate = acceptedReviews.Count() == 0d ? 0 : acceptedReviews.Average(x => (double)x.Rate);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("reviews", new { productId = review.ProductId });
+        }
     }
 }
