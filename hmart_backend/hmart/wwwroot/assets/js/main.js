@@ -356,12 +356,17 @@ $(document).ready(function () {
         let imgSrc = $(this).attr("data-img");
         let name = $(this).attr("data-name");
         let id = url.substring(url.lastIndexOf("/") + 1);
+        if ($(this).hasClass("detail_cart")) {
+            let count = $("#count_for_basket").val();
+            url = url + "?count=" + count;
+            console.log(url);
+        }
 
         async function ResponseHtml() {
             const response = await fetch(url)
                 .then(resp => {
                     if (!resp.ok) {
-                        let url = window.location.href + 'details?id=' + id + '2&&code=404&&name=Product';
+                        let url = window.location.href + 'details?id=' + id + '&&code=404&&name=Product';
                         window.location.href = url;
                     } else if (resp.status == 204) {
                         return 204;
@@ -550,7 +555,12 @@ $(document).ready(function () {
         e.preventDefault();
 
         let url = $(this).attr("href");
-        let id = url.substring(url.lastIndexOf("/") + 1);
+        let id = "";
+        if (url.indexOf("?") > -1) {
+            id = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"))
+        } else {
+            id = url.substring(url.lastIndexOf("/") + 1);
+        }
 
         async function ResponseHtml() {
             const response = await fetch(url)
@@ -668,7 +678,7 @@ $(document).ready(function () {
   });
   // Related products end
 
-  // Count Product start
+  // Count Add To Cart Product start
   $(document).on("click", ".operator", function (e) {
     e.preventDefault();
     let o = $(this);
@@ -678,7 +688,7 @@ $(document).ready(function () {
     else n = 1;
     o.parent().find("input").val(n);
   });
-  // Count Product start
+  // Count Add To Cart Product start
 
   // Product Info Tabs start
   $(document).on("click", '[data-type="tab"]', function (e) {

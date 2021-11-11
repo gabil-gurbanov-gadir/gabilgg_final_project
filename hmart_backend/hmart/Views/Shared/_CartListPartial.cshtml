@@ -1,0 +1,37 @@
+﻿
+@{ 
+    double price = 0;
+}
+
+@foreach (var item in Model.BasketItemVMs)
+{
+    Product p = item.Product;
+    <tr>
+        <td class="product-image">
+            <a asp-controller="shop" asp-action="detail" asp-route-id="@p.Id">
+                <img class="ms-2" src="~/uploads/products/@p.GetPosterImage()"
+                     alt="@p.Name">
+            </a>
+        </td>
+        <td class="product-name">
+            <a asp-controller="shop" asp-action="detail" asp-route-id="@p.Id">@p.Name</a>
+        </td>
+        <td class="product-price">
+            @{
+                price = (double)(p.DiscountPercent == null ? p.Price : p.Price - p.Price * p.DiscountPercent / 100);
+            }
+            <span class="amount">$@price.ToString("#.00")</span>
+        </td>
+        <td class="product-quantity">
+            <div class="plus-minus">
+                <a asp-controller="shop" asp-action="cartlist" asp-route-id="@p.Id" asp-route-ope="-" class="minus operator">-</a>
+                <input type="text" class="count" value="1">
+                <a asp-controller="shop" asp-action="cartlist" asp-route-id="@p.Id" asp-route-ope="+" class="plus operator">+</a>
+            </div>
+        </td>
+        <td class="product-subtotal">$@((price*item.Count).ToString("#.00"))</td>
+        <td class="product-remove">
+            <a asp-controller="shop" asp-action="outfrombasket" asp-route-id="@p.Id" class="out_from_basket"><i class="icon-close"></i></a>
+        </td>
+    </tr>
+}

@@ -5334,6 +5334,9 @@ body.canvas-opening {
 .text-capitalize {
   text-transform: capitalize !important; }
 
+.text-danger {
+  color: #ec2016 !important; }
+
 .overflow-hidden {
   overflow: hidden !important; }
 

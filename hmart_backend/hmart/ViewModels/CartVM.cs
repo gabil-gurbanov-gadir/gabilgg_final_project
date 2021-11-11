@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace hmart.ViewModels
 {
-    public class WishListVM
+    public class CartVM
     {
-        public Setting Setting  { get; set; }
-        public List<Product> Products { get; set; }
+        public Setting Setting { get; set; }
+        public List<BasketItemVM> BasketItemVMs { get; set; }
         public int Count { get; set; }
-
+        public double TotalPrice { get; set; }
         public bool IsAddBtn { get; set; }
     }
 }

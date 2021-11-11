@@ -120,16 +120,17 @@
                         <div class="product-action">
                             <div class="product-count">
                                 <button class="minus operator">-</button>
-                                <input type="text" class="count" value="1">
+                                <input type="text" id="count_for_basket" class="count" value="1">
                                 <button class="plus operator">+</button>
                             </div>
-                            <a asp-controller="shop" asp-action="addtobasket" asp-route-id="@Model.Product.Id" data-img="/uploads/products/@Model.Product.GetPosterImage()" data-name="@Model.Product.Name" class="action add-to-cart">
+                            <a asp-controller="shop" asp-action="addtobasket" asp-route-id="@Model.Product.Id" data-img="/uploads/products/@Model.Product.GetPosterImage()" data-name="@Model.Product.Name" class="action add-to-cart detail_cart">
                                 Add To Cart
                             </a>
                             <a asp-controller="shop" asp-action="addtowishlist" asp-route-id="@Model.Product.Id" data-img="/uploads/products/@Model.Product.GetPosterImage()" data-name="@Model.Product.Name" class="action wishlist">
                                 <i class="icon-heart1"></i>
                             </a>
                         </div>
+                        <span class="text-danger validation_count"></span>
                     </div>
                     <div class="description-review-wrapper">
                         <div class="description-review-topbar">
@@ -354,8 +355,8 @@
     <script type="text/javascript" src="~/assets/js/venobox.js"></script>
     <script type="text/javascript" src="~/assets/js/star-js/star-rating.js"></script>
     <script>
-        // Venobox start
-        $(".venobox").venobox();
-                // Venobox end
+        $(document).ready(function (e) {
+            $(".venobox").venobox();
+        })
     </script>
 }

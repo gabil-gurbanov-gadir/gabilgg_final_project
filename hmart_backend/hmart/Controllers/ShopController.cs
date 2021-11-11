@@ -139,7 +139,7 @@ namespace hmart.Controllers
             return PartialView("_DetailPartial",product);
         }
 
-        public IActionResult AddToBasket(int id)
+        public IActionResult AddToBasket(int id, int? count)
         {
             Product product = _context.Products.Include(x => x.BasketItems).FirstOrDefault(x => x.Id == id);
 
@@ -160,22 +160,23 @@ namespace hmart.Controllers
                 AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
 
                 BasketItem basketItem = product.BasketItems.FirstOrDefault(x => x.AppUserId == user.Id);
+               
                 if (basketItem != null)
                 {
-                    basketItem.Count++;
+                    basketItem.Count += (count == null ? 1 : (int)count);
                 }
                 else
                 {
                     basketItem = new BasketItem
                     {
                         AppUserId = user.Id,
-                        Count = 1,
+                        Count = (count == null ? 1 : (int)count),
                         ProductId = id
                     };
 
                     product.BasketItems.Add(basketItem);
                 }
-
+               
                 _context.SaveChanges();
 
                 foreach (var item in _context.BasketItems.Include(x => x.AppUser).Include(x => x.Product).ThenInclude(x => x.ProImages).Where(x => x.AppUser.UserName == User.Identity.Name).ToList())
@@ -214,7 +215,7 @@ namespace hmart.Controllers
                         new BasketCookieItemVM()
                         {
                             ProductId = product.Id,
-                            Count = 1
+                            Count = (count == null ? 1 : (int)count)
                          }
                      };
                 }
@@ -227,13 +228,13 @@ namespace hmart.Controllers
                         basketCookieItemVM = new BasketCookieItemVM()
                         {
                             ProductId = product.Id,
-                            Count = 1
+                            Count = (count == null ? 1 : (int)count)
                         };
                         basketCookieItemVMs.Add(basketCookieItemVM);
                     }
                     else
                     {
-                        basketCookieItemVM.Count++;
+                        basketCookieItemVM.Count+= (count == null ? 1 : (int)count);
                     }
                 }
 
@@ -371,6 +372,12 @@ namespace hmart.Controllers
             return PartialView("_BasketPartial", basketData);
         }
 
+        public IActionResult CartList(int id, string ope, string toClear)
+        {
+
+            return View();
+        }
+
         public IActionResult AddToWishList(int id)
         {
             Product product = _context.Products.Include(x => x.WishListItems).FirstOrDefault(x => x.Id == id);
@@ -473,14 +480,14 @@ namespace hmart.Controllers
             return PartialView("_WishListPartial", wishListVM);
         }
 
-        public IActionResult DeleteFromWishList (int id)
+        public IActionResult DeleteFromWishList (int id, string isCanvas)
         {
             Product product = _context.Products.Include(x => x.WishListItems).FirstOrDefault(b => b.Id == id);
 
             WishListVM wishListVM = new WishListVM()
             {
                 Products = new List<Product>(),
-                IsAddBtn = false
+                IsAddBtn = (isCanvas==null?false:true)
             };
 
             if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))

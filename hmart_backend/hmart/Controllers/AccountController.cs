@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -430,16 +431,99 @@ namespace hmart.Controllers
         //    return RedirectToAction("login");
         //}
 
+        [Authorize(Roles = "Member")]
         public IActionResult Cart()
         {
-            return View();
+            AppUser appUser = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+            AppUser user = _context.AppUsers.Include(x => x.BasketItems).FirstOrDefault(x => x.Id == appUser.Id);
+
+            if (user == null) return View("NotFound");
+
+            CartVM cartVM = new CartVM
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                BasketItemVMs = new List<BasketItemVM>(),
+                TotalPrice = 0
+            };
+
+            foreach (var item in user.BasketItems)
+            {
+                Product basketProduct = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                BasketItemVM basketItemVM = new BasketItemVM
+                {
+                    Product = basketProduct,
+                    Count = item.Count
+                };
+
+                if (basketProduct.DiscountPercent!=null)
+                {
+                    cartVM.TotalPrice += (double)(basketProduct.Price - basketProduct.Price * basketProduct.DiscountPercent / 100)*item.Count;
+                }
+                else
+                {
+                    cartVM.TotalPrice += basketProduct.Price * item.Count;
+                }
+
+                cartVM.BasketItemVMs.Add(basketItemVM);
+                cartVM.Count++;
+            }
+
+            return View(cartVM);
         }
+
 
         public IActionResult Wishlist()
         {
-            return View();
+            WishListVM wishListVM = new WishListVM
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Products = new List<Product>()
+            };
+
+            if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))
+            {
+                AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+
+                foreach (var item in _context.WishListItems.Include(x => x.AppUser).Include(x => x.Product).ThenInclude(x => x.ProImages).Where(x => x.AppUser.UserName == User.Identity.Name).ToList())
+                {
+                    Product wishProduct = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                    if (wishProduct != null)
+                    {
+                        wishListVM.Products.Add(wishProduct);
+                        wishListVM.Count++;
+                    }
+                }
+            }
+            else
+            {
+                var basket = HttpContext.Request.Cookies["WishList"];
+
+                if (basket != null)
+                {
+                    List<WishListCookieItemVM> wishListCookieItemVMs = new List<WishListCookieItemVM>();
+
+                    wishListCookieItemVMs = JsonConvert.DeserializeObject<List<WishListCookieItemVM>>(basket);
+
+                    foreach (var item in wishListCookieItemVMs)
+                    {
+                        Product wishProductForCookie = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                        if (wishProductForCookie != null)
+                        {
+                            wishListVM.Products.Add(wishProductForCookie);
+                            wishListVM.Count++;
+                        }
+                    }
+                }
+            }
+
+            return View(wishListVM);
         }
 
+        [Authorize(Roles = "Member")]
         public IActionResult Checkout()
         {
             return View();
