@@ -434,9 +434,9 @@ namespace hmart.Controllers
         [Authorize(Roles = "Member")]
         public IActionResult Cart()
         {
-            AppUser appUser = _userManager.FindByNameAsync(User.Identity.Name).Result;
-
-            AppUser user = _context.AppUsers.Include(x => x.BasketItems).FirstOrDefault(x => x.Id == appUser.Id);
+            AppUser user = _context.AppUsers
+                .Include(x => x.BasketItems)
+                .FirstOrDefault(x => x.UserName.ToUpper() == User.Identity.Name.ToUpper());
 
             if (user == null) return View("NotFound");
 
@@ -522,6 +522,7 @@ namespace hmart.Controllers
 
             return View(wishListVM);
         }
+
 
         [Authorize(Roles = "Member")]
         public IActionResult Checkout()

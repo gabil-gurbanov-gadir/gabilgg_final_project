@@ -270,7 +270,7 @@ namespace hmart.Controllers
             return PartialView("_BasketPartial", basketData);
         }
 
-        public IActionResult DeleteFromBasket(int id)
+        public IActionResult DeleteFromBasket(int id, string isCanvas, string keyWord)
         {
             Product product = _context.Products.Include(x => x.BasketItems).FirstOrDefault(b => b.Id == id);
 
@@ -278,21 +278,30 @@ namespace hmart.Controllers
             {
                 BasketItemVMs = new List<BasketItemVM>(),
                 TotalPrice = 0,
-                IsAddBtn = false
+                IsAddBtn = (isCanvas=="no"?true:false)
             };
 
             if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))
             {
-                AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+                AppUser user = _context.AppUsers
+               .Include(x => x.BasketItems)
+               .FirstOrDefault(x => x.UserName.ToUpper() == User.Identity.Name.ToUpper());
 
-                BasketItem basketItem = product.BasketItems.FirstOrDefault(x => x.AppUserId == user.Id);
-                if (basketItem.Count > 1)
+                if (keyWord!="clear")
                 {
-                    basketItem.Count--;
+                    BasketItem basketItem = product.BasketItems.FirstOrDefault(x => x.AppUserId == user.Id);
+                    if (basketItem.Count > 1 && keyWord != "out")
+                    {
+                        basketItem.Count--;
+                    }
+                    else
+                    {
+                        product.BasketItems.RemoveAll(x => x.AppUserId == user.Id);
+                    }
                 }
                 else
                 {
-                    product.BasketItems.RemoveAll(x => x.AppUserId == user.Id);
+                    _context.BasketItems.RemoveRange(user.BasketItems);
                 }
 
                 _context.SaveChanges();
@@ -372,10 +381,49 @@ namespace hmart.Controllers
             return PartialView("_BasketPartial", basketData);
         }
 
-        public IActionResult CartList(int id, string ope, string toClear)
+        [Authorize(Roles = "Member")]
+        public IActionResult CartList(string keyWord)
         {
+            if (keyWord != null)    
+            {
+                ViewData["keyWord"] = keyWord;
+            }
+            AppUser user = _context.AppUsers
+                .Include(x => x.BasketItems)
+                .FirstOrDefault(x => x.UserName.ToUpper() == User.Identity.Name.ToUpper());
 
-            return View();
+            if (user == null) return View("NotFound");
+
+            CartVM cartVM = new CartVM
+            {
+                BasketItemVMs = new List<BasketItemVM>(),
+                TotalPrice = 0
+            };
+
+            foreach (var item in user.BasketItems)
+            {
+                Product basketProduct = _context.Products.Include(x => x.ProImages).FirstOrDefault(x => x.Id == item.ProductId);
+
+                BasketItemVM basketItemVM = new BasketItemVM
+                {
+                    Product = basketProduct,
+                    Count = item.Count
+                };
+
+                if (basketProduct.DiscountPercent != null)
+                {
+                    cartVM.TotalPrice += (double)(basketProduct.Price - basketProduct.Price * basketProduct.DiscountPercent / 100) * item.Count;
+                }
+                else
+                {
+                    cartVM.TotalPrice += basketProduct.Price * item.Count;
+                }
+
+                cartVM.BasketItemVMs.Add(basketItemVM);
+                cartVM.Count++;
+            }
+
+            return PartialView("_CartListPartial", cartVM);
         }
 
         public IActionResult AddToWishList(int id)
@@ -668,6 +716,9 @@ namespace hmart.Controllers
             product.Reviews.Add(review);
 
             _context.SaveChanges();
+
+            TempData["Succeed"] = "Your review sending.";
+
             return RedirectToAction("detail", "shop", new { id = addReviewVM.ProductId });
         }
     }

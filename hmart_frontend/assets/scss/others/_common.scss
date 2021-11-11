@@ -1736,7 +1736,7 @@ li {
                         padding: 0;
                         position: relative;
                         width: 110px;
-                        .operator {
+                        .ope {
                             color: #3a3a3a;
                             cursor: pointer;
                             float: inherit;
@@ -1746,14 +1746,14 @@ li {
                             transition: all 0.3s ease 0s;
                             width: 20px;
                             text-align: center;
-                            &.minus {
+                            &.minus-remove {
                                 border-right: 1px solid #e5e5e5;
                                 height: 40px;
                                 left: 0;
                                 padding-top: 6px;
                                 top: 0;
                             }
-                            &.plus {
+                            &.plus-add {
                                 border-left: 1px solid #e5e5e5;
                                 height: 40px;
                                 padding-top: 6px;
@@ -1798,6 +1798,14 @@ li {
                             color: $primary-color;
                         }
                     }
+                }
+            }
+            &.empty-tr {
+                td {
+                    padding: 60px 0;
+                    font-size: 40px;
+                    font-weight: 600;
+                    color: #f08517;
                 }
             }
         }

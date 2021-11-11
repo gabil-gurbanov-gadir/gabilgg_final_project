@@ -5959,7 +5959,7 @@ li.disabled a {
           padding: 0;
           position: relative;
           width: 110px; }
-          .product-table tbody > tr td.product-quantity .plus-minus .operator {
+          .product-table tbody > tr td.product-quantity .plus-minus .ope {
             color: #3a3a3a;
             cursor: pointer;
             float: inherit;
@@ -5969,13 +5969,13 @@ li.disabled a {
             transition: all 0.3s ease 0s;
             width: 20px;
             text-align: center; }
-            .product-table tbody > tr td.product-quantity .plus-minus .operator.minus {
+            .product-table tbody > tr td.product-quantity .plus-minus .ope.minus-remove {
               border-right: 1px solid #e5e5e5;
               height: 40px;
               left: 0;
               padding-top: 6px;
               top: 0; }
-            .product-table tbody > tr td.product-quantity .plus-minus .operator.plus {
+            .product-table tbody > tr td.product-quantity .plus-minus .ope.plus-add {
               border-left: 1px solid #e5e5e5;
               height: 40px;
               padding-top: 6px;
@@ -6008,6 +6008,11 @@ li.disabled a {
         font-size: 16px; }
         .product-table tbody > tr td.product-remove a:hover {
           color: #266bf9; }
+    .product-table tbody > tr.empty-tr td {
+      padding: 60px 0;
+      font-size: 40px;
+      font-weight: 600;
+      color: #f08517; }
 
 footer {
   color: #3a3a3a;

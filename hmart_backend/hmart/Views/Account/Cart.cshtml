@@ -25,7 +25,7 @@
     <!-- Main-header end -->
     <!-- Cart items start -->
     <section id="cart-items" class="py-section">
-        <div class="container">
+        <div class="container" id="cart_list">
             <h3 class="page-title">Your cart items</h3>
             <div class="row">
                 <div class="col">
@@ -41,37 +41,46 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody id="cart_list">
-                                @foreach (var item in Model.BasketItemVMs)
+                            <tbody>
+                                @if (Model.BasketItemVMs.Count > 0)
                                 {
-                                    Product p = item.Product;
-                                    <tr>
-                                        <td class="product-image">
-                                            <a asp-controller="shop" asp-action="detail" asp-route-id="@p.Id">
-                                                <img class="ms-2" src="~/uploads/products/@p.GetPosterImage()"
-                                                     alt="@p.Name">
-                                            </a>
-                                        </td>
-                                        <td class="product-name">
-                                            <a asp-controller="shop" asp-action="detail" asp-route-id="@p.Id">@p.Name</a>
-                                        </td>
-                                        <td class="product-price">
-                                            @{ 
-                                                price = (double)(p.DiscountPercent == null ? p.Price : p.Price - p.Price * p.DiscountPercent / 100);
-                                            }
-                                            <span class="amount">$@price.ToString("#.00")</span>
-                                        </td>
-                                        <td class="product-quantity">
-                                            <div class="plus-minus">
-                                                <a asp-controller="shop" asp-action="cartlist" asp-route-id="@p.Id" asp-route-ope="-" class="minus operator">-</a>
-                                                <input type="text" class="count" value="@item.Count">
-                                                <a asp-controller="shop" asp-action="cartlist" asp-route-id="@p.Id" asp-route-ope="+" class="plus operator">+</a>
-                                            </div>
-                                        </td>
-                                        <td class="product-subtotal">$@((price*item.Count).ToString("#.00"))</td>
-                                        <td class="product-remove">
-                                            <a asp-controller="shop" asp-action="outfrombasket" asp-route-id="@p.Id" class="out_from_basket"><i class="icon-close"></i></a>
-                                        </td>
+                                    @foreach (var item in Model.BasketItemVMs)
+                                    {
+                                        Product p = item.Product;
+                                        <tr id="product_by_id_@p.Id">
+                                            <td class="product-image">
+                                                <a asp-controller="shop" asp-action="detail" asp-route-id="@p.Id">
+                                                    <img class="ms-2" src="~/uploads/products/@p.GetPosterImage()"
+                                                         alt="@p.Name">
+                                                </a>
+                                            </td>
+                                            <td class="product-name">
+                                                <a asp-controller="shop" asp-action="detail" asp-route-id="@p.Id">@p.Name</a>
+                                            </td>
+                                            <td class="product-price">
+                                                @{
+                                                    price = (double)(p.DiscountPercent == null ? p.Price : p.Price - p.Price * p.DiscountPercent / 100);
+                                                }
+                                                <span class="amount">$@price.ToString("#.00")</span>
+                                            </td>
+                                            <td class="product-quantity">
+                                                <div class="plus-minus">
+                                                    <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@p.Id" asp-route-isCanvas="no" class="minus-remove ope">-</a>
+                                                    <input type="text" class="count" value="@item.Count">
+                                                    <a asp-controller="shop" asp-action="addtobasket" asp-route-id="@p.Id" class="plus-add ope">+</a>
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">$@((price*item.Count).ToString("#.00"))</td>
+                                            <td class="product-remove">
+                                                <a asp-controller="shop" asp-action="deletefrombasket" asp-route-id="@p.Id" asp-route-isCanvas="no" asp-route-keyWord="out" class="out_from_basket"><i class="icon-close"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr class="empty-tr">
+                                        <td colspan="6"> Cart is empty!</td>
                                     </tr>
                                 }
                             </tbody>
@@ -86,7 +95,7 @@
                             <a asp-controller="shop" asp-action="index">Continue Shopping</a>
                         </div>
                         <div class="clear-cart">
-                            <a asp-controller="shop" asp-action="cartlist" asp-route-toClear="yes">Clear Shopping Cart</a>
+                            <a asp-controller="shop" asp-action="deletefrombasket" asp-route-isCanvas="no" asp-route-keyWord="clear" id="clear_cartList">Clear Shopping Cart</a>
                         </div>
                     </div>
                 </div>
@@ -223,3 +232,225 @@
     <!-- Cart items end -->
 </main>
 <!-- Main End -->
+
+@section Scripts{
+    <script>
+        $(document).ready(function (e) {
+            $(document).on("click", ".minus-remove.ope", function (e) {
+                e.preventDefault();
+
+                let url = $(this).attr("href");
+                let id = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
+                let cartListUrl = "/shop/cartlist/";
+
+                async function ResponseDeleteFromBasketHtml() {
+                    const response = await fetch(url)
+                        .then(resp => {
+                            if (!resp.ok) {
+                                let error = '/details?id=' + id + '&code=404&name=Product';
+                                window.location.href = error;
+                            }
+                            return resp.text();
+                        })
+                        .then(data => {
+                            $(".basket-partial").html(data);
+                            async function ResponseCartListHtml() {
+                                const response = await fetch(cartListUrl)
+                                    .then(resp => {
+                                        if (!resp.ok) {
+                                            let error = '/details?id=' + id + '&code=404&name=Product';
+                                            window.location.href = error;
+                                        }
+                                        return resp.text();
+                                    })
+                                    .then(data => {
+                                        $("#cart_list").html(data);
+                                    }
+                                    );
+                            }
+
+                            ResponseCartListHtml();
+                        }
+                        );
+                }
+
+                ResponseDeleteFromBasketHtml();
+            });
+
+            $(document).on("click", ".plus-add.ope", function (e) {
+                e.preventDefault();
+
+                let url = $(this).attr("href");
+                let id = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
+                let cartListUrl = "/shop/cartlist/";
+
+                async function ResponseDeleteFromBasketHtml() {
+                    const response = await fetch(url)
+                        .then(resp => {
+                            if (!resp.ok) {
+                                let error = '/details?id=' + id + '&code=404&name=Product';
+                                window.location.href = error;
+                            }
+                            return resp.text();
+                        })
+                        .then(data => {
+                            $(".basket-partial").html(data);
+                            async function ResponseCartListHtml() {
+                                const response = await fetch(cartListUrl)
+                                    .then(resp => {
+                                        if (!resp.ok) {
+                                            let error = '/details?id=' + id + '&code=404&name=Product';
+                                            window.location.href = error;
+                                        }
+                                        return resp.text();
+                                    })
+                                    .then(data => {
+                                        $("#cart_list").html(data);
+                                    }
+                                    );
+                            }
+
+                            ResponseCartListHtml();
+                        }
+                        );
+                }
+
+                ResponseDeleteFromBasketHtml();
+            });
+
+            $(document).on("click", ".out_from_basket", function (e) {
+                e.preventDefault();
+
+                let url = $(this).attr("href");
+                let id = url.substring(url.lastIndexOf("/") + 1, url.indexOf("?"));
+                let cartListUrl = "/shop/cartlist/";
+
+                async function ResponseDeleteFromBasketHtml() {
+                    const response = await fetch(url)
+                        .then(resp => {
+                            if (!resp.ok) {
+                                let error = '/details?id=' + id + '&code=404&name=Product';
+                                window.location.href = error;
+                            }
+                            return resp.text();
+                        })
+                        .then(data => {
+                            $(".basket-partial").html(data);
+                            async function ResponseCartListHtml() {
+                                const response = await fetch(cartListUrl)
+                                    .then(resp => {
+                                        if (!resp.ok) {
+                                            let error = '/details?id=' + id + '&code=404&name=Product';
+                                            window.location.href = error;
+                                        }
+                                        return resp.text();
+                                    })
+                                    .then(data => {
+                                        $("#cart_list").html(data);
+                                    }
+                                    );
+                            }
+
+                            ResponseCartListHtml();
+                        }
+                        );
+                }
+
+                ResponseDeleteFromBasketHtml();
+            });
+
+            $(document).on("click", "#clear_cartList", function (e) {
+                e.preventDefault();
+
+                let url = $(this).attr("href");
+                let cartListUrl = "/shop/cartlist/";
+
+                async function ResponseDeleteFromBasketHtml() {
+                    const response = await fetch(url)
+                        .then(resp => {
+                            if (!resp.ok) {
+                                let error = '/details?id=' + id + '&code=404&name=Product';
+                                window.location.href = error;
+                            }
+                            return resp.text();
+                        })
+                        .then(data => {
+                            $(".basket-partial").html(data);
+                            async function ResponseCartListHtml() {
+                                const response = await fetch(cartListUrl)
+                                    .then(resp => {
+                                        if (!resp.ok) {
+                                            let error = '/details?id=' + id + '&code=404&name=Product';
+                                            window.location.href = error;
+                                        }
+                                        return resp.text();
+                                    })
+                                    .then(data => {
+                                        $("#cart_list").html(data);
+                                    }
+                                    );
+                            }
+
+                            ResponseCartListHtml();
+                        }
+                        );
+                }
+
+                ResponseDeleteFromBasketHtml();
+            });
+
+            $(document).on("change", ".checkbox input", function (e) {
+                let inputChanged = $(this)[0];
+                $(".checkbox input").each(function (e) {
+                    if ($(this)[0] == inputChanged) {
+                        if ($(this)[0].checked == true) {
+                            $(this)[0].checked = true;
+
+                            let cartListUrl = "/shop/cartlist?keyWord=" + $(this).attr("id");
+                            async function ResponseCartListHtml() {
+                                const response = await fetch(cartListUrl)
+                                    .then(resp => {
+                                        if (!resp.ok) {
+                                            let error = '/details?id=' + id + '&code=404&name=Product';
+                                            window.location.href = error;
+                                        }
+                                        return resp.text();
+                                    })
+                                    .then(data => {
+                                        $("#cart_list").html(data);
+                                    }
+                                    );
+                            }
+
+                            ResponseCartListHtml();
+                        }
+                        else
+                        {
+                            $(this)[0].checked = false;
+
+                            let cartListUrl = "/shop/cartlist";
+                            async function ResponseCartListHtml() {
+                                const response = await fetch(cartListUrl)
+                                    .then(resp => {
+                                        if (!resp.ok) {
+                                            let error = '/details?id=' + id + '&code=404&name=Product';
+                                            window.location.href = error;
+                                        }
+                                        return resp.text();
+                                    })
+                                    .then(data => {
+                                        $("#cart_list").html(data);
+                                    }
+                                    );
+                            }
+
+                            ResponseCartListHtml();
+                        }
+                    } else {
+                        $(this)[0].checked = false;
+                    }
+                });
+            });
+        });
+    </script>
+}
