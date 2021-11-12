@@ -53,6 +53,7 @@ namespace hmart.Controllers
                 LastName = user.LastName,
                 UserName = user.UserName,
                 Email = user.Email,
+                Phone = user.PhoneNumber,
                 Image = user.Image,
                 Gender = user.Gender,
                 BirthDay = user.BirthDay
@@ -114,6 +115,7 @@ namespace hmart.Controllers
             user.LastName = accountDetailVM.LastName;
             user.UserName = accountDetailVM.UserName;
             user.Email = accountDetailVM.Email;
+            user.PhoneNumber = accountDetailVM.Phone;
             user.Gender = accountDetailVM.Gender;
             user.BirthDay= accountDetailVM.BirthDay;
 
@@ -214,7 +216,7 @@ namespace hmart.Controllers
 
             if (user == null) return View("NotFound");
 
-            List<Order> orders = _context.Orders.Where(x => x.AppUserId == user.Id).ToList();
+            List<Order> orders = _context.Orders.Include(x=>x.OrderItems).Where(x => x.AppUserId == user.Id).ToList();
 
             return View(orders);
         }
@@ -228,7 +230,9 @@ namespace hmart.Controllers
 
             if (user == null) return View("NotFound");
 
-            Order order = _context.Orders.Include(x=>x.OrderItems).FirstOrDefault(x => x.Id == id && x.AppUserId == user.Id);
+            Order order = _context.Orders
+                .Include(x=>x.OrderItems).ThenInclude(x=>x.Product).ThenInclude(x=>x.ProImages)
+                .FirstOrDefault(x => x.Id == id && x.AppUserId == user.Id);
 
             if(order == null) return View("NotFound");
 
@@ -523,11 +527,5 @@ namespace hmart.Controllers
             return View(wishListVM);
         }
 
-
-        [Authorize(Roles = "Member")]
-        public IActionResult Checkout()
-        {
-            return View();
-        }
     }
 }

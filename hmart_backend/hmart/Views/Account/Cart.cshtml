@@ -223,7 +223,7 @@
                             </ul>
                         </div>
                         <h4 class="grand-totall-price">Grand Total <span class="grand-price">$@Model.TotalPrice.ToString("#.00")</span></h4>
-                        <a asp-action="checkout">Proceed to Checkout</a>
+                        <a asp-controller="order" asp-action="checkout">Proceed to Checkout</a>
                     </div>
                 </div>
             </div>

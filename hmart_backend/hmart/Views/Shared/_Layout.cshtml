@@ -94,7 +94,7 @@
                                 {
                                     <li class="account-info">
                                         <a asp-controller="account" asp-action="detail">
-                                            <span class="profil-image" style="background-image:url(@(user.Image==null?"/assets/uploads/users/user-default.png": "/uploads/users/"+user.Image))"></span> @(user.FisrtName!=null&&user.LastName!=null?user.FisrtName+" "+user.LastName:user.UserName)
+                                            <span class="profil-image" style="background-image:url(@(user.Image==null?"/uploads/users/user-default.png": "/uploads/users/"+user.Image))"></span> @(user.FisrtName!=null&&user.LastName!=null?user.FisrtName+" "+user.LastName:user.UserName)
                                         </a>
                                         /
                                         <a asp-controller="account" asp-action="logout">
@@ -308,7 +308,7 @@
                                             </div>
                                             <div class="list-view">
                                                 <a asp-controller="account" asp-action="cart">View Cart</a>
-                                                <a asp-controller="account" asp-action="checkout" class="checkout">Checkout</a>
+                                                <a asp-controller="order" asp-action="checkout" class="checkout">Checkout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -549,7 +549,7 @@
                                             </div>
                                             <div class="list-view">
                                                 <a asp-controller="account" asp-action="cart">View Cart</a>
-                                                <a asp-controller="account" asp-action="checkout" class="checkout">Checkout</a>
+                                                <a asp-controller="order" asp-action="checkout" class="checkout">Checkout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -744,10 +744,10 @@
                     <span class="check">
                         <i class="icon-close"></i>
                     </span>
-                    Out of Stock!
+                    <span id="modal_message_text" style="display:block">Out of Stock!</span>
                 </p>
                 <div class="modal-product">
-                    <img src="@((string)ViewData["Title"] == "Detail"?"../":"")../assets/images/b1.jpg" alt="out of stock">
+                    <img src="@Url.Content("/assets/images/b1.jpg")" alt="out of stock">
                 </div>
                 <button class="btn-close">
                     <i class="icon-close1"></i>

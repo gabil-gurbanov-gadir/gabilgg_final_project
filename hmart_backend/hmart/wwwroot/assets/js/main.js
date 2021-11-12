@@ -370,11 +370,50 @@ $(document).ready(function () {
                         window.location.href = url;
                     } else if (resp.status == 204) {
                         return 204;
+                    } else if (resp.status == 201) {
+                        return 201;
                     }
                     return resp.text();
                 })
                 .then(data => {
-                    if (data != 204) {
+                    if (data == 204) {
+                        let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+
+                        $("#out-of-product #modal_message_text").text("Out of stock!");
+
+                        $("#shadow-layout").removeClass("d-none");
+                        $("#out-of-product").addClass("fade");
+                        setTimeout(() => {
+                            $("#shadow-layout").addClass("show");
+                            $("#out-of-product").addClass("show");
+                            $("body").addClass("canvas-opening");
+                            $("body").css("margin-right", scrollSize.toString() + "px");
+                            $("#header-nav-menu .nav-menu-list").css(
+                                "margin-right",
+                                scrollSize.toString() + "px"
+                            );
+                        }, 300);
+
+                    } else if (data == 201) {
+                        let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+
+                        $("#out-of-product #modal_message_text").text("There are not so many products left in stock!");
+
+                        $("#shadow-layout").removeClass("d-none");
+                        $("#out-of-product").addClass("fade");
+                        setTimeout(() => {
+                            $("#shadow-layout").addClass("show");
+                            $("#out-of-product").addClass("show");
+                            $("body").addClass("canvas-opening");
+                            $("body").css("margin-right", scrollSize.toString() + "px");
+                            $("#header-nav-menu .nav-menu-list").css(
+                                "margin-right",
+                                scrollSize.toString() + "px"
+                            );
+                        }, 300);
+                    }
+                    else {
+
                         $(".basket-partial").html(data);
 
                         $("#cart-modal .modal-product img").attr("src", imgSrc);
@@ -386,21 +425,6 @@ $(document).ready(function () {
                         setTimeout(() => {
                             $("#shadow-layout").addClass("show");
                             $("#cart-modal").addClass("show");
-                            $("body").addClass("canvas-opening");
-                            $("body").css("margin-right", scrollSize.toString() + "px");
-                            $("#header-nav-menu .nav-menu-list").css(
-                                "margin-right",
-                                scrollSize.toString() + "px"
-                            );
-                        }, 300);
-                    } else {
-                        console.log("204 qayitdi");
-                        let scrollSize = window.innerWidth - document.documentElement.clientWidth;
-                        $("#shadow-layout").removeClass("d-none");
-                        $("#out-of-product").addClass("fade");
-                        setTimeout(() => {
-                            $("#shadow-layout").addClass("show");
-                            $("#out-of-product").addClass("show");
                             $("body").addClass("canvas-opening");
                             $("body").css("margin-right", scrollSize.toString() + "px");
                             $("#header-nav-menu .nav-menu-list").css(
@@ -463,10 +487,8 @@ $(document).ready(function () {
                         let url = window.location.href + 'details?id=' + id + '&&code=404&&name=Product';
                         window.location.href = url;
                     } else if (resp.status == 204) {
-                        console.log("204");
                         return 204;
                     } else if (resp.status == 201) {
-                        console.log("201");
                         return 201;
                     }
                     return resp.text();
@@ -474,8 +496,10 @@ $(document).ready(function () {
                 .then(data => {
 
                     if (data == 204) {
-                        console.log("204 kod");
                         let scrollSize = window.innerWidth - document.documentElement.clientWidth;
+
+                        $("#out-of-product #modal_message_text").text("Out of stock!");
+
                         $("#shadow-layout").removeClass("d-none");
                         $("#out-of-product").addClass("fade");
                         setTimeout(() => {
@@ -700,10 +724,6 @@ $(document).ready(function () {
     $(dataTarget).addClass("active");
   });
   // Product Info Tabs end
-
-  // Selection Checkbox start
-  
-  // Selection Checkbox end
 
   // Account tags start
 

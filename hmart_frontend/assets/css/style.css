@@ -4730,7 +4730,8 @@ header {
                 border-radius: 50%;
                 margin: 3px 5px;
                 border: 0.1px solid #28292d;
-                box-shadow: 0 0 4px #cfd4df; }
+                box-shadow: 0 0 4px #cfd4df;
+                padding: 25px; }
   header #header-bottom {
     padding: 30px 0; }
     header #header-bottom .search-element {
@@ -5337,6 +5338,9 @@ body.canvas-opening {
 .text-danger {
   color: #ec2016 !important; }
 
+.text-success {
+  color: #00ad34 !important; }
+
 .overflow-hidden {
   overflow: hidden !important; }
 
@@ -5706,13 +5710,15 @@ li.disabled a {
           box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
     .modal .modal-wrapper.out-of-stock p.modal-message {
       margin-bottom: 15px;
-      color: #c42929; }
+      color: #c42929;
+      padding: 0 20px; }
       .modal .modal-wrapper.out-of-stock p.modal-message .check {
         border-color: #e53030;
         border-radius: 50%;
         font-size: 22px;
         color: #fff;
-        background-color: #e53030; }
+        background-color: #e53030;
+        padding: 5px; }
   .modal#quickview-modal .modal-wrapper {
     max-width: 960px;
     width: 960px; }
@@ -5918,10 +5924,10 @@ li.disabled a {
   width: 100%;
   caption-side: bottom;
   border-collapse: collapse; }
-  .product-table thead > tr {
+  .product-table thead > tr, .product-table tfoot > tr {
     background-color: #ebebeb;
     border: 1px solid #ebebeb; }
-    .product-table thead > tr > th {
+    .product-table thead > tr > th, .product-table tfoot > tr > th {
       border-top: medium none;
       color: #000;
       font-size: 16px;
@@ -5931,6 +5937,8 @@ li.disabled a {
       text-transform: uppercase;
       vertical-align: middle;
       white-space: nowrap; }
+  .product-table tfoot > tr > th:last-child {
+    color: #266bf9; }
   .product-table tbody > tr {
     border-bottom: 1px solid #ebebeb; }
     .product-table tbody > tr td {
@@ -5941,7 +5949,7 @@ li.disabled a {
       .product-table tbody > tr td.product-image {
         width: 150px; }
         .product-table tbody > tr td.product-image img {
-          max-width: 100%;
+          max-width: 60%;
           display: block; }
       .product-table tbody > tr td.product-name {
         width: 435px; }
@@ -7040,6 +7048,62 @@ main #shop-products .shop-bottom-products .tab-content .tab-pane {
     transition: opacity 0.15s linear; }
   main #shop-products .shop-bottom-products .tab-content .tab-pane.fade:not(.show) {
     opacity: 0; }
+  main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap {
+    line-height: 32px; }
+    main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease 0s;
+      background-color: #fff; }
+      main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .content .category a {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500; }
+        main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .content .category a:hover {
+          color: #266bf9; }
+      main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .content .title {
+        margin: 0 0 15px;
+        font-family: Poppins, sans-serif; }
+        main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .content .title a {
+          text-decoration: none;
+          color: #000;
+          font-size: 18px;
+          font-weight: 600; }
+          main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .content .title a:hover {
+            color: #266bf9; }
+      main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .content p {
+        line-height: 1.7;
+        color: #3a3a3a; }
+    main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .box-inner {
+      margin-top: 10px; }
+      main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .box-inner .price {
+        display: block;
+        margin-bottom: 20px; }
+      main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .box-inner .actions {
+        display: flex;
+        flex-direction: row;
+        transition: all 0.3s ease 0s; }
+        main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .box-inner .actions .action {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          width: 40px;
+          height: 40px;
+          transition: all 0.3s ease 0s;
+          text-decoration: none;
+          color: #fff;
+          border-radius: 5px;
+          background-color: #707070;
+          font-size: 20px;
+          cursor: pointer; }
+          main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .box-inner .actions .action + .action {
+            margin-left: 10px; }
+          main #shop-products .shop-bottom-products .tab-content .tab-pane .shop-list-wrap .content-desc-wrap .box-inner .actions .action:hover {
+            color: #fff;
+            background: #266bf9; }
 
 main #shop-products .shop-bottom-products .pagination {
   margin-top: 60px; }
@@ -7867,7 +7931,7 @@ main #checkout .order-content .order-wrapper {
       color: #266bf9;
       font-size: 16px; }
 
-main #checkout .order-content .place-order a {
+main #checkout .order-content .place-order button {
   background-color: #266bf9;
   color: #fff;
   display: block;
@@ -7878,8 +7942,9 @@ main #checkout .order-content .place-order a {
   text-align: center;
   text-transform: uppercase;
   border-radius: 0;
-  z-index: 9; }
-  main #checkout .order-content .place-order a:hover {
+  z-index: 9;
+  width: 100%; }
+  main #checkout .order-content .place-order button:hover {
     background-color: #000; }
 
 main #contact .contact-wrapper {
@@ -8749,6 +8814,15 @@ main #account {
         border-right: 1px solid #ededed;
         text-align: center;
         padding: 10px; }
+        main #account .tab-content .tab-pane .table_page table tbody tr td.product_price {
+          font-weight: 500; }
+          main #account .tab-content .tab-pane .table_page table tbody tr td.product_price span {
+            margin-right: 5px;
+            font-weight: 600; }
+            main #account .tab-content .tab-pane .table_page table tbody tr td.product_price span.total_price {
+              color: #266bf9; }
+            main #account .tab-content .tab-pane .table_page table tbody tr td.product_price span.product_count {
+              color: #000; }
 
 @media screen and (min-width: 993px) and (max-width: 1200px) {
   .py-section {

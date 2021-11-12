@@ -126,6 +126,7 @@ header {
                                     margin: 3px 5px;
                                     border: 0.1px solid #28292d;
                                     box-shadow: 0 0 4px #cfd4df;
+                                    padding: 25px;
                                 }
                             }
                         }
@@ -907,6 +908,10 @@ body.canvas-opening {
 .text-danger {
     color: #ec2016 !important;
 }
+
+.text-success {
+    color: #00ad34 !important;
+}
 //#endregion
 
 //#region Image Style
@@ -1398,12 +1403,14 @@ li {
                 &.modal-message {
                     margin-bottom: 15px;
                     color: #c42929;
+                    padding: 0 20px;
                     .check {
                         border-color: #e53030;
                         border-radius: 50%;
                         font-size: 22px;
                         color: #fff;
                         background-color: #e53030;
+                        padding: 5px;
                     }
                 }
             }
@@ -1685,7 +1692,7 @@ li {
     width: 100%;
     caption-side: bottom;
     border-collapse: collapse;
-    thead {
+    thead,tfoot {
         & > tr {
             background-color: #ebebeb;
             border: 1px solid #ebebeb;
@@ -1702,6 +1709,13 @@ li {
             }
         }
     }
+    tfoot{
+        & > tr{
+            & > th:last-child{
+                color: $primary-color;
+            }
+        }
+    }
     tbody {
         & > tr {
             border-bottom: 1px solid #ebebeb;
@@ -1713,7 +1727,7 @@ li {
                 &.product-image {
                     width: 150px;
                     img {
-                        max-width: 100%;
+                        max-width: 60%;
                         display: block;
                     }
                 }

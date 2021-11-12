@@ -7,7 +7,7 @@
 <!-- Main Start -->
 <main>
     <!-- Main-header start -->
-    <section id="main-header" data-bg-image=../uploads/setting/@setting.MainBgImgSrc>
+    <section id="main-header" data-bg-image="@Url.Content("/uploads/setting/" + setting.MainBgImgSrc)">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
@@ -65,32 +65,29 @@
                                             {
                                                 <tr>
                                                     <td>@order</td>
-                                                    <td>@item.CreatedAt.ToString("MMM dd, yyyy") May 10, 2018</td>
+                                                    <td>@item.CreatedAt.ToString("MMM dd, yyyy") </td>
                                                     @if (item.Status == null)
                                                     {
                                                         <td><span class="orange-text">Processing</span></td>
                                                     }
                                                     else if (item.Status == true)
                                                     {
-                                                        <td><span class="green-text">Completed</span></td>
+                                                        <td><span class="text-success">Completed</span></td>
                                                     }
                                                     else
                                                     {
-                                                        <td><span class="red-text">Rejected</span></td>
+                                                        <td><span class="text-danger">Rejected</span></td>
                                                     }
 
-                                                    <td>$@item.TotalPrice for @item.OrderItems.Count() item </td>
+                                                    <td class="product_price">$
+                                                    <span class="total_price">@item.TotalPrice.ToString("0.##")</span>
+                                                    for 
+                                                    <span class="product_count">@item.OrderItems.Count()</span>
+                                                    item </td>
                                                     <td><a asp-action="orderdetail" asp-route-id="@item.Id" class="view">view</a></td>
                                                 </tr>
                                             }
                                         }
-                                        <tr>
-                                            <td>2</td>
-                                            <td>May 10, 2018</td>
-                                            <td>Processing</td>
-                                            <td>$17.00 for 1 item </td>
-                                            <td><a asp-action="cart" class="view">view</a></td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

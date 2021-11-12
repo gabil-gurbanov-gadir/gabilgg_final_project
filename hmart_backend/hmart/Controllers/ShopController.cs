@@ -26,6 +26,9 @@ namespace hmart.Controllers
         public IActionResult Index(int? categoryId, int? brandId, string searchName, int? tagId, int? colorId)
         {
             var query = _context.Products.AsQueryable();
+
+            ViewBag.AllProductsCount = query.Count();
+
             if (categoryId != null)
             {
                 query = query.Where(x => x.CategoryId == categoryId);
@@ -153,6 +156,11 @@ namespace hmart.Controllers
             if (product.Count == 0)
             {
                 return NoContent();
+            }
+
+            if (count != null && product.Count < count)
+            {
+                return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status201Created);
             }
 
             if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))
@@ -602,7 +610,7 @@ namespace hmart.Controllers
             return PartialView("_ProductsSearchPartial", products);
         }
 
-        public IActionResult Pagenation(int? categoryId, int? brandId, string searchName, int? tagId, int? colorId, string sortingBy, int page = 1)
+        public IActionResult Pagenation(int? categoryId, int? brandId, string searchName, int? tagId, int? colorId, string sortingBy,int? min, int? max, int page = 1)
         {
             var query = _context.Products.AsQueryable();
             if (categoryId != null)
@@ -657,6 +665,16 @@ namespace hmart.Controllers
                         break;
                 }
             }
+
+            if (min != null && max != null )
+            {
+                double minPrice = (double)min;
+                double maxPrice = (double)max;
+
+                query = query.Where(x => (x.DiscountPercent == null ? x.Price : (x.Price - x.Price * x.DiscountPercent / 100)) > minPrice &&
+                (x.DiscountPercent == null ? x.Price : (x.Price - x.Price * x.DiscountPercent / 100)) < maxPrice);
+
+                }
 
             int totalProducts = query.Count();
 

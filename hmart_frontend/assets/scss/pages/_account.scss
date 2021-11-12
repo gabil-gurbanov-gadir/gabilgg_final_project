@@ -349,6 +349,19 @@ main {
                                     border-right: 1px solid #ededed;
                                     text-align: center;
                                     padding: 10px;
+                                    &.product_price{
+                                        font-weight: 500;
+                                        span{
+                                            margin-right: 5px;
+                                            font-weight: 600;
+                                            &.total_price{
+                                                color: $primary-color;
+                                            }
+                                            &.product_count{
+                                                color: #000;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

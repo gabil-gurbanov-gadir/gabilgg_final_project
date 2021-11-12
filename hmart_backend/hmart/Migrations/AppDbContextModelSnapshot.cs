@@ -639,11 +639,21 @@ namespace hmart.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("IsExpress")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(250)")
                         .HasMaxLength(250);
 
-                    b.Property<string>("State")
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
+
+                    b.Property<double?>("ShippingPrice")
+                        .HasColumnType("float");
+
+                    b.Property<string>("StateOrRegion")
                         .HasColumnType("nvarchar(35)")
                         .HasMaxLength(35);
 
@@ -652,6 +662,10 @@ namespace hmart.Migrations
 
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float");
+
+                    b.Property<string>("ZipOrPostalCode")
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
 
                     b.HasKey("Id");
 

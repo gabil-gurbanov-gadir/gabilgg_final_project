@@ -26,6 +26,9 @@ namespace hmart.ViewModels
         public string Email { get; set; }
 
         [StringLength(maximumLength: 25)]
+        public string Phone { get; set; }
+
+        [StringLength(maximumLength: 25)]
         [DataType(DataType.Password)]
         public string OldPassword { get; set; }
 

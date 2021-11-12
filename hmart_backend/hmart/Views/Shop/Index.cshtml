@@ -8,7 +8,7 @@
 <main>
     <input id="categoryId" type="hidden" value="@Model.CategoryId" />
     <!-- Main-header start -->
-    <section id="main-header" data-bg-image="../uploads/setting/@Model.Setting.MainBgImgSrc">
+    <section id="main-header" data-bg-image="@Url.Content("/uploads/setting/" + @Model.Setting.MainBgImgSrc)">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
@@ -33,15 +33,15 @@
                             <div class="sidebar-widget-category">
                                 <ul>
                                     <li>
-                                        <button class="@(Model.CategoryId==null?"selected":"") m-0 sidebar-btn btn-category">
+                                        <a asp-action="pagenation" class="@(Model.CategoryId==null?"selected":"") m-0 sidebar-btn btn-category all">
                                             All
-                                            <span>(@Model.TotalProducts)</span>
-                                        </button>
+                                            <span>(@ViewBag.AllProductsCount)</span>
+                                        </a>
                                     </li>
                                     @foreach (var item in Model.Categories)
                                     {
                                         <li>
-                                            <button data-categoryId="@item.Id" class="@(item.Id==Model.CategoryId?"selected":"") m-0 sidebar-btn btn-category">
+                                            <button data-categoryId="@item.Id" class="@(item.Id==Model.CategoryId?"selected":"") m-0 sidebar-btn btn-category single">
                                                 @item.Name
                                                 <span>(@item.Products.Count())</span>
                                             </button>
@@ -67,7 +67,7 @@
                                 <ul class="d-flex flex-wrap">
                                     @foreach (var item in Model.Colors)
                                     {
-                                        <li><button class="btn-color color-1 @(item.Id==Model.ColorId?"selected":"")" style="background-color:#@item.Code" title="@item.Name">@item.ProductColors.Count()</button></li>
+                                        <li><button data-colorId="@item.Id" class="btn-color color-1 @(item.Id==Model.ColorId?"selected":"")" style="background-color:#@item.Code" title="@item.Name">@item.ProductColors.Count()</button></li>
                                     }
                                 </ul>
                             </div>
@@ -79,7 +79,7 @@
                                     @foreach (var item in Model.Brands)
                                     {
                                         <li>
-                                            <button class="sidebar-btn btn-brand @(item.Id==Model.BrandId?"selected":"")">
+                                            <button data-brandId="@item.Id" class="sidebar-btn btn-brand @(item.Id==Model.BrandId?"selected":"")">
                                                 @item.Name<span>(@item.Products?.Count())</span>
                                             </button>
                                         </li>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="sidebar-button">
-                            <a asp-action="index" class="filter-btn" id="btn-filter-search">Search</a>
+                            <a asp-action="pagenation" class="filter-btn" id="btn-filter-search">Search</a>
                         </div>
                     </div>
                 </div>
@@ -381,8 +381,8 @@
             // Shop range start
             $("#slider-range").slider({
                 range: true,
-                min: @(Model.MinPrice),
-                max: @(Model.MaxPrice),
+                min: @(Model.MinPrice-1),
+                max: @(Model.MaxPrice+1),
                 values: [@(Model.MinPrice+(Model.MaxPrice- Model.MinPrice)*15/100), @(Model.MaxPrice-(Model.MaxPrice- Model.MinPrice)*15/100)],
                 slide: function (event, ui) {
                     $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
@@ -396,11 +396,12 @@
             );
              // Shop range end
 
+            let min = 0;
+            let max = 0;
+
             $(document).on("click", "#btn-filter-search", function (e) {
                 e.preventDefault();
                 let val = $("#amount").val();
-                let min = 0;
-                let max = 0;
                 let cdata = val.replace(/[^0-9.]/g, " ").split(" ");
                 let arrNum = [];
                 let count = 0;
@@ -410,21 +411,17 @@
                         count++;
                     }
                 }
-                console.log(arrNum);
                 if (arrNum.length == 1) {
                     max = arrNum[0];
                 } else {
                     min = arrNum[0];
                     max = arrNum[1];
                 }
-
-                console.log("min: " + min + " - max: " + max);
             });
 
             $(document).on("click", ".pagination ul.pagination_list a", function (e) {
                 e.preventDefault();
                 let url = $(this).attr("href");
-                console.log(url);
 
                 async function ResponseHtml() {
                     const response = await fetch(url)
@@ -445,17 +442,101 @@
                 }
 
                 ResponseHtml();
+            });
 
-                // Bg_image Setting start
-                if ($("[data-bg-image]")) {
-                    $("[data-bg-image]").each(function (e) {
-                        $(this).css(
-                            "background-image",
-                            "url(" + $(this).attr("data-bg-image") + ")"
+            $(document).on("click", ".btn-category.all", function (e) {
+                e.preventDefault();
+                let url = $(this).attr("href");
+
+                async function ResponseHtml() {
+                    const response = await fetch(url)
+                        .then(resp => resp.text())
+                        .then(data => {
+
+                            $("#for_fetch_div").html(data);
+                            if ($("[data-bg-image]")) {
+                                $("[data-bg-image]").each(function (e) {
+                                    $(this).css(
+                                        "background-image",
+                                        "url(" + $(this).attr("data-bg-image") + ")"
+                                    );
+                                });
+                            }
+                        }
                         );
-                    });
                 }
-                // Bg_image Setting end
+
+                ResponseHtml();
+            });
+
+            $(document).on("click", "#btn-filter-search", function (e) {
+                e.preventDefault();
+                let url = $(this).attr("href");
+
+                let categoryId = "";
+                $(".btn-category.single").each(function (e) {
+                    if ($(this).hasClass("selected")) {
+                        categoryId = $(this).attr("data-categoryId");
+                        url = url + "?categoryId=" + categoryId;
+                        console.log(url + " - category");
+                    }
+                });
+
+                let colorId = "";
+                $(".btn-color").each(function (e) {
+                    if ($(this).hasClass("selected")) {
+                        colorId = $(this).attr("data-colorId");
+                        if (url.indexOf("?")>-1) {
+                            url = url + "&colorId=" + colorId;
+                        } else {
+                            url = url + "?colorId=" + colorId;
+                        }
+                        console.log(url + " - color");
+                    }
+                });
+
+                let brandId = "";
+                $(".btn-brand").each(function (e) {
+                    if ($(this).hasClass("selected")) {
+                        brandId = $(this).attr("data-brandId");
+                        if (url.indexOf("?") > -1) {
+                            url = url + "&brandId=" + brandId;
+                        } else {
+                            url = url + "?brandId=" + brandId;
+                        }
+                        console.log(url + " - brand");
+                    }
+                });
+
+                if (min > 0 && max > 0 && max > min) {
+                    if (url.indexOf("?") > -1) {
+                        url = url + "&min=" + min + "&max=" + max;
+                    } else {
+                        url = url + "?min=" + min + "&max=" + max;
+                    }
+                    console.log(url + " - min-max");
+                }
+
+
+                async function ResponseHtml() {
+                    const response = await fetch(url)
+                        .then(resp => resp.text())
+                        .then(data => {
+
+                            $("#for_fetch_div").html(data);
+                            if ($("[data-bg-image]")) {
+                                $("[data-bg-image]").each(function (e) {
+                                    $(this).css(
+                                        "background-image",
+                                        "url(" + $(this).attr("data-bg-image") + ")"
+                                    );
+                                });
+                            }
+                        }
+                        );
+                }
+
+                ResponseHtml();
             });
         });
     </script>

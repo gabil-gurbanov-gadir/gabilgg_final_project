@@ -140,7 +140,7 @@ main {
                 }
             }
             .place-order {
-                a {
+                button {
                     background-color: #266bf9;
                     color: #fff;
                     display: block;
@@ -152,6 +152,7 @@ main {
                     text-transform: uppercase;
                     border-radius: 0;
                     z-index: 9;
+                    width: 100%;
                     &:hover {
                         background-color: #000;
                     }

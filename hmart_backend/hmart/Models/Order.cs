@@ -11,14 +11,29 @@ namespace hmart.Models
         public int Id { get; set; }
         public string AppUserId { get; set; }
         public DateTime CreatedAt { get; set; }
+
+        public bool? IsExpress { get; set; }
+
+        public double? ShippingPrice { get; set; }
+
         [StringLength(maximumLength: 35)]
         public string Country { get; set; }
+
         [StringLength(maximumLength: 35)]
         public string City { get; set; }
+
         [StringLength(maximumLength: 35)]
-        public string State { get; set; }
+        public string StateOrRegion { get; set; }
+
+        [StringLength(maximumLength: 25)]
+        public string ZipOrPostalCode { get; set; }
+
         [StringLength(maximumLength: 250)]
         public string Address { get; set; }
+
+        [StringLength(maximumLength: 25)]
+        public string Phone { get; set; }
+
         [StringLength(maximumLength: 250)]
         public string Note { get; set; }
 

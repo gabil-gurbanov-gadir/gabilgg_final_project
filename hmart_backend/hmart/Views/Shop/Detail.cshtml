@@ -102,7 +102,7 @@
                         </div>
                         <div class="product-category info">
                             <span>Category:</span>
-                            <a href="#">@Model.Product.Category.Name</a>
+                            <a asp-action="index" asp-route-categoryId="@Model.Product.CategoryId">@Model.Product.Category.Name</a>
                         </div>
                         <div class="product-tags info">
                             <span>Tags:</span>

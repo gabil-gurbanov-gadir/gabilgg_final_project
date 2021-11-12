@@ -202,14 +202,20 @@
                 </ul>
             </div>
             @{ 
+                string isExpress="";
+                double shPrice = 0;
                 double grPrice = 0;
                 if ((string)ViewData["keyWord"] == "standartPrice")
                 {
+                    shPrice = stPrice;
                     grPrice = Model.TotalPrice + stPrice;
+                    isExpress = "no";
                 }
                 else if((string)ViewData["keyWord"] == "expressPrice")
                 {
+                    shPrice = exPrice;
                     grPrice = Model.TotalPrice + exPrice;
+                    isExpress = "yes";
                 }
                 else
                 {
@@ -217,7 +223,7 @@
                 }
             }
             <h4 class="grand-totall-price">Grand Total <span class="grand-price">$@grPrice.ToString("#.00")</span></h4>
-            <a asp-action="checkout">Proceed to Checkout</a>
+            <a asp-controller="order" asp-action="checkout" asp-route-isExpress="@isExpress" asp-route-shippingPrice="@shPrice.ToString("0.00")">Proceed to Checkout</a>
         </div>
     </div>
 </div>
