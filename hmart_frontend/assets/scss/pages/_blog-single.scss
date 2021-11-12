@@ -2,9 +2,10 @@
 main {
     .blog-post {
         .blog-image {
-            img {
+            .image {
                 border-radius: 10px;
                 width: 100%;
+                height: 500px;
             }
         }
         .blog-info {
@@ -76,9 +77,11 @@ main {
                 color: #525252;
                 line-height: 30px;
             }
-            img {
+            .image {
                 float: right;
                 margin-left: 30px;
+                width: 300px;
+                height: 400px;
             }
         }
         .quate-speech-area {
@@ -144,8 +147,10 @@ main {
                 position: relative;
                 overflow: hidden;
                 z-index: 1;
-                img {
+                .image {
                     border-radius: 5px;
+                    height: 160px;
+                    width: 190px;
                 }
                 &:after {
                     content: "";
@@ -249,8 +254,10 @@ main {
             .review-img {
                 flex: 0 0 90px;
                 margin: 0 15px 0 0;
-                img {
+                .image {
                     border-radius: 10px;
+                    width: 100px;
+                    height: 110px;
                 }
             }
             .review-content {

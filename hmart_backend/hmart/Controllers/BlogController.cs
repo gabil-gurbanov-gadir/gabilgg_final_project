@@ -1,6 +1,8 @@
 ﻿using hmart.DAL;
 using hmart.Models;
 using hmart.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,10 +15,12 @@ namespace hmart.Controllers
     public class BlogController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public BlogController(AppDbContext context)
+        public BlogController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index(int? tagId)
         {
@@ -56,20 +60,63 @@ namespace hmart.Controllers
 
             PaginationBlogVM paginationBlogVM = new PaginationBlogVM
             {
-                SelectedPage = 1,
+                SelectedPage = page,
                 TotalPages = (int)Math.Ceiling(totalBlogs / 9d),
                 TotalBlogs = totalBlogs,
                 TagId = tagId,
                 Blogs = query.Include(x=>x.BlogTagBlogs).ThenInclude(x=>x.BlogTag)
-                .Take(9).ToList()
+                .Skip((page-1)*9).Take(9).ToList()
             };
 
             return PartialView("_BlogsPartial", paginationBlogVM);
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
-            return View();
+            Blog blog = _context.Blogs
+                .Include(x=>x.BlogTagBlogs).ThenInclude(x=>x.BlogTag)
+                .Include(x=>x.BlogComments).ThenInclude(x=>x.AppUser)
+                .Include(x=>x.BlogComments).ThenInclude(x=>x.BlogSubComments).ThenInclude(x=>x.AppUser)
+                .FirstOrDefault(x => x.Id == id);
+
+            if (blog == null) return View("NotFound");
+
+            BlogDetailVM blogDetailVM = new BlogDetailVM
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Blog = blog,
+                BeforeBlog = _context.Blogs.FirstOrDefault(x=>x.Date<blog.Date),
+                AfterBlog = _context.Blogs.FirstOrDefault(x=>x.Date>blog.Date)
+            };
+
+            return View(blogDetailVM);
+        }
+
+        [Authorize(Roles = "Member")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Addcomment(CommentCreateVM commentCreateVM)
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (!ModelState.IsValid)
+                return RedirectToAction("detail", "blog", new { id = commentCreateVM.BlogId });
+
+            Blog blog = _context.Blogs.Include(x => x.BlogComments).FirstOrDefault(x => x.Id == commentCreateVM.BlogId);
+            if (blog == null)
+                return View("NotFound");
+
+            BlogComment blogComment = new BlogComment
+            {
+                BlogId = commentCreateVM.BlogId,
+                AppUserId = user.Id,
+                Message = commentCreateVM.Message,
+                Date = DateTime.UtcNow
+            };
+            blog.BlogComments.Add(blogComment);
+
+            _context.SaveChanges();
+            return RedirectToAction("detail", "blog", new { id = commentCreateVM.BlogId });
         }
     }
 }

@@ -680,7 +680,7 @@ namespace hmart.Controllers
 
             PagenationVM pagenationVM = new PagenationVM
             {
-                SelectedPage = 1,
+                SelectedPage = page,
                 TotalPages = (int)Math.Ceiling(totalProducts / 12d),
                 TotalProducts = totalProducts,
                 CategoryId = categoryId,
@@ -693,7 +693,7 @@ namespace hmart.Controllers
                 .Include(c => c.Category)
                 .Include(ptp => ptp.ProductTagProducts).ThenInclude(pt => pt.ProductTag)
                 .Include(pi => pi.ProImages)
-                .Take(12).ToList()
+                .Skip((page-1)*12).Take(12).ToList()
             };
 
             return PartialView("_ProductsPartial", pagenationVM);

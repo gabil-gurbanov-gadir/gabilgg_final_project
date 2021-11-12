@@ -2,9 +2,13 @@
 main {
     #blog.blogs {
         .single-blog {
+            height: 935px;
             flex-direction: column;
             .blog-image {
                 width: 100%;
+                .image {
+                    height: 500px;
+                }
             }
             .blog-text {
                 display: flex;
@@ -63,6 +67,14 @@ main {
                     &:hover {
                         background-color: $primary-color;
                         border-color: $primary-color;
+                    }
+                }
+            }
+            &:hover{
+                .blog-image{
+                    .image{
+                        transform: scale(1.1) rotate(3deg);
+                        transition: all 0.3s ease 0s;
                     }
                 }
             }

@@ -10,9 +10,6 @@ namespace hmart.Models
     {
         public int Id { get; set; }
 
-        [StringLength(maximumLength: 100)]
-        public string Subject { get; set; }
-
         [StringLength(maximumLength: 600)]
         public string Message { get; set; }
 
@@ -22,7 +19,7 @@ namespace hmart.Models
 
         public Blog Blog { get; set; }
 
-        public int AppUserId { get; set; }
+        public string AppUserId { get; set; }
 
         public AppUser AppUser { get; set; }
 

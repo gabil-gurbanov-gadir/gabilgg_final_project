@@ -315,7 +315,7 @@
                                             <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.TotalPages-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.TotalPages-1)</a></li>
                                             <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.TotalPages" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.TotalPages</a></li>
                                         }
-                                        else if (ViewBag.TotalPages == 2)
+                                        else if (Model.TotalPages == 2)
                                         {
                                             <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.TotalPages-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.TotalPages-1)</a></li>
                                             <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.TotalPages" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.TotalPages</a></li>
@@ -333,7 +333,7 @@
                                             <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.SelectedPage</a></li>
                                             <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.SelectedPage+1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.SelectedPage+1)</a></li>
                                         }
-                                        else if (ViewBag.TotalPages == 2)
+                                        else if (Model.TotalPages == 2)
                                         {
                                             <li class="li"><a class="page-link" asp-action="pagenation" asp-route-page="@(Model.SelectedPage-1)" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@(Model.SelectedPage-1)</a></li>
                                             <li class="li"><a class="page-link active" asp-action="pagenation" asp-route-page="@Model.SelectedPage" asp-route-categoryId="@Model.CategoryId" asp-route-brandId="@Model.BrandId" asp-route-name="@Model.SearchName" asp-route-tagId="@Model.TagId" asp-route-colorId="@Model.ColorId">@Model.SelectedPage</a></li>
