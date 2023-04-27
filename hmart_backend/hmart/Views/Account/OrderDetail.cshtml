@@ -78,9 +78,23 @@
                             <tfoot>
                                 <tr>
                                     <th>Grand Total: </th>
-                                    <th>Total products</th>
-                                    <th>@countSum</th>
-                                    <th>Sum Total</th>
+                                    <th>Total products: @countSum</th>
+                                    @if (Model.IsExpress == null)
+                                    {
+                                        <th>Transport Price: 0</th>
+                                    }
+                                    else
+                                    {
+                                        if ((bool)Model.IsExpress)
+                                        {
+                                            <th>Express Price: @Model.ShippingPrice?.ToString("#.00")</th>
+                                        }
+                                        else
+                                        {
+                                            <th>Standart Price: @Model.ShippingPrice?.ToString("#.00")</th>
+                                        }
+                                    }
+                                    <th>Sum Total:</th>
                                     <th>$@priceSum.ToString("#.00")</th>
                                 </tr>
                             </tfoot>

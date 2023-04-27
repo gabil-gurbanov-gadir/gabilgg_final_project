@@ -8939,11 +8939,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\code\\final_project\\gabilgg_final_project\\hmart_backend\\hmart\\hmart.csproj",
+      "projectUniqueName": "C:\\Users\\GabilGG\\Desktop\\projects\\gabilgg_final_project\\hmart_backend\\hmart\\hmart.csproj",
       "projectName": "hmart",
-      "projectPath": "D:\\code\\final_project\\gabilgg_final_project\\hmart_backend\\hmart\\hmart.csproj",
+      "projectPath": "C:\\Users\\GabilGG\\Desktop\\projects\\gabilgg_final_project\\hmart_backend\\hmart\\hmart.csproj",
       "packagesPath": "C:\\Users\\GabilGG\\.nuget\\packages\\",
-      "outputPath": "D:\\code\\final_project\\gabilgg_final_project\\hmart_backend\\hmart\\obj\\",
+      "outputPath": "C:\\Users\\GabilGG\\Desktop\\projects\\gabilgg_final_project\\hmart_backend\\hmart\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\GabilGG\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9029,7 +9029,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
       }
     }
   }

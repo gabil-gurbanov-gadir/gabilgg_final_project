@@ -4914,7 +4914,8 @@ header {
             color: black; }
 
 body.canvas-opening {
-  overflow: hidden; }
+  overflow: hidden;
+  padding-right: 17px; }
 
 #shadow-layout {
   position: fixed;
@@ -5675,6 +5676,9 @@ li.disabled a {
           background-color: #30e568;
           border-radius: 50%;
           font-size: 22px; }
+          .modal .modal-wrapper .modal-content .modal-message .check.out_off {
+            border: 2px solid #e53030;
+            background-color: #e53030; }
       .modal .modal-wrapper .modal-content .modal-product img {
         max-width: 220px; }
       .modal .modal-wrapper .modal-content .modal-product .title {
@@ -5924,10 +5928,12 @@ li.disabled a {
   width: 100%;
   caption-side: bottom;
   border-collapse: collapse; }
-  .product-table thead > tr, .product-table tfoot > tr {
+  .product-table thead > tr,
+  .product-table tfoot > tr {
     background-color: #ebebeb;
     border: 1px solid #ebebeb; }
-    .product-table thead > tr > th, .product-table tfoot > tr > th {
+    .product-table thead > tr > th,
+    .product-table tfoot > tr > th {
       border-top: medium none;
       color: #000;
       font-size: 16px;
@@ -5944,7 +5950,7 @@ li.disabled a {
     .product-table tbody > tr td {
       color: #3a3a3a;
       font-size: 16px;
-      padding: 30px 0;
+      padding: 5px 0;
       text-align: center; }
       .product-table tbody > tr td.product-image {
         width: 150px; }
@@ -6273,6 +6279,7 @@ main #fashion {
       display: block; }
 
 main #feature_product .single-feature-content {
+  min-height: 100%;
   position: relative;
   border: 2px solid #e2e2e2;
   display: flex;
@@ -6280,7 +6287,6 @@ main #feature_product .single-feature-content {
   justify-content: center;
   border-radius: 15px;
   padding: 5px;
-  margin: -5px;
   overflow: hidden; }
   main #feature_product .single-feature-content.resposive-height {
     height: 804px;
@@ -6365,8 +6371,7 @@ main #feature_product .feature-right-content {
   border: 2px solid #e2e2e2;
   flex-direction: row;
   border-radius: 15px;
-  padding: 5px;
-  margin: -5px; }
+  padding: 5px; }
   main #feature_product .feature-right-content .image-side {
     width: 270px;
     position: relative; }
@@ -6489,7 +6494,7 @@ main #feature_product .feature-right-content {
   main #feature_product .feature-right-content:hover .add-to-cart {
     transform: scale(1); }
   main #feature_product .feature-right-content.feature-right-mt {
-    margin-top: 20px; }
+    margin-top: 16px; }
 
 main #testimonial {
   background-color: #f2f8fd;
@@ -8822,7 +8827,6 @@ main #account {
         font-weight: 600;
         text-transform: capitalize;
         font-size: 14px;
-        min-width: 150px;
         border-bottom: 1px solid #ededed;
         border-right: 1px solid #ededed;
         text-align: center;

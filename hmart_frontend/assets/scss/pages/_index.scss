@@ -212,6 +212,7 @@ main {
     // Feature start
     #feature_product {
         .single-feature-content {
+            min-height: 100%;
             position: relative;
             border: 2px solid #e2e2e2;
             display: flex;
@@ -219,7 +220,7 @@ main {
             justify-content: center;
             border-radius: 15px;
             padding: 5px;
-            margin: -5px;
+            // margin: -5px;
             overflow: hidden;
             &.resposive-height {
                 height: 804px;
@@ -325,7 +326,7 @@ main {
             flex-direction: row;
             border-radius: 15px;
             padding: 5px;
-            margin: -5px;
+            // margin: -5px;
             .image-side {
                 width: 270px;
                 position: relative;
@@ -482,7 +483,7 @@ main {
                 }
             }
             &.feature-right-mt {
-                margin-top: 20px;
+                margin-top: 16px;
             }
         }
     }

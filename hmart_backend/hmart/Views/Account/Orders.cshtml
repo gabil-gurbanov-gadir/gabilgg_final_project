@@ -51,6 +51,7 @@
                                             <th>Order</th>
                                             <th>Date</th>
                                             <th>Status</th>
+                                            <th>Transport Type</th>
                                             <th>Total</th>
                                             <th>Actions</th>
                                         </tr>
@@ -63,29 +64,45 @@
                                         {
                                             @foreach (Order item in Model)
                                             {
-                                                <tr>
-                                                    <td>@order</td>
-                                                    <td>@item.CreatedAt.ToString("MMM dd, yyyy") </td>
-                                                    @if (item.Status == null)
-                                                    {
-                                                        <td><span class="orange-text">Processing</span></td>
-                                                    }
-                                                    else if (item.Status == true)
-                                                    {
-                                                        <td><span class="text-success">Completed</span></td>
-                                                    }
-                                                    else
-                                                    {
-                                                        <td><span class="text-danger">Rejected</span></td>
-                                                    }
-
-                                                    <td class="product_price">$
-                                                    <span class="total_price">@item.TotalPrice.ToString("0.##")</span>
-                                                    for 
-                                                    <span class="product_count">@item.OrderItems.Count()</span>
-                                                    item </td>
-                                                    <td><a asp-action="orderdetail" asp-route-id="@item.Id" class="view">view</a></td>
-                                                </tr>
+                                        <tr>
+                                            <td>@order</td>
+                                            <td>@item.CreatedAt.ToString("MMM dd, yyyy") </td>
+                                            @if (item.Status == null)
+                                            {
+                                                <td><span class="orange-text">Processing</span></td>
+                                            }
+                                            else if (item.Status == true)
+                                            {
+                                                <td><span class="text-success">Completed</span></td>
+                                            }
+                                            else
+                                            {
+                                                <td><span class="text-danger">Rejected</span></td>
+                                            }
+                                            @if (item.IsExpress == null)
+                                            {
+                                                <td>-</td>
+                                            }
+                                            else
+                                            {
+                                                if ((bool)(item.IsExpress))
+                                                {
+                                                    <td>Express</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>Standart</td>
+                                                }
+                                            }
+                                            <td class="product_price">
+                                                $
+                                                <span class="total_price">@item.TotalPrice.ToString("0.##")</span>
+                                                for
+                                                <span class="product_count">@item.OrderItems.Count()</span>
+                                                 type item
+                                            </td>
+                                            <td><a asp-action="orderdetail" asp-route-id="@item.Id" class="view">view</a></td>
+                                        </tr>
                                             }
                                         }
                                     </tbody>

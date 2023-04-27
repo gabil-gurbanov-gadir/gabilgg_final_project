@@ -182,7 +182,7 @@ $(document).ready(function () {
   // Bg_image Setting end
 
   // Countdown Time start
-  $("[data-countdown]").each(function () {
+    $("[data-countdown]").each(function () {
     $(this).countdown($(this).attr("data-countdown"), function (event) {
       $(this).html(
         event.strftime(

@@ -350,7 +350,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-6 col-lg-6 mb-feature">
+                <div class="col-xl-6 col-lg-6 mb-feature p-2">
                     <div class="single-feature-content">
                         <div class="feature-image">
                             <img src="~/uploads/products/@Model.MainOffer.Product.GetPosterImage()" alt="@Model.MainOffer.Product.Name">
@@ -370,7 +370,7 @@
                         </div>
                         <div class="bottom-content">
                             <div class="deal-timing">
-                                <div data-countdown="@Model.MainOffer.OfferTime.ToString("yyyy/MM/dd")">
+                                <div data-countdown="@Model.MainOffer.OfferTime.ToString("yyyy-MM-dd")">
                                     <div class="cdown hour">
                                         <span class="cdown-1">0</span>
                                         <p>Hrs</p>
@@ -391,7 +391,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6">
+                <div class="col-xl-6 col-lg-6 p-2">
                     @foreach (var item in Model.Offers)
                     {
                         <div class="feature-right-content @(item.Id == Model.Offers.LastOrDefault().Id?"feature-right-mt":"")">
@@ -404,7 +404,7 @@
                             <div class="content-side">
                                 <div class="deal-timing">
                                     <span>End In:</span>
-                                    <div data-countdown="@item.OfferTime.ToString("yyyy/MM/dd")">
+                                    <div data-countdown="@item.OfferTime.ToString("yyyy-MM-dd")">
                                         <div class="cdown hour">
                                             <span class="cdown-1">0</span>
                                             <p>Hrs</p>

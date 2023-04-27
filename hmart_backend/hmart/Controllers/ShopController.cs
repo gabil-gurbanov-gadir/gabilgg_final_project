@@ -153,7 +153,7 @@ namespace hmart.Controllers
                 IsAddBtn=true
             };
 
-            if (product.Count == 0)
+            if (product.Count <= 0)
             {
                 return NoContent();
             }
@@ -286,14 +286,14 @@ namespace hmart.Controllers
             {
                 BasketItemVMs = new List<BasketItemVM>(),
                 TotalPrice = 0,
-                IsAddBtn = (isCanvas=="no"?true:false)
+                IsAddBtn = (isCanvas=="no")
             };
 
             if (User.Identity.IsAuthenticated && _userManager.Users.Any(x => x.UserName == User.Identity.Name && x.IsAdmin == false))
             {
                 AppUser user = _context.AppUsers
                .Include(x => x.BasketItems)
-               .FirstOrDefault(x => x.UserName.ToUpper() == User.Identity.Name.ToUpper());
+               .FirstOrDefault(x => x.UserName.ToLower() == User.Identity.Name.ToLower());
 
                 if (keyWord!="clear")
                 {
@@ -398,7 +398,7 @@ namespace hmart.Controllers
             }
             AppUser user = _context.AppUsers
                 .Include(x => x.BasketItems)
-                .FirstOrDefault(x => x.UserName.ToUpper() == User.Identity.Name.ToUpper());
+                .FirstOrDefault(x => x.UserName.ToLower() == User.Identity.Name.ToLower());
 
             if (user == null) return View("NotFound");
 

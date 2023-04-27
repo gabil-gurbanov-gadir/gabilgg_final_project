@@ -63,9 +63,7 @@ namespace hmart.Controllers
                 orderCreateVM.IsExpress = false;
             }
 
-            double shPrice = 0;
-
-            if (Double.TryParse(shippingPrice, out shPrice))
+            if (Double.TryParse(shippingPrice, out double shPrice))
             {
                 if (shPrice > 0)
                 {
@@ -91,7 +89,11 @@ namespace hmart.Controllers
                 TempData["shippingPrice"] = orderVM.ShippingPrice.ToString() ;
             }
 
-            if (!ModelState.IsValid) return RedirectToAction("checkout");
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Please, complete order!";
+                return RedirectToAction("checkout", orderVM);
+            }
 
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 

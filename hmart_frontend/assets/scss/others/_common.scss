@@ -367,6 +367,7 @@ header {
 //#region Canvas
 body.canvas-opening {
     overflow: hidden;
+    padding-right: 17px;
 }
 
 #shadow-layout {
@@ -1354,6 +1355,10 @@ li {
                     background-color: #30e568;
                     border-radius: 50%;
                     font-size: 22px;
+                    &.out_off {
+                        border: 2px solid #e53030;
+                        background-color: #e53030;
+                    }
                 }
             }
             .modal-product {
@@ -1692,7 +1697,8 @@ li {
     width: 100%;
     caption-side: bottom;
     border-collapse: collapse;
-    thead,tfoot {
+    thead,
+    tfoot {
         & > tr {
             background-color: #ebebeb;
             border: 1px solid #ebebeb;
@@ -1709,9 +1715,9 @@ li {
             }
         }
     }
-    tfoot{
-        & > tr{
-            & > th:last-child{
+    tfoot {
+        & > tr {
+            & > th:last-child {
                 color: $primary-color;
             }
         }
@@ -1722,7 +1728,7 @@ li {
             td {
                 color: #3a3a3a;
                 font-size: 16px;
-                padding: 30px 0;
+                padding: 5px 0;
                 text-align: center;
                 &.product-image {
                     width: 150px;

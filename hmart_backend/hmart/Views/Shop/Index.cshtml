@@ -67,7 +67,7 @@
                                 <ul class="d-flex flex-wrap">
                                     @foreach (var item in Model.Colors)
                                     {
-                                        <li><button data-colorId="@item.Id" class="btn-color color-1 @(item.Id==Model.ColorId?"selected":"")" style="background-color:#@item.Code" title="@item.Name">@item.ProductColors.Count()</button></li>
+                                        <li><button data-colorId="@item.Id" class="btn-color color-1 @(item.Id==Model.ColorId?"selected":"")" style="background-color:@("#"+item.Code)" title="@item.Name">@item.ProductColors.Count()</button></li>
                                     }
                                 </ul>
                             </div>

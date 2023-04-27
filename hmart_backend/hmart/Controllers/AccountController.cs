@@ -72,13 +72,13 @@ namespace hmart.Controllers
 
             if (!ModelState.IsValid) return View(accountDetailVM);
 
-            if (_userManager.Users.Any(x => x.NormalizedUserName == accountDetailVM.UserName.ToUpper() && user.UserName.ToUpper()!=accountDetailVM.UserName.ToUpper()))
+            if (_userManager.Users.Any(x => x.NormalizedUserName == accountDetailVM.UserName.ToLower() && user.UserName.ToLower()!=accountDetailVM.UserName.ToLower()))
             {
                 ModelState.AddModelError("UserName", "This username is using!");
                 return View();
             }
 
-            if (_userManager.Users.Any(x => x.NormalizedEmail == accountDetailVM.Email.ToUpper() && user.Email.ToUpper() != accountDetailVM.Email.ToUpper()))
+            if (_userManager.Users.Any(x => x.NormalizedEmail == accountDetailVM.Email.ToLower() && user.Email.ToLower() != accountDetailVM.Email.ToLower()))
             {
                 ModelState.AddModelError("Email", "This email is using!");
                 return View();
@@ -260,13 +260,13 @@ namespace hmart.Controllers
             ViewBag.Setting = _context.Settings.FirstOrDefault();
             if (!ModelState.IsValid) return View();
 
-            if (_userManager.Users.Any(x => x.NormalizedUserName == userRegisterVM.UserName.ToUpper()))
+            if (_userManager.Users.Any(x => x.NormalizedUserName == userRegisterVM.UserName.ToLower()))
             {
                 ModelState.AddModelError("UserName", "This username is using!");
                 return View();
             }
 
-            if (_userManager.Users.Any(x => x.NormalizedEmail == userRegisterVM.Email.ToUpper()))
+            if (_userManager.Users.Any(x => x.NormalizedEmail == userRegisterVM.Email.ToLower()))
             {
                 ModelState.AddModelError("Email", "This email is using!");
                 return View();
@@ -440,7 +440,7 @@ namespace hmart.Controllers
         {
             AppUser user = _context.AppUsers
                 .Include(x => x.BasketItems)
-                .FirstOrDefault(x => x.UserName.ToUpper() == User.Identity.Name.ToUpper());
+                .FirstOrDefault(x => x.UserName.ToLower() == User.Identity.Name.ToLower());
 
             if (user == null) return View("NotFound");
 
